@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/childPass.iml" filepath="$PROJECT_DIR$/.idea/childPass.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/pgpfInterns.iml" filepath="$PROJECT_DIR$/.idea/pgpfInterns.iml" />
     </modules>
   </component>
 </project>
