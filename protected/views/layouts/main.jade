@@ -1,10 +1,20 @@
-html
+!!! 5
+html(lang='en')
     head
         meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='Child Pass', content='')
+
+        title
+            | Childpass -
+            //=title
 
         :php
-            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/app.css');
-            Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/vendor/custom.modernizr.js');
+            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/reset.css');
+            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/style.css');
+            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/text.css');
+            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/960.css');
+            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/coin-slider-styles.css');
 
         | <!--[if lt IE 9]>
         | <link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl; ?>/css/ie8-grid-foundation-4.css" />
@@ -12,51 +22,59 @@ html
 
     -$bodyClass = 'page-' . Yii::app()->controller->id . ucfirst(Yii::app()->controller->action->id);
     body(class=bodyClass)
-
-    #header
-        div
-            .logoWrapper
+        #page.container_16
+            div(style='float: left;')
                 a(href=$this->baseUrl . '/')
-                    img(src=$this->baseUrl . '/images/logo.png').logo
-            .siteName
-                div
-                    Site name
-            .mainMenuWrapper
-                .userLinks
-                    -if (Yii::app()->user->isGuest):
-                        a(href=$this->createUrl('site/login')) Login
-                    -else:
-                        a(href=$this->createUrl('site/logout')) Logout
+                    img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
             div
-                span
+                //
+                  nav
+                div(style='float: left; margin-bottom: 5px;')
+                    div(style='float: left; width: 315px; height: 60px; font-family: HelveticaNeue-light; letter-spacing: 2px; font-size: 17px; font-weight: 600;')
+                        div(style='margin: 24px 0px 0px 29px;')
+                            span(style='color: #757575;') Toll Free:
+                            span(style='color: #ed8b37;') 1.800.CHILD
+                            span(style='color: #002f65;') IK
+                    #infoMessage
+                    div(style='float: left; width: 50px; margin-top: 8px;')
+                        h6(style='color: #002f65; font-weight: 500;') Log In
+                    form(style='float: left; width: 239px;', action=$this->createUrl('site/login'), id="login", method="post", accept-charset="utf-8")
+                        div(style='display: none;')
+                            input(type='hidden', name='csrf_test_name', value='cee0db86402bed7618a8f9daa3a194cc')
+                        div(style='float: left; width: 136px; margin-top: 7px;')
+                            input#identity(type='text', name='identity', placeholder='Email', style='border: 1px solid grey; font-size: 15px; width: 111px; height: 16px; padding-left: 8px; margin-bottom: 5px;')
+                            input#password(type='password', name='password', placeholder='Password', style='border: 1px solid grey; width: 111px; height: 16px; font-size: 15px; padding-left: 8px;')
+                            input#remember(type='hidden', name='remember', value='1')
+                        div(style='float: left; width: 103px; margin-top: 9px;')
+                            input#login.btn(style='float: left;', type='submit', name='submit', value='go»')
+                            div(style='float: left; font-family: Arial; font-size: 13px; color: #ee8b38;') Forgot password?
+                    ul.nav(style='clear: left;')
+                        li
+                            a(href=$this->createUrl('site/page', array('view'=>'about')))
+                                | About Us
+                        li(style='position: relative;')
+                            img(style='position: absolute; left: -3px; top: 6px;', src=$this->baseUrl . '/images/dots.png')
+                            a(href=$this->createUrl('site/page', array('view'=>'product')))
+                                | Products
+                        li(style='position: relative;')
+                            img(style='position: absolute; left: -3px; top: 6px;', src=$this->baseUrl . '/images/dots.png')
+                            a(href=$this->createUrl('site/page', array('view'=>'testimonials')))
+                                | Testimonials
+                        li(style='position: relative;')
+                            img(style='position: absolute; left: -3px; top: 6px;', src=$this->baseUrl . '/images/dots.png')
+                            a(href=$this->createUrl('site/page', array('view'=>'faq')))
+                                | FAQ
+                        li.reg
+                            a(href=$this->createUrl('user/register'))
+                                | Join Our Beta Test
 
-
-    #content.wrapper
-        .row
             !=$content
 
-    #footer
-        .row.copyright
-            | © 2009-2013 Peter G. Peterson Foundation. All rights reserved.
+            img(style='margin: 20px 0px 15px 10px;', src=$this->baseUrl . '/images/endorsements.png')
 
-    :php
-        Yii::app()->getClientScript()->registerCoreScript('jquery');
-        Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
+        :php
+            Yii::app()->getClientScript()->registerCoreScript('jquery');
+            Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
 
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.abide.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.alerts.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.clearing.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.cookie.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.dropdown.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.forms.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.joyride.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.magellan.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.orbit.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.placeholder.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.reveal.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.section.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.tooltips.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.topbar.js');
-        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.interchange.js');
+            Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/coin-slider.js');
 

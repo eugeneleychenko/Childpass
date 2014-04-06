@@ -17,7 +17,7 @@ class SiteController extends Controller
                   'users' => array('@'),
             ),
             array('allow',
-                  'actions' => array('index', 'error', 'login'),
+                  'actions' => array('index', 'error', 'login', 'page'),
                   'users'   => array('*')
             ),
             array('deny'),
@@ -29,7 +29,11 @@ class SiteController extends Controller
      */
     public function actions()
     {
-        return array();
+        return array(
+            'page' => array(
+                'class' => 'CViewAction',
+            ),
+        );
     }
 
     /**
@@ -38,7 +42,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->redirect(array('site/login'));
+        //$this->redirect(array('site/login'));
+        $this->render('home', array());
     }
 
     /**
@@ -63,9 +68,10 @@ class SiteController extends Controller
             $this->loginRedirect();
         }
 
-        $this->layout = 'login';
+        //$this->layout = 'login';
 
-        $model = new LoginForm();
+        //$model = new LoginForm();
+        $model = null;
 
         // collect user input data
         if (isset($_POST['LoginForm'])) {
