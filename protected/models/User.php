@@ -41,7 +41,8 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_at, username, email, name', 'required'),
+			array('username, email, name', 'required'),
+			array('email', 'email'),
 			array('is_active', 'numerical', 'integerOnly'=>true),
 			array('username, email', 'length', 'max'=>50),
 			array('password, verification_code', 'length', 'max'=>64),
@@ -68,16 +69,16 @@ class User extends CActiveRecord
 	 */
 	public function attributeLabels()
 	{
-		return array(
-			'id' => 'ID',
-			'created_at' => 'Created At',
-			'username' => 'Username',
-			'password' => 'Password',
-			'email' => 'Email',
-			'name' => 'Name',
-			'is_active' => 'Is Active',
-			'verification_code' => 'Verification Code',
-		);
+        return array(
+            'id'                => 'ID',
+            'created_at'        => 'Created At',
+            'username'          => 'Username',
+            'password'          => 'Password',
+            'email'             => 'Email',
+            'name'              => 'Name',
+            'is_active'         => 'Is Active',
+            'verification_code' => 'Verification Code',
+        );
 	}
 
 	/**
@@ -104,4 +105,9 @@ class User extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public static function hashPassword($password)
+    {
+        return hash('sha256', $password);
+    }
 }

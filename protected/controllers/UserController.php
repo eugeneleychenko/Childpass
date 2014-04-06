@@ -39,7 +39,34 @@ class UserController extends Controller
             $this->loginRedirect();
         }
 
-        $this->render('register');
+        $form = new CForm('application.views.user.registrationForm');
+
+        $form['user']->model = new User('registration');
+
+        if ($form->submitted('register')) {
+            $form['user']->model->username = $form['user']->model->email;
+
+            if ($form->validate()) {
+                /** @var User $user */
+                $user = $form['user']->model;
+                $user->password  = User::hashPassword($user->password);
+
+                if ($user->save(false)) {
+//                    Yii::app()->common->sendEmail(
+//                        $user->email, 'Thank you for registering as a 2014 PGPF Fiscal Internship host!',
+//                        'host_registration_success'
+//                    );
+
+                    $this->redirect(array('user/registrationSuccess'));
+                }
+            }
+        }
+
+        $this->render(
+            'register', array(
+                'form' => $form,
+            )
+        );
     }
 
     public function actionForgotPassword()

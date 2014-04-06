@@ -126,12 +126,15 @@ li.reg a:hover{
     color: orange;
 }
 
+form .row {
+    margin:0px 0px 27px 27px;
+}
+
 .fieldstyle {
     border: 1px solid rgb(183,183,183);
     width: 171px;
     height: 22px;
     font-size: 17px;
-    margin:0px 0px 27px 27px;
 }
 
 .aboutbox a {
