@@ -16,10 +16,6 @@ html(lang='en')
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/960.css');
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/coin-slider-styles.css');
 
-        | <!--[if lt IE 9]>
-        | <link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl; ?>/css/ie8-grid-foundation-4.css" />
-        | <![endif]-->
-
     -$bodyClass = 'page-' . Yii::app()->controller->id . ucfirst(Yii::app()->controller->action->id);
     body(class=bodyClass)
         #page.container_16
