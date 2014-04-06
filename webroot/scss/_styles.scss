@@ -1,0 +1,884 @@
+@import "compass/utilities/sprites";
+@import "buttons/*.png";
+
+@include all-buttons-sprites;
+
+@font-face {
+  font-family: 'DIN';
+  src: url('../fonts/DIN.eot');
+  src: url('../fonts/DIN.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/DIN.ttf') format('truetype'),
+       url('../fonts/DIN.svg#DIN') format('svg'),
+       url('../fonts/DIN.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN Bold';
+  src: url('../fonts/DIN_Bold.eot');
+  src: url('../fonts/DIN_Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/DIN_Bold.ttf') format('truetype'),
+       url('../fonts/DIN_Bold.svg#DIN_Bold') format('svg'),
+       url('../fonts/DIN_Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN LightAlternate';
+  src: url('../fonts/DIN_LightAlternate.eot');
+  src: url('../fonts/DIN_LightAlternate.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/DIN_LightAlternate.ttf') format('truetype'),
+       url('../fonts/DIN_LightAlternate.svg#DIN_LightAlternate') format('svg'),
+       url('../fonts/DIN_LightAlternate.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Light';
+  src: url('../fonts/HelveticaNeueLTCom-Lt.eot');
+  src: url('../fonts/HelveticaNeueLTCom-Lt.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/HelveticaNeueLTCom-Lt.ttf') format('truetype'),
+       url('../fonts/HelveticaNeueLTCom-Lt.svg#HelveticaNeueLTCom-Lt') format('svg'),
+       url('../fonts/HelveticaNeueLTCom-Lt.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$highlight-color: #f6a02f;
+$header-color: #35342f;
+$footer-height: 260px;
+$secondary-button-color: #979796;
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "DIN", sans-serif;
+  font-size: 13px;
+  color: #020202;
+  min-height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-bottom: $footer-height;
+}
+
+#header > div, #content > div, #footer > div {
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: $highlight-color;
+}
+
+h1, h2 {
+  font-family: "DIN LightAlternate", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1;
+}
+
+h1 {
+  color: $highlight-color;
+  font-size: 430%;
+  margin-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 215%;
+}
+
+h3 {
+  font-family: "DIN Bold", sans-serif;
+  font-weight: normal;
+  font-size: 100%;
+  margin-bottom: 1.25em;
+}
+
+.textBlock ul {
+  margin-left: 4em;
+
+  li {
+    padding-left: 1em;
+  }
+}
+
+form {
+  label {
+    font-size: 123%;
+    font-family: "DIN LightAlternate", sans-serif;
+    margin-bottom: 0.63em;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select,
+  .checkboxList input[type=checkbox] + label {
+    font-family: "Helvetica Light", sans-serif;
+    font-size: 108%;
+    color: $highlight-color;
+    border-color: $highlight-color;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-bottom: 1.8em;
+  }
+
+  .checkboxList input[type=checkbox] + label {
+    margin-bottom: 1.6em;
+  }
+
+  .personName label.required {
+    display: none;
+  }
+
+  .singleCheckbox {
+    label {
+      display: inline-block;
+    }
+  }
+
+  input[type="file"], input[type="checkbox"], input[type="radio"], select {
+    margin-bottom: 1.8em;
+  }
+
+  select {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid $highlight-color;
+  }
+
+  input[type="checkbox"] {
+    vertical-align: top;
+  }
+
+  input.error, textarea.error {
+    margin-bottom: 0;
+  }
+
+  .error input, .error textarea, .error select {
+    margin-bottom: 0;
+  }
+
+  input.error + .errorMessage, textarea.error + .errorMessage, select.error + .errorMessage,
+  .error input + .errorMessage, .error textarea + .errorMessage, .error select + .errorMessage {
+    min-height: 1.8em;
+  }
+
+}
+
+input[type=submit], button, .button, .button:hover {
+  color: #ffffff;
+  font-family: "DIN Bold", sans-serif;
+  font-size: 123%;
+  font-weight: normal;
+  background: $highlight-color;
+  border-radius: 15px;
+  border: none;
+  padding: 13px 30px;
+  text-transform: uppercase;
+}
+
+input[type="checkbox"] + label, input[type="radio"] + label {
+  display: inline-block;
+  margin-left: 0.44444rem;
+  margin-right: 0.88889rem;
+  margin-bottom: 0;
+  vertical-align: baseline;
+}
+
+.row {
+  max-width: 1300px;
+}
+
+#header {
+  background: $header-color;
+  color: #ffffff;
+
+  > div {
+    display: table;
+    height: 130px;
+    //width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+
+    > div {
+      height: 130px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .logoWrapper {
+    width: 215px;
+    padding: 0 20px 0 10px;
+  }
+
+  .siteName {
+    font-family: "DIN Bold";
+    font-size: 230%;
+    width: 20%;
+
+    > div {
+      padding: 0 25px;
+      border-left: 1px solid #ffffff;
+    }
+  }
+
+  .mainMenuWrapper {
+    font-family: "DIN Bold";
+    width: 30%;
+    text-align: right;
+
+    .userLinks {
+      height: 60%;
+
+      a {
+        background: $highlight-color;
+        color: #ffffff;
+        padding: 10px 20px;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 123%;
+      }
+    }
+
+    .mainMenu {
+      height: 40%;
+      width: 100%;
+      display: table;
+      padding: 0;
+      margin: 0;
+
+      > li {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 123%;
+
+        a {
+          color: white;
+          text-transform: uppercase;
+
+          &:hover, &.active {
+            border-bottom: 2px solid $highlight-color;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: $header-color;
+  color: #ffffff;
+  height: $footer-height;
+  padding: 30px;
+
+  .copyright {
+    font-size: 77%;
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+$login-form-height: 600px;
+
+body.layout-login {
+  position: relative;
+  min-height: $login-form-height + $footer-height;
+  height: 100%;
+
+  #content {
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin-top: -($footer-height / 2 + $login-form-height / 2);
+    padding: 30px 20px;
+  }
+}
+
+.page-login {
+  width: 490px;
+  margin: 0 auto;
+
+  .logoWrapper {
+    display: table;
+    width: 100%;
+
+    > div {
+      display: table-cell;
+      vertical-align: middle;
+      width: 50%;
+      text-align: left;
+    }
+
+    .logoImageWrapper {
+      //text-align: center;
+    }
+
+    .siteName {
+      font-family: "DIN Bold";
+      font-size: 230%;
+      color: $highlight-color;
+      border-left: 1px solid #000000;
+      text-align: center;
+
+      > div {
+        display: inline-block;
+        text-align: left;
+      }
+    }
+  }
+
+  .form {
+    padding: 35px;
+    background: #fafafa;
+    margin-top: 20px;
+    box-shadow: 0 16px 25px -10px #d3d3d3;
+
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .row.rememberMe {
+      margin-top: 5px;
+    }
+
+    .row.submit {
+      text-align: center;
+      margin-top: 25px;
+
+      input[type=submit] {
+        min-width: 140px;
+      }
+    }
+
+    .row.signUpLink {
+      text-align: right;
+      margin-bottom: 15px;
+
+      a {
+        margin-left: .5em;
+      }
+    }
+
+    label, a {
+      font-size: 95%;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      height: 3em;
+      padding-left: 1em;
+      padding-right: 1em;
+      margin-bottom: 1em;
+    }
+
+    input[type="checkbox"] {
+      margin-bottom: 1em;
+    }
+
+    input.error, textarea.error {
+      margin-bottom: 0;
+    }
+
+    .errorMessage {
+      padding-bottom: 1em;
+      color: $highlight-color;
+    }
+  }
+}
+
+.page-registrationPage {
+  .introTextPage {
+    padding-right: 9em;
+
+    .title {
+      margin-bottom: 1em;
+      overflow: hidden;
+    }
+  }
+
+  >.columns {
+    padding-top: 8em;
+  }
+
+  .formPage {
+    padding-top: 15em;
+    padding-bottom: 15em;
+
+    box-shadow: 70px 25px 100px -60px #d3d3d3 inset;
+
+    form {
+      padding: 25px;
+
+      .submitButton {
+        text-align: right;
+      }
+    }
+  }
+
+  .fileUploadWrapper {
+    overflow: hidden;
+
+    .fileinputButton {
+      position: absolute;
+      bottom: 1.8em;
+      left: 1.0375em;
+      line-height: 2em;
+      z-index: -1;
+      cursor: pointer;
+
+      span.control {
+        display: inline-block;
+        width: 9.7em;
+        height: 2em;
+        text-align: center;
+        background: #808080;
+        color: #ffffff;
+        text-transform: uppercase;
+        border-radius: 15px;
+        margin-right: 1em;
+      }
+    }
+
+    input[type=file] {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+      opacity: 0;
+      margin-left: -8.2em;
+      height: 2em;
+      cursor: pointer;
+      width: 18em;
+    }
+  }
+}
+
+.page-adminDashboard, .page-hostDashboard {
+  #header > div {
+    max-width: 1300px;
+  }
+
+  #content > div {
+    width: 1300px;
+  }
+
+  .row {
+    max-width: 1300px;
+  }
+
+  .jRatingColor {
+    background-color: #f2971e;
+  }
+
+  .pageSide {
+    padding-bottom: 100050px;
+    margin-bottom: -100000px;
+  }
+
+  /*********** Sidebar  ****************/
+
+  .sidebar {
+    box-shadow: -70px 25px 100px -60px #d3d3d3 inset;
+
+    .sectionTitle {
+      font-family: "DIN Bold", sans-serif;
+      text-transform: uppercase;
+      font-size: 108%;
+      margin: 2em 0 1em 0;
+    }
+
+    form .row {
+      margin-left: 1.5em;
+    }
+
+    .submitButtonRow {
+      text-align: left;
+
+      input[type=submit] {
+        width: 80%;
+        background-color: $secondary-button-color;
+        margin-top: 1em;
+        font-size: 120%;
+        padding: 0.3em;
+      }
+    }
+    
+    .filters {
+      .sectionTitle {
+        margin: 2em 0;
+      }
+
+      input {
+        border-radius: 15px;
+        background: url('../images/search.png') no-repeat scroll 8px center;
+        padding-left: 33px;
+        border: 1px solid #cccccc;
+        font-size: 100%;
+        width: 90%;
+      }
+    }
+
+    .internFilters {
+
+      label, input, select {
+        font-size: 92%;
+        font-family: "DIN", sans-serif;
+      }
+
+      label {
+        word-wrap: break-word;
+        width: 75%;
+      }
+
+      .row > label {
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+      }
+
+      input[type="checkbox"],
+      .checkboxList input[type=checkbox] + label {
+        margin-bottom: 0.63em;
+      }
+
+      select {
+        width: 80%;
+        margin-bottom: 0.4em;
+        padding-top: 0.1em;
+        padding-bottom: 0.1em;
+      }
+
+      .row.rating {
+        span label {
+          background: url('../images/star-small.png') repeat-x scroll left center #f2971e;
+          line-height: 10px;
+          color: transparent;
+          font-size: 1px;
+        }
+
+        label[for=Intern_rating_0] {
+          width: 12px;
+        }
+
+        label[for=Intern_rating_1] {
+          width: 24px;
+        }
+
+        label[for=Intern_rating_2] {
+          width: 36px;
+        }
+
+        label[for=Intern_rating_3] {
+          width: 48px;
+        }
+
+        label[for=Intern_rating_4] {
+          width: 60px;
+        }
+      }
+
+      .singleCheckbox {
+        margin-top: 0.4em;
+
+        input[type=checkbox] {
+          float: left;
+        }
+
+        label {
+          display: inline;
+          margin-left: 0.44444rem;
+        }
+      }
+
+    }
+  }
+
+  /*********** Grid  ****************/
+
+  .internsList {
+
+    .checkmarkColumn {
+      text-align: center;
+      width: 2em;
+
+      input[type=checkbox] {
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+    }
+
+    .checkmarkColumn, .is_accepted {
+      width: 4.166%;
+    }
+
+    //Header
+    .row.headerRow {
+      background: #f5f5f6;
+      margin-bottom: 1.5em;
+      padding-left: 0.4em;
+      margin-right: -1.3375em;
+
+      > div {
+        padding-top: 1.8em;
+        padding-bottom: 1.8em;
+        padding-right: 134px;
+
+        > div {
+          font-family: "DIN Bold", sans-serif;
+          text-transform: uppercase;
+          padding: 0 0.6em;
+          overflow: hidden;
+          text-align: left;
+          display: table;
+          table-layout: fixed;
+          width: 100%;
+
+          .columns {
+            padding-left: 0.4em;
+            padding-right: 0.4em;
+            display: table-cell;
+
+            &.rating, &.is_accepted {
+              text-align: center;
+            }
+          }
+
+          .columns[data-fieldName] {
+            cursor: pointer;
+
+            &.sorted-ASC, &.sorted-DESC {
+              padding-left: 12px;
+            }
+
+            &.sorted-ASC {
+              background: url('../images/sorted_asc.png') no-repeat scroll left center;
+            }
+
+            &.sorted-DESC {
+              background: url('../images/sorted_desc.png') no-repeat scroll left center;
+            }
+
+          }
+        }
+      }
+    }
+
+    //Actions
+    .actions {
+      padding: 0;
+    }
+
+
+    //Data rows
+    .row.intern {
+      margin-top: 0.6em;
+      margin-bottom: 0.6em;
+      margin-left: -0.6375em;
+      border-radius: 15px;
+      display: table;
+      width: 102.3%;
+
+      > div {
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+      }
+
+      .mainData > div {
+        overflow: hidden;
+        border: 1px solid $highlight-color;
+        border-radius: 15px;
+        background: #fafafa;
+        padding: 0.6em;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+      }
+
+      .mainData .columns {
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+        word-wrap: break-word;
+        min-height: 1px;
+        float: none;
+        display: table-cell;
+        vertical-align: middle;
+
+        &.rating, &.is_accepted, &.actions {
+          text-align: center;
+        }
+
+        &.rating [data-average] {
+          background: url('../images/star-small-grey.png') repeat-x scroll left center;
+        }
+      }
+
+      &.deleted {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+        opacity: .4;
+      }
+
+      &.favorite {
+        background: #fce3c3;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+      }
+
+
+      //Actions
+      .columns.actions {
+        min-width: 120px;
+
+        span {
+          font-size: 90%;
+        }
+      }
+
+      .action {
+        width: 30px;
+        height: 30px;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+        opacity: .5;
+        display: inline-block;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        margin-bottom: 0;
+        vertical-align: middle;
+
+        &:hover {
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+          filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+          opacity: 1;
+        }
+
+        &.removeFromFavoriteAction {
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+          filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+          opacity: 1;
+        }
+
+        &.addToFavoriteAction {
+          @include buttons-sprite(favorite);
+        }
+
+        &.removeFromFavoriteAction {
+          @include buttons-sprite(favorite);
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+          filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+          opacity: 1;
+        }
+
+        &.emailAction {
+          @include buttons-sprite(email);
+        }
+
+        &.acceptAction, &.unacceptAction {
+          background: url('../images/accepted.png') no-repeat scroll center center;
+          height: 1em;
+        }
+
+        &.unacceptAction {
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+          filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+          opacity: 1;
+        }
+
+        &.approveAction {
+          @include buttons-sprite(approve);
+        }
+
+        &.deleteAction {
+          @include buttons-sprite(delete);
+        }
+
+        &.downloadAction {
+          @include buttons-sprite(download);
+        }
+      }
+
+    }
+
+    //Accepted flags
+    .intern .acceptedFlag, .headerRow .acceptedFlag {
+      background: url('../images/accepted.png') no-repeat scroll center center;
+      width: 30px;
+      height: 1em;
+      display: inline-block;
+      padding: 0;
+    }
+
+    .headerRow .acceptedFlag {
+      height: 13px;
+    }
+
+    form.bulkActions {
+      overflow: hidden;
+      margin: 1em 0 1em 0.4em;
+
+      label {
+        font-size: 92%;
+        margin-bottom: 0;
+      }
+
+      select {
+        margin: 0;
+        margin-bottom: 1px;
+        padding-top: 0.1em;
+        padding-bottom: 0.1em;
+        font-size: 92%;
+      }
+
+      input[type=submit] {
+        background-color: $secondary-button-color;
+        padding: 0.3em;
+        width: 8em;
+        font-size: 92%;
+      }
+
+      .column {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+      }
+    }
+  }
+}
+
+.page-hostRegistrationSuccess {
+  .loginButtonWrapper {
+    text-align: center;
+    margin-top: 3em;
+  }
+}

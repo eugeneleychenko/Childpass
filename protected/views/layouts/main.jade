@@ -1,0 +1,62 @@
+html
+    head
+        meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+
+        :php
+            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/app.css');
+            Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/vendor/custom.modernizr.js');
+
+        | <!--[if lt IE 9]>
+        | <link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl; ?>/css/ie8-grid-foundation-4.css" />
+        | <![endif]-->
+
+    -$bodyClass = 'page-' . Yii::app()->controller->id . ucfirst(Yii::app()->controller->action->id);
+    body(class=bodyClass)
+
+    #header
+        div
+            .logoWrapper
+                a(href=$this->baseUrl . '/')
+                    img(src=$this->baseUrl . '/images/logo.png').logo
+            .siteName
+                div
+                    Site name
+            .mainMenuWrapper
+                .userLinks
+                    -if (Yii::app()->user->isGuest):
+                        a(href=$this->createUrl('site/login')) Login
+                    -else:
+                        a(href=$this->createUrl('site/logout')) Logout
+            div
+                span
+
+
+    #content.wrapper
+        .row
+            !=$content
+
+    #footer
+        .row.copyright
+            | © 2009-2013 Peter G. Peterson Foundation. All rights reserved.
+
+    :php
+        Yii::app()->getClientScript()->registerCoreScript('jquery');
+        Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
+
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.abide.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.alerts.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.clearing.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.cookie.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.dropdown.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.forms.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.joyride.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.magellan.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.orbit.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.placeholder.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.reveal.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.section.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.tooltips.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.topbar.js');
+        Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/foundation/foundation.interchange.js');
+

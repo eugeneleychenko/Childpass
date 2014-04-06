@@ -1,0 +1,12 @@
+syntax: glob
+webroot/assets/*
+webroot/upload/*
+*.orig
+.idea/*
+runtime/*
+webroot/media/*
+.sass-cache/*
+protected/config/server.development.php
+protected/config/console.php
+protected/config/server.production.php
+webroot/uploads/*

@@ -1,0 +1,40 @@
+<?php
+
+// This is the configuration for yiic console application.
+// Any writable CConsoleApplication properties can be configured here.
+return array(
+    'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+    'name'=>'PGPF Interns',
+    // autoloading model and component classes
+    'import'=>array(
+        'application.models.*',
+        'application.components.*',
+    ),
+    // application components
+    'components'=>array(
+//		'db'=>array(
+//			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+//		),
+        // uncomment the following to use a MySQL database
+        'db'=>array(
+            'connectionString' => 'mysql:host=localhost;dbname=pgpf_interns',
+            'emulatePrepare' => true,
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
+            'tablePrefix' => '',
+        ),
+        'utility'=>array(
+            'class' => 'application.components.Utility',
+        ),
+        'mailer' => array(
+            'class' => 'application.extensions.mailer.EMailer',
+            'pathViews' => 'application.views.email',
+            'pathLayouts' => 'application.views.email.layouts',
+        ),
+
+    ),
+    'params'=>array(
+        'adminEmail'=>'support@pgpfinterns.local',
+    ),
+);
