@@ -18,7 +18,7 @@ class UserController extends Controller
             ),
             array('allow',
                   'actions' => array('register', 'forgotPassword', 'passwordResetLinkSent', 'passwordReset',
-                                     'passwordResetSuccess'),
+                                     'passwordResetSuccess', 'registrationSuccess', 'activateAccount'),
                   'users'   => array('*')
             ),
             array('deny'),
@@ -57,6 +57,8 @@ class UserController extends Controller
 //                        'host_registration_success'
 //                    );
 
+                    $this->sendActivationCodeEmail($user->primaryKey);
+
                     $this->redirect(array('user/registrationSuccess'));
                 }
             }
@@ -92,6 +94,29 @@ class UserController extends Controller
         $this->render('forgotPassword', array('model' => $model));
     }
 
+    public function actionRegistrationSuccess()
+    {
+        $this->render('registrationSuccess', array());
+    }
+
+    public function actionActivateAccount()
+    {
+        $user = User::model()->find(
+            array(
+                'condition' => 'verification_code = :verification_code',
+                'params'    => array(':verification_code' => $_GET['verification_code']),
+            )
+        );
+
+        if ($user) {
+            $user->is_active = 1;
+            $user->save();
+            $this->render('accountActivated');
+        } else {
+            $this->render('accountActivationWrongLink');
+        }
+    }
+
     public function actionPasswordResetLinkSent()
     {
         $this->layout = 'login';
@@ -125,6 +150,8 @@ class UserController extends Controller
             $user->password_reset_code = '';
 
             if ($user->save(true, array('password', 'password_reset_code'))) {
+                $this->sendActivationCodeEmail($user->primaryKey);
+
                 $this->redirect(array('user/passwordResetSuccess'));
             }
         }
@@ -138,6 +165,35 @@ class UserController extends Controller
     {
         $this->layout = 'login';
         $this->render('passwordResetSuccess', array());
+    }
+
+    private function sendActivationCodeEmail($userId)
+    {
+        /** @var User $user */
+        $user = User::model()->findByPk($userId);
+        $verification_code = $user->verification_code;
+
+        if (!$verification_code) {
+            $verification_code = md5($user->id);
+            User::model()->updateByPk(
+                $user->id,
+                array( 'verification_code' => $verification_code )
+            );
+        }
+
+        $baseUrl = Yii::app()->getRequest()->getBaseUrl(true);
+
+        $result = Yii::app()->common->sendEmail(
+            $user->email,
+            'Final Step: Confirm your email address to activate your page',
+            'account_activation',
+            array(
+                'username' => $user->name,
+                'activation_link' => $baseUrl . '/user/activate-account?verification_code=' . $verification_code,
+            )
+        );
+
+        return $result;
     }
 
 }
