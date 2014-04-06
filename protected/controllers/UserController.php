@@ -17,7 +17,7 @@ class UserController extends Controller
                   'users' => array('@'),
             ),
             array('allow',
-                  'actions' => array('forgotPassword', 'passwordResetLinkSent', 'passwordReset',
+                  'actions' => array('register', 'forgotPassword', 'passwordResetLinkSent', 'passwordReset',
                                      'passwordResetSuccess'),
                   'users'   => array('*')
             ),
@@ -31,6 +31,15 @@ class UserController extends Controller
     public function actions()
     {
         return array();
+    }
+
+    public function actionRegister()
+    {
+        if (!Yii::app()->user->isGuest) {
+            $this->loginRedirect();
+        }
+
+        $this->render('register');
     }
 
     public function actionForgotPassword()
