@@ -32,18 +32,8 @@ html(lang='en')
                             span(style='color: #ed8b37;') 1.800.CHILD
                             span(style='color: #002f65;') IK
                     #infoMessage
-                    div(style='float: left; width: 50px; margin-top: 8px;')
-                        h6(style='color: #002f65; font-weight: 500;') Log In
-                    form(style='float: left; width: 239px;', action=$this->createUrl('site/login'), id="login", method="post", accept-charset="utf-8")
-                        div(style='display: none;')
-                            input(type='hidden', name='csrf_test_name', value='cee0db86402bed7618a8f9daa3a194cc')
-                        div(style='float: left; width: 136px; margin-top: 7px;')
-                            input#identity(type='text', name='identity', placeholder='Email', style='border: 1px solid grey; font-size: 15px; width: 111px; height: 16px; padding-left: 8px; margin-bottom: 5px;')
-                            input#password(type='password', name='password', placeholder='Password', style='border: 1px solid grey; width: 111px; height: 16px; font-size: 15px; padding-left: 8px;')
-                            input#remember(type='hidden', name='remember', value='1')
-                        div(style='float: left; width: 103px; margin-top: 9px;')
-                            input#login.btn(style='float: left;', type='submit', name='submit', value='go»')
-                            div(style='float: left; font-family: Arial; font-size: 13px; color: #ee8b38;') Forgot password?
+                    :php
+                        $this->widget('application.components.LoginFormWidget');
                     ul.nav(style='clear: left;')
                         li
                             a(href=$this->createUrl('site/page', array('view'=>'about')))

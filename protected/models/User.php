@@ -110,4 +110,12 @@ class User extends CActiveRecord
     {
         return hash('sha256', $password);
     }
+
+    public function generatePasswordResetLink()
+    {
+        $code = sha1(($this->id * 1000 / 434) . '_' . time() . '_' . rand(0, 10000));
+        $this->updateByPk($this->id, array('password_reset_code' => $code));
+
+        return Yii::app()->createAbsoluteUrl('user/password-reset', array('code' => $code));
+    }
 }

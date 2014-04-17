@@ -17,7 +17,7 @@ class UserController extends Controller
                   'users' => array('@'),
             ),
             array('allow',
-                  'actions' => array('register', 'forgotPassword', 'passwordResetLinkSent', 'passwordReset',
+                  'actions' => array('register', 'login', 'forgotPassword', 'passwordResetLinkSent', 'passwordReset',
                                      'passwordResetSuccess', 'registrationSuccess', 'activateAccount'),
                   'users'   => array('*')
             ),
@@ -78,7 +78,7 @@ class UserController extends Controller
             $this->redirect(Yii::app()->homeUrl);
         }
 
-        $this->layout = 'login';
+        $this->layout = 'main';
 
         $model = new PasswordResetForm();
 
@@ -119,13 +119,13 @@ class UserController extends Controller
 
     public function actionPasswordResetLinkSent()
     {
-        $this->layout = 'login';
+        $this->layout = 'main';
         $this->render('passwordResetLinkSent', array());
     }
 
     public function actionPasswordReset()
     {
-        $this->layout = 'login';
+        $this->layout = 'main';
 
         $code = Yii::app()->request->getParam('code', false);
 
@@ -163,7 +163,7 @@ class UserController extends Controller
 
     public function actionPasswordResetSuccess()
     {
-        $this->layout = 'login';
+        $this->layout = 'main';
         $this->render('passwordResetSuccess', array());
     }
 
@@ -195,5 +195,32 @@ class UserController extends Controller
 
         return $result;
     }
+
+    public function actionLogin()
+    {
+        $this->layout = 'main';
+        $model=new LoginForm;
+
+        if(isset($_POST['LoginForm']))
+        {
+            $model->attributes=$_POST['LoginForm'];
+            // validate user input and redirect to the previous page if valid
+            if($model->validate() && $model->login()) {
+                $this->redirect(Yii::app()->homeUrl);
+            }
+        }
+        // display the login form
+        $this->render('login', array('model' => $model));
+    }
+
+    /**
+     * Logs out the current user and redirect to homepage.
+     */
+    public function actionLogout()
+    {
+        Yii::app()->user->logout();
+        $this->redirect(Yii::app()->homeUrl);
+    }
+
 
 }

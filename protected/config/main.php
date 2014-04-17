@@ -37,7 +37,7 @@ return array(
         'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-            'loginUrl'=>array('site/login'),
+            'loginUrl'=>array('user/login'),
             'class' => 'WebUser',
 		),
         'common' => array(

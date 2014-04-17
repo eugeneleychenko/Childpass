@@ -34,7 +34,7 @@ class UserIdentity extends CUserIdentity
             $this->errorMessage = "Incorrect password.";
         } else {
             $this->_id = $record->id;
-            $this->setState('title', $record->last_name . ' ' . $record->first_name);
+            $this->setState('title', $record->name);
             $this->errorCode = self::ERROR_NONE;
         }
         return !$this->errorCode;
