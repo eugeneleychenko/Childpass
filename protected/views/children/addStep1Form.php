@@ -5,7 +5,7 @@ return array(
         'class'                  => 'CActiveForm',
         'enableAjaxValidation'   => false,
         'enableClientValidation' => true,
-        'id'                     => 'registration-form',
+        'id'                     => 'child-info-form',
         'clientOptions'          => array(
             'validateOnSubmit' => true,
         ),
@@ -100,7 +100,7 @@ return array(
     ),
 
     'buttons'    => array(
-        'add' => array(
+        'addStep1' => array(
             'type'  => 'submit',
             'class' => 'btn',
             'label' => 'next»',

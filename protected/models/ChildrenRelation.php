@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'children_relation':
  * @property integer $id
  * @property integer $user_id
+ * @property integer $children_id
  *
  * The followings are the available model relations:
  * @property User $user
@@ -38,11 +39,11 @@ class ChildrenRelation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, children_id', 'required'),
+			array('user_id, children_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id', 'safe', 'on'=>'search'),
+			array('id, user_id, children_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +67,7 @@ class ChildrenRelation extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'user_id' => 'User',
+			'children_id' => 'Children',
 		);
 	}
 
@@ -82,6 +84,7 @@ class ChildrenRelation extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('children_id',$this->children_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

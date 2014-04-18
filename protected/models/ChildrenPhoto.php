@@ -14,6 +14,8 @@
  */
 class ChildrenPhoto extends CActiveRecord
 {
+    public $image;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -43,6 +45,7 @@ class ChildrenPhoto extends CActiveRecord
 			array('created_at, children_id, filename', 'required'),
 			array('children_id', 'numerical', 'integerOnly'=>true),
 			array('filename', 'length', 'max'=>100),
+            array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'maxSize' => 10485760),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, created_at, children_id, filename', 'safe', 'on'=>'search'),

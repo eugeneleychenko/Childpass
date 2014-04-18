@@ -30,29 +30,44 @@ class ChildrenController extends Controller
 
     public function actionAdd($step)
     {
-        $form = new CForm('application.views.children.add'.ucfirst($step).'Form');
+        switch($step) {
+            case 'step1':
+                $form = new CForm('application.views.children.add'.ucfirst($step).'Form');
 
-        $form['children']->model = new Children();
+                $form['children']->model = new Children();
 
-        if ($form->submitted('add')) {
-            if ($form->validate()) {
-                if ($form['children']->model->save(false)) {
-                    $this->redirect(array('children/add/step1'));
+                if ($form->submitted('addStep1')) {
+                    if ($form->validate()) {
+                        if ($form['children']->model->save(false)) {
+                            $childRelation = new ChildrenRelation();
+                            $childRelation->user_id = Yii::app()->user->id;
+                            $childRelation->children_id = $form['children']->model->id;
+                            $childRelation->save();
+                            $this->redirect(array('children/add/step2'));
+                        }
+                    }
                 }
-            }
-        }
+                $this->render(
+                    'add'.ucfirst($step), array(
+                        'form' => $form,
+                    )
+                );
+                break;
+            case 'step2':
+                $form = new CForm('application.views.children.add'.ucfirst($step).'Form');
 
-        $this->render(
-            'add'.ucfirst($step), array(
-                'form' => $form,
-            )
-        );
-    }
+                $form['children']->model = new ChildrenPhoto();
 
-    public function actionSave()
-    {
-        if (isset($_POST['Children'])) {
-
+                $this->render(
+                    'add'.ucfirst($step), array(
+                        'form' => $form,
+                    )
+                );
+                break;
+            case 'step3':
+                break;
+            case 'step4':
+                break;
         }
     }
 

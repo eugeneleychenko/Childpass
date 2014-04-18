@@ -74,6 +74,7 @@ class m140417_135340_children extends CDbMigration
         $this->createTable('{{children_relation}}', array(
             'id'                    => 'pk',
             'user_id'               => 'integer NOT NULL',
+            'children_id'           => 'integer NOT NULL',
         ));
 
         $this->addForeignKey('{{children_relation}}_{{user}}_FK',
@@ -82,7 +83,14 @@ class m140417_135340_children extends CDbMigration
             '{{user}}',
             'id'
         );
+        $this->addForeignKey('{{children_relation}}_{{children}}_FK',
+            '{{children_relation}}',
+            'children_id',
+            '{{children}}',
+            'id'
+        );
         $this->createIndex('user_id', '{{children_relation}}', 'user_id');
+        $this->createIndex('children_id', '{{children_relation}}', 'children_id');
 
         $this->createTable('{{children_photo}}', array(
             'id'                 => 'pk',
