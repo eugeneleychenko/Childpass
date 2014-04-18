@@ -22,18 +22,18 @@ class m140417_135340_children extends CDbMigration
         $this->createTable('{{children}}', array(
             'id'                    => 'pk',
             'created_at'            => 'timestamp NOT NULL',
-            'name'                  => 'varchar(100) NULL',
-            'sex'                   => 'varchar(1) NULL',
+            'name'                  => 'varchar(100) NOT NULL',
+            'gender'                => 'varchar(1) NOT NULL',
             'height_feet'           => 'integer(1) NULL',
             'height_inches'         => 'integer(2) NULL',
             'weight'                => 'integer(3) NULL',
-            'ethnicity_id'          => 'integer(10) NULL',
-            'eyes_color_id'         => 'integer(10) NULL',
-            'hair_color_id'         => 'integer(10) NULL',
+            'ethnicity_id'          => 'integer(10) NOT NULL',
+            'eyes_color_id'         => 'integer(10) NOT NULL',
+            'hair_color_id'         => 'integer(10) NOT NULL',
             'address'               => 'varchar(100) NULL',
             'address2'              => 'varchar(100) NULL',
             'zip_code'              => 'varchar(10) NULL',
-            'birthday'              => 'datetime',
+            'birthday'              => 'datetime NOT NULL',
             'distinctive_marks'     => 'varchar(255) NULL',
             'school'                => 'varchar(150) NULL',
             'school_address'        => 'varchar(100) NULL',
@@ -63,7 +63,7 @@ class m140417_135340_children extends CDbMigration
             'id'
         );
 
-        $this->createIndex('sex', '{{children}}', 'sex');
+        $this->createIndex('gender', '{{children}}', 'gender');
         $this->createIndex('height_feet', '{{children}}', 'height_feet');
         $this->createIndex('height_inches', '{{children}}', 'height_inches');
         $this->createIndex('weight', '{{children}}', 'weight');

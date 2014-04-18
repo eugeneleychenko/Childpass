@@ -87,4 +87,17 @@ class Ethnicity extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    /**
+     * @return array ethnicity's options
+     */
+    public function getOptions()
+    {
+        $rows = $this->findAll();
+        $options = array();
+        foreach ($rows as $row) {
+            $options[$row->id] = $row->name;
+        }
+        return $options;
+    }
 }

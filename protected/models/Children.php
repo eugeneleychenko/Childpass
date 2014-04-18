@@ -7,7 +7,7 @@
  * @property integer $id
  * @property string $created_at
  * @property string $name
- * @property string $sex
+ * @property string $gender
  * @property integer $height_feet
  * @property integer $height_inches
  * @property integer $weight
@@ -61,17 +61,17 @@ class Children extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_at', 'required'),
+			array('name, gender, ethnicity_id, eyes_color_id, hair_color_id, birthday', 'required'),
 			array('height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id', 'numerical', 'integerOnly'=>true),
 			array('name, address, address2, school_address, school_address2', 'length', 'max'=>100),
-			array('sex', 'length', 'max'=>1),
+			array('gender', 'length', 'max'=>1),
 			array('zip_code, school_zip_code', 'length', 'max'=>10),
 			array('distinctive_marks, known_relatives, missing_from', 'length', 'max'=>255),
 			array('school', 'length', 'max'=>150),
 			array('birthday, missing_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, created_at, name, sex, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives, missing_date, missing_from', 'safe', 'on'=>'search'),
+			array('id, created_at, name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives, missing_date, missing_from', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -99,7 +99,7 @@ class Children extends CActiveRecord
 			'id' => 'ID',
 			'created_at' => 'Created At',
 			'name' => 'Name',
-			'sex' => 'Sex',
+			'gender' => 'Gender',
 			'height_feet' => 'Height Feet',
 			'height_inches' => 'Height Inches',
 			'weight' => 'Weight',
@@ -135,7 +135,7 @@ class Children extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('name',$this->name,true);
-		$criteria->compare('sex',$this->sex,true);
+		$criteria->compare('gender',$this->gender,true);
 		$criteria->compare('height_feet',$this->height_feet);
 		$criteria->compare('height_inches',$this->height_inches);
 		$criteria->compare('weight',$this->weight);
@@ -159,4 +159,12 @@ class Children extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function getGenderOptions()
+    {
+        return array(
+            'M' => 'Male',
+            'F' => 'Female',
+        );
+    }
 }

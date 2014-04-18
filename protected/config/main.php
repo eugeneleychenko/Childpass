@@ -55,6 +55,7 @@ return array(
                 'gii/<controller:[\w\-]+>/<action:[\w\-]+>'=>'gii/<controller>/<action>',
 
 				'<controller:[\w\-]+>/<action:[\w\-]+>/<id:\d+>'=>'<controller>/<action>',
+                '<controller:[\w\-]+>/<action:[\w\-]+>/<step:.+>'=>'<controller>/<action>',
 				'<controller:[\w\-]+>/<action:[\w\-]+>/<param1:.+>'=>'<controller>/<action>',
 				'<controller:[\w\-]+>/<action:[\w\-]+>'=>'<controller>/<action>',
 
