@@ -1,0 +1,35 @@
+.page-registrationPage.page-hostRegistration
+    .small-2.columns.introTextPage.textBlock
+
+    .small-5.columns.formPage
+        .form
+            !=$form->renderBegin()
+            .row
+                .small-12.columns
+                    !=$form['host']['organization']
+            .row
+                .small-12.columns
+                    label(for='') Scholar Name *
+                .small-6.columns.personName
+                    !=$form['user']['first_name']
+                .small-6.columns.personName
+                    !=$form['user']['last_name']
+            .row
+                .small-12.columns
+                    !=$form['user']['email']
+            .row
+                .small-12.columns
+                    !=$form['user']['password']
+            .row
+                .small-12.columns
+
+            .row
+                .small-6.columns
+                    | Already registered ?
+                    a(href=$this->createUrl('site/login'))  Login here
+                .small-6.columns.submitButton
+                    !=$form->buttons['register']
+
+            !=$form->renderEnd();
+
+    .small-5.columns

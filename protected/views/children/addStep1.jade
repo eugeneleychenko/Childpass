@@ -1,0 +1,64 @@
+.step-header
+    .step-description
+        h2.welcome
+            span Welcome,
+            text Username
+        p This page in Step 1 of the 4 Step Child Profile Process
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    .step-list
+        ul
+            li.step1.active
+                .step-number.icons-step1
+                .step-icon.icons-kids
+                span Personal Profile
+            li.step2
+                .step-number.icons-step2_disable
+                .step-icon.icons-camera_gray
+                span Recent Photo
+            li.step3
+                .step-number.icons-step3_disable
+                .step-icon.icons-dental_gray
+                span Dental Record
+            li.step4
+                .step-number.icons-step4_disable
+                .step-icon.icons-survey_gray
+                span Survey
+    .clear
+.productbox
+    p(style='margin-left: 20px;') (All fields are required.)
+    !=$form->renderBegin()
+        div(style='width: 380px; text-align: right;')
+            div.row
+                !=$form['children']['name']
+            div.row
+                !=$form['children']['gender']
+            div.row
+                !=$form['children']['ethnicity_id']
+            div.row
+                !=$form['children']['eyes_color_id']
+            div.row
+                !=$form['children']['hair_color_id']
+            div.row
+                !=$form['children']['address']
+            div.row
+                !=$form['children']['address2']
+            div.row
+                !=$form['children']['zip_code']
+            div.row
+                !=$form['children']['birthday']
+            div.row
+                !=$form['children']['distinctive_marks']
+            div.row
+                !=$form['children']['school']
+            div.row
+                !=$form['children']['school_address']
+            div.row
+                !=$form['children']['school_address2']
+            div.row
+                !=$form['children']['school_zip_code']
+            div.row
+                !=$form['children']['known_relatives']
+            div.row(style='margin-bottom: 60px; position: relative;')
+                !=$form->buttons['add']
+    !=$form->renderEnd();
+.clear
