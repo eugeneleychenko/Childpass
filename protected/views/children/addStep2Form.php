@@ -9,6 +9,9 @@ return array(
         'clientOptions'          => array(
             'validateOnSubmit' => true,
         ),
+        'htmlOptions'            => array(
+            'enctype' => 'multipart/form-data',
+        ),
     ),
 
     'elements' => array(

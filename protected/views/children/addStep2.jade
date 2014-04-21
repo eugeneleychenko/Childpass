@@ -28,9 +28,22 @@
     p(style='margin-left: 20px;') (All fields are required.)
     !=$form->renderBegin()
         div(style='width: 380px; text-align: right;')
-            div.row
-                !=$form['children']['image']
-            div.row(style='margin-bottom: 60px; position: relative;')
+            .row
+                :php
+                    $this->widget('CMultiFileUpload', array(
+                        'model'           => $form['children']->model,
+                        'attribute'       => 'image',
+                        'accept'          => 'jpg',
+                        'options'         => array(
+                            //'onFileSelect'    => 'function(e, v, m){ alert("onFileSelect - "+v) }',
+                            //'afterFileSelect' => 'function(e, v, m){ alert("afterFileSelect - "+v) }',
+                            //'onFileAppend'    => 'function(e, v, m){ alert("onFileAppend - "+v) }',
+                            //'afterFileAppend' => 'function(e, v, m){ alert("afterFileAppend - "+v) }',
+                            //'onFileRemove'    => 'function(e, v, m){ alert("onFileRemove - "+v) }',
+                            //'afterFileRemove' => 'function(e, v, m){ alert("afterFileRemove - "+v) }',
+                        ),
+                    ));
+            .row(style='margin-bottom: 60px; position: relative;')
                 !=$form->buttons['addStep2']
     !=$form->renderEnd();
 .clear
