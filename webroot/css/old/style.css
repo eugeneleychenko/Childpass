@@ -116,15 +116,6 @@ form .row {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#cfcfcf',GradientType=0 ); /* IE6-9 */
 }
 
-.desc {
-    float:left;
-    font-family: Arial;
-    font-size: 22px;
-    line-height: 26px;
-    margin: 8px 0px 15px 8px;
-    color: rgb(114, 113, 113);  
-}
-
 .logocolor {
     color: #ee8b38;
 }
