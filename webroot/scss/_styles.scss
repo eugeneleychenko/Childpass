@@ -206,16 +206,6 @@ hr {
   }
 }
 
-.page-siteIndex {
-  .coin-slider {
-    float: none;
-  }
-
-  .desc {
-    margin: 0.5em 0;
-  }
-}
-
 .distributedItems {
   text-align: justify;
   -ms-text-justify: distribute-all-lines;
@@ -234,12 +224,27 @@ hr {
   }
 }
 
+
+.page-siteIndex {
+  .coin-slider {
+    float: none;
+  }
+
+  .desc {
+    margin: 0.5em 0;
+  }
+}
+
 .productbox.productsPage {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: auto;
-  padding: 2em;
+  padding: 1em 2em;
   margin: 0;
+
+  h1:first-child {
+    margin-top: 0;
+  }
 
   .forHome {
     position: relative;
@@ -289,6 +294,7 @@ hr {
 
     table {
       margin-top: 2em;
+      margin-bottom: 0;
 
       td {
         vertical-align: top;

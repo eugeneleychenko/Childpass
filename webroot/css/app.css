@@ -738,27 +738,18 @@ hr {
   margin: 0.5em 3em;
 }
 
-/* line 210, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
-.page-siteIndex .coin-slider {
-  float: none;
-}
-/* line 214, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
-.page-siteIndex .desc {
-  margin: 0.5em 0;
-}
-
-/* line 219, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 209, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .distributedItems {
   text-align: justify;
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
 }
-/* line 224, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 214, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .distributedItems .item {
   display: inline-block;
   width: 31%;
 }
-/* line 229, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 219, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .distributedItems .stretch {
   width: 100%;
   display: inline-block;
@@ -766,15 +757,28 @@ hr {
   line-height: 0;
 }
 
-/* line 237, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 229, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.page-siteIndex .coin-slider {
+  float: none;
+}
+/* line 233, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.page-siteIndex .desc {
+  margin: 0.5em 0;
+}
+
+/* line 238, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: auto;
-  padding: 2em;
+  padding: 1em 2em;
   margin: 0;
 }
-/* line 244, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 245, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.productbox.productsPage h1:first-child {
+  margin-top: 0;
+}
+/* line 249, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forHome {
   position: relative;
   min-height: 414px;
@@ -782,18 +786,18 @@ hr {
   padding-left: 535px;
   background: url("../images/broch.png") no-repeat scroll left top;
 }
-/* line 252, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 257, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forHome p.textUnderImage {
   position: absolute;
   left: 535px;
   top: 300px;
 }
-/* line 261, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 266, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList {
   list-style: none;
   padding-left: 0;
 }
-/* line 265, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 270, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li {
   display: inline-block;
   -moz-box-sizing: border-box;
@@ -802,14 +806,14 @@ hr {
   vertical-align: top;
   margin: 0.5em 0;
 }
-/* line 273, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 278, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li .imageWrapper {
   width: 80px;
   text-align: right;
   padding-right: 1em;
   float: left;
 }
-/* line 280, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 285, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li span {
   vertical-align: middle;
   font-weight: bold;
@@ -817,29 +821,30 @@ hr {
   font-size: 118%;
   color: #707070;
 }
-/* line 290, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 295, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table {
   margin-top: 2em;
+  margin-bottom: 0;
 }
-/* line 293, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 299, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table td {
   vertical-align: top;
 }
-/* line 297, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 303, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock {
   width: 30%;
 }
-/* line 300, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 306, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock .registerButton {
   text-decoration: none;
 }
-/* line 304, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 310, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock .powerblock {
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
-/* line 313, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 319, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .relatedProducts {
   list-style: none;
   margin: 2% 0;
@@ -847,7 +852,7 @@ hr {
   table-layout: fixed;
   width: 100%;
 }
-/* line 320, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 326, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li {
   display: table-cell;
   vertical-align: top;
@@ -856,31 +861,31 @@ hr {
   width: 49%;
   padding: 1em;
 }
-/* line 328, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 334, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li:first-child {
   margin-right: 2%;
 }
-/* line 332, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 338, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li.spacer {
   width: 2%;
 }
-/* line 336, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 342, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li .imageWrapper {
   float: left;
   margin-right: 1em;
 }
-/* line 341, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 347, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li .productTitle span {
   color: #5581b4;
   font-size: 85%;
   font-family: OsloLight, sans-serif;
 }
 
-/* line 350, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 356, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .aboutPage {
   padding-bottom: 1em;
 }
-/* line 353, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 359, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .aboutPage .rightColumn {
   width: 33%;
   float: right;
@@ -888,39 +893,39 @@ hr {
   box-sizing: border-box;
   padding: 0 0 0 1em;
 }
-/* line 360, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 366, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .aboutPage .rightColumn .regiserButton {
   text-decoration: none;
 }
-/* line 365, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 371, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .aboutPage .mainColumn {
   margin-right: 33%;
 }
-/* line 368, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 374, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .aboutPage .mainColumn > .contentWrapper {
   padding: 1em;
 }
 
-/* line 376, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 382, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .mainContentWrapper {
   padding: 0 1em;
 }
-/* line 380, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 386, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper {
   padding: 1em;
 }
-/* line 383, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 389, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper {
   display: table;
   width: 60%;
   margin-bottom: 2em;
 }
-/* line 388, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 394, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .spacer {
   width: 4%;
   display: table-cell;
 }
-/* line 393, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 399, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .powerblock {
   display: table-cell;
   vertical-align: middle;
@@ -930,45 +935,45 @@ hr {
   text-align: left;
   opacity: .5;
 }
-/* line 402, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 408, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .powerblock.active {
   opacity: 1;
 }
 
-/* line 410, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 416, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header {
   font: Verdana, Arial, Helvetica, sans-serif;
   font-size: 120%;
   color: #808080;
   padding: 20px 20px 0;
 }
-/* line 415, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 421, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-description {
   float: left;
   width: 50%;
   padding-top: 10px;
 }
-/* line 419, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 425, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-description h2.welcome {
   font-weight: bold;
 }
-/* line 421, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 427, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-description h2.welcome span {
   color: #002f65;
 }
-/* line 426, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 432, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list {
   float: right;
   width: 50%;
   padding-left: 30px;
   box-sizing: border-box;
 }
-/* line 431, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 437, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul {
   list-style-type: none;
   margin: 0;
 }
-/* line 434, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 440, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul li {
   display: block;
   height: 46px;
@@ -978,16 +983,16 @@ hr {
   font-weight: bold;
   color: #c4c4c4;
 }
-/* line 442, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 448, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul li .step-number {
   float: left;
 }
-/* line 445, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 451, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul li .step-icon {
   float: left;
   margin: 0 20px;
 }
-/* line 449, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 455, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul li.active {
   color: #6a6a6a;
 }
