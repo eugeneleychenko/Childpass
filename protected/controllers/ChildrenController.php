@@ -43,7 +43,7 @@ class ChildrenController extends Controller
                             $childRelation->user_id     = Yii::app()->user->id;
                             $childRelation->children_id = $form['children']->model->id;
                             $childRelation->save();
-                            $this->redirect(array('children/add/step2'));
+                            $this->redirect(array('children/add/step2', 'children_id' => $form['children']->model->id));
                         }
                     }
                 }
@@ -57,7 +57,8 @@ class ChildrenController extends Controller
             case 'step2':
                 $form = new CForm('application.views.children.add' . ucfirst($step) . 'Form');
 
-                $form['children']->model = new Child();
+                $form['children']->model = new ChildrenPhoto();
+                $childId = $_GET['children_id'];
 
                 $this->render(
                     'add' . ucfirst($step), array(
@@ -65,23 +66,24 @@ class ChildrenController extends Controller
                     )
                 );
 
-                if ($form->submitted('addStep2')) {
+                if ($form->submitted('addStep2') && $childId) {
                     $images = CUploadedFile::getInstances($form['children']->model, 'image');
-                    $child  = $form['children']->model;
 
                     if (!empty($images)) {
+                        $savePath = Yii::getPathOfAlias('webroot') . "/children/{$childId}/photos/";
+                        if (!is_dir($savePath)) mkdir($savePath, 0777, true);
                         foreach ($images as $image => $pic) {
 
-                            if ($pic->saveAs(Yii::getPathOfAlias('webroot') . "/children/{$child->primaryKey}/photos/" . $pic->name)) {
-                                $photo              = new ChildrenPhoto();
+                            if ($pic->saveAs($savePath . $pic->name)) {
+                                $photo              = $form['children']->model;
+                                $photo->image       = $pic;
                                 $photo->filename    = $pic->name;
-                                $photo->children_id = $child->id;
-
+                                $photo->children_id = $childId;
                                 $photo->save();
+
+                                $this->redirect(array('children/add/step3', 'children_id' => $childId));
                             } else {
-                                $form['children']->model->addError
-                                    
-                                }
+                                $form['children']->model->addError;
                                 
                                 echo 'Cannot upload!';
                             }

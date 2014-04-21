@@ -42,7 +42,7 @@ class ChildrenPhoto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('created_at, children_id, filename', 'required'),
+			array('children_id, filename', 'required'),
 			array('children_id', 'numerical', 'integerOnly'=>true),
 			array('filename', 'length', 'max'=>100),
             array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'maxSize' => 10485760),

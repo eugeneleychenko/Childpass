@@ -22,7 +22,6 @@ return array(
                 'image' => array(
                     'type'  => 'file',
                     'class' => 'fieldstyle',
-//                    'label' => "Your Child's Name",
                 ),
             ),
         ),

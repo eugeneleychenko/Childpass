@@ -48,3 +48,22 @@
         }
     }
 }
+
+.MultiFile-wrap {
+    padding: 20px 0;
+    text-align: left;
+    .MultiFile-applied {
+        padding: 10px 0;
+    }
+    .MultiFile-label {
+        padding: 10px 0;
+        .MultiFile-remove {
+            display: inline-block;
+            float: left;
+            background: url('../images/sprite-icons.png') 0 -680px no-repeat transparent;
+            height: 18px;
+            width: 18px;
+            margin-right: 5px;
+        }
+    }
+}

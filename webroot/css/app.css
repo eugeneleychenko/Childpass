@@ -419,8 +419,8 @@ table {
   border-spacing: 0;
 }
 
-/* line 162, ../../icons/*.png */
-.icons-sprite, .icons-camera, .icons-camera_gray, .icons-dental, .icons-dental_gray, .icons-kids, .icons-kids_grey, .icons-step1, .icons-step1_disable, .icons-step2, .icons-step2_disable, .icons-step3, .icons-step3_disable, .icons-step4, .icons-step4_disable, .icons-survey, .icons-survey_gray {
+/* line 170, ../../icons/*.png */
+.icons-sprite, .icons-camera, .icons-camera_gray, .icons-cancel_small_grey, .icons-dental, .icons-dental_gray, .icons-kids, .icons-kids_grey, .icons-step1, .icons-step1_disable, .icons-step2, .icons-step2_disable, .icons-step3, .icons-step3_disable, .icons-step4, .icons-step4_disable, .icons-survey, .icons-survey_gray {
   background: url('../images/sprite-icons.png') no-repeat;
 }
 
@@ -436,6 +436,13 @@ table {
   background-position: 0 -184px;
   height: 46px;
   width: 46px;
+}
+
+/* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-cancel_small_grey {
+  background-position: 0 -680px;
+  height: 18px;
+  width: 18px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
@@ -591,4 +598,27 @@ table {
 /* line 44, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .step-header .step-list ul li.active {
   color: #6a6a6a;
+}
+
+/* line 52, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.MultiFile-wrap {
+  padding: 20px 0;
+  text-align: left;
+}
+/* line 55, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.MultiFile-wrap .MultiFile-applied {
+  padding: 10px 0;
+}
+/* line 58, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.MultiFile-wrap .MultiFile-label {
+  padding: 10px 0;
+}
+/* line 60, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.MultiFile-wrap .MultiFile-label .MultiFile-remove {
+  display: inline-block;
+  float: left;
+  background: url("../images/sprite-icons.png") 0 -680px no-repeat transparent;
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
 }
