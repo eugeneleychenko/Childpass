@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "children".
+ * This is the model class for table "child".
  *
- * The followings are the available columns in table 'children':
+ * The followings are the available columns in table 'child':
  * @property integer $id
  * @property string $created_at
  * @property string $name
@@ -28,17 +28,18 @@
  * @property string $missing_from
  *
  * The followings are the available model relations:
+ * @property User $user
  * @property HairColor $hairColor
  * @property Ethnicity $ethnicity
  * @property EyesColor $eyesColor
- * @property ChildrenPhoto[] $childrenPhotos
+ * @property ChildPhoto[] $childPhotos
  */
-class Children extends CActiveRecord
+class Child extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Children the static model class
+	 * @return Child the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -50,7 +51,7 @@ class Children extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'children';
+		return 'child';
 	}
 
 	/**
@@ -61,8 +62,8 @@ class Children extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, gender, ethnicity_id, eyes_color_id, hair_color_id, birthday', 'required'),
-			array('height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, name, gender, ethnicity_id, eyes_color_id, hair_color_id, birthday', 'required'),
+			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id', 'numerical', 'integerOnly'=>true),
 			array('name, address, address2, school_address, school_address2', 'length', 'max'=>100),
 			array('gender', 'length', 'max'=>1),
 			array('zip_code, school_zip_code', 'length', 'max'=>10),
@@ -71,7 +72,7 @@ class Children extends CActiveRecord
 			array('birthday, missing_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, created_at, name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives, missing_date, missing_from', 'safe', 'on'=>'search'),
+			array('id, user_id, created_at, name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives, missing_date, missing_from', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -83,10 +84,11 @@ class Children extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'hairColor' => array(self::BELONGS_TO, 'HairColor', 'hair_color_id'),
 			'ethnicity' => array(self::BELONGS_TO, 'Ethnicity', 'ethnicity_id'),
 			'eyesColor' => array(self::BELONGS_TO, 'EyesColor', 'eyes_color_id'),
-			'childrenPhotos' => array(self::HAS_MANY, 'ChildrenPhoto', 'children_id'),
+			'childPhotos' => array(self::HAS_MANY, 'ChildPhoto', 'child_id'),
 		);
 	}
 
@@ -97,6 +99,7 @@ class Children extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+            'user_id' => 'User ID',
 			'created_at' => 'Created At',
 			'name' => 'Name',
 			'gender' => 'Gender',
@@ -133,6 +136,7 @@ class Children extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+        $criteria->compare('user_id',$this->user_id);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('gender',$this->gender,true);

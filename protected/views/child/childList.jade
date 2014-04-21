@@ -1,0 +1,5 @@
+.productbox
+    ul
+        - foreach ($childList as $child):
+            li!= $child->name
+        - endforeach

@@ -1,0 +1,31 @@
+.step-header
+    .step-description
+        h2.welcome
+            span Welcome,&nbsp
+            !=Yii::app()->user->getName();
+        p This page in Step 3 of the 4 Step Child Profile Process
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    .step-list
+        ul
+            li.step1.active
+                .step-number.icons-step1
+                .step-icon.icons-kids
+                span Personal Profile
+            li.step2.active
+                .step-number.icons-step2
+                .step-icon.icons-camera
+                span Recent Photo
+            li.step3.active
+                .step-number.icons-step3
+                .step-icon.icons-dental
+                span Dental Record
+            li.step4
+                .step-number.icons-step4_disable
+                .step-icon.icons-survey_gray
+                span Survey
+    .clear
+.productbox
+
+.clear
+:php
+    Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/children.js');

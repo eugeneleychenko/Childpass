@@ -1,8 +1,8 @@
 .step-header
     .step-description
         h2.welcome
-            span Welcome,
-            text Username
+            span Welcome,&nbsp
+            !=Yii::app()->user->getName();
         p This page in Step 2 of the 4 Step Child Profile Process
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     .step-list
@@ -30,7 +30,7 @@
             .row
                 :php
                     $this->widget('CMultiFileUpload', array(
-                        'model'           => $form['children']->model,
+                        'model'           => $form['child']->model,
                         'attribute'       => 'image',
                         'accept'          => 'jpeg|jpg|gif|png',
                         'max'             => 10,

@@ -1,6 +1,6 @@
 <?php
 
-class ChildrenController extends Controller
+class ChildController extends Controller
 {
     public function filters()
     {
@@ -28,22 +28,22 @@ class ChildrenController extends Controller
         );
     }
 
-    public function actionAdd($step)
+    public function actionAdd($step = 'step1')
     {
         switch ($step) {
             case 'step1':
-                $form = new CForm('application.views.children.add' . ucfirst($step) . 'Form');
+                $form = new CForm('application.views.child.add' . ucfirst($step) . 'Form');
 
-                $form['children']->model = new Children();
+                $form['child']->model = new Child();
 
                 if ($form->submitted('addStep1')) {
                     if ($form->validate()) {
-                        if ($form['children']->model->save(false)) {
-                            $childRelation              = new ChildrenRelation();
-                            $childRelation->user_id     = Yii::app()->user->id;
-                            $childRelation->children_id = $form['children']->model->id;
+                        if ($form['child']->model->save(false)) {
+                            $childRelation           = new ChildRelation();
+                            $childRelation->user_id  = Yii::app()->user->id;
+                            $childRelation->child_id = $form['child']->model->id;
                             $childRelation->save();
-                            $this->redirect(array('children/add/step2', 'children_id' => $form['children']->model->id));
+                            $this->redirect(array('/child/add/step2', 'child_id' => $form['child']->model->id));
                         }
                     }
                 }
@@ -55,10 +55,10 @@ class ChildrenController extends Controller
                 );
                 break;
             case 'step2':
-                $form = new CForm('application.views.children.add' . ucfirst($step) . 'Form');
+                $form = new CForm('application.views.child.add' . ucfirst($step) . 'Form');
 
-                $form['children']->model = new ChildrenPhoto();
-                $childId = $_GET['children_id'];
+                $form['child']->model = new ChildPhoto();
+                $childId = $_GET['child_id'];
 
                 $this->render(
                     'add' . ucfirst($step), array(
@@ -67,7 +67,7 @@ class ChildrenController extends Controller
                 );
 
                 if ($form->submitted('addStep2') && $childId) {
-                    $images = CUploadedFile::getInstances($form['children']->model, 'image');
+                    $images = CUploadedFile::getInstances($form['child']->model, 'image');
 
                     if (!empty($images)) {
                         $savePath = Yii::getPathOfAlias('webroot') . "/children/{$childId}/photos/";
@@ -75,15 +75,14 @@ class ChildrenController extends Controller
                         foreach ($images as $image => $pic) {
 
                             if ($pic->saveAs($savePath . $pic->name)) {
-                                $photo              = $form['children']->model;
-                                $photo->image       = $pic;
-                                $photo->filename    = $pic->name;
-                                $photo->children_id = $childId;
+                                $photo           = $form['child']->model;
+                                $photo->image    = $pic;
+                                $photo->filename = $pic->name;
+                                $photo->child_id = $childId;
                                 $photo->save();
-
-                                $this->redirect(array('children/add/step3', 'children_id' => $childId));
+                                $this->redirect(array('child/add/step3'));
                             } else {
-                                $form['children']->model->addError;
+                                $form['child']->model->addError;
                                 
                                 echo 'Cannot upload!';
                             }
@@ -93,10 +92,30 @@ class ChildrenController extends Controller
 
                 break;
             case 'step3':
+                $form = new CForm('application.views.child.add' . ucfirst($step) . 'Form');
+
+                $form['child']->model = new Child();
+
+                $this->render(
+                    'add' . ucfirst($step), array(
+                        'form' => $form,
+                    )
+                );
                 break;
             case 'step4':
                 break;
         }
+    }
+
+    public function actionList()
+    {
+        $userId = Yii::app()->user->getId();
+        $childList = Child::model()->findAll('user_id', $userId);
+        $this->render(
+            'childList', array(
+                'childList' => $childList,
+            )
+        );
     }
 
 }

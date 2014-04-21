@@ -1,6 +1,6 @@
 <?php
 
-class ChildrenPhotoController extends Controller
+class ChildPhotoController extends Controller
 {
 	// Uncomment the following methods and override them if needed
 	/*

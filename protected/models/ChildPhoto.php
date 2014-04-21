@@ -1,22 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "children_relation".
+ * This is the model class for table "child_photo".
  *
- * The followings are the available columns in table 'children_relation':
+ * The followings are the available columns in table 'child_photo':
  * @property integer $id
- * @property integer $user_id
- * @property integer $children_id
+ * @property string $created_at
+ * @property integer $child_id
+ * @property string $filename
  *
  * The followings are the available model relations:
- * @property User $user
+ * @property Child $child
  */
-class ChildrenRelation extends CActiveRecord
+class ChildPhoto extends CActiveRecord
 {
+    public $image;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return ChildrenRelation the static model class
+	 * @return ChildPhoto the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -28,7 +31,7 @@ class ChildrenRelation extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'children_relation';
+		return 'child_photo';
 	}
 
 	/**
@@ -39,11 +42,13 @@ class ChildrenRelation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, children_id', 'required'),
-			array('user_id, children_id', 'numerical', 'integerOnly'=>true),
+			array('child_id, filename', 'required'),
+			array('child_id', 'numerical', 'integerOnly'=>true),
+			array('filename', 'length', 'max'=>100),
+            array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'maxSize' => 10485760),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, children_id', 'safe', 'on'=>'search'),
+			array('id, created_at, child_id, filename', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +60,7 @@ class ChildrenRelation extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+			'child' => array(self::BELONGS_TO, 'Child', 'child_id'),
 		);
 	}
 
@@ -66,8 +71,9 @@ class ChildrenRelation extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'user_id' => 'User',
-			'children_id' => 'Children',
+			'created_at' => 'Created At',
+			'child_id' => 'Child',
+			'filename' => 'Filename',
 		);
 	}
 
@@ -83,8 +89,9 @@ class ChildrenRelation extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('children_id',$this->children_id);
+		$criteria->compare('created_at',$this->created_at,true);
+		$criteria->compare('child_id',$this->child_id);
+		$criteria->compare('filename',$this->filename,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -36,7 +36,7 @@ class UserController extends Controller
     public function actionRegister()
     {
         if (!Yii::app()->user->isGuest) {
-            $this->redirect(array('children/add/step1'));
+            $this->redirect(array('child/add'));
         }
 
         $form = new CForm('application.views.user.registrationForm');

@@ -1,6 +1,6 @@
 <?php
 
-class m140417_135340_children extends CDbMigration
+class m140417_135340_child extends CDbMigration
 {
 	public function safeUp()
 	{
@@ -19,8 +19,9 @@ class m140417_135340_children extends CDbMigration
             'name'                  => 'varchar(100) NOT NULL',
         ));
 
-        $this->createTable('{{children}}', array(
+        $this->createTable('{{child}}', array(
             'id'                    => 'pk',
+            'user_id'               => 'integer NOT NULL',
             'created_at'            => 'timestamp NOT NULL',
             'name'                  => 'varchar(100) NOT NULL',
             'gender'                => 'varchar(1) NOT NULL',
@@ -44,68 +45,55 @@ class m140417_135340_children extends CDbMigration
             'missing_from'          => 'varchar(255) NULL',
         ));
 
-        $this->addForeignKey('{{children}}_{{ethnicity}}_FK',
-            '{{children}}',
+        $this->addForeignKey('{{child}}_{{user}}_FK',
+            '{{child}}',
+            'user_id',
+            '{{user}}',
+            'id'
+        );
+
+        $this->addForeignKey('{{child}}_{{ethnicity}}_FK',
+            '{{child}}',
             'ethnicity_id',
             '{{ethnicity}}',
             'id'
         );
-        $this->addForeignKey('{{children}}_{{eyes_color}}_FK',
-            '{{children}}',
+        $this->addForeignKey('{{child}}_{{eyes_color}}_FK',
+            '{{child}}',
             'eyes_color_id',
             '{{eyes_color}}',
             'id'
         );
-        $this->addForeignKey('{{children}}_{{hair_color}}_FK',
-            '{{children}}',
+        $this->addForeignKey('{{child}}_{{hair_color}}_FK',
+            '{{child}}',
             'hair_color_id',
             '{{hair_color}}',
             'id'
         );
 
-        $this->createIndex('gender', '{{children}}', 'gender');
-        $this->createIndex('height_feet', '{{children}}', 'height_feet');
-        $this->createIndex('height_inches', '{{children}}', 'height_inches');
-        $this->createIndex('weight', '{{children}}', 'weight');
-        $this->createIndex('ethnicity_id', '{{children}}', 'ethnicity_id');
-        $this->createIndex('eyes_color_id', '{{children}}', 'eyes_color_id');
-        $this->createIndex('hair_color_id', '{{children}}', 'hair_color_id');
+        $this->createIndex('user_id', '{{child}}', 'user_id');
+        $this->createIndex('gender', '{{child}}', 'gender');
+        $this->createIndex('height_feet', '{{child}}', 'height_feet');
+        $this->createIndex('height_inches', '{{child}}', 'height_inches');
+        $this->createIndex('weight', '{{child}}', 'weight');
+        $this->createIndex('ethnicity_id', '{{child}}', 'ethnicity_id');
+        $this->createIndex('eyes_color_id', '{{child}}', 'eyes_color_id');
+        $this->createIndex('hair_color_id', '{{child}}', 'hair_color_id');
 
-        $this->createTable('{{children_relation}}', array(
-            'id'                    => 'pk',
-            'user_id'               => 'integer NOT NULL',
-            'children_id'           => 'integer NOT NULL',
-        ));
-
-        $this->addForeignKey('{{children_relation}}_{{user}}_FK',
-            '{{children_relation}}',
-            'user_id',
-            '{{user}}',
-            'id'
-        );
-        $this->addForeignKey('{{children_relation}}_{{children}}_FK',
-            '{{children_relation}}',
-            'children_id',
-            '{{children}}',
-            'id'
-        );
-        $this->createIndex('user_id', '{{children_relation}}', 'user_id');
-        $this->createIndex('children_id', '{{children_relation}}', 'children_id');
-
-        $this->createTable('{{children_photo}}', array(
+        $this->createTable('{{child_photo}}', array(
             'id'                 => 'pk',
             'created_at'         => 'timestamp NOT NULL',
-            'children_id'        => 'integer NOT NULL',
+            'child_id'        => 'integer NOT NULL',
             'filename'           => 'varchar(100) NOT NULL',
         ));
 
-        $this->addForeignKey('{{children_photo}}_{{children}}_FK',
-            '{{children_photo}}',
-            'children_id',
-            '{{children}}',
+        $this->addForeignKey('{{child_photo}}_{{child}}_FK',
+            '{{child_photo}}',
+            'child_id',
+            '{{child}}',
             'id'
         );
-        $this->createIndex('children_id', '{{children_photo}}', 'children_id');
+        $this->createIndex('child_id', '{{child_photo}}', 'child_id');
 
         $this->insert('{{ethnicity}}', array( "id"   => 1, "name" => 'White'));
         $this->insert('{{ethnicity}}', array( "id"   => 2, "name" => 'Asian'));
@@ -136,9 +124,8 @@ class m140417_135340_children extends CDbMigration
 
 	public function safeDown()
 	{
-        $this->dropTable('{{children_photo}}');
-        $this->dropTable('{{children_relation}}');
-        $this->dropTable('{{children}}');
+        $this->dropTable('{{child_photo}}');
+        $this->dropTable('{{child}}');
         $this->dropTable('{{hair_color}}');
         $this->dropTable('{{eyes_color}}');
         $this->dropTable('{{ethnicity}}');

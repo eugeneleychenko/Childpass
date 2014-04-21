@@ -12,7 +12,7 @@ return array(
     ),
 
     'elements' => array(
-        'children' => array(
+        'child' => array(
             'type' => 'form',
             'title' => false,
             'elements' => array(
@@ -23,7 +23,7 @@ return array(
                 ),
                 'gender' => array(
                     'type'  => 'dropdownlist',
-                    'items' => Children::model()->getGenderOptions(),
+                    'items' => Child::model()->getGenderOptions(),
                     'prompt'=>'Select gender',
                     'class' => 'fieldstyle',
                 ),

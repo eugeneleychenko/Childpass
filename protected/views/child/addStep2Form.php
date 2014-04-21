@@ -15,7 +15,7 @@ return array(
     ),
 
     'elements' => array(
-        'children' => array(
+        'child' => array(
             'type' => 'form',
             'title' => false,
             'elements' => array(
