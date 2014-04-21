@@ -1,26 +1,55 @@
 .productbox
-    .abouthead(style='margin-bottom: 15px;') Home Kit
-    div(style='float: left; position: relative; margin-bottom: 25px; height: 386px; -moz-box-shadow: 6px 10px 5px rgb(212,212,212); -webkit-box-shadow: 6px 10px 5px rgb(212,212,212); box-shadow: 6px 10px 5px rgb(212,212,212);')
-        img(style='position: relative;', src=$this->baseUrl . '/images/broch.png')
-        img(style='position: absolute; top: 144px; left: 338px;', src=$this->baseUrl . '/images/arrows.png')
-        img(style='position: absolute; top: 130px; left: 571px;', src=$this->baseUrl . '/images/DNA.png')
-        .aboutfounder(style='position: absolute; top: 138px; left: 669px; width: 200px;') DNA Record
-        img(style='position: absolute; top: 240px; left: 572px;', src=$this->baseUrl . '/images/hands.png')
-        .aboutfounder(style='position: absolute; top: 250px; left: 664px; width: 200px;') Fingerprint Kit
-    p(style='margin: 31px 20px 0px 513px;')
-        | Duis lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
-    .abouthead(style='float: left; clear: left; width: 932px; margin-bottom: 13px;') Online Profile
-    div(style='float: left; clear: left; width: 267px; margin-top: 5px;')
-        p
-            | Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
-        p(style='margin-bottom: 10px;')
-            | Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
-    div(style='float: left; width: 300px; margin-left: 20px;')
-        img(style='float: left; margin: 0px 0px 45px 10px;', src=$this->baseUrl . '/images/kids.png')
-        .aboutfounder(style='float: right; margin: 30px 37px 0px 0px;') Personal Profile
-        img(style='float: left; clear: left; margin: 0px 0px 50px 0px;', src=$this->baseUrl . '/images/camera.png')
-        .aboutfounder(style='float: right; margin: 10px 61px 0px 0px;') Recent Photo
-        img(style='float: left; clear: left; margin: 0px 0px 0px 20px;', src=$this->baseUrl . '/images/dental.png')
-        .aboutfounder(style='float: right; margin: 9px 54px 0px 0px;') Dental Record
-    a(href=$this->createUrl('user/register'))
-        .powerblock(style='width: 235px; height: 117px; float: left; margin: 56px 0px 12px 20px; padding-top: 30px;') Register and upload now!
+    h1 Your Child's Personal Identity Kit
+    .forHome
+        h2 For Home
+        p.
+            Duis lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+        p.textUnderImage.
+            Duis lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+    h2 For Online
+    .forOnline
+        p.
+            Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+        table
+            tr
+                td
+                    ul.servicesList
+                        li
+                            .imageWrapper
+                                img(src=$this->baseUrl . '/images/kids.png')
+                            span Personal Profile
+                        li
+                            .imageWrapper
+                                img(src=$this->baseUrl . '/images/camera.png')
+                            span Recent Photo
+                        li
+                            .imageWrapper
+                                img(src=$this->baseUrl . '/images/emergencyAlert.png')
+                            span Emergency Alert PDF for Social Media Broadcast
+                        li
+                            .imageWrapper
+                                img(src=$this->baseUrl . '/images/dental.png')
+                            span Dental Record
+                td
+                    a.registerButton(href=$this->createUrl('user/register'))
+                        .powerblock(style='width: 235px; height: 117px; padding-top: 30px;') Register and upload now!
+
+ul.relatedProducts
+    li.productbox
+        .imageWrapper
+            img(src=$this->baseUrl . '/images/product_gps.png')
+        .productDescription
+            h3.productTitle Wearable GPS Tracking
+                span (comin soon)
+            p.
+                Duis lorem est, blandit ac tortor sed, luctus luctus velit. Nisi libero Venenatis placerat ligula sed .
+
+    li.spacer
+    li.productbox
+        .imageWrapper
+            img(src=$this->baseUrl . '/images/product_microChip.png')
+        .productDescription
+            h3.productTitle Microchip GPS Implant
+                span (comin soon)
+            p.
+                Duis lorem est, blandit ac tortor sed, luctus luctus velit. Nisi libero Venenatis placerat ligula sed .

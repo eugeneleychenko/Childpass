@@ -6,61 +6,63 @@ html(lang='en')
         meta(name='Child Pass', content='')
 
         title
-            | Childpass -
-            //=title
+            | Childpass
 
         :php
-            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/app.css');
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/reset.css');
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/style.css');
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/text.css');
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/960.css');
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/coin-slider-styles.css');
+            Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/app.css');
 
     -$bodyClass = 'page-' . Yii::app()->controller->id . ucfirst(Yii::app()->controller->action->id);
     body(class=bodyClass)
         #page.container_16
             #header
-                div(style='float: left;')
-                    a(href=$this->baseUrl . '/')
-                        img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
-                div
-                    //
-                      nav
-                    div(style='float: left; margin-bottom: 5px;')
-                        div(style='float: left; width: 315px; height: 60px; font-family: HelveticaNeue-light; letter-spacing: 2px; font-size: 17px; font-weight: 600;')
-                            div(style='margin: 24px 0px 0px 29px;')
-                                span(style='color: #757575;') Toll Free:
-                                span(style='color: #ed8b37;') 1.800.CHILD
-                                span(style='color: #002f65;') IK
-                        #infoMessage
+                .logoWrapper
+                    div.hintText
+                        span(style='color: #757575;') Toll Free:
+                        span(style='color: #ed8b37;') 1.800.CHILD
+                        span(style='color: #002f65;') IK
+                    div
+                        a(href=$this->baseUrl . '/')
+                            img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
+                .mainMenuWrapper
+                    #infoMessage
                         :php
                             $this->widget('application.components.LoginFormWidget');
-                        ul.nav(style='clear: left;')
-                            li
-                                a(href=$this->createUrl('site/page', array('view'=>'about')))
-                                    | About Us
-                            li(style='position: relative;')
-                                img(style='position: absolute; left: -3px; top: 6px;', src=$this->baseUrl . '/images/dots.png')
-                                a(href=$this->createUrl('site/page', array('view'=>'product')))
-                                    | Products
-                            li(style='position: relative;')
-                                img(style='position: absolute; left: -3px; top: 6px;', src=$this->baseUrl . '/images/dots.png')
-                                a(href=$this->createUrl('site/page', array('view'=>'testimonials')))
-                                    | Testimonials
-                            li(style='position: relative;')
-                                img(style='position: absolute; left: -3px; top: 6px;', src=$this->baseUrl . '/images/dots.png')
-                                a(href=$this->createUrl('site/page', array('view'=>'faq')))
-                                    | FAQ
-                            li.reg
-                                a(href=$this->createUrl('user/register'))
-                                    | Join Our Beta Test
-                    .clear
-                .clear
+                    ul.nav
+                        li
+                            a(href=$this->createUrl('site/page', array('view'=>'about')))
+                                | About Us
+                        li(style='position: relative;')
+                            img(style='position: absolute; left: -10px; top: 0;', src=$this->baseUrl . '/images/dots.png')
+                            a(href=$this->createUrl('site/page', array('view'=>'product')))
+                                | Products
+                        li(style='position: relative;')
+                            img(style='position: absolute; left: -10px; top: 0;', src=$this->baseUrl . '/images/dots.png')
+                            a(href=$this->createUrl('site/page', array('view'=>'testimonials')))
+                                | Testimonials
+                        li(style='position: relative;')
+                            img(style='position: absolute; left: -10px; top: 0;', src=$this->baseUrl . '/images/dots.png')
+                            a(href=$this->createUrl('site/page', array('view'=>'faq')))
+                                | FAQ
+                        li.reg
+                            a(href=$this->createUrl('user/register'))
+                                | Join Our
+                                br
+                                | Beta Test
             #content
                 !=$content
 
-            img(style='margin: 20px 0px 15px 10px;', src=$this->baseUrl . '/images/endorsements.png')
+            #footer
+                | Endorsed by:
+                ul.logosWrapper
+                    li
+                        img(src=$this->baseUrl . '/images/iss_logo.png')
+                    li
+                        img(src=$this->baseUrl . '/images/mammalfish_logo.png')
 
         :php
             Yii::app()->getClientScript()->registerCoreScript('jquery');
