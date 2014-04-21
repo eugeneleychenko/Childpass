@@ -1,4 +1,4 @@
-.productbox
+.productbox.panel
     h1 Your Child's Personal Identity Kit
     .forHome
         h2 For Home
@@ -30,26 +30,8 @@
                             .imageWrapper
                                 img(src=$this->baseUrl . '/images/dental.png')
                             span Dental Record
-                td
+                td.registerBlock
                     a.registerButton(href=$this->createUrl('user/register'))
-                        .powerblock(style='width: 235px; height: 117px; padding-top: 30px;') Register and upload now!
+                        .powerblock Register and upload now!
 
-ul.relatedProducts
-    li.productbox
-        .imageWrapper
-            img(src=$this->baseUrl . '/images/product_gps.png')
-        .productDescription
-            h3.productTitle Wearable GPS Tracking
-                span (comin soon)
-            p.
-                Duis lorem est, blandit ac tortor sed, luctus luctus velit. Nisi libero Venenatis placerat ligula sed .
-
-    li.spacer
-    li.productbox
-        .imageWrapper
-            img(src=$this->baseUrl . '/images/product_microChip.png')
-        .productDescription
-            h3.productTitle Microchip GPS Implant
-                span (comin soon)
-            p.
-                Duis lorem est, blandit ac tortor sed, luctus luctus velit. Nisi libero Venenatis placerat ligula sed .
+include relatedProducts.jade

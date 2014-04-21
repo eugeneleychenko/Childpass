@@ -76,6 +76,28 @@ hr {
   clear: right;
 }
 
+.powerblock {
+  font-family: Arial;
+  font-size: 35px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 40px;
+  color: #FFF;
+  background: rgb(237,149,55);
+  border: 2px solid #A55D1E;
+  /* text-shadow: 0 1px 1px #666; */
+  text-decoration: none;
+  -moz-box-shadow: 4px 8px 5px rgb(212,212,212);
+  -webkit-box-shadow: 4px 8px 5px rgb(212,212,212);
+  box-shadow: 4px 8px 5px rgb(212,212,212);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.5em;
+}
+
 #page {
   padding: 1em;
 }
@@ -240,8 +262,17 @@ hr {
         vertical-align: top;
       }
 
-      .registerButton {
-        text-decoration: none;
+      td.registerBlock {
+        width: 30%;
+
+        .registerButton {
+          text-decoration: none;
+        }
+
+        .powerblock {
+          padding-top: 1em;
+          padding-bottom: 1em;
+        }
       }
     }
   }
@@ -296,12 +327,6 @@ hr {
 
     .regiserButton {
       text-decoration: none;
-
-      .powerblock {
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        padding: 0.5em 0;
-      }
     }
   }
 
@@ -310,6 +335,42 @@ hr {
 
     >.contentWrapper {
       padding: 1em;
+    }
+  }
+}
+
+.page-userRegister {
+
+  .mainContentWrapper {
+    padding: 0 1em;
+  }
+
+  .registrationFormWrapper {
+    padding: 1em;
+
+    .stepsWrapper {
+      display: table;
+      width: 60%;
+      margin-bottom: 2em;
+
+      .spacer {
+        width: 4%;
+        display: table-cell;
+      }
+
+      .powerblock {
+        display: table-cell;
+        vertical-align: middle;
+        width: 48%;
+        height: 100%;
+        margin-right: 1em;
+        text-align: left;
+        opacity: .5;
+
+        &.active {
+          opacity: 1;
+        }
+      }
     }
   }
 }

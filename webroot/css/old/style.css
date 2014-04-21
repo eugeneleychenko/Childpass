@@ -51,14 +51,6 @@ strong{font-weight:bold}
     color: gray;
 }
 
-.productbox {
-    background: #fff;
-    border: 2px solid orange;
-    font-weight: 400;
-    line-height: 20px;
-    color: gray;
-}
-
 .profileheader {
     font-family: Arial;
     font-size: 17px;
@@ -81,25 +73,6 @@ form .row {
 .aboutbox a {
     font-weight:bold;
     color: #ee8b38;
-}
-
-.powerblock {
-    font-family: Arial;
-    font-size: 35px;
-    font-weight: 400;
-    text-align: center;
-    line-height: 40px;
-    color: #FFF;
-    background: rgb(237,149,55);
-    border: 2px solid #A55D1E;
-    /* text-shadow: 0 1px 1px #666; */
-    text-decoration: none;
-    -moz-box-shadow: 4px 8px 5px rgb(212,212,212);
-    -webkit-box-shadow: 4px 8px 5px rgb(212,212,212);
-    box-shadow: 4px 8px 5px rgb(212,212,212);
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
 }
 
 .abouthead {
