@@ -546,7 +546,7 @@ hr {
 
     .childData {
       margin-left: 50%;
-      line-height: 2;
+      line-height: 1.5;
 
       .childName {
         text-transform: uppercase;
@@ -565,6 +565,7 @@ hr {
   }
 
   .footer {
+    margin-top: 3em;
 
     .warning {
       color: #FF0000;

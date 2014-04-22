@@ -5,13 +5,14 @@
             h1.childName=child.name
             .row
                 label Date of birth:
-                =child.birthday
+                -$birthday = date('F d, Y', strtotime($child->birthday))
+                =birthday
             .row
                 label Missing date:
-                =child.birthday
+                =missingInfo.date
             .row
                 label Age at time of disappearance:
-                =child.birthday
+                =missingInfo.age
             .row
                 label Sex:
                 =child.gender
@@ -26,15 +27,16 @@
                 =child.hairColor.name
             .row
                 label Height:
-                =child.heightFeet
-                | '
-                =child.heightInches
-                | "
+                -$heightFeet   = $child->height_feet   ? $child->height_feet   . "'" : "";
+                -$heightInches = $child->height_inches ? $child->height_inches . '"' : '';
+                =heightFeet
+                =heightInches
             .row
                 label Weight:
                 =child.weight
             .row
                 label Missing from:
+                =missingInfo.from
 
     .description
         p.

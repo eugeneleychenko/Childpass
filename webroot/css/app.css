@@ -1087,7 +1087,7 @@ hr {
 /* line 547, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .mainSection .childData {
   margin-left: 50%;
-  line-height: 2;
+  line-height: 1.5;
 }
 /* line 551, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .mainSection .childData .childName {
@@ -1102,7 +1102,11 @@ hr {
   text-transform: uppercase;
   margin-right: 0.5em;
 }
-/* line 569, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 567, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.flierWrapper .footer {
+  margin-top: 3em;
+}
+/* line 570, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .footer .warning {
   color: #FF0000;
   font-size: 200%;
@@ -1110,7 +1114,7 @@ hr {
   width: 50%;
   font-weight: normal;
 }
-/* line 577, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 578, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .footer .logo {
   margin-top: 0;
 }

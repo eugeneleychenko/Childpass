@@ -212,10 +212,18 @@ class ChildController extends Controller
 
     public function actionGenerateFlier($id)
     {
+        /** @var Child $child */
         $child = Child::model()->findByPk($id);
 
+        $missingInfo = array(
+            'date' => date('F d, Y'),
+            'age'   => $child->getAge(),
+            'from'  => '',
+        );
+
         $this->render('generateFlier', array(
-            'child' => $child,
+            'child'       => $child,
+            'missingInfo' => $missingInfo,
         ));
 
     }

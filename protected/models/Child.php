@@ -171,4 +171,12 @@ class Child extends CActiveRecord
             'F' => 'Female',
         );
     }
+
+    public function getAge()
+    {
+        $date = new DateTime($this->birthday);
+        $now = new DateTime();
+        $interval = $now->diff($date);
+        return $interval->y;
+    }
 }
