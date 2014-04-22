@@ -2,30 +2,44 @@
 
 class ChildPhotoController extends Controller
 {
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
 
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
+    public function actions()
+    {
+        return array();
+    }
+
+    public function accessRules()
+    {
+        return array(
+            array('allow', // allow authenticated users to access all actions
+                'users' => array('@'),
+            ),
+            array('allow',
+                'actions' => array('delete'),
+                'users'   => array('*')
+            ),
+            array('deny'),
+        );
+    }
+
+    public function actionDelete()
+    {
+        $this->layout = 'ajax';
+
+        $photoId = (int)Yii::app()->request->getPost('photo_id');
+
+        $success = false;
+
+        if (!empty($photoId) && ChildPhoto::model()->deleteByPk($photoId)) {
+            $success = true;
+        };
+
+        $this->renderJSON(array('success' => $success));
+    }
 }

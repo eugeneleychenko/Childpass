@@ -81,10 +81,11 @@ class m140417_135340_child extends CDbMigration
         $this->createIndex('hair_color_id', '{{child}}', 'hair_color_id');
 
         $this->createTable('{{child_photo}}', array(
-            'id'                 => 'pk',
-            'created_at'         => 'timestamp NOT NULL',
+            'id'              => 'pk',
+            'created_at'      => 'timestamp NOT NULL',
             'child_id'        => 'integer NOT NULL',
-            'filename'           => 'varchar(100) NOT NULL',
+            'filename'        => 'varchar(100) NOT NULL',
+            'is_main'         => 'tinyint(1) DEFAULT 0 NOT NULL',
         ));
 
         $this->addForeignKey('{{child_photo}}_{{child}}_FK',

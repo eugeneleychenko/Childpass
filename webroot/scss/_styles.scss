@@ -60,10 +60,42 @@
         .MultiFile-remove {
             display: inline-block;
             float: left;
-            background: url('../images/sprite-icons.png') 0 -680px no-repeat transparent;
+            background: url('../images/sprite-icons.png') 0 -712px no-repeat transparent;
             height: 18px;
             width: 18px;
             margin-right: 5px;
+        }
+    }
+}
+
+.child-list ul, .child-photos ul {
+    list-style-type: none;
+    li {
+        float: left;
+        display: block;
+        margin: 10px 60px 40px 20px;
+        img {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #9f9f9f;
+            border-radius: 5px;
+        }
+        .edit-link {
+            display: block;
+            padding-top: 10px;
+            color: #002F66;
+        }
+        .child-photo {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            .photo-delete {
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: -16px -16px 0;
+                cursor: pointer;
+            }
         }
     }
 }

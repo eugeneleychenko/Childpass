@@ -1,5 +1,11 @@
 .productbox
-    ul
-        - foreach ($childList as $child):
-            li!= $child->name
-        - endforeach
+    .child-list
+        ul
+            - foreach ($childList as $child):
+                li
+                    h3!= $child->name
+                    - if(isset($child->childPhotos[0])):
+                        a(href = '/child/edit/'.$child->id)
+                            img(src = $child->childPhotos[0]->filename)
+                    a(href = '/child/edit/step1?child_id='.$child->id, class = 'edit-link') Edit Child
+            - endforeach

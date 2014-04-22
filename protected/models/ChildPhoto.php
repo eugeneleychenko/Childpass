@@ -8,7 +8,7 @@
  * @property string $created_at
  * @property integer $child_id
  * @property string $filename
- *
+ * @property string $is_main
  * The followings are the available model relations:
  * @property Child $child
  */
@@ -43,12 +43,12 @@ class ChildPhoto extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('child_id, filename', 'required'),
-			array('child_id', 'numerical', 'integerOnly'=>true),
+			array('child_id, is_main', 'numerical', 'integerOnly'=>true),
 			array('filename', 'length', 'max'=>100),
             array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'maxSize' => 10485760),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, created_at, child_id, filename', 'safe', 'on'=>'search'),
+			array('id, created_at, child_id, filename, is_main', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,6 +74,7 @@ class ChildPhoto extends CActiveRecord
 			'created_at' => 'Created At',
 			'child_id' => 'Child',
 			'filename' => 'Filename',
+            'is_main' => 'Is Main',
 		);
 	}
 
@@ -92,6 +93,7 @@ class ChildPhoto extends CActiveRecord
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('child_id',$this->child_id);
 		$criteria->compare('filename',$this->filename,true);
+        $criteria->compare('is_main',$this->is_main);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

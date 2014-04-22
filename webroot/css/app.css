@@ -419,8 +419,8 @@ table {
   border-spacing: 0;
 }
 
-/* line 170, ../../icons/*.png */
-.icons-sprite, .icons-camera, .icons-camera_gray, .icons-cancel_small_grey, .icons-dental, .icons-dental_gray, .icons-kids, .icons-kids_grey, .icons-step1, .icons-step1_disable, .icons-step2, .icons-step2_disable, .icons-step3, .icons-step3_disable, .icons-step4, .icons-step4_disable, .icons-survey, .icons-survey_gray {
+/* line 178, ../../icons/*.png */
+.icons-sprite, .icons-camera, .icons-camera_gray, .icons-cancel_grey, .icons-cancel_small_grey, .icons-dental, .icons-dental_gray, .icons-kids, .icons-kids_grey, .icons-step1, .icons-step1_disable, .icons-step2, .icons-step2_disable, .icons-step3, .icons-step3_disable, .icons-step4, .icons-step4_disable, .icons-survey, .icons-survey_gray {
   background: url('../images/sprite-icons.png') no-repeat;
 }
 
@@ -433,35 +433,42 @@ table {
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-camera_gray {
-  background-position: 0 -184px;
+  background-position: 0 -216px;
   height: 46px;
   width: 46px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-cancel_grey {
+  background-position: 0 -92px;
+  height: 32px;
+  width: 32px;
+}
+
+/* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-cancel_small_grey {
-  background-position: 0 -680px;
+  background-position: 0 -712px;
   height: 18px;
   width: 18px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-dental {
-  background-position: 0 -138px;
+  background-position: 0 -170px;
   height: 46px;
   width: 46px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-dental_gray {
-  background-position: 0 -230px;
+  background-position: 0 -262px;
   height: 46px;
   width: 46px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-kids {
-  background-position: 0 -92px;
+  background-position: 0 -124px;
   height: 46px;
   width: 46px;
 }
@@ -475,70 +482,70 @@ table {
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step1 {
-  background-position: 0 -446px;
+  background-position: 0 -478px;
   height: 39px;
   width: 41px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step1_disable {
-  background-position: 0 -368px;
+  background-position: 0 -400px;
   height: 39px;
   width: 41px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step2 {
-  background-position: 0 -602px;
+  background-position: 0 -634px;
   height: 39px;
   width: 41px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step2_disable {
-  background-position: 0 -485px;
+  background-position: 0 -517px;
   height: 39px;
   width: 41px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step3 {
-  background-position: 0 -563px;
+  background-position: 0 -595px;
   height: 39px;
   width: 41px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step3_disable {
-  background-position: 0 -407px;
+  background-position: 0 -439px;
   height: 39px;
   width: 41px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step4 {
-  background-position: 0 -641px;
+  background-position: 0 -673px;
   height: 39px;
   width: 41px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step4_disable {
-  background-position: 0 -524px;
+  background-position: 0 -556px;
   height: 39px;
   width: 41px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-survey {
-  background-position: 0 -322px;
+  background-position: 0 -354px;
   height: 46px;
   width: 46px;
 }
 
 /* line 60, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-survey_gray {
-  background-position: 0 -276px;
+  background-position: 0 -308px;
   height: 46px;
   width: 46px;
 }
@@ -617,8 +624,46 @@ table {
 .MultiFile-wrap .MultiFile-label .MultiFile-remove {
   display: inline-block;
   float: left;
-  background: url("../images/sprite-icons.png") 0 -680px no-repeat transparent;
+  background: url("../images/sprite-icons.png") 0 -712px no-repeat transparent;
   height: 18px;
   width: 18px;
   margin-right: 5px;
+}
+
+/* line 71, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.child-list ul, .child-photos ul {
+  list-style-type: none;
+}
+/* line 73, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.child-list ul li, .child-photos ul li {
+  float: left;
+  display: block;
+  margin: 10px 60px 40px 20px;
+}
+/* line 77, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.child-list ul li img, .child-photos ul li img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #9f9f9f;
+  border-radius: 5px;
+}
+/* line 83, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.child-list ul li .edit-link, .child-photos ul li .edit-link {
+  display: block;
+  padding-top: 10px;
+  color: #002F66;
+}
+/* line 88, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.child-list ul li .child-photo, .child-photos ul li .child-photo {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+/* line 92, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.child-list ul li .child-photo .photo-delete, .child-photos ul li .child-photo .photo-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: -16px -16px 0;
+  cursor: pointer;
 }
