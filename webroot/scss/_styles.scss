@@ -102,6 +102,10 @@ hr {
   padding: 0.5em;
 }
 
+.contentWrapper {
+  padding: 1em;
+}
+
 #page {
   padding: 1em;
 }
@@ -192,6 +196,7 @@ hr {
   text-align: center;
   font-size: 130%;
   font-weight: bold;
+  margin-top: 2%;
 
   .logosWrapper {
     display: inline-block;
@@ -318,7 +323,7 @@ hr {
 
 .relatedProducts {
   list-style: none;
-  margin: 2% 0;
+  margin: 2% 0 0;
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -354,7 +359,6 @@ hr {
 }
 
 .aboutPage {
-  padding-bottom: 1em;
 
   .rightColumn {
     width: 33%;
@@ -414,29 +418,33 @@ hr {
 }
 
 .step-header {
-    font: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 120%;
     color: #808080;
-    padding: 20px 20px 0;
+    margin: 1em 0;
+    overflow: hidden;
+
     .step-description {
         float: left;
         width: 50%;
         padding-top: 10px;
+
         h2.welcome {
-            font-weight: bold;
+
             span {
-                color: #002f65;
+                color: #707070;
             }
         }
     }
+
     .step-list {
         float: right;
         width: 50%;
         padding-left: 30px;
         box-sizing: border-box;
+
         ul {
             list-style-type: none;
             margin: 0;
+
             li {
                 display: block;
                 height: 46px;
@@ -445,13 +453,16 @@ hr {
                 font-size: 20px;
                 font-weight: bold;
                 color: #c4c4c4;
+
                 .step-number {
                     float: left;
                 }
+
                 .step-icon {
                     float: left;
                     margin: 0 20px;
                 }
+
                 &.active {
                     color: #6a6a6a;
                 }
@@ -463,11 +474,14 @@ hr {
 .MultiFile-wrap {
     padding: 20px 0;
     text-align: left;
+
     .MultiFile-applied {
         padding: 10px 0;
     }
+
     .MultiFile-label {
         padding: 10px 0;
+
         .MultiFile-remove {
             display: inline-block;
             float: left;
@@ -481,25 +495,30 @@ hr {
 
 .child-list ul, .child-photos ul {
     list-style-type: none;
+
     li {
-        float: left;
-        display: block;
-        margin: 10px 60px 40px 20px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 2em 1em 0;
+
         img {
-            width: 200px;
-            height: 200px;
+            max-width: 200px;
+            max-height: 200px;
             border: 1px solid #9f9f9f;
             border-radius: 5px;
         }
+
         .edit-link {
             display: block;
             padding-top: 10px;
             color: #002F66;
         }
+
         .child-photo {
             position: relative;
             width: 200px;
             height: 200px;
+
             .photo-delete {
                 position: absolute;
                 right: 0;

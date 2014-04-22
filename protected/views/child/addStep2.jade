@@ -23,24 +23,24 @@
                 .step-number.icons-step4_disable
                 .step-icon.icons-survey_gray
                 span Survey
-    .clear
-.productbox
-    !=$form->renderBegin()
-        div(style='width: 380px; text-align: right;')
-            .row
-                :php
-                    $this->widget('CMultiFileUpload', array(
-                        'model'           => $form['child']->model,
-                        'attribute'       => 'image',
-                        'accept'          => 'jpeg|jpg|gif|png',
-                        'max'             => 10,
-                        'options'         => array(
-                            'afterFileSelect' => 'function(e, v, m){ afterSelect(e, v, m) }',
-                        ),
-                    ));
-            .row(style='margin-bottom: 60px; position: relative;')
-                !=$form->buttons['addStep2']
-    !=$form->renderEnd();
-.clear
+.panel
+    .contentWrapper
+        !=$form->renderBegin()
+            div(style='width: 380px; text-align: right;')
+                .row
+                    :php
+                        $this->widget('CMultiFileUpload', array(
+                            'model'           => $form['child']->model,
+                            'attribute'       => 'image',
+                            'accept'          => 'jpeg|jpg|gif|png',
+                            'max'             => 10,
+                            'options'         => array(
+                                'afterFileSelect' => 'function(e, v, m){ afterSelect(e, v, m) }',
+                            ),
+                        ));
+                .row(style='margin-bottom: 60px; position: relative;')
+                    !=$form->buttons['addStep2']
+        !=$form->renderEnd();
+
 :php
     Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/children.js');

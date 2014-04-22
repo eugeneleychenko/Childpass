@@ -1,8 +1,8 @@
 .step-header
     .step-description
         h2.welcome
-            span Welcome,&nbsp
-            !=Yii::app()->user->getName();
+            | Welcome,&nbsp
+            span=Yii::app()->user->getName();
         p This page in Step 1 of the 4 Step Child Profile Process
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     .step-list
@@ -23,42 +23,42 @@
                 .step-number.icons-step4_disable
                 .step-icon.icons-survey_gray
                 span Survey
-    .clear
-.productbox
-    p(style='margin-left: 20px;') (All fields are required.)
-    !=$form->renderBegin()
-        div(style='width: 380px; text-align: right;')
-            div.row
-                !=$form['child']['name']
-            div.row
-                !=$form['child']['gender']
-            div.row
-                !=$form['child']['ethnicity_id']
-            div.row
-                !=$form['child']['eyes_color_id']
-            div.row
-                !=$form['child']['hair_color_id']
-            div.row
-                !=$form['child']['address']
-            div.row
-                !=$form['child']['address2']
-            div.row
-                !=$form['child']['zip_code']
-            div.row
-                !=$form['child']['birthday']
-            div.row
-                !=$form['child']['distinctive_marks']
-            div.row
-                !=$form['child']['school']
-            div.row
-                !=$form['child']['school_address']
-            div.row
-                !=$form['child']['school_address2']
-            div.row
-                !=$form['child']['school_zip_code']
-            div.row
-                !=$form['child']['known_relatives']
-            div.row(style='margin-bottom: 60px; position: relative;')
-                !=$form->buttons['addStep1']
-    !=$form->renderEnd();
-.clear
+
+.panel
+    .contentWrapper
+        p(style='margin-left: 20px;') (All fields are required.)
+        !=$form->renderBegin()
+            div(style='width: 380px; text-align: right;')
+                div.row
+                    !=$form['child']['name']
+                div.row
+                    !=$form['child']['gender']
+                div.row
+                    !=$form['child']['ethnicity_id']
+                div.row
+                    !=$form['child']['eyes_color_id']
+                div.row
+                    !=$form['child']['hair_color_id']
+                div.row
+                    !=$form['child']['address']
+                div.row
+                    !=$form['child']['address2']
+                div.row
+                    !=$form['child']['zip_code']
+                div.row
+                    !=$form['child']['birthday']
+                div.row
+                    !=$form['child']['distinctive_marks']
+                div.row
+                    !=$form['child']['school']
+                div.row
+                    !=$form['child']['school_address']
+                div.row
+                    !=$form['child']['school_address2']
+                div.row
+                    !=$form['child']['school_zip_code']
+                div.row
+                    !=$form['child']['known_relatives']
+                div.row(style='margin-bottom: 60px; position: relative;')
+                    !=$form->buttons['addStep1']
+        !=$form->renderEnd();
