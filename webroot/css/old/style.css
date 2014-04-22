@@ -16,59 +16,6 @@ strong{font-weight:bold}
   text-align: center;
 }
 
-.nav {
-    list-style: none;
-    margin-bottom: 10px;
-    height: 64px;
-}
-    .nav li {
-        height: 64px;
-        float: left;
-}
-
-.nav a {
-    font-family:Helvetica;
-    font-size: 17px;
-    font-weight:300;
-    display: block;
-    padding: 7px 15px 7px 16px;
-    color: #fff;
-    text-decoration: none;
-    background: #002F66;
-    border: 14px solid #002F66;
-    border-top: 12px solid #002F66;
-    border-bottom: 12px solid #002F66;
-}
-
-.nav a:hover{
-    color: #fff;
-    background: rgb(85,129,180);
-}
-
-li.active a {
-    color: #fff;
-    background: rgb(85,129,180);
-}
-
-li.reg a {
-    text-align: center;
-    width: 71px;
-    padding: 4px 10px 5px 9px;
-    border: 7px solid orange;
-    background:orange;
-    line-height: 20px;
-}
-
-li.reg.active a {
-    color: #fff;
-    background: rgb(201,101,15);
-}
-
-li.reg a:hover{
-    color: #fff;
-    background: rgb(201,101,15);
-}
-
 .regbox {
     width: 936px;
     height: 470px;
@@ -104,20 +51,6 @@ li.reg a:hover{
     color: gray;
 }
 
-.productbox {
-    float:left;
-    width: 893px;
-    background: #fff;
-    border: 2px solid orange;
-    margin: 15px 0px 0px 12px;
-    padding: 17px 0px 0px 39px;
-    font-family: Arial;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 20px;
-    color: gray;
-}
-
 .profileheader {
     font-family: Arial;
     font-size: 17px;
@@ -140,25 +73,6 @@ form .row {
 .aboutbox a {
     font-weight:bold;
     color: #ee8b38;
-}
-
-.powerblock {
-    font-family: Arial;
-    font-size: 35px;
-    font-weight: 400;
-    text-align: center;
-    line-height: 40px;
-    color: #FFF;
-    background: rgb(237,149,55);
-    border: 2px solid #A55D1E;
-    /* text-shadow: 0 1px 1px #666; */
-    text-decoration: none;
-    -moz-box-shadow: 4px 8px 5px rgb(212,212,212);
-    -webkit-box-shadow: 4px 8px 5px rgb(212,212,212);
-    box-shadow: 4px 8px 5px rgb(212,212,212);
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
 }
 
 .abouthead {
@@ -202,25 +116,15 @@ form .row {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#cfcfcf',GradientType=0 ); /* IE6-9 */
 }
 
-.desc {
-    float:left;
-    font-family: Arial;
-    font-size: 22px;
-    line-height: 26px;
-    margin: 8px 0px 15px 8px;
-    color: rgb(114, 113, 113);  
-}
-
 .logocolor {
     color: #ee8b38;
 }
 
 .prodbox {
-    float: left;
-    width: 294px;
-    height: 99px;
+    overflow: hidden;
     background: #fff;
     border: 2px solid orange;
+    padding: 0.5em 0.1em;
 }
 
 .titlebox {
@@ -269,7 +173,7 @@ form .row {
 }
 
 .pcol {
-    margin: 11px 0px 0px 13px;
+    margin: 1em 0 0;
 }
 
 .btn {cursor: pointer; cursor: hand; font: Arial; font-size: 20px; color: #ee8b38; background-color: transparent; border: 0; padding: 0;}

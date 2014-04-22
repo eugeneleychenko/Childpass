@@ -2,6 +2,417 @@
 @import "icons/*.png";
 @include all-icons-sprites(true);
 
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../fonts/helvetica/helvetica.eot');
+  src: url('../fonts/helvetica/helvetica.eot') format('embedded-opentype'),
+  url('../fonts/helvetica/helvetica.woff') format('woff'),
+  url('../fonts/helvetica/helvetica.ttf') format('truetype'),
+  url('../fonts/helvetica/helvetica.svg#HelveticaRegular') format('svg');
+
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../fonts/helvetica_bold/helvetica-bold.eot');
+  src: url('../fonts/helvetica_bold/helvetica-bold.eot') format('embedded-opentype'),
+  url('../fonts/helvetica_bold/helvetica-bold.woff') format('woff'),
+  url('../fonts/helvetica_bold/helvetica-bold.ttf') format('truetype'),
+  url('../fonts/helvetica_bold/helvetica-bold.svg#HelveticaBold') format('svg');
+
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'OsloLight';
+  src: url('../fonts/oslo_light/oslo_light.eot');
+  src: url('../fonts/oslo_light/oslo_light.eot') format('embedded-opentype'),
+  url('../fonts/oslo_light/oslo_light.woff') format('woff'),
+  url('../fonts/oslo_light/oslo_light.ttf') format('truetype'),
+  url('../fonts/oslo_light/oslo_light.svg#OsloLight') format('svg');
+}
+
+html, body {
+  font-size: 17px;
+  color: #6e6e6e;
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 1.2;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 165%;
+  color: #002f65;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 135%;
+  color: #002f65;
+}
+
+h3 {
+  font-size: 118%;
+  color: #707070;
+}
+
+hr {
+  clear: none;
+}
+
+.panel {
+  background: #fff;
+  border: 2px solid orange;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.clearRight {
+  clear: right;
+}
+
+.panel > .clearRight {
+  margin-bottom: -2px;
+}
+
+.powerblock {
+  font-family: Arial;
+  font-size: 35px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 40px;
+  color: #FFF;
+  background: rgb(237,149,55);
+  border: 2px solid #A55D1E;
+  /* text-shadow: 0 1px 1px #666; */
+  text-decoration: none;
+  -moz-box-shadow: 4px 8px 5px rgb(212,212,212);
+  -webkit-box-shadow: 4px 8px 5px rgb(212,212,212);
+  box-shadow: 4px 8px 5px rgb(212,212,212);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.5em;
+}
+
+#page {
+  padding: 1em;
+}
+
+#header {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.5em;
+  position: relative;
+
+  > div {
+    display: table-cell;
+    vertical-align: bottom;
+  }
+
+  .logoWrapper {
+    text-align: left;
+    width: 360px;
+
+    .hintText {
+      padding-left: 22px;
+      font-weight: bold;
+      font-family: Helvetica, Sans-Serif;
+      font-size: 118%;
+    }
+  }
+
+  .login-form form {
+    overflow: hidden;
+  }
+
+
+
+  .mainMenuWrapper {
+
+    #infoMessage {
+      position: absolute;
+      top: 0;
+      left: 360px;
+    }
+
+    .nav {
+      list-style: none;
+      margin-bottom: 10px;
+      height: 64px;
+      font-family: Helvetica, sans-serif;
+      display: table;
+      width: 100%;
+      background: #002F66;
+      border-collapse: separate;
+
+      li {
+        float: none;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        border: 6px solid #002F66;
+
+        &.reg {
+          border: 6px solid #ed8b37;
+          background: #ed8b37;
+
+          &:hover, &.active {
+            background: rgb(201, 101, 15);
+          }
+        }
+
+        &:hover, &.active {
+          background: rgb(85, 129, 180);
+        }
+      }
+
+      a {
+        color: #FFFFFF;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+#content {
+  overflow: hidden;
+}
+
+#footer {
+  background: #FFFFFF;
+  text-align: center;
+  font-size: 130%;
+  font-weight: bold;
+
+  .logosWrapper {
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 0;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0.5em 3em;
+    }
+  }
+}
+
+.distributedItems {
+  text-align: justify;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+
+  .item {
+    display: inline-block;
+    width: 31%;
+  }
+
+  .stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+  }
+}
+
+
+.page-siteIndex {
+  .coin-slider {
+    float: none;
+  }
+
+  .desc {
+    margin: 0.5em 0;
+  }
+}
+
+.productbox.productsPage {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: auto;
+  padding: 1em 2em;
+  margin: 0;
+
+  h1:first-child {
+    margin-top: 0;
+  }
+
+  .forHome {
+    position: relative;
+    min-height: 414px;
+    margin-bottom: 25px;
+    padding-left: 535px;
+
+    background: url('../images/broch.png') no-repeat scroll left top;
+
+    p.textUnderImage {
+      position: absolute;
+      left: 535px;
+      top: 300px;
+    }
+  }
+
+  .forOnline {
+
+    .servicesList {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        display: inline-block;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 50%;
+        vertical-align: top;
+        margin: 0.5em 0;
+
+        .imageWrapper {
+          width: 80px;
+          text-align: right;
+          padding-right: 1em;
+          float: left;
+        }
+
+        span {
+          vertical-align: middle;
+          font-weight: bold;
+          font-family: Helvetica, sans-serif;
+          font-size: 118%;
+          color: #707070;
+        }
+      }
+    }
+
+    table {
+      margin-top: 2em;
+      margin-bottom: 0;
+
+      td {
+        vertical-align: top;
+      }
+
+      td.registerBlock {
+        width: 30%;
+
+        .registerButton {
+          text-decoration: none;
+        }
+
+        .powerblock {
+          padding-top: 1em;
+          padding-bottom: 1em;
+        }
+      }
+    }
+  }
+}
+
+.relatedProducts {
+  list-style: none;
+  margin: 2% 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  li {
+    display: table-cell;
+    vertical-align: top;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 49%;
+    padding: 1em;
+
+    &:first-child {
+      margin-right: 2%;
+    }
+
+    &.spacer {
+      width: 2%;
+    }
+
+    .imageWrapper {
+      float: left;
+      margin-right: 1em;
+    }
+
+    .productTitle span {
+      color: #5581b4;
+      font-size: 85%;
+      font-family: OsloLight, sans-serif;
+    }
+
+  }
+}
+
+.aboutPage {
+  padding-bottom: 1em;
+
+  .rightColumn {
+    width: 33%;
+    float: right;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 0 0 1em;
+
+    .regiserButton {
+      text-decoration: none;
+    }
+  }
+
+  .mainColumn {
+    margin-right: 33%;
+
+    >.contentWrapper {
+      padding: 1em;
+    }
+  }
+}
+
+.page-userRegister {
+
+  .mainContentWrapper {
+    padding: 0 1em;
+  }
+
+  .registrationFormWrapper {
+    padding: 1em;
+
+    .stepsWrapper {
+      display: table;
+      width: 60%;
+      margin-bottom: 2em;
+
+      .spacer {
+        width: 4%;
+        display: table-cell;
+      }
+
+      .powerblock {
+        display: table-cell;
+        vertical-align: middle;
+        width: 48%;
+        height: 100%;
+        margin-right: 1em;
+        text-align: left;
+        opacity: .5;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
 .step-header {
     font: Verdana, Arial, Helvetica, sans-serif;
     font-size: 120%;

@@ -1,23 +1,26 @@
-.productbox
-    .abouthead(style='margin-bottom: 15px;') Join Our Beta Test
-    .aboutfounder(style='margin-bottom: 15px;')
-        h2 Welcome!
+.mainContentWrapper
+    h2 Join Our Beta Test
+    h3 Welcome!
     p
         | Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
-    .aboutfounder Just 2 easy steps...
-    .powerblock(style='width: 235px; height: 117px; float: left; margin: 15px 57px 30px 20px; padding-top: 30px;') Create Account
-    .powerblock(style='width: 235px; height: 117px; float: left; margin: 15px 338px 30px 0px; padding-top: 30px; background: rgb(246,200,159); border-color: rgb(206, 167, 133);') Complete Your Child's Profile
-    p(style='margin-left: 20px;') (All fields are required.)
-    //form(style='margin-left: 90px;', action=$this->createUrl('user/register'), accept-charset='utf-8', method='post')
-    !=$form->renderBegin()
-        div(style='width: 380px; text-align: right;')
-            div.row
-                !=$form['user']['email']
-            div.row
-                !=$form['user']['password']
-            div.row
-                !=$form['user']['name']
-            div.row(style='margin-bottom: 60px; position: relative;')
-                !=$form->buttons['register']
+    h3 Just 2 easy steps...
+    .panel.registrationFormWrapper
+        .stepsWrapper
+            .powerblock.active Create Account
+            .spacer
+            .powerblock Complete Your Child's Profile
+        p (All fields are required.)
+        //form(style='margin-left: 90px;', action=$this->createUrl('user/register'), accept-charset='utf-8', method='post')
+        !=$form->renderBegin()
+            div(style='width: 380px; text-align: right;')
+                div.row
+                    !=$form['user']['email']
+                div.row
+                    !=$form['user']['password']
+                div.row
+                    !=$form['user']['name']
+                div.row(style='margin-bottom: 60px; position: relative;')
+                    !=$form->buttons['register']
 
-    !=$form->renderEnd();
+        !=$form->renderEnd();
+include ../site/pages/relatedProducts.jade
