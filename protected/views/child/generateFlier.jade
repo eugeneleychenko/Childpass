@@ -1,0 +1,52 @@
+.flierWrapper.panel.contentWrapper
+    .mainSection
+        img(src=$this->baseUrl . '/children/' . $child->primaryKey . '/photos/79.jpg')
+        .childData
+            h1.childName=child.name
+            .row
+                label Date of birth:
+                =child.birthday
+            .row
+                label Missing date:
+                =child.birthday
+            .row
+                label Age at time of disappearance:
+                =child.birthday
+            .row
+                label Sex:
+                =child.gender
+            .row
+                label Race:
+                =child.ethnicity.name
+            .row
+                label Eyes:
+                =child.eyesColor.name
+            .row
+                label Hair:
+                =child.hairColor.name
+            .row
+                label Height:
+                =child.heightFeet
+                | '
+                =child.heightInches
+                | "
+            .row
+                label Weight:
+                =child.weight
+            .row
+                label Missing from:
+
+    .description
+        p.
+            Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
+        p.
+            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
+            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
+            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
+            Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
+    .footer
+        img.logo(src=$this->baseUrl . '/images/CP_logo.png')
+        strong.warning
+            | If you have any information, please call (911) immediately!

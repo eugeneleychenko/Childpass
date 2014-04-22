@@ -529,3 +529,53 @@ hr {
         }
     }
 }
+
+
+.flierWrapper {
+  padding-right: 3em;
+
+  .mainSection {
+    overflow: hidden;
+    margin-bottom: 2em;
+
+    img {
+      float: left;
+      max-width: 48%;
+      margin-right: 2%;
+    }
+
+    .childData {
+      margin-left: 50%;
+      line-height: 2;
+
+      .childName {
+        text-transform: uppercase;
+        margin-top: 0;
+        line-height: 1;
+        margin-bottom: 0.5em;
+      }
+
+      label {
+        color: #FF0000;
+        text-transform: uppercase;
+        margin-right: 0.5em;
+      }
+    }
+
+  }
+
+  .footer {
+
+    .warning {
+      color: #FF0000;
+      font-size: 200%;
+      float: right;
+      width: 50%;
+      font-weight: normal;
+    }
+
+    .logo {
+      margin-top: 0;
+    }
+  }
+}

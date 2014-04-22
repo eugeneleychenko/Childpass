@@ -210,4 +210,14 @@ class ChildController extends Controller
         }
     }
 
+    public function actionGenerateFlier($id)
+    {
+        $child = Child::model()->findByPk($id);
+
+        $this->render('generateFlier', array(
+            'child' => $child,
+        ));
+
+    }
+
 }
