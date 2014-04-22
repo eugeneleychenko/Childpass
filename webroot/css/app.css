@@ -551,14 +551,14 @@ table {
 }
 
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'helvetica';
   src: url("../fonts/helvetica/helvetica.eot");
   src: url("../fonts/helvetica/helvetica.eot") format("embedded-opentype"), url("../fonts/helvetica/helvetica.woff") format("woff"), url("../fonts/helvetica/helvetica.ttf") format("truetype"), url("../fonts/helvetica/helvetica.svg#HelveticaRegular") format("svg");
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'helvetica';
   src: url("../fonts/helvetica_bold/helvetica-bold.eot");
   src: url("../fonts/helvetica_bold/helvetica-bold.eot") format("embedded-opentype"), url("../fonts/helvetica_bold/helvetica-bold.woff") format("woff"), url("../fonts/helvetica_bold/helvetica-bold.ttf") format("truetype"), url("../fonts/helvetica_bold/helvetica-bold.svg#HelveticaBold") format("svg");
   font-weight: bold;
@@ -581,7 +581,7 @@ html, body {
 /* line 43, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 h1, h2, h3 {
   font-weight: bold;
-  font-family: Helvetica, sans-serif;
+  font-family: helvetica, sans-serif;
 }
 
 /* line 48, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
@@ -681,7 +681,7 @@ hr {
 #header .logoWrapper .hintText {
   padding-left: 22px;
   font-weight: bold;
-  font-family: Helvetica, Sans-Serif;
+  font-family: helvetica, Sans-Serif;
   font-size: 118%;
 }
 /* line 137, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
@@ -699,7 +699,7 @@ hr {
   list-style: none;
   margin-bottom: 10px;
   height: 64px;
-  font-family: Helvetica, sans-serif;
+  font-family: helvetica, sans-serif;
   display: table;
   width: 100%;
   background: #002F66;
@@ -837,7 +837,7 @@ hr {
 .productbox.productsPage .forOnline .servicesList li span {
   vertical-align: middle;
   font-weight: bold;
-  font-family: Helvetica, sans-serif;
+  font-family: helvetica, sans-serif;
   font-size: 118%;
   color: #707070;
 }

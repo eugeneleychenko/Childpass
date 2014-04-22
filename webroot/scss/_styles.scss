@@ -3,7 +3,7 @@
 @include all-icons-sprites(true);
 
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'helvetica';
   src: url('../fonts/helvetica/helvetica.eot');
   src: url('../fonts/helvetica/helvetica.eot') format('embedded-opentype'),
   url('../fonts/helvetica/helvetica.woff') format('woff'),
@@ -14,7 +14,7 @@
 }
 
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'helvetica';
   src: url('../fonts/helvetica_bold/helvetica-bold.eot');
   src: url('../fonts/helvetica_bold/helvetica-bold.eot') format('embedded-opentype'),
   url('../fonts/helvetica_bold/helvetica-bold.woff') format('woff'),
@@ -42,7 +42,7 @@ html, body {
 
 h1, h2, h3 {
   font-weight: bold;
-  font-family: Helvetica, sans-serif;
+  font-family: helvetica, sans-serif;
 }
 
 h1 {
@@ -129,7 +129,7 @@ hr {
     .hintText {
       padding-left: 22px;
       font-weight: bold;
-      font-family: Helvetica, Sans-Serif;
+      font-family: helvetica, Sans-Serif;
       font-size: 118%;
     }
   }
@@ -152,7 +152,7 @@ hr {
       list-style: none;
       margin-bottom: 10px;
       height: 64px;
-      font-family: Helvetica, sans-serif;
+      font-family: helvetica, sans-serif;
       display: table;
       width: 100%;
       background: #002F66;
@@ -290,7 +290,7 @@ hr {
         span {
           vertical-align: middle;
           font-weight: bold;
-          font-family: Helvetica, sans-serif;
+          font-family: helvetica, sans-serif;
           font-size: 118%;
           color: #707070;
         }

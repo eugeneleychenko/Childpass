@@ -43,7 +43,7 @@ by including the font-family in $this->sans_fonts below
 To aid backwards compatability some are included:
 */
 $this->fonttrans = array(
-	'helvetica' => 'arial',
+//	'helvetica' => 'arial',
 	'times' => 'timesnewroman',
 	'courier' => 'couriernew',
 	'trebuchet' => 'trebuchetms',
@@ -197,6 +197,14 @@ $this->fontdata = array(
 		'I' => "XB Zar It.ttf",
 		'BI' => "XB Zar BdIt.ttf",
 		'unAGlyphs' => true,
+		),
+
+	"helvetica" => array(
+		'R' => "helvetica.ttf",
+		'B' => "helvetica-bold.ttf",
+		),
+    "tahoma" => array(
+		'R' => "Tahoma.ttf",
 		),
 
 
