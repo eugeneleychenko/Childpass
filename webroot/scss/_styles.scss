@@ -536,16 +536,21 @@ hr {
 
   .mainSection {
     overflow: hidden;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 
-    img {
+    .photoWrapper {
       float: left;
-      max-width: 48%;
-      margin-right: 2%;
+      width: 48%;
+
+      img {
+        max-width: 100%;
+      }
     }
 
     .childData {
-      margin-left: 50%;
+      float: left;
+      margin-left: 2%;
+      width: 40%;
       line-height: 1.5;
 
       .childName {
@@ -555,24 +560,28 @@ hr {
         margin-bottom: 0.5em;
       }
 
-      label {
+      .fieldName {
         color: #FF0000;
         text-transform: uppercase;
-        margin-right: 0.5em;
+        //padding-right: 0.5em;
       }
     }
 
   }
 
   .footer {
-    margin-top: 3em;
+    margin-top: 2em;
+    overflow: hidden;
 
-    .warning {
-      color: #FF0000;
-      font-size: 200%;
+    .warningWrapper {
       float: right;
       width: 50%;
-      font-weight: normal;
+
+      .warning {
+        color: #FF0000;
+        font-size: 180%;
+        font-weight: normal;
+      }
     }
 
     .logo {

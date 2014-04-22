@@ -1,54 +1,67 @@
 .flierWrapper.panel.contentWrapper
     .mainSection
-        img(src=$this->baseUrl . '/children/' . $child->primaryKey . '/photos/79.jpg')
+        .photoWrapper
+            img(src=$this->baseUrl . '/children/' . $child->primaryKey . '/photos/79.jpg')
         .childData
-            h1.childName=child.name
+            h1.childName=child->name
             .row
-                label Date of birth:
+                span.fieldName Date of birth:
+                !=' '
                 -$birthday = date('F d, Y', strtotime($child->birthday))
                 =birthday
             .row
-                label Missing date:
-                =missingInfo.date
+                span.fieldName Missing date:
+                !=' '
+                =missingInfo["date"]
             .row
-                label Age at time of disappearance:
-                =missingInfo.age
+                span.fieldName Age at time of disappearance:
+                !=' '
+                =missingInfo->age
             .row
-                label Sex:
-                =child.gender
+                span.fieldName Sex:
+                !=' '
+                =child->gender
             .row
-                label Race:
-                =child.ethnicity.name
+                span.fieldName Race:
+                !=' '
+                =child->ethnicity->name
             .row
-                label Eyes:
-                =child.eyesColor.name
+                span.fieldName Eyes:
+                !=' '
+                =child->eyesColor->name
             .row
-                label Hair:
-                =child.hairColor.name
-            .row
-                label Height:
-                -$heightFeet   = $child->height_feet   ? $child->height_feet   . "'" : "";
-                -$heightInches = $child->height_inches ? $child->height_inches . '"' : '';
-                =heightFeet
-                =heightInches
-            .row
-                label Weight:
-                =child.weight
-            .row
-                label Missing from:
-                =missingInfo.from
+                span.fieldName Hair:
+                !=' '
+                =child->hairColor->name
+
+            -$heightFeet   = $child->height_feet   ? $child->height_feet   . "'" : "";
+            -$heightInches = $child->height_inches ? $child->height_inches . '"' : '';
+            -$height = $heightFeet . $heightInches
+            -if ($height):
+                .row
+                    span.fieldName Height:
+                    !=' '
+                    =height
+            -if ($child->weight):
+                .row
+                    span.fieldName Weight:
+                    !=' '
+                    =child->weight
+            -if ($missingInfo["from"]):
+                .row
+                    span.fieldName Missing from:
+                    !=' '
+                    =missingInfo["from"]
 
     .description
         p.
             Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
-            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
         p.
             Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
-            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
-            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
             Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
-            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
     .footer
-        img.logo(src=$this->baseUrl . '/images/CP_logo.png')
-        strong.warning
-            | If you have any information, please call (911) immediately!
+        .warningWrapper
+            strong.warning
+                | If you have any information, please call (911) immediately!
+        .logoWrapper
+            img.logo(src=$this->baseUrl . '/images/CP_logo.png')

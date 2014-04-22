@@ -228,4 +228,42 @@ class ChildController extends Controller
 
     }
 
+    public function actionDownloadFlier($id)
+    {
+        /** @var Child $child */
+        $child = Child::model()->findByPk($id);
+
+        $missingInfo = array(
+            'date' => date('F d, Y'),
+            'age'   => $child->getAge(),
+            'from'  => '',
+        );
+
+
+
+        # mPDF
+        //$mPDF1 = Yii::app()->ePdf->mpdf();
+
+        # You can easily override default constructor's params
+        $mPDF1 = Yii::app()->ePdf->mpdf('','Letter-L');
+
+        # render (full page)
+        /*$mPDF1->WriteHTML($this->render('generateFlier', array('child'       => $child,
+                                                               'missingInfo' => $missingInfo,), true));*/
+
+        # Load a stylesheet
+        $stylesheet = file_get_contents(Yii::getPathOfAlias('webroot.css') . '/app.css');
+        $mPDF1->WriteHTML($stylesheet, 1);
+
+        # renderPartial (only 'view' of current controller)
+        $mPDF1->WriteHTML($this->renderPartial('generateFlier', array('child'       => $child,
+                                                               'missingInfo' => $missingInfo,), true));
+
+        # Renders image
+        //$mPDF1->WriteHTML(CHtml::image(Yii::getPathOfAlias('webroot.css') . '/bg.gif' ));
+
+        # Outputs ready PDF
+        $mPDF1->Output();
+    }
+
 }

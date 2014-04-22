@@ -1076,45 +1076,53 @@ hr {
 /* line 537, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .mainSection {
   overflow: hidden;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 /* line 541, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
-.flierWrapper .mainSection img {
+.flierWrapper .mainSection .photoWrapper {
   float: left;
-  max-width: 48%;
-  margin-right: 2%;
+  width: 48%;
 }
-/* line 547, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 545, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.flierWrapper .mainSection .photoWrapper img {
+  max-width: 100%;
+}
+/* line 550, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .mainSection .childData {
-  margin-left: 50%;
+  float: left;
+  margin-left: 2%;
+  width: 40%;
   line-height: 1.5;
 }
-/* line 551, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 556, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .mainSection .childData .childName {
   text-transform: uppercase;
   margin-top: 0;
   line-height: 1;
   margin-bottom: 0.5em;
 }
-/* line 558, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
-.flierWrapper .mainSection .childData label {
+/* line 563, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.flierWrapper .mainSection .childData .fieldName {
   color: #FF0000;
   text-transform: uppercase;
-  margin-right: 0.5em;
 }
-/* line 567, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 572, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .footer {
-  margin-top: 3em;
+  margin-top: 2em;
+  overflow: hidden;
 }
-/* line 570, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
-.flierWrapper .footer .warning {
-  color: #FF0000;
-  font-size: 200%;
+/* line 576, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.flierWrapper .footer .warningWrapper {
   float: right;
   width: 50%;
+}
+/* line 580, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.flierWrapper .footer .warningWrapper .warning {
+  color: #FF0000;
+  font-size: 180%;
   font-weight: normal;
 }
-/* line 578, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+/* line 587, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
 .flierWrapper .footer .logo {
   margin-top: 0;
 }
