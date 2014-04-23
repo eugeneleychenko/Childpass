@@ -146,6 +146,21 @@ hr {
       position: absolute;
       top: 0;
       left: 360px;
+      right: 0;
+    }
+
+    .activateAlert {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 200px;
+      text-align: center;
+      padding: 0.5em 0.5em;
+      background: #FF0000;
+      color: #FFFFFF;
+      float: right;
+      border: 2px solid #002F66;
+      text-transform: uppercase;
+      text-decoration: none;
     }
 
     .nav {
@@ -510,8 +525,17 @@ hr {
 
         .edit-link {
             display: block;
-            padding-top: 10px;
+            padding: 10px 0.2em 0.2em;
             color: #002F66;
+        }
+
+        .flyer-link {
+          background: #FF0000;
+          color: #FFFFFF;
+          text-decoration: none;
+          padding: 0.2em;
+          display: block;
+          //margin-: 1em;
         }
 
         .child-photo {

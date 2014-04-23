@@ -247,7 +247,8 @@ class ChildController extends Controller
         );
 
         # Outputs ready PDF
-        $mPDF1->Output();
+        $fileName = $missingInfo['child']->name . ' is missing';
+        $mPDF1->Output($fileName, 'D');
     }
 
 }

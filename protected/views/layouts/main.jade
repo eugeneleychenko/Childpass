@@ -30,6 +30,10 @@ html(lang='en')
                             img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
                 .mainMenuWrapper
                     #infoMessage
+                        -if (!Yii::app()->user->isGuest):
+                            a.activateAlert(href=$this->createUrl('child/list')) Activate
+                                br
+                                | Emergency Alert
                         :php
                             $this->widget('application.components.LoginFormWidget');
                     ul.nav
