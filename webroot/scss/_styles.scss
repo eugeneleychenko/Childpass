@@ -529,3 +529,16 @@ hr {
         }
     }
 }
+
+.errorbox {
+    float:left;
+    color: #D8000C;
+    background-color: #FFBABA;
+    border: 1px solid;
+    margin: 15px 0px 0px 12px;
+    padding: 14px 30px 15px 20px;
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+}

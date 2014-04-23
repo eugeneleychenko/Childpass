@@ -25,4 +25,12 @@ class WebUser extends CWebUser {
 
         return false;
     }
+
+    function getIsActive() {
+        if($user = $this->getModel()){
+            return $user->is_active;
+        }
+
+        return false;
+    }
 }

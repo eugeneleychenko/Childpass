@@ -201,16 +201,24 @@ class UserController extends Controller
         $this->layout = 'main';
         $model=new LoginForm;
 
-        if(isset($_POST['LoginForm']))
-        {
+        if(isset($_POST['LoginForm'])) {
             $model->attributes=$_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
             if($model->validate() && $model->login()) {
-                $this->redirect(Yii::app()->homeUrl);
+                if (!Yii::app()->user->getIsActive()) {
+                    Yii::app()->user->logout();
+                    $this->render('error', array('message' => 'You have not activated your account. Please activate your account before entering the site. Activation instructions sent to your email.'));
+                } else {
+                    if (Child::model()->findAll('user_id = :user_id', array(':user_id' => Yii::app()->user->getId()))) {
+                        $this->redirect(Yii::app()->homeUrl);
+                    } else {
+                        $this->redirect('/child/add/step1');
+                    }
+                }
             }
+        } else {
+            $this->render('login', array('model' => $model));
         }
-        // display the login form
-        $this->render('login', array('model' => $model));
     }
 
     /**
