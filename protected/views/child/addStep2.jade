@@ -25,6 +25,14 @@
                 span Survey
 .panel
     .contentWrapper
+        .child-photos
+            ul
+                - foreach ($data['childPhotos'] as $photo):
+                    li
+                        .child-photo(data-photo_id=$photo->id)
+                            img(src = $photo->filename)
+                            .photo-delete.icons-cancel_grey(onclick='deleteChildPhoto(this)')
+                - endforeach
         !=$form->renderBegin()
             div(style='width: 380px; text-align: right;')
                 .row

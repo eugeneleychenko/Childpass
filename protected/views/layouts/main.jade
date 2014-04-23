@@ -49,10 +49,14 @@ html(lang='en')
                             a(href=$this->createUrl('site/page', array('view'=>'faq')))
                                 | FAQ
                         li.reg
-                            a(href=$this->createUrl('user/register'))
-                                | Join Our
-                                br
-                                | Beta Test
+                            - if (Yii::app()->user->isGuest):
+                                a(href=$this->createUrl('user/register'))
+                                    | Join Our
+                                    br
+                                    | Beta Test
+                            - else:
+                                a(href=$this->createUrl('child/list'))
+                                    | My Kids
             #content
                 !=$content
 

@@ -2,11 +2,15 @@
     .contentWrapper
         .child-list
             ul
-                - foreach ($childList as $child):
-                    li
-                        h3!= $child->name
-                        - if(isset($child->childPhotos[0])):
-                            a(href = '/child/edit/'.$child->id)
-                                img(src = $child->childPhotos[0]->filename)
-                        a(href = '/child/edit/step1?child_id='.$child->id, class = 'edit-link') Edit Child
-                - endforeach
+                - if (empty($childList)):
+                    p You have not added any child.
+                    a.edit-link(href = '/child/add/step1') Add Child
+                - else
+                    - foreach ($childList as $child):
+                        li
+                            h3!= $child->name
+                            - if(isset($child->childPhotos[0])):
+                                a(href = '/child/add/step1?child_id='.$child->id)
+                                    img(src = $child->childPhotos[0]->filename)
+                            a.edit-link(href = '/child/add/step1?child_id='.$child->id) Edit Child
+                    - endforeach
