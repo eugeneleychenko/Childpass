@@ -1,13 +1,14 @@
 .flierWrapper.panel.contentWrapper
     .mainSection
         .photoWrapper
-            img(src=$this->baseUrl . '/children/' . $child->primaryKey . '/photos/79.jpg')
+            -if ($missingInfo['childPhoto']):
+                img(src=$missingInfo['childPhoto'])
         .childData
-            h1.childName=child->name
+            h1.childName=missingInfo['child']->name
             .row
                 span.fieldName Date of birth:
                 !=' '
-                -$birthday = date('F d, Y', strtotime($child->birthday))
+                -$birthday = date('F d, Y', strtotime($missingInfo['child']->birthday))
                 =birthday
             .row
                 span.fieldName Missing date:
@@ -16,37 +17,37 @@
             .row
                 span.fieldName Age at time of disappearance:
                 !=' '
-                =missingInfo->age
+                =missingInfo['age']
             .row
                 span.fieldName Sex:
                 !=' '
-                =child->gender
+                =missingInfo['child']->gender
             .row
                 span.fieldName Race:
                 !=' '
-                =child->ethnicity->name
+                =missingInfo['child']->ethnicity->name
             .row
                 span.fieldName Eyes:
                 !=' '
-                =child->eyesColor->name
+                =missingInfo['child']->eyesColor->name
             .row
                 span.fieldName Hair:
                 !=' '
-                =child->hairColor->name
+                =missingInfo['child']->hairColor->name
 
-            -$heightFeet   = $child->height_feet   ? $child->height_feet   . "'" : "";
-            -$heightInches = $child->height_inches ? $child->height_inches . '"' : '';
+            -$heightFeet   = $missingInfo['child']->height_feet   ? $missingInfo['child']->height_feet   . "'" : "";
+            -$heightInches = $missingInfo['child']->height_inches ? $missingInfo['child']->height_inches . '"' : '';
             -$height = $heightFeet . $heightInches
             -if ($height):
                 .row
                     span.fieldName Height:
                     !=' '
                     =height
-            -if ($child->weight):
+            -if ($missingInfo['child']->weight):
                 .row
                     span.fieldName Weight:
                     !=' '
-                    =child->weight
+                    =missingInfo['child']->weight
             -if ($missingInfo["from"]):
                 .row
                     span.fieldName Missing from:

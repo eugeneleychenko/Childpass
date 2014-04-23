@@ -55,7 +55,7 @@ class ChildController extends Controller
                 $form = new CForm('application.views.child.add' . ucfirst($step) . 'Form');
 
                 $form['child']->model = new ChildPhoto();
-                $childId = $_GET['child_id'];
+                $childId              = $_GET['child_id'];
 
                 $this->render(
                     'add' . ucfirst($step), array(
@@ -68,7 +68,9 @@ class ChildController extends Controller
 
                     if (!empty($images)) {
                         $savePath = Yii::getPathOfAlias('webroot') . "/children/{$childId}/photos/";
-                        if (!is_dir($savePath)) mkdir($savePath, 0777, true);
+                        if (!is_dir($savePath)) {
+                            mkdir($savePath, 0777, true);
+                        }
                         foreach ($images as $image => $pic) {
 
                             if ($pic->saveAs($savePath . $pic->name)) {
@@ -79,7 +81,7 @@ class ChildController extends Controller
                                 $photo->save();
                             } else {
                                 $form['child']->model->addError;
-                                
+
                                 echo 'Cannot upload!';
                             }
                         }
@@ -110,17 +112,20 @@ class ChildController extends Controller
 
         $childList = Child::model()->with(
             array('childPhotos' => array(
-                'select' => array('filename'),
+                'select'   => array('filename'),
                 'joinType' => 'LEFT JOIN',
-                'order' => 'is_main DESC'
+                'order'    => 'is_main DESC'
             ),
-        ))->findAll('user_id = :user_id', array(':user_id' => $userId));
+            )
+        )->findAll('user_id = :user_id', array(':user_id' => $userId));
 
         foreach ($childList as &$child) {
             if (isset($child->childPhotos[0])) {
                 foreach ($child->childPhotos as $key => $photo) {
                     if (!$key) {
-                        $photo->filename = Yii::app()->request->getBaseUrl(true).'/children/'.$child->id.'/photos/'.$photo->filename;
+                        $photo->filename
+                            = Yii::app()->request->getBaseUrl(true) . '/children/' . $child->id . '/photos/'
+                            . $photo->filename;
                     }
                 }
             } else {
@@ -138,7 +143,7 @@ class ChildController extends Controller
 
     public function actionEdit($step = 'step1')
     {
-        if($childId = $_GET['child_id']) {
+        if ($childId = $_GET['child_id']) {
             switch ($step) {
                 case 'step1':
                     $form = new CForm('application.views.child.addStep1Form');
@@ -168,12 +173,13 @@ class ChildController extends Controller
 
                     $childPhotos = ChildPhoto::model()->findAll('child_id = :child_id', array(':child_id' => $childId));
                     foreach ($childPhotos as $photo) {
-                        $photo->filename = Yii::app()->request->getBaseUrl(true).'/children/'.$childId.'/photos/'.$photo->filename;
+                        $photo->filename = Yii::app()->request->getBaseUrl(true) . '/children/' . $childId . '/photos/'
+                            . $photo->filename;
                     }
 
                     $this->render(
                         'editStep2', array(
-                            'form' => $form,
+                            'form'        => $form,
                             'childPhotos' => $childPhotos
                         )
                     );
@@ -183,7 +189,9 @@ class ChildController extends Controller
 
                         if (!empty($images)) {
                             $savePath = Yii::getPathOfAlias('webroot') . "/children/{$childId}/photos/";
-                            if (!is_dir($savePath)) mkdir($savePath, 0777, true);
+                            if (!is_dir($savePath)) {
+                                mkdir($savePath, 0777, true);
+                            }
                             foreach ($images as $image => $pic) {
 
                                 if ($pic->saveAs($savePath . $pic->name)) {
@@ -210,57 +218,33 @@ class ChildController extends Controller
         }
     }
 
-    public function actionGenerateFlier($id)
+    public function actionGenerateFlyer($id)
     {
-        /** @var Child $child */
-        $child = Child::model()->findByPk($id);
+        $missingInfo = Child::model()->getMissingInfo($id);
 
-        $missingInfo = array(
-            'date' => date('F d, Y'),
-            'age'   => $child->getAge(),
-            'from'  => '',
+        $this->render(
+            'generateFlyer', array(
+                'missingInfo'   => $missingInfo,
+            )
         );
-
-        $this->render('generateFlier', array(
-            'child'       => $child,
-            'missingInfo' => $missingInfo,
-        ));
 
     }
 
-    public function actionDownloadFlier($id)
+    public function actionDownloadFlyer($id)
     {
-        /** @var Child $child */
-        $child = Child::model()->findByPk($id);
-
-        $missingInfo = array(
-            'date' => date('F d, Y'),
-            'age'   => $child->getAge(),
-            'from'  => '',
-        );
-
-
-
-        # mPDF
-        //$mPDF1 = Yii::app()->ePdf->mpdf();
+        $missingInfo = Child::model()->getMissingInfo($id);
 
         # You can easily override default constructor's params
-        $mPDF1 = Yii::app()->ePdf->mpdf('','Letter-L');
-
-        # render (full page)
-        /*$mPDF1->WriteHTML($this->render('generateFlier', array('child'       => $child,
-                                                               'missingInfo' => $missingInfo,), true));*/
+        $mPDF1 = Yii::app()->ePdf->mpdf('', 'Letter-L');
 
         # Load a stylesheet
         $stylesheet = file_get_contents(Yii::getPathOfAlias('webroot.css') . '/app.css');
         $mPDF1->WriteHTML($stylesheet, 1);
 
         # renderPartial (only 'view' of current controller)
-        $mPDF1->WriteHTML($this->renderPartial('generateFlier', array('child'       => $child,
-                                                               'missingInfo' => $missingInfo,), true));
-
-        # Renders image
-        //$mPDF1->WriteHTML(CHtml::image(Yii::getPathOfAlias('webroot.css') . '/bg.gif' ));
+        $mPDF1->WriteHTML(
+            $this->renderPartial('generateFlyer', array('missingInfo' => $missingInfo,), true)
+        );
 
         # Outputs ready PDF
         $mPDF1->Output();

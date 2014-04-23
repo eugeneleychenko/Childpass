@@ -99,4 +99,8 @@ class ChildPhoto extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function getUrl() {
+        return Yii::app()->request->baseUrl . "/children/{$this->child_id}/photos/" . $this->filename;
+    }
 }

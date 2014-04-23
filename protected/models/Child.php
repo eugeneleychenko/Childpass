@@ -179,4 +179,26 @@ class Child extends CActiveRecord
         $interval = $now->diff($date);
         return $interval->y;
     }
+
+    public function getMissingInfo($childId)
+    {
+        /** @var Child $child */
+        $child = Child::model()->with('ethnicity', 'eyesColor', 'hairColor')->findByPk($childId);
+
+        $childPhotoUrl = false;
+        if (!empty($child->childPhotos[0])) {
+            $childPhotoUrl = $child->childPhotos[0]->getUrl();
+        }
+
+        $missingInfo = array(
+            'child'      => $child,
+            'date'       => date('F d, Y'),
+            'age'        => $child->getAge(),
+            'childPhoto' => $childPhotoUrl,
+            'from'       => '',
+        );
+
+        return $missingInfo;
+    }
+
 }
