@@ -65,4 +65,5 @@
             strong.warning
                 | If you have any information, please call (911) immediately!
         .logoWrapper
-            img.logo(src=$this->baseUrl . '/images/CP_logo.png')
+            -$baseUrl = Yii::app()->request->getBaseUrl(true);
+            img.logo(src=$baseUrl . "/images/CP_logo.png")
