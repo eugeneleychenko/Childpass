@@ -37,7 +37,7 @@ class ChildController extends Controller
         if ($childId) {
             $form['child']->model = Child::model()->findByPk($childId);
             if (!$form['child']->model->checkAccess()) {
-                $this->redirect(array('/child/list'));
+                $this->redirect(array('child/list'));
             }
         } else {
             $form['child']->model = new Child();
@@ -53,7 +53,7 @@ class ChildController extends Controller
                     $form['child']->model->user_id = Yii::app()->user->getId();
                     if ($form->validate()) {
                         if ($form['child']->model->save(false)) {
-                            $this->redirect(array('/child/add/step2', 'child_id' => $form['child']->model->id));
+                            $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $form['child']->model->id));
                         }
                     }
                 }
@@ -87,7 +87,7 @@ class ChildController extends Controller
                             }
                         }
                     }
-                    $this->redirect(array('/child/add/step3', 'child_id' => $childId));
+                    $this->redirect(array('child/add', 'step' => 'step3', 'child_id' => $childId));
                 } else {
                     $childPhotos = ChildPhoto::model()->findAll('child_id = :child_id', array(':child_id' => $childId));
                     foreach ($childPhotos as $photo) {
@@ -97,7 +97,7 @@ class ChildController extends Controller
                 }
 
                 if ($form->submitted('prev_step')) {
-                    $this->redirect(array('/child/add/step1', 'child_id' => $childId));
+                    $this->redirect(array('child/add', 'step' => 'step1', 'child_id' => $childId));
                 }
 
                 break;
@@ -105,10 +105,10 @@ class ChildController extends Controller
                 if ($form->submitted('next_step')) {
                     $form['child']->model->teeth = $_POST['Child']['teeth'];
                     if ($form['child']->model->save(false)) {
-                        $this->redirect(array('/child/list'));
+                        $this->redirect(array('child/list'));
                     }
                 } elseif ($form->submitted('prev_step')) {
-                    $this->redirect(array('/child/add/step2', 'child_id' => $childId));
+                    $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $childId));
                 }
                 break;
             case 'step4':

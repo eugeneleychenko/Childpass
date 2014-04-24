@@ -36,7 +36,7 @@ class UserController extends Controller
     public function actionRegister()
     {
         if (!Yii::app()->user->isGuest) {
-            $this->redirect(array('child/add'));
+            $this->redirect(array('child/add', 'step' => 'step1'));
         }
 
         $form = new CForm('application.views.user.registrationForm');
@@ -212,7 +212,7 @@ class UserController extends Controller
                     if (Child::model()->findAll('user_id = :user_id', array(':user_id' => Yii::app()->user->getId()))) {
                         $this->redirect(Yii::app()->homeUrl);
                     } else {
-                        $this->redirect('/child/add/step1');
+                        $this->redirect(array('child/add', 'step' => 'step1'));
                     }
                 }
             }
