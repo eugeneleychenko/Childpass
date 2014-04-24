@@ -80,7 +80,7 @@ class ChildController extends Controller
                             }
                         }
                     }
-                    $this->redirect(array('child/add/step3'));
+                    $this->redirect(array('/child/add/step3', 'child_id' => $childId));
                 } else {
                     $childPhotos = ChildPhoto::model()->findAll('child_id = :child_id', array(':child_id' => $childId));
                     foreach ($childPhotos as $photo) {
@@ -91,8 +91,16 @@ class ChildController extends Controller
 
                 break;
             case 'step3':
-                $form['child']->model = new Child();
+                $form['child']->model = Child::model()->findByPk($childId);
 
+                if ($form->submitted('addStep3')) {
+                    $form['child']->model->teeth = $_POST['Child']['teeth'];
+                    if ($form['child']->model->save(false)) {
+                        $this->redirect(array('/child/add/step3', 'child_id' => $childId));
+                    }
+                } else {
+                    $form['child']->model = Child::model()->findByPk($childId);
+                }
                 break;
             case 'step4':
                 break;

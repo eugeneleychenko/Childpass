@@ -4,14 +4,11 @@ return array(
     'activeForm' => array(
         'class'                  => 'CActiveForm',
         'enableAjaxValidation'   => false,
-        'enableClientValidation' => true,
-        'id'                     => 'child-dental-form',
+        'enableClientValidation' => false,
+        'id'                     => 'child-teeth-form',
         'clientOptions'          => array(
-            'validateOnSubmit' => true,
-        ),
-        'htmlOptions'            => array(
-            'enctype' => 'multipart/form-data',
-        ),
+            'validateOnSubmit' => false,
+        )
     ),
 
     'elements' => array(
@@ -19,10 +16,10 @@ return array(
             'type' => 'form',
             'title' => false,
             'elements' => array(
-//                'image' => array(
-//                    'type'  => 'file',
-//                    'class' => 'fieldstyle',
-//                ),
+                'teeth' => array(
+                    'type'  => 'hidden',
+                    'id' => 'teeth_array',
+                ),
             ),
         ),
     ),

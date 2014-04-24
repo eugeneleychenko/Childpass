@@ -24,6 +24,7 @@
  * @property string $school_address2
  * @property string $school_zip_code
  * @property string $known_relatives
+ * @property string $teeth
  * @property string $missing_date
  * @property string $missing_from
  *
@@ -72,7 +73,7 @@ class Child extends CActiveRecord
 			array('birthday, missing_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, created_at, name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives, missing_date, missing_from', 'safe', 'on'=>'search'),
+			array('id, user_id, created_at, name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives, teeth, missing_date, missing_from', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -119,6 +120,7 @@ class Child extends CActiveRecord
 			'school_address2' => 'School Address2',
 			'school_zip_code' => 'School Zip Code',
 			'known_relatives' => 'Known Relatives',
+            'teeth' => 'Teeth',
 			'missing_date' => 'Missing Date',
 			'missing_from' => 'Missing From',
 		);
@@ -156,6 +158,7 @@ class Child extends CActiveRecord
 		$criteria->compare('school_address2',$this->school_address2,true);
 		$criteria->compare('school_zip_code',$this->school_zip_code,true);
 		$criteria->compare('known_relatives',$this->known_relatives,true);
+        $criteria->compare('teeth',$this->teeth,true);
 		$criteria->compare('missing_date',$this->missing_date,true);
 		$criteria->compare('missing_from',$this->missing_from,true);
 

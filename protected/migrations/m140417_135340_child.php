@@ -41,6 +41,7 @@ class m140417_135340_child extends CDbMigration
             'school_address2'       => 'varchar(100) NULL',
             'school_zip_code'       => 'varchar(10) NULL',
             'known_relatives'       => 'varchar(255) NULL',
+            'teeth'                 => 'text NULL',
             'missing_date'          => 'datetime',
             'missing_from'          => 'varchar(255) NULL',
         ));

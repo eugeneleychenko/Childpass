@@ -26,9 +26,13 @@
     .clear
 .panel
     #teeth-area
-    .row(style='margin-bottom: 60px; position: relative; width: 500px; text-align: right;', onclick='teethSubmit()')
-        !=$form->buttons['addStep3']
+    !=$form->renderBegin()
+        .row
+            !=$form['child']['teeth']
+        .row(style='margin-bottom: 60px; position: relative; width: 500px; text-align: right;')
+            !=$form->buttons['addStep3']
+    !=$form->renderEnd();
 .clear
 :php
     Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/raphael/raphael-min.js');
-    Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/children.js');
+    Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/child/teeth.js');
