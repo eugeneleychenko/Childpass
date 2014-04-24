@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'runtimePath' => dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'runtime',
-    'name'=>'PGPF Interns',
+    'name'=>'Child Pass',
 
 	// preloading 'log' component
 	'preload'=>array('log', 'EJSUrlManager'),
@@ -37,7 +37,7 @@ return array(
         'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-            'loginUrl'=>array('site/login'),
+            'loginUrl'=>array('user/login'),
             'class' => 'WebUser',
 		),
         'common' => array(
@@ -55,6 +55,7 @@ return array(
                 'gii/<controller:[\w\-]+>/<action:[\w\-]+>'=>'gii/<controller>/<action>',
 
 				'<controller:[\w\-]+>/<action:[\w\-]+>/<id:\d+>'=>'<controller>/<action>',
+                '<controller:[\w\-]+>/<action:[\w\-]+>/<step:.+>'=>'<controller>/<action>',
 				'<controller:[\w\-]+>/<action:[\w\-]+>/<param1:.+>'=>'<controller>/<action>',
 				'<controller:[\w\-]+>/<action:[\w\-]+>'=>'<controller>/<action>',
 

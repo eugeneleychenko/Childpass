@@ -10,3 +10,4 @@ protected/config/server.development.php
 protected/config/console.php
 protected/config/server.production.php
 webroot/uploads/*
+webroot/children/*
