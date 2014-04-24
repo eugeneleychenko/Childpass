@@ -187,4 +187,34 @@ class Child extends CActiveRecord
     {
         return ($this->user_id == Yii::app()->user->getId()) ? true : false;
     }
+
+    public function getAge()
+    {
+        $date = new DateTime($this->birthday);
+        $now = new DateTime();
+        $interval = $now->diff($date);
+        return $interval->y;
+    }
+
+    public function getMissingInfo($childId)
+    {
+        /** @var Child $child */
+        $child = Child::model()->with('ethnicity', 'eyesColor', 'hairColor')->findByPk($childId);
+
+        $childPhotoUrl = false;
+        if (!empty($child->childPhotos[0])) {
+            $childPhotoUrl = $child->childPhotos[0]->getUrl();
+        }
+
+        $missingInfo = array(
+            'child'      => $child,
+            'date'       => date('F d, Y'),
+            'age'        => $child->getAge(),
+            'childPhoto' => $childPhotoUrl,
+            'from'       => '',
+        );
+
+        return $missingInfo;
+    }
+
 }

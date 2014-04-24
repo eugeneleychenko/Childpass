@@ -3,7 +3,7 @@
 @include all-icons-sprites(true);
 
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'helvetica';
   src: url('../fonts/helvetica/helvetica.eot');
   src: url('../fonts/helvetica/helvetica.eot') format('embedded-opentype'),
   url('../fonts/helvetica/helvetica.woff') format('woff'),
@@ -14,7 +14,7 @@
 }
 
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'helvetica';
   src: url('../fonts/helvetica_bold/helvetica-bold.eot');
   src: url('../fonts/helvetica_bold/helvetica-bold.eot') format('embedded-opentype'),
   url('../fonts/helvetica_bold/helvetica-bold.woff') format('woff'),
@@ -42,7 +42,7 @@ html, body {
 
 h1, h2, h3 {
   font-weight: bold;
-  font-family: Helvetica, sans-serif;
+  font-family: helvetica, sans-serif;
 }
 
 h1 {
@@ -129,7 +129,7 @@ hr {
     .hintText {
       padding-left: 22px;
       font-weight: bold;
-      font-family: Helvetica, Sans-Serif;
+      font-family: helvetica, Sans-Serif;
       font-size: 118%;
     }
   }
@@ -153,13 +153,28 @@ hr {
       position: absolute;
       top: 0;
       left: 360px;
+      right: 0;
+    }
+
+    .activateAlert {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 200px;
+      text-align: center;
+      padding: 0.5em 0.5em;
+      background: #FF0000;
+      color: #FFFFFF;
+      float: right;
+      border: 2px solid #002F66;
+      text-transform: uppercase;
+      text-decoration: none;
     }
 
     .nav {
       list-style: none;
       margin-bottom: 10px;
       height: 64px;
-      font-family: Helvetica, sans-serif;
+      font-family: helvetica, sans-serif;
       display: table;
       width: 100%;
       background: #002F66;
@@ -315,7 +330,7 @@ hr {
         span {
           vertical-align: middle;
           font-weight: bold;
-          font-family: Helvetica, sans-serif;
+          font-family: helvetica, sans-serif;
           font-size: 118%;
           color: #707070;
         }
@@ -537,8 +552,17 @@ hr {
 
         .edit-link {
             display: block;
-            padding-top: 10px;
+            padding: 10px 0.2em 0.2em;
             color: #002F66;
+        }
+
+        .flyer-link {
+          background: #FF0000;
+          color: #FFFFFF;
+          text-decoration: none;
+          padding: 0.2em;
+          display: block;
+          //margin-: 1em;
         }
 
         .child-photo {
@@ -569,4 +593,64 @@ hr {
 
 #teeth-area {
     margin: 30px;
+}
+
+.flyerWrapper {
+  padding-right: 3em;
+
+  .mainSection {
+    overflow: hidden;
+    margin-bottom: 1em;
+
+    .photoWrapper {
+      float: left;
+      width: 48%;
+
+      img {
+        max-width: 100%;
+        max-height: 300px;
+      }
+    }
+
+    .childData {
+      float: left;
+      margin-left: 2%;
+      width: 40%;
+      line-height: 1.5;
+
+      .childName {
+        text-transform: uppercase;
+        margin-top: 0;
+        line-height: 1;
+        margin-bottom: 0.5em;
+      }
+
+      .fieldName {
+        color: #FF0000;
+        text-transform: uppercase;
+        //padding-right: 0.5em;
+      }
+    }
+
+  }
+
+  .footer {
+    margin-top: 2em;
+    overflow: hidden;
+
+    .warningWrapper {
+      float: right;
+      width: 50%;
+
+      .warning {
+        color: #FF0000;
+        font-size: 180%;
+        font-weight: normal;
+      }
+    }
+
+    .logo {
+      margin-top: 0;
+    }
+  }
 }

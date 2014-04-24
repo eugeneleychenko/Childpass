@@ -12,5 +12,6 @@
                             - if(isset($child->childPhotos[0])):
                                 a(href = '/child/add/step1?child_id='.$child->id)
                                     img(src = $child->childPhotos[0]->filename)
+                            a(href = '/child/download-flyer/' . $child->id, class = 'flyer-link', target='_blank') Dowload Flyer
                             a.edit-link(href = '/child/add/step1?child_id='.$child->id) Edit Child
                     - endforeach

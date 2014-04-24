@@ -1,0 +1,68 @@
+.flyerWrapper.panel.contentWrapper
+    .mainSection
+        .photoWrapper
+            -if ($missingInfo['childPhoto']):
+                img(src=$missingInfo['childPhoto'])
+        .childData
+            h1.childName=missingInfo['child']->name
+            .row
+                span.fieldName Date of birth:
+                !=' '
+                -$birthday = date('F d, Y', strtotime($missingInfo['child']->birthday))
+                =birthday
+            .row
+                span.fieldName Missing date:
+                !=' '
+                =missingInfo["date"]
+            .row
+                span.fieldName Age at time of disappearance:
+                !=' '
+                =missingInfo['age']
+            .row
+                span.fieldName Sex:
+                !=' '
+                =missingInfo['child']->gender
+            .row
+                span.fieldName Race:
+                !=' '
+                =missingInfo['child']->ethnicity->name
+            .row
+                span.fieldName Eyes:
+                !=' '
+                =missingInfo['child']->eyesColor->name
+            .row
+                span.fieldName Hair:
+                !=' '
+                =missingInfo['child']->hairColor->name
+
+            -$heightFeet   = $missingInfo['child']->height_feet   ? $missingInfo['child']->height_feet   . "'" : "";
+            -$heightInches = $missingInfo['child']->height_inches ? $missingInfo['child']->height_inches . '"' : '';
+            -$height = $heightFeet . $heightInches
+            -if ($height):
+                .row
+                    span.fieldName Height:
+                    !=' '
+                    =height
+            -if ($missingInfo['child']->weight):
+                .row
+                    span.fieldName Weight:
+                    !=' '
+                    =missingInfo['child']->weight
+            -if ($missingInfo["from"]):
+                .row
+                    span.fieldName Missing from:
+                    !=' '
+                    =missingInfo["from"]
+
+    .description
+        p.
+            Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+        p.
+            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
+            Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+    .footer
+        .warningWrapper
+            strong.warning
+                | If you have any information, please call (911) immediately!
+        .logoWrapper
+            img.logo(src=$this->baseUrl . '/images/CP_logo.png')
