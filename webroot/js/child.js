@@ -13,7 +13,7 @@ function deleteChildPhoto(button) {
     var photo_item = button.closest('.child-photo');
     if (confirm("You really want to delete this photo?")) {
         $.ajax({
-            url: Yii.app.createUrl('childphoto/delete'),
+            url: Yii.app.createUrl('child-photo/delete'),
             data: {'photo_id': photo_item.attr('data-photo_id')},
             type: 'POST',
             success: function (response) {
