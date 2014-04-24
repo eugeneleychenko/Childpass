@@ -11,21 +11,21 @@ function afterSelect(e, v, m) {
 function deleteChildPhoto(button) {
     button = $(button);
     var photo_item = button.closest('.child-photo');
-    $.ajax({
-        url: Yii.app.createUrl('childphoto/delete'),
-        data: {'photo_id': photo_item.attr('data-photo_id')},
-        type: 'POST',
-        success: function (response) {
-            response = jQuery.parseJSON(response);
-            alert(response);
-            if(response.success == true) {
-                photo_item.remove();
-            } else {
+    if (confirm("You really want to delete this photo?")) {
+        $.ajax({
+            url: Yii.app.createUrl('childphoto/delete'),
+            data: {'photo_id': photo_item.attr('data-photo_id')},
+            type: 'POST',
+            success: function (response) {
+                if(response.success == true) {
+                    photo_item.remove();
+                } else {
+                    alert('Error occurred. Please try again.');
+                }
+            },
+            error: function (data) {
                 alert('Error occurred. Please try again.');
             }
-        },
-        error: function (data) {
-            alert('Error occurred. Please try again.');
-        }
-    });
+        });
+    }
 }

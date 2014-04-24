@@ -100,7 +100,7 @@ return array(
     ),
 
     'buttons'    => array(
-        'addStep1' => array(
+        'next_step' => array(
             'type'  => 'submit',
             'class' => 'btn',
             'label' => 'next»',

@@ -216,9 +216,9 @@ class UserController extends Controller
                     }
                 }
             }
-        } else {
-            $this->render('login', array('model' => $model));
         }
+
+        $this->render('login', array('model' => $model));
     }
 
     /**

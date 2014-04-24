@@ -18,11 +18,11 @@ class ChildController extends Controller
     {
         return array(
             array('allow', // allow authenticated users to access all actions
-                  'users' => array('@'),
+                'users' => array('@'),
             ),
             array('allow',
-                  'actions' => array('add'),
-                  'users'   => array('*')
+                'actions' => array('add, list'),
+                'users' => array('*'),
             ),
             array('deny'),
         );
@@ -34,17 +34,22 @@ class ChildController extends Controller
 
         $childId = isset($_GET['child_id']) ? $_GET['child_id'] : false;
 
+        if ($childId) {
+            $form['child']->model = Child::model()->findByPk($childId);
+            if (!$form['child']->model->checkAccess()) {
+                $this->redirect(array('/child/list'));
+            }
+        } else {
+            $form['child']->model = new Child();
+        }
+
         $data = array();
 
         switch ($step) {
             case 'step1':
-                if ($childId) {
-                    $form['child']->model = Child::model()->findByPk($childId);
-                } else {
-                    $form['child']->model = new Child();
-                }
+                $form['child']->model->birthday = $form['child']->model->getBirthday();
 
-                if ($form->submitted('addStep1')) {
+                if ($form->submitted('next_step')) {
                     $form['child']->model->user_id = Yii::app()->user->getId();
                     if ($form->validate()) {
                         if ($form['child']->model->save(false)) {
@@ -59,16 +64,16 @@ class ChildController extends Controller
 
                 $childId = $_GET['child_id'];
 
-                if ($form->submitted('addStep2') && $childId) {
+                if ($form->submitted('next_step') && $childId) {
                     $images = CUploadedFile::getInstances($form['child']->model, 'image');
 
                     if (!empty($images)) {
                         $savePath = Yii::getPathOfAlias('webroot') . "/children/{$childId}/photos/";
                         if (!is_dir($savePath)) mkdir($savePath, 0777, true);
-                        foreach ($images as $image => $pic) {
 
+                        foreach ($images as $image => $pic) {
                             if ($pic->saveAs($savePath . $pic->name)) {
-                                $photo           = $form['child']->model;
+                                $photo           = new ChildPhoto();
                                 $photo->image    = $pic;
                                 $photo->filename = $pic->name;
                                 $photo->child_id = $childId;
@@ -89,17 +94,19 @@ class ChildController extends Controller
                     $data['childPhotos'] = $childPhotos;
                 }
 
+                if ($form->submitted('prev_step')) {
+                    $this->redirect(array('/child/add/step1', 'child_id' => $childId));
+                }
+
                 break;
             case 'step3':
-                $form['child']->model = Child::model()->findByPk($childId);
-
-                if ($form->submitted('addStep3')) {
+                if ($form->submitted('next_step')) {
                     $form['child']->model->teeth = $_POST['Child']['teeth'];
                     if ($form['child']->model->save(false)) {
-                        $this->redirect(array('/child/add/step3', 'child_id' => $childId));
+                        $this->redirect(array('/child/list'));
                     }
-                } else {
-                    $form['child']->model = Child::model()->findByPk($childId);
+                } elseif ($form->submitted('prev_step')) {
+                    $this->redirect(array('/child/add/step2', 'child_id' => $childId));
                 }
                 break;
             case 'step4':
@@ -133,10 +140,7 @@ class ChildController extends Controller
                         $photo->filename = Yii::app()->request->getBaseUrl(true).'/children/'.$child->id.'/photos/'.$photo->filename;
                     }
                 }
-            } else {
-
             }
-
         }
 
         $this->render(

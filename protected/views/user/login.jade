@@ -1,25 +1,27 @@
--$form=$this->beginWidget('CActiveForm');
+.panel
+    .contentWrapper
+        -$form=$this->beginWidget('CActiveForm');
 
-.row.signUpLink
-    | Do not have an account?&nbsp;
-    a(href=$this->createUrl('user/register')) Register
+        .row.signUpLink
+            | Do not have an account?&nbsp;
+            a(href=$this->createUrl('user/register')) Register
 
-.row
-    !=$form->textField($model,'username', array('placeholder' => 'Email'))
-    !=$form->error($model,'username')
+        .row
+            !=$form->textField($model,'username', array('placeholder' => 'Email'))
+            !=$form->error($model,'username')
 
-.row
-    !=$form->passwordField($model,'password', array('placeholder' => 'Password'))
-    !=$form->error($model,'password')
+        .row
+            !=$form->passwordField($model,'password', array('placeholder' => 'Password'))
+            !=$form->error($model,'password')
 
-.row.rememberMe
-    !=$form->checkBox($model,'rememberMe')
-    !=$form->label($model,'rememberMe')
+        .row.rememberMe
+            !=$form->checkBox($model,'rememberMe')
+            !=$form->label($model,'rememberMe')
 
-.row.forgotPasswordLink
-    a(href=$this->createUrl('user/forgotPassword')) Forgotten password?
+        .row.forgotPasswordLink
+            a(href=$this->createUrl('user/forgotPassword')) Forgot password?
 
-.row.submit
-    !=CHtml::submitButton('Login')
+        .row.submit
+            !=CHtml::submitButton('Login')
 
--$this->endWidget();
+        -$this->endWidget();

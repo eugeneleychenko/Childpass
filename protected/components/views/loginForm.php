@@ -24,7 +24,7 @@
         </div>
         <div style="float: left; width: 103px;">
             <?php echo CHtml::submitButton('login', array('class' => 'btn', 'name' => 'submit', 'value' => 'go»')); ?>
-            <div style="float: left; font-family: Arial; font-size: 13px; color: #ee8b38;">Forgot password?</div>
+            <a class="forgot-password" href="<?php echo $this->createUrl('user/forgotPassword') ?>">Forgot password?</a>
         </div>
         <?php $this->endWidget();
     } else {

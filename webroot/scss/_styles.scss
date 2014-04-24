@@ -136,6 +136,13 @@ hr {
 
   .login-form form {
     overflow: hidden;
+    .forgot-password {
+        float: left;
+        font-family: Arial;
+        font-size: 13px;
+        color: #ee8b38;
+        text-decoration: none;
+    }
   }
 
 
@@ -209,6 +216,24 @@ hr {
       margin: 0.5em 3em;
     }
   }
+}
+
+.row {
+    &.error {
+        input {
+            border: 1px solid #d83b75;
+        }
+        .errorMessage {
+            color: #D8000C;
+            padding-top: 5px;
+            font-size: 90%;
+        }
+    }
+    .fieldstyle {
+        width: 180px;
+        height: 26px;
+        line-height: 26px;
+    }
 }
 
 .distributedItems {
@@ -439,6 +464,8 @@ hr {
         float: right;
         width: 50%;
         padding-left: 30px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
 
         ul {
@@ -495,7 +522,7 @@ hr {
 
 .child-list ul, .child-photos ul {
     list-style-type: none;
-
+    margin: 1.5em;
     li {
         display: inline-block;
         vertical-align: top;
@@ -516,9 +543,6 @@ hr {
 
         .child-photo {
             position: relative;
-            width: 200px;
-            height: 200px;
-
             .photo-delete {
                 position: absolute;
                 right: 0;
@@ -545,8 +569,4 @@ hr {
 
 #teeth-area {
     margin: 30px;
-}
-
-#g3753 {
-    cursor: pointer;
 }

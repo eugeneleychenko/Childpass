@@ -63,7 +63,7 @@ class Child extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, name, gender, ethnicity_id, eyes_color_id, hair_color_id, birthday', 'required'),
+			array('user_id, name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives', 'required'),
 			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id', 'numerical', 'integerOnly'=>true),
 			array('name, address, address2, school_address, school_address2', 'length', 'max'=>100),
 			array('gender', 'length', 'max'=>1),
@@ -173,5 +173,18 @@ class Child extends CActiveRecord
             'M' => 'Male',
             'F' => 'Female',
         );
+    }
+
+    public function getBirthday()
+    {
+        if(!empty($this->birthday)) {
+            return date ('Y-m-d', strtotime ($this->birthday));
+        }
+        return null;
+    }
+
+    public function checkAccess()
+    {
+        return ($this->user_id == Yii::app()->user->getId()) ? true : false;
     }
 }

@@ -28,7 +28,12 @@ return array(
     ),
 
     'buttons'    => array(
-        'addStep2' => array(
+        'prev_step' => array(
+            'type'  => 'submit',
+            'class' => 'btn',
+            'label' => '«prev',
+        ),
+        'next_step' => array(
             'type'  => 'submit',
             'class' => 'btn',
             'label' => 'next»',

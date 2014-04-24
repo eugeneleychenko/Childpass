@@ -30,7 +30,9 @@
         .row
             !=$form['child']['teeth']
         .row(style='margin-bottom: 60px; position: relative; width: 500px; text-align: right;')
-            !=$form->buttons['addStep3']
+            div(style='float: left')
+                !=$form->buttons['prev_step']
+            !=$form->buttons['next_step']
     !=$form->renderEnd();
 .clear
 :php

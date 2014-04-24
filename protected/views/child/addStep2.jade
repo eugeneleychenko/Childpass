@@ -47,7 +47,9 @@
                             ),
                         ));
                 .row(style='margin-bottom: 60px; position: relative;')
-                    !=$form->buttons['addStep2']
+                    div(style='float: left')
+                        !=$form->buttons['prev_step']
+                    !=$form->buttons['next_step']
         !=$form->renderEnd();
 
 :php
