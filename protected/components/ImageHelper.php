@@ -78,7 +78,10 @@ class ImageHelper extends CComponent
     public function deleteChildImage($childId, $filename)
     {
         foreach ($this->thumbnail_dimensions as $imageSize => $dimensions) {
-            unlink($this->getChildImageFolder($childId, $imageSize).$filename);
+            $file = $this->getChildImageFolder($childId, $imageSize).$filename;
+            if (file_exists($file)) {
+                unlink($file);
+            }
         }
         unlink($this->getChildImageFolder($childId, self::IMAGE_ORIG).$filename);
     }
