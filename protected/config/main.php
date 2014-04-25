@@ -103,7 +103,7 @@ return array(
             // GD or ImageMagick
             'driver' => 'ImageMagick',
             // ImageMagick setup path
-            //'params'=>array('directory'=>'C:/ImageMagick'),
+            'params'=>array('directory'=>'D:/ImageMagick'),
         ),
         'ePdf' => array(
             'class'         => 'ext.yii-pdf.EYiiPdf',
