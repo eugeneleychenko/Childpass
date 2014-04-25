@@ -40,16 +40,16 @@ html(lang='en')
                         li
                             a(href=$this->createUrl('site/page', array('view'=>'about')))
                                 | About Us
-                        li(style='position: relative;')
-                            img(style='position: absolute; left: -10px; top: 0;', src=$this->baseUrl . '/images/dots.png')
+                        li.separator
+                        li
                             a(href=$this->createUrl('site/page', array('view'=>'product')))
                                 | Products
-                        li(style='position: relative;')
-                            img(style='position: absolute; left: -10px; top: 0;', src=$this->baseUrl . '/images/dots.png')
+                        li.separator
+                        li
                             a(href=$this->createUrl('site/page', array('view'=>'testimonials')))
                                 | Testimonials
-                        li(style='position: relative;')
-                            img(style='position: absolute; left: -10px; top: 0;', src=$this->baseUrl . '/images/dots.png')
+                        li.separator
+                        li
                             a(href=$this->createUrl('site/page', array('view'=>'faq')))
                                 | FAQ
                         li.reg

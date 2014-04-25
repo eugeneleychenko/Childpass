@@ -134,15 +134,56 @@ hr {
     }
   }
 
-  .login-form form {
-    overflow: hidden;
-    .forgot-password {
-        float: left;
-        font-family: Arial;
-        font-size: 13px;
-        color: #ee8b38;
-        text-decoration: none;
-    }
+  .login-form {
+      form {
+          overflow: hidden;
+          font-family: Arial;
+          .login-fields {
+              float: left;
+              width: 136px;
+              input {
+                  border: 1px solid grey;
+                  width: 111px;
+                  height: 16px;
+                  font-size: 15px;
+                  padding-left: 8px;
+                  &#LoginForm_username {
+                      margin-bottom: 5px;
+                  }
+              }
+          }
+          .login-buttons {
+              float: left;
+              width: 103px;
+          }
+          .forgot-password {
+              float: left;
+              font-size: 13px;
+              color: #ee8b38;
+              text-decoration: none;
+              margin-top: 5px;
+          }
+          .login-label {
+              float: left;
+              margin-right: 10px;
+              font-size: 14px;
+              font-weight: bold;
+              color: #002F66;
+          }
+      }
+      .logout-buttons {
+          .welcome-label {
+              font-size: 18px;
+              color: #002F66;
+              span {
+                  color: #808080;
+              }
+          }
+          .btn.logout {
+              font-size: 16px;
+              text-decoration: none;
+          }
+      }
   }
 
 
@@ -185,8 +226,15 @@ hr {
         display: table-cell;
         vertical-align: middle;
         text-align: center;
-        border: 6px solid #002F66;
-
+        border-style: solid;
+        border-width: 6px 3px;
+        border-color: #002F66;
+        &:hover, &.active {
+          background: rgb(85, 129, 180);
+        }
+        &:first-child {
+            border-left-width: 6px;
+        }
         &.reg {
           border: 6px solid #ed8b37;
           background: #ed8b37;
@@ -195,9 +243,13 @@ hr {
             background: rgb(201, 101, 15);
           }
         }
-
-        &:hover, &.active {
-          background: rgb(85, 129, 180);
+        &.separator {
+          width: 7px;
+          border: 0;
+          background: url("../images/dots.png") no-repeat scroll center;
+          &:hover, &.active {
+              background-color: #002F66;
+          }
         }
       }
 
