@@ -64,34 +64,27 @@ class ChildController extends Controller
 
                 $childId = $_GET['child_id'];
 
+                $imageHelper = new ImageHelper();
+
                 if ($form->submitted('next_step') && $childId) {
                     $images = CUploadedFile::getInstances($form['child']->model, 'image');
 
                     if (!empty($images)) {
-                        $savePath = Yii::getPathOfAlias('webroot') . "/children/{$childId}/photos/";
-                        if (!is_dir($savePath)) {
-                            mkdir($savePath, 0777, true);
-                        }
+                        foreach ($images as $pic) {
+                            $filename = $imageHelper->saveImage($childId, $pic->tempname);
 
-                        foreach ($images as $image => $pic) {
-                            if ($pic->saveAs($savePath . $pic->name)) {
-                                $photo           = new ChildPhoto();
-                                $photo->image    = $pic;
-                                $photo->filename = $pic->name;
-                                $photo->child_id = $childId;
-                                $photo->save();
-                            } else {
-                                $form['child']->model->addError;
-
-                                echo 'Cannot upload!';
-                            }
+                            $photo           = new ChildPhoto();
+                            $photo->image    = $pic;
+                            $photo->filename = $filename;
+                            $photo->child_id = $childId;
+                            $photo->save();
                         }
                     }
                     $this->redirect(array('child/add', 'step' => 'step3', 'child_id' => $childId));
                 } else {
                     $childPhotos = ChildPhoto::model()->findAll('child_id = :child_id', array(':child_id' => $childId));
                     foreach ($childPhotos as $photo) {
-                        $photo->filename = Yii::app()->request->getBaseUrl(true).'/children/'.$childId.'/photos/'.$photo->filename;
+                        $photo->filename = $imageHelper->getChildImageUrl($childId, $photo->filename);
                     }
                     $data['childPhotos'] = $childPhotos;
                 }
@@ -127,6 +120,8 @@ class ChildController extends Controller
     {
         $userId = Yii::app()->user->getId();
 
+        $imageHelper = new ImageHelper();
+
         $childList = Child::model()->with(
             array('childPhotos' => array(
                 'select'   => array('filename'),
@@ -139,10 +134,8 @@ class ChildController extends Controller
         foreach ($childList as &$child) {
             if (isset($child->childPhotos[0])) {
                 foreach ($child->childPhotos as $key => $photo) {
-                    if (!$key) {
-                        $photo->filename
-                            = Yii::app()->request->getBaseUrl(true) . '/children/' . $child->id . '/photos/'
-                            . $photo->filename;
+                    if ($key == 0) {
+                        $photo->filename = $imageHelper->getChildImageUrl($child->id, $photo->filename);
                     }
                 }
             }
