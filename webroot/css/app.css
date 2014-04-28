@@ -1179,7 +1179,16 @@ hr {
   cursor: pointer;
 }
 
-/* line 633, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 634, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+.child-list .edit-child {
+  display: inline-block;
+  font-size: 16px;
+  color: #ee8b38;
+  text-decoration: none;
+  padding: 0 0 20px 26px;
+}
+
+/* line 643, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .errorbox {
   float: left;
   color: #D8000C;
@@ -1193,66 +1202,66 @@ hr {
   line-height: 20px;
 }
 
-/* line 646, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 656, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 #teeth-area {
   margin: 30px;
 }
 
-/* line 650, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 660, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper {
   padding-right: 3em;
 }
-/* line 653, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 663, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection {
   overflow: hidden;
   margin-bottom: 1em;
 }
-/* line 657, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 667, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .photoWrapper {
   float: left;
   width: 48%;
 }
-/* line 661, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 671, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .photoWrapper img {
   max-width: 100%;
   max-height: 300px;
 }
-/* line 667, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 677, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .childData {
   float: left;
   margin-left: 2%;
   width: 40%;
   line-height: 1.5;
 }
-/* line 673, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 683, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .childData .childName {
   text-transform: uppercase;
   margin-top: 0;
   line-height: 1;
   margin-bottom: 0.5em;
 }
-/* line 680, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 690, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .childData .fieldName {
   color: #FF0000;
   text-transform: uppercase;
 }
-/* line 689, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 699, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .footer {
   margin-top: 2em;
   overflow: hidden;
 }
-/* line 693, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 703, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .footer .warningWrapper {
   float: right;
   width: 50%;
 }
-/* line 697, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 707, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .footer .warningWrapper .warning {
   color: #FF0000;
   font-size: 180%;
   font-weight: normal;
 }
-/* line 704, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
+/* line 714, D:/Projects/DPS/www/yii-projects/childpass/webroot/scss/_styles.scss */
 .flyerWrapper .footer .logo {
   margin-top: 0;
 }

@@ -4,7 +4,6 @@
             ul
                 - if (empty($childList)):
                     p You have not added any child.
-                    a.edit-link(href=$this->createUrl('child/add', array('step' => 'step1'))) Add Child
                 - else
                     - foreach ($childList as $child):
                         li
@@ -15,3 +14,4 @@
                             a(href=$this->createUrl('child/download-flyer', array('id' => $child->id)), class = 'flyer-link', target='_blank') Dowload Flyer
                             a.edit-link(href=$this->createUrl('child/add', array('step' => 'step1', 'child_id' => $child->id))) Edit Child
                     - endforeach
+            a.edit-child(href=$this->createUrl('child/add', array('step' => 'step1'))) Add Child »
