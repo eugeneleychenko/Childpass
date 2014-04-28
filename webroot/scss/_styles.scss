@@ -596,8 +596,6 @@ hr {
         margin: 0 2em 1em 0;
 
         img {
-            max-width: 200px;
-            max-height: 200px;
             border: 1px solid #9f9f9f;
             border-radius: 5px;
         }
@@ -631,6 +629,11 @@ hr {
 }
 
 .child-list {
+     ul li {
+       margin: 0 2em 2em 2em;
+     }
+
+
     .edit-child {
         display: inline-block;
         font-size: 16px;
@@ -667,11 +670,7 @@ hr {
     .photoWrapper {
       float: left;
       width: 48%;
-
-      img {
-        max-width: 100%;
-        max-height: 300px;
-      }
+      text-align: center;
     }
 
     .childData {

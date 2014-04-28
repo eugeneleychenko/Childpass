@@ -34,9 +34,14 @@ class ChildPhotoController extends Controller
 
         $photoId = (int)Yii::app()->request->getPost('photo_id');
 
+        $photo = ChildPhoto::model()->findByPk($photoId);
+
         $success = false;
 
-        if (!empty($photoId) && ChildPhoto::model()->deleteByPk($photoId)) {
+        $imageHelper = new ImageHelper();
+        if (!empty($photo)) {
+            $photo->delete();
+            $imageHelper->deleteChildImage($photo->child_id, $photo->filename);
             $success = true;
         };
 
