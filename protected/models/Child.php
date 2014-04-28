@@ -201,11 +201,9 @@ class Child extends CActiveRecord
         /** @var Child $child */
         $child = Child::model()->with('ethnicity', 'eyesColor', 'hairColor')->findByPk($childId);
 
-        $imageHelper = new ImageHelper();
-
         $childPhotoUrl = false;
         if (!empty($child->childPhotos[0])) {
-            $childPhotoUrl = $imageHelper->getChildImageUrl($childId, $child->childPhotos[0]->filename, ImageHelper::IMAGE_MEDIUM);
+            $childPhotoUrl = $child->childPhotos[0]->getUrl(ImageHelper::IMAGE_MEDIUM);
         }
 
         $missingInfo = array(

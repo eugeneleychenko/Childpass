@@ -102,8 +102,6 @@ return array(
             'class' => 'application.extensions.iwi.IwiComponent',
             // GD or ImageMagick
             'driver' => 'ImageMagick',
-            // ImageMagick setup path
-            'params'=>array('directory'=>'D:/ImageMagick'),
         ),
         'ePdf' => array(
             'class'         => 'ext.yii-pdf.EYiiPdf',
