@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="production" compareModeInSync="TIMESTAMP">
+    <serverData>
+      <paths name="production">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/secret/website/webroot" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="*.orig" />
+            <excludedPath local="true" path="$PROJECT_DIR$/webroot/.sass-cache" />
+            <excludedPath local="true" path="$PROJECT_DIR$/webroot/assets" />
+            <excludedPath local="true" path="$PROJECT_DIR$/protected/config/server.development.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/protected/vendors/mpdf/ttfontdata" />
+            <excludedPath path="/runtime" />
+            <excludedPath path="/webroot/assets" />
+            <excludedPath path="/webroot/.sass-cache" />
+            <excludedPath path="/protected/vendors/mpdf/ttfontdata" />
+            <excludedPath path="/protected/config/server.development.php" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
+
