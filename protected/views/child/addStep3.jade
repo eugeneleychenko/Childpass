@@ -26,6 +26,22 @@
     .clear
 .panel
     #teeth-area
+        div(style="float: right; width: 50%; padding-top: 40px;")
+            div.row(style="margin-bottom: 30px;") Explanation of color coding:
+            div.row(style="margin-bottom: 30px;")
+                span(style="background:#00c040; width:20px; display:inline-block; margin-right: 10px;") &nbsp;
+                span Central and Lateral Incisors
+            div.row(style="margin-bottom: 30px;")
+                span(style="background:#ff4200; width:20px; display:inline-block; margin-right:10px;") &nbsp;
+                span Canines (cupids)
+            div.row(style="margin-bottom: 30px;")
+                span(style="background:#ffc800; width:20px; display:inline-block; margin-right:10px;") &nbsp;
+                span Pre Molars (bicupids)
+            div.row(style="margin-bottom: 30px;")
+                span(style="background:#00a0d4; width:20px; display:inline-block;margin-right:10px;") &nbsp;
+                span Molars and Wisdom
+
+
     !=$form->renderBegin()
         .row
             !=$form['child']['teeth']
