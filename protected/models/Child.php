@@ -6,7 +6,9 @@
  * The followings are the available columns in table 'child':
  * @property integer $id
  * @property string $created_at
- * @property string $name
+ * @property string $first_name
+ * @property string $middle_namee
+ * @property string $last_namee
  * @property string $gender
  * @property integer $height_feet
  * @property integer $height_inches
@@ -23,11 +25,14 @@
  * @property string $school_address
  * @property string $school_address2
  * @property string $school_zip_code
- * @property string $known_relatives
  * @property string $teeth
  * @property string $missing_date
  * @property string $missing_from
- *
+ * @property string $state
+ * @property string $school_state
+ * @property integer $grade
+
+
  * The followings are the available model relations:
  * @property User $user
  * @property HairColor $hairColor
@@ -63,17 +68,18 @@ class Child extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives', 'required'),
-			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id', 'numerical', 'integerOnly'=>true),
-			array('name, address, address2, school_address, school_address2', 'length', 'max'=>100),
+			array('user_id, first_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, state, school_state, grade', 'required'),
+			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, grade', 'numerical', 'integerOnly'=>true),
+			array('first_name, middle_name, last_name, address, address2, school_address, school_address2', 'length', 'max'=>100),
 			array('gender', 'length', 'max'=>1),
+            array('state, school_state', 'length', 'max'=>30),
 			array('zip_code, school_zip_code', 'length', 'max'=>10),
-			array('distinctive_marks, known_relatives, missing_from', 'length', 'max'=>255),
+			array('distinctive_marks, missing_from', 'length', 'max'=>255),
 			array('school', 'length', 'max'=>150),
 			array('birthday, missing_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, created_at, name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, known_relatives, teeth, missing_date, missing_from', 'safe', 'on'=>'search'),
+			array('id, user_id, created_at, first_name, middle_name, last_name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, teeth, missing_date, missing_from, state, school_state, grade', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -102,7 +108,9 @@ class Child extends CActiveRecord
 			'id' => 'ID',
             'user_id' => 'User ID',
 			'created_at' => 'Created At',
-			'name' => 'Name',
+			'first_name' => 'First Name',
+            'middle_name' => 'Middle Name',
+            'last_name' => 'Last Name',
 			'gender' => 'Gender',
 			'height_feet' => 'Height Feet',
 			'height_inches' => 'Height Inches',
@@ -123,6 +131,9 @@ class Child extends CActiveRecord
             'teeth' => 'Teeth',
 			'missing_date' => 'Missing Date',
 			'missing_from' => 'Missing From',
+            'state' => 'State',
+            'school_state' => 'state',
+            'grade' => 'Grade'
 		);
 	}
 
@@ -172,6 +183,62 @@ class Child extends CActiveRecord
         return array(
             'M' => 'Male',
             'F' => 'Female',
+        );
+    }
+
+    public function getStateOptions() {
+        return array(
+            'AL' => 'AL',
+            'AK' => 'AK',
+            'AZ' => 'AZ',
+            'AR' => 'AR',
+            'CA' => 'CA',
+            'CO' => 'CO',
+            'CT' => 'CT',
+            'DE' => 'DE',
+            'DC' => 'DC',
+            'FL' => 'FL',
+            'GA' => 'GA',
+            'HI' => 'HI',
+            'ID' => 'ID',
+            'IL' => 'IL',
+            'IN' => 'IN',
+            'IA' => 'IA',
+            'KS' => 'KS',
+            'KY' => 'KY',
+            'LA' => 'LA',
+            'ME' => 'ME',
+            'MD' => 'MD',
+            'MA' => 'MA',
+            'MI' => 'MI',
+            'MN' => 'MN',
+            'MS' => 'MS',
+            'MO' => 'MO',
+            'MT' => 'MT',
+            'NE' => 'NE',
+            'NV' => 'NV',
+            'NH' => 'NH',
+            'NJ' => 'NJ',
+            'NM' => 'NM',
+            'NY' => 'NY',
+            'NC' => 'NC',
+            'ND' => 'ND',
+            'OH' => 'OH',
+            'OK' => 'OK',
+            'OR' => 'OR',
+            'PA' => 'PA',
+            'RI' => 'RI',
+            'SC' => 'SC',
+            'SD' => 'SD',
+            'TN' => 'TN',
+            'TX' => 'TX',
+            'UT' => 'UT',
+            'VT' => 'VT',
+            'VA' => 'VA',
+            'WA' => 'WA',
+            'WV' => 'WV',
+            'WI' => 'WI',
+            'WY' => 'WY'
         );
     }
 

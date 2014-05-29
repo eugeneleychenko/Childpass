@@ -16,11 +16,22 @@ return array(
             'type' => 'form',
             'title' => false,
             'elements' => array(
-                'name' => array(
+                'first_name' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "Your Child's Name",
+                    'label' => 'First Name',
                 ),
+                'middle_name' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => 'Middle Name',
+                ),
+                'last_name' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => 'Last Name',
+                ),
+
                 'gender' => array(
                     'type'  => 'dropdownlist',
                     'items' => Child::model()->getGenderOptions(),
@@ -66,9 +77,11 @@ return array(
                     'label' => 'Date of Birth',
                 ),
                 'distinctive_marks' => array(
-                    'type'  => 'text',
-                    'class' => 'fieldstyle',
+                    'type'  => 'textarea',
+//                    'class' => 'fieldstyle',
                     'label' => 'Distinctive marks',
+                    'rows' => '10',
+                    'cols' => '50',
                 ),
                 'school' => array(
                     'type'  => 'text',
@@ -90,11 +103,31 @@ return array(
                     'class' => 'fieldstyle',
                     'label' => 'City State Zip',
                 ),
-                'known_relatives' => array(
+                'state' => array(
+                    'type'  => 'dropdownlist',
+                    'items' => Child::model()->getStateOptions(),
+                    'prompt'=>'Select state',
+                    'class' => 'fieldstyle',
+                ),
+                'school_state' => array(
+                    'type'  => 'dropdownlist',
+                    'items' => Child::model()->getStateOptions(),
+                    'prompt'=>'Select state',
+                    'class' => 'fieldstyle',
+                ),
+                'grade' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'Known Relatives',
+                    'label' => "Grade",
                 ),
+
+
+
+//                'known_relatives' => array(
+//                    'type'  => 'text',
+//                    'class' => 'fieldstyle',
+//                    'label' => 'Known Relatives',
+//                ),
             ),
         ),
     ),
