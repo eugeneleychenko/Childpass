@@ -28,11 +28,16 @@
 
 .panel
     .contentWrapper
+        h2 Child Profile
         p(style='margin-left: 20px;') (All fields are required.)
         !=$form->renderBegin()
             div(style='width: 380px; text-align: right;')
                 div.row
-                    !=$form['child']['name']
+                    !=$form['child']['first_name']
+                div.row
+                    !=$form['child']['last_name']
+                div.row
+                    !=$form['child']['middle_name']
                 div.row
                     !=$form['child']['gender']
                 div.row
@@ -61,8 +66,10 @@
                     !=$form['child']['school_zip_code']
                 div.row
                     !=$form['child']['state']
-                //div.row
-                //    !=$form['child']['known_relatives']
+                div.row
+                    !=$form['child']['school_state']
+                div.row
+                    !=$form['child']['grade']
                 div.row(style='margin-bottom: 60px; position: relative;')
                     !=$form->buttons['next_step']
         !=$form->renderEnd();

@@ -7,7 +7,7 @@
                 - else
                     - foreach ($childList as $child):
                         li
-                            h3!= $child->name
+                            h3!= $child->first_name
                             - if(isset($child->childPhotos[0])):
                                 a(href=$this->createUrl('child/add', array('step' => 'step1', 'child_id' => $child->id)))
                                     img(src = $child->childPhotos[0]->filename)

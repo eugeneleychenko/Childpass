@@ -68,7 +68,7 @@ class Child extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, first_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, state, school_state, grade', 'required'),
+			array('user_id, first_name, middle_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, state, school_state, grade', 'required'),
 			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, grade', 'numerical', 'integerOnly'=>true),
 			array('first_name, middle_name, last_name, address, address2, school_address, school_address2', 'length', 'max'=>100),
 			array('gender', 'length', 'max'=>1),
@@ -132,7 +132,7 @@ class Child extends CActiveRecord
 			'missing_date' => 'Missing Date',
 			'missing_from' => 'Missing From',
             'state' => 'State',
-            'school_state' => 'state',
+            'school_state' => 'State',
             'grade' => 'Grade'
 		);
 	}
