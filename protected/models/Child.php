@@ -96,6 +96,7 @@ class Child extends CActiveRecord
 			'ethnicity' => array(self::BELONGS_TO, 'Ethnicity', 'ethnicity_id'),
 			'eyesColor' => array(self::BELONGS_TO, 'EyesColor', 'eyes_color_id'),
 			'childPhotos' => array(self::HAS_MANY, 'ChildPhoto', 'child_id'),
+            'relatives' => array(self::MANY_MANY, 'Relative', '{{child_relative}}(child_id, relative_id)'),
 		);
 	}
 
