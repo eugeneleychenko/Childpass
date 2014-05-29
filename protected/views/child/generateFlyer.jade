@@ -4,7 +4,7 @@
             -if ($missingInfo['childPhoto']):
                 img(src=$missingInfo['childPhoto'])
         .childData
-            h1.childName=missingInfo['child']->name
+            h1.childName=missingInfo['child']->first_name
             .row
                 span.fieldName Date of birth:
                 !=' '
