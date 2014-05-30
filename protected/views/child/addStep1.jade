@@ -86,16 +86,21 @@
                                     td
                                 tr
                                     td
-                                        input(name='Relative[][first_name]', type="text", value=relative.first_name)
-                                    td
-                                        input(name='Relative[][last_name]', type="text", value=relative.last_name)
+                                        :php
+                                            echo CHtml::textField("Relative[$counter][first_name]", $relative['first_name']);
                                     td
                                         :php
-                                            $counter++;
-                                            echo CHtml::dropDownList('Relative[][relation]', $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
+                                            echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name']);
                                     td
-                                        input(name='Relative[]["relative_id"]', type="hidden", value=relative.id)
-                                        input(name='Relative[]["child_realtive_id"]', type="hidden", value=relative.childRelationId)
+                                        :php
+                                            echo CHtml::dropDownList("Relative[$counter][relation]", $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
+                                    td
+                                        :php
+                                            echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id']);
+                                            echo CHtml::hiddenField("Relative[$counter][childRelationId]", $relative['childRelationId']);
+                                :php
+                                    $counter++;
+
 
                 div.row(style='margin-bottom: 60px; position: relative;')
                     !=$form->buttons['next_step']
