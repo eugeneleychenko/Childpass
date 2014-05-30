@@ -41,15 +41,15 @@ $(function() {
     });
 
     function addNewRelative() {
-        //clone from current
-        var newRow = $('#relatives_table tbody').find('tr').first().clone();
-        relativesNumber++;
         var namePrefix = 'Relative[' + relativesNumber  + ']';
-        newRow.find('select, input').each(function(index) {
-        });
-        console.log(newRow.find('select, input'));
-
-        $('#relatives_table').append(newRow)
+        var  select = $('#relatives_table tbody').find('tr').first().find('select').clone();
+        select.removeAttr('id');
+        select.attr('name', namePrefix + '[relation_id]');
+        select.val('');
+        var row =  '<tr><td><input name="' + namePrefix + '[first_name]"></td><td><input name="' + namePrefix + '[last_name]"> </td><td>' + select.text() + '</td><td><button type="type" class="button small delete_relative">-</button></td></tr>';
+        $('#relatives_table').append(row);
+        $('#relatives_table tbody').find('tr').last().find('td').eq(2).html(select);
+        relativesNumber++;
     }
 
     function deleteRelative(button) {
@@ -73,7 +73,6 @@ $(function() {
         if (!relativeId) {
             return false;
         }
-
 
         $.ajax({
             url: '/child/deleteRelativeMapping',
