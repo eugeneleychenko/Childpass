@@ -71,6 +71,8 @@ class m140529_132503_relative extends CDbMigration
             '{{relation}}',
             'id'
         );
+
+        $this->createIndex('child_id_relative_id', '{{child_relative}}', 'child_id,relative_id', true);
     }
 
 	public function safeDown()
