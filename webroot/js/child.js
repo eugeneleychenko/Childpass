@@ -45,7 +45,7 @@ $(function() {
         var newRow = $('#relatives_table tbody').find('tr').first().clone();
         relativesNumber++;
         var namePrefix = 'Relative[' + relativesNumber  + ']';
-        newRow.find('select, input').each(function(index) {            
+        newRow.find('select, input').each(function(index) {
         });
         console.log(newRow.find('select, input'));
 
