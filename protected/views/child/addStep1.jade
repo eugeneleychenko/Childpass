@@ -83,52 +83,55 @@
                     h3 Known Relatives
                     if data.relatives
                         table#relatives_table(style="margin: 0 auto;  text-align: left; border-spacing: 10px;border-collapse: separate;")
-                            tr
-                                th First Name
-                                th Last Name
-                                th Relation to Child?
-                                th
-
-                            :php
-                                $counter = 0;
-                            each relative in data.relatives
+                            thead
                                 tr
-                                    td
-                                        :php
-                                            echo CHtml::textField("Relative[$counter][first_name]", $relative['first_name']);
-                                    td
-                                        :php
-                                            echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name']);
-                                    td
-                                        :php
-                                            echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation'));
-                                    td
-                                        button.button.small.delete_relative(type="button") -
-                                        :php
-                                            echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id'], array('class' => 'relative_id'));
-                                            echo CHtml::hiddenField("Relative[$counter][child_relative_id]", $relative['childRelationId'], array('class' => 'child_relative_id'));
+                                    th First Name
+                                    th Last Name
+                                    th Relation to Child?
+                                    th
+
                                 :php
-                                    $counter++;
+                                    $counter = 0;
+                            tbody
+                                each relative in data.relatives
+                                    tr
+                                        td
+                                            :php
+                                                echo CHtml::textField("Relative[$counter][first_name]", $relative['first_name']);
+                                        td
+                                            :php
+                                                echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name']);
+                                        td
+                                            :php
+                                                echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation'));
+                                        td
+                                            button.button.small.delete_relative(type="button") -
+                                            :php
+                                                echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id'], array('class' => 'relative_id'));
+                                                echo CHtml::hiddenField("Relative[$counter][child_relative_id]", $relative['childRelationId'], array('class' => 'child_relative_id'));
+                                    :php
+                                        $counter++;
                     else
                         table#relatives_table(style="margin: 0 auto;  text-align: left; border-spacing: 10px;border-collapse: separate;")
-                            tr
-                                th First Name
-                                th Last Name
-                                th Relation to Child?
-                                th
-                            tr
-                                td
-                                    input(name="Relative[0][first_name]")
-                                td
-                                    input(name="Relative[0][last_name]")
-                                td
-                                    :php
-                                        echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation'));
-                                td
-                                    //button.button.small.delete_relative(type="button") -
-                                    :php
-                                        //echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id'], array('class' => 'relative_id'));
-                                        //echo CHtml::hiddenField("Relative[$counter][childRelationId]", $relative['childRelationId'], array('class' => 'child_relative_id'));
+                             thead
+                                tr
+                                    th First Name
+                                    th Last Name
+                                    th Relation to Child?
+                                    th
+                            tbody
+                                tr
+                                    td
+                                        input(name="Relative[0][first_name]")
+                                    td
+                                        input(name="Relative[0][last_name]")
+                                    td
+                                        :php
+                                            echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation'));
+                                    td
+
+                            :php
+                                $counter = 1
 
 
                     button.button.small#add_relative(type="button") +
@@ -143,4 +146,5 @@
         !=$form->renderEnd();
 
 :php
+    echo '<script>var relativesNumber = ' . $counter . ';</script>';
     Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/child.js');

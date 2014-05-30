@@ -41,20 +41,16 @@ $(function() {
     });
 
     function addNewRelative() {
-//       $('#relatives_table').
-//       var row = '<tr><td><input type="text" value="Bill" name="Relative[0][first_name]" id="Relative_0_first_name"></td><td><input type="text" value="Smith" name="Relative[0][last_name]" id="Relative_0_last_name"></td><td><select ="select="" relation"="" name="Relative[0][relation]" id="Relative_0_relation"> \
-//            <option value="1" selected="selected">Father</option>\
-//            <option value="2">Mother</option>\
-//            <option value="3">Grandfather</option>\
-//            <option value="4">GrandMother</option>\
-//            <option value="5">Uncle</option>\
-//            <option value="6">Aunt</option>\
-//         </select></td><td><button type="button" class="button small delete_relative">-</button><input class="relative_id" type="hidden" value="0" name="Relative[0][relative_id]" id="Relative_0_relative_id"><input class="child_relative_id" type="hidden" value="0" name="Relative[0][childRelationId]" id="Relative_0_childRelationId"></td></tr>';
-//
+        //clone from current
+        var newRow = $('#relatives_table tbody').find('tr').first().clone();
+        relativesNumber++;
+        var namePrefix = 'Relative[' + relativesNumber  + ']';
+        newRow.find('select, input').each(function(index) {            
+        });
+        console.log(newRow.find('select, input'));
+
+        $('#relatives_table').append(newRow)
     }
-
-
-
 
     function deleteRelative(button) {
         if (!confirm('Do you want to remove this relative?')) {
@@ -63,18 +59,17 @@ $(function() {
 
         var row = button.closest('tr');
 
-
         var childRelativeIdElement = row.find('.child_relative_id');
-        console.log(childRelativeIdElement);
+
 
         if (!childRelativeIdElement.length || !childRelativeIdElement.val()) {
             row.remove();
+            relativesNumber--;
             return false;
         }
 
         var relativeIdElement = row.find('.relative_id');
         var relativeId = relativeIdElement.val();
-        console.log(relativeId);
         if (!relativeId) {
             return false;
         }
@@ -89,6 +84,7 @@ $(function() {
             type: 'DELETE',
             success: function(data) {
                 row.remove();
+                relativesNumber--;
             },
             complete: function() {
             },
@@ -96,33 +92,7 @@ $(function() {
                 alert(xhr.responseText);
             }
         });
-
-
-
-
 }
-
-//    function deleteEmployee(id) {
-//        if (!confirm('Do you want to remove this employee?')) {
-//            return false;
-//        }
-//
-//        $.ajax({
-//            url: '/permission/delete-employee/',
-//            data: {'id' : id},
-//            type: 'DELETE',
-//            success: function(data) {
-//                $('#employees_grid').find('#employee_' + id).remove();
-//            },
-//            complete: function() {
-//                deleteDetailsRow();
-//            },
-//            error: function(xhr, status, error) {
-//                alert(xhr.responseText);
-//            }
-//        });
-//    }
-
 
 });
 
