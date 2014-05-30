@@ -96,7 +96,8 @@ class Relative extends CActiveRecord
     public function saveRelatives($childId, $relatives)
     {
         foreach ($relatives as $relative) {
-            if (!isset($relative['childRelationId'])) {
+            if (!isset($relative['child_relative_id'])) {
+                //create new mapping
                 if (!isset($relative['relative_id'])) {
                     //add new relative
                     $relativeModel = new self;
@@ -107,7 +108,6 @@ class Relative extends CActiveRecord
                     $errors = $relativeModel->getErrors();
                     $relativeId = $relativeModel->primaryKey;
 
-
                     $childRelativeModel = new ChildRelative;
                     $childRelativeModel->child_id = $childId;
                     $childRelativeModel->relative_id = $relativeId;
@@ -115,13 +115,30 @@ class Relative extends CActiveRecord
                     $childRelativeModel->save();
                     $errors = $childRelativeModel->getErrors();
                 }
-                //adding relative
+            } else {
+                if (!isset($relative['relative_id'])) {
+                    continue;
+                }
+
+                //edit relative
+                $relativeModel = Relative::model()->findByPk($relative['relative_id']);
+                $relativeModel->first_name = $relative['first_name'];
+                $relativeModel->last_name = $relative['last_name'];
+
+                $relativeModel->save();
+                $errors = $relativeModel->getErrors();
+                $relativeId = $relativeModel->primaryKey;
+
+                //edit childRelative mapping
+                $childRelativeModel = ChildRelative::model()->findByPk($relative['child_relative_id']);
+                $childRelativeModel->child_id = $childId;
+                $childRelativeModel->relative_id = $relativeId;
+                $childRelativeModel->relation_id = $relative['relation_id'];
+                $childRelativeModel->save();
+                $errors = $childRelativeModel->getErrors();
+
             }
         }
     }
-
-
-
-
 
 }
