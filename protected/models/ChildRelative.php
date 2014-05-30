@@ -107,7 +107,7 @@ class ChildRelative extends CActiveRecord
         $deleted = $this->deleteAll($criteria);
         if ($deleted) {
             $relativeHasMappings = $this->exists('relative_id = :relative_id', array(':relative_id' => $relativeId));
-            if ($relativeHasMappings) {
+            if (!$relativeHasMappings) {
                 Relative::model()->deleteByPk($relativeId);
             }
         }

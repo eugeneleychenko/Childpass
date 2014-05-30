@@ -106,7 +106,7 @@
                                         button.button.small.delete_relative(type="button") -
                                         :php
                                             echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id'], array('class' => 'relative_id'));
-                                            echo CHtml::hiddenField("Relative[$counter][childRelationId]", $relative['childRelationId'], array('class' => 'child_relation_id'));
+                                            echo CHtml::hiddenField("Relative[$counter][childRelationId]", $relative['childRelationId'], array('class' => 'child_relative_id'));
                                 :php
                                     $counter++;
 

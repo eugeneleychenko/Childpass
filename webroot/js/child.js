@@ -41,20 +41,24 @@ $(function() {
             return false;
         }
 
-        var button = $(this);
-        var row = button.closest('.tr');
+        var row = button.closest('tr');
 
-        var childRelativeIdElement = row.find('.child_relation_id');
-        if (!childRelativeIdElement.length || !childRelativeIdElement.value) {
+
+        var childRelativeIdElement = row.find('.child_relative_id');
+        console.log(childRelativeIdElement);
+
+        if (!childRelativeIdElement.length || !childRelativeIdElement.val()) {
             row.remove();
             return false;
         }
 
-        var relativeIdElement = row.find('relative_id');
+        var relativeIdElement = row.find('.relative_id');
         var relativeId = relativeIdElement.val();
+        console.log(relativeId);
         if (!relativeId) {
             return false;
         }
+
 
         $.ajax({
             url: '/child/deleteRelativeMapping',

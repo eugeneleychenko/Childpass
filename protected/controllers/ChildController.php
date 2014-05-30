@@ -149,7 +149,7 @@ class ChildController extends Controller
     {
         $this->layout = 'ajax';
 
-        $childId = Yii::app()->request->getDelete('child_id');
+        $childId = Yii::app()->request->getDelete('childId');
         $relativeId = Yii::app()->request->getDelete('relativeId');
 
         if (empty($childId) || is_array($relativeId) || empty($relativeId)) {
