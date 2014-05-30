@@ -62,11 +62,11 @@ class ChildController extends Controller
                         }
 
                         $relatives[] = array(
-                            'first_name' => $relative->primaryKey,
+                            'id' => $relative->primaryKey,
                             'first_name' => $relative->first_name,
                             'last_name' => $relative->last_name,
                             'relation' => $relation,
-                            'selectedRelation' => array($relation->id/* => $relation->name*/),
+                            'selectedRelation' => array($relation->id),
                             'childRelationId' => $relative->childRelative[0]->primaryKey
                         );
                     }

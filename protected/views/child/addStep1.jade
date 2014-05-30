@@ -31,7 +31,7 @@
         h2 Child Profile
         p(style='margin-left: 20px;') (All fields are required.)
         !=$form->renderBegin()
-            div(style='width: 380px; text-align: right;')
+            div(style='width: 96%; text-align: center;')
                 div.row
                     !=$form['child']['first_name']
                 div.row
@@ -70,28 +70,43 @@
                     !=$form['child']['school_state']
                 div.row
                     !=$form['child']['grade']
-                div.row(style='margin-bottom: 60px; position: relative;')
-                    !=$form->buttons['next_step']
+
 
                 div#relatives
                     h3 Known Relatives
                     if data.relatives
-                        each relative in data.relatives
-                            div.row(style="width: 100%")
-                                input(type="text", value=relative.first_name)
-                                input(type="text", value=relative.last_name)
-                                :php
-                                    echo CHtml::dropDownList('Relative["relation"][]', $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
+                        table(style="margin: 0 auto;  text-align: left; border-spacing: 10px")
+                            each relative in data.relatives
+                                tr
+                                    td First Name
+                                    td Last Name
+                                    td Relation to Child?
+                                    td
+                                tr
+                                    td
+                                        input(name='Relative["first_name"][]', type="text", value=relative.first_name)
+                                    td
+                                        input(name='Relative["last_name"][]', type="text", value=relative.last_name)
+                                    td
+                                        :php
+                                            echo CHtml::dropDownList('Relative["relation"][]', $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
+                                    td
+                                        input(name='Relative["relative_id"][]', type="hidden", value=relative.id)
+                                        input(name='Relative["child_realtive_id"][]', type="hidden", value=relative.childRelationId)
 
-                                //select(name="Relative['relation'][]")
-                                //    each item in data.relationOptions
-                                //        option(value=item.id)=item.name
-                                //        if (relative.relation.primaryKey == item.id)
-                                //            option(value=item.id, selected)=item.name
-                                //        else
-                                //            option(value=item.id)=item.name
 
 
+                            //div.row
+                            //    div.columns.small-4 1
+                            //        input(type="text", value=relative.first_name)
+                            //    div.columns.small-4 2
+                            //        input(type="text", value=relative.last_name)
+                            //    div.columns.small-4 3
+                            //        :php
+                            //            echo CHtml::dropDownList('Relative["relation"][]', $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
+
+                div.row(style='margin-bottom: 60px; position: relative;')
+                    !=$form->buttons['next_step']
 
 
 
