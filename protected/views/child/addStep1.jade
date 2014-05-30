@@ -1,3 +1,10 @@
+:php
+    if (isset($data['childId'])) {
+            echo '<script> var childId = ' .  $data['childId'] . '; </script>';
+    } else {
+        echo "<script> var childId = null; </script>";
+    }
+
 .step-header
     .step-description
         h2.welcome
@@ -75,15 +82,16 @@
                 div#relatives
                     h3 Known Relatives
                     if data.relatives
-                        table(style="margin: 0 auto;  text-align: left; border-spacing: 10px;border-collapse: separate;")
+                        table#relatives_table(style="margin: 0 auto;  text-align: left; border-spacing: 10px;border-collapse: separate;")
+                            tr
+                                th First Name
+                                th Last Name
+                                th Relation to Child?
+                                th
+
                             :php
                                 $counter = 0;
                             each relative in data.relatives
-                                tr
-                                    td First Name
-                                    td Last Name
-                                    td Relation to Child?
-                                    td
                                 tr
                                     td
                                         :php
@@ -95,9 +103,10 @@
                                         :php
                                             echo CHtml::dropDownList("Relative[$counter][relation]", $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
                                     td
+                                        button.button.small.delete_relative(type="button") -
                                         :php
-                                            echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id']);
-                                            echo CHtml::hiddenField("Relative[$counter][childRelationId]", $relative['childRelationId']);
+                                            echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id'], array('class' => 'relative_id'));
+                                            echo CHtml::hiddenField("Relative[$counter][childRelationId]", $relative['childRelationId'], array('class' => 'child_relation_id'));
                                 :php
                                     $counter++;
 
@@ -108,3 +117,6 @@
 
 
         !=$form->renderEnd();
+
+:php
+    Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/child.js');

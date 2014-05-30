@@ -97,4 +97,20 @@ class ChildRelative extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+
+    public function removeMapping($childId, $relativeId)
+    {
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('child_id = :child_id AND relative_id = :relative_id');
+        $criteria->params = array('child_id' => $childId, 'relative_id' => $relativeId);
+        $deleted = $this->deleteAll($criteria);
+        if ($deleted) {
+            $relativeHasMappings = $this->exists('relative_id = :relative_id', array(':relative_id' => $relativeId));
+            if ($relativeHasMappings) {
+                Relative::model()->deleteByPk($relativeId);
+            }
+        }
+        return true;
+    }
 }

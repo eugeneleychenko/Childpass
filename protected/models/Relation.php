@@ -95,14 +95,6 @@ class Relation extends CActiveRecord
     {
         $rows = $this->findAll();
         $options = array();
-//        foreach ($rows as $row) {
-//            $options[] = array(
-//                'id' => $row->primaryKey,
-//                'name' => $row->name
-//            );
-//        }
-
-        $options = array();
         foreach ($rows as $row) {
             $options[$row->id] = $row->name;
         }

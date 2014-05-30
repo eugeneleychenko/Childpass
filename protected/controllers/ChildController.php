@@ -55,26 +55,22 @@ class ChildController extends Controller
                     $relatives = array();
                     foreach ($form['child']->model->relatives as $relative) {
 
-                        if ($relative->childRelative) {
-                            $relation =  ($relative->childRelative[0]->relation) ? $relative->childRelative[0]->relation : '';
-                        } else {
-                            $relation = '';
-                        }
+                        $childRelation = ChildRelative::model()->with('relation')->find('child_id = :child_id AND relative_id = :relative_id',
+                                                                                        array(':child_id' => $childId, ':relative_id' => $relative->id)
+                                                                                       );
 
                         $relatives[] = array(
                             'id' => $relative->primaryKey,
                             'first_name' => $relative->first_name,
                             'last_name' => $relative->last_name,
-                            'relation' => $relation,
-                            'selectedRelation' => array($relation->id),
-                            'childRelationId' => $relative->childRelative[0]->primaryKey
+                            'relation' => $childRelation->relation,
+                            'selectedRelation' => array( $childRelation->relation->id ),
+                            'childRelationId' => $childRelation->primaryKey
                         );
                     }
 
                     $data['relatives'] = $relatives;
                     $data['relationOptions'] = Relation::model()->getOptions();
-//                    var_dump($data['relationOptions']);
-//                    exit;
                     $data['childId'] = $childId;
                 } else {
                     $data['relatives'] = array();
@@ -147,6 +143,62 @@ class ChildController extends Controller
                 'data' => $data
             )
         );
+    }
+
+    public function actionDeleteRelativeMapping()
+    {
+        $this->layout = 'ajax';
+
+        $childId = Yii::app()->request->getDelete('child_id');
+        $relativeId = Yii::app()->request->getDelete('relativeId');
+
+        if (empty($childId) || is_array($relativeId) || empty($relativeId)) {
+            throw new CHttpException('500', 'Incorrect parameters!');
+        }
+
+        $model = ChildRelative::model();
+
+        try {
+            $model->removeMapping($childId, $relativeId);
+        } catch(Exception $e) {
+            throw new CHttpException('500', 'Failed to delete relative!');
+        }
+
+
+//        $transaction = $model->dbConnection->beginTransaction();
+//
+//        try {
+//            $deleted = $model->removePermission($employeeId, array($regionId));
+//
+//            if ($deleted) {
+//                $comment = 'Revoke region permission' . $regionId . ' for employee '. $employeeId;
+//                ActionLog::log(Action::ACTION_MAP_UNMAP_RECORD_ID, 'RegionPermission', $regionId, $comment);
+//            }
+//
+//            $transaction->commit();
+//
+//            $this->renderJSON($deleted);
+//        } catch(Exception $e) {
+//            $transaction->rollback();
+//            throw new CHttpException('500', 'Failed to revoke region permission!');
+//        }
+
+
+
+//        $id  = Yii::app()->request->getDelete('id');
+//
+//        if (empty($id)) {
+//            throw new CHttpException('500', 'id was not provided!');
+//        }
+//
+//        $model = ChildRelative::model();
+//        $childRelative = $model->findByPk($id);
+//        if (!$childRelative) {
+//            throw new CHttpException('404', 'Relation does not exist!');
+//        }
+//
+//        $childRelative->delete();
+
     }
 
     public function actionList()
