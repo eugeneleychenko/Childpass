@@ -120,14 +120,6 @@ return array(
                     'class' => 'fieldstyle',
                     'label' => "Grade",
                 ),
-
-
-
-//                'known_relatives' => array(
-//                    'type'  => 'text',
-//                    'class' => 'fieldstyle',
-//                    'label' => 'Known Relatives',
-//                ),
             ),
         ),
     ),

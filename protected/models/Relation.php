@@ -87,4 +87,26 @@ class Relation extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    /**
+     * @return array ethnicity's options
+     */
+    public function getOptions()
+    {
+        $rows = $this->findAll();
+        $options = array();
+//        foreach ($rows as $row) {
+//            $options[] = array(
+//                'id' => $row->primaryKey,
+//                'name' => $row->name
+//            );
+//        }
+
+        $options = array();
+        foreach ($rows as $row) {
+            $options[$row->id] = $row->name;
+        }
+        return $options;
+    }
+
 }

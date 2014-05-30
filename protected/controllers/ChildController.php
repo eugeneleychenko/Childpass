@@ -35,7 +35,8 @@ class ChildController extends Controller
         $childId = isset($_GET['child_id']) ? $_GET['child_id'] : false;
 
         if ($childId) {
-            $form['child']->model = Child::model()->findByPk($childId);
+            $form['child']->model = Child::model()->with('relatives.childRelative.relation')->findByPk($childId);
+
             if (!$form['child']->model->checkAccess()) {
                 $this->redirect(array('child/list'));
             }
@@ -48,6 +49,37 @@ class ChildController extends Controller
         switch ($step) {
             case 'step1':
                 $form['child']->model->birthday = $form['child']->model->getBirthday();
+
+                //get relatives mapped to child
+                if ($childId) {
+                    $relatives = array();
+                    foreach ($form['child']->model->relatives as $relative) {
+
+                        if ($relative->childRelative) {
+                            $relation =  ($relative->childRelative[0]->relation) ? $relative->childRelative[0]->relation : '';
+                        } else {
+                            $relation = '';
+                        }
+
+                        $relatives[] = array(
+                            'first_name' => $relative->primaryKey,
+                            'first_name' => $relative->first_name,
+                            'last_name' => $relative->last_name,
+                            'relation' => $relation,
+                            'selectedRelation' => array($relation->id/* => $relation->name*/),
+                            'childRelationId' => $relative->childRelative[0]->primaryKey
+                        );
+                    }
+
+                    $data['relatives'] = $relatives;
+                    $data['relationOptions'] = Relation::model()->getOptions();
+//                    var_dump($data['relationOptions']);
+//                    exit;
+                    $data['childId'] = $childId;
+                } else {
+
+                }
+
 
                 if ($form->submitted('next_step')) {
                     $form['child']->model->user_id = Yii::app()->user->getId();
