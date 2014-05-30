@@ -77,6 +77,7 @@ class ChildController extends Controller
 //                    exit;
                     $data['childId'] = $childId;
                 } else {
+                    $data['relatives'] = array();
 
                 }
 
