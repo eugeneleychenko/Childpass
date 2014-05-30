@@ -75,7 +75,9 @@
                 div#relatives
                     h3 Known Relatives
                     if data.relatives
-                        table(style="margin: 0 auto;  text-align: left; border-spacing: 10px")
+                        table(style="margin: 0 auto;  text-align: left; border-spacing: 10px;border-collapse: separate;")
+                            :php
+                                $counter = 0;
                             each relative in data.relatives
                                 tr
                                     td First Name
@@ -84,26 +86,16 @@
                                     td
                                 tr
                                     td
-                                        input(name='Relative["first_name"][]', type="text", value=relative.first_name)
+                                        input(name='Relative[][first_name]', type="text", value=relative.first_name)
                                     td
-                                        input(name='Relative["last_name"][]', type="text", value=relative.last_name)
+                                        input(name='Relative[][last_name]', type="text", value=relative.last_name)
                                     td
                                         :php
-                                            echo CHtml::dropDownList('Relative["relation"][]', $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
+                                            $counter++;
+                                            echo CHtml::dropDownList('Relative[][relation]', $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
                                     td
-                                        input(name='Relative["relative_id"][]', type="hidden", value=relative.id)
-                                        input(name='Relative["child_realtive_id"][]', type="hidden", value=relative.childRelationId)
-
-
-
-                            //div.row
-                            //    div.columns.small-4 1
-                            //        input(type="text", value=relative.first_name)
-                            //    div.columns.small-4 2
-                            //        input(type="text", value=relative.last_name)
-                            //    div.columns.small-4 3
-                            //        :php
-                            //            echo CHtml::dropDownList('Relative["relation"][]', $relative['selectedRelation'], $data['relationOptions'], array('' => 'Select Relation'));
+                                        input(name='Relative[]["relative_id"]', type="hidden", value=relative.id)
+                                        input(name='Relative[]["child_realtive_id"]', type="hidden", value=relative.childRelationId)
 
                 div.row(style='margin-bottom: 60px; position: relative;')
                     !=$form->buttons['next_step']
