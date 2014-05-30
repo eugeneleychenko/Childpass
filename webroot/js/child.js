@@ -36,6 +36,26 @@ $(function() {
         return false;
     });
 
+    $('#add_relative').on('click', function() {
+        addNewRelative();
+    });
+
+    function addNewRelative() {
+//       $('#relatives_table').
+//       var row = '<tr><td><input type="text" value="Bill" name="Relative[0][first_name]" id="Relative_0_first_name"></td><td><input type="text" value="Smith" name="Relative[0][last_name]" id="Relative_0_last_name"></td><td><select ="select="" relation"="" name="Relative[0][relation]" id="Relative_0_relation"> \
+//            <option value="1" selected="selected">Father</option>\
+//            <option value="2">Mother</option>\
+//            <option value="3">Grandfather</option>\
+//            <option value="4">GrandMother</option>\
+//            <option value="5">Uncle</option>\
+//            <option value="6">Aunt</option>\
+//         </select></td><td><button type="button" class="button small delete_relative">-</button><input class="relative_id" type="hidden" value="0" name="Relative[0][relative_id]" id="Relative_0_relative_id"><input class="child_relative_id" type="hidden" value="0" name="Relative[0][childRelationId]" id="Relative_0_childRelationId"></td></tr>';
+//
+    }
+
+
+
+
     function deleteRelative(button) {
         if (!confirm('Do you want to remove this relative?')) {
             return false;

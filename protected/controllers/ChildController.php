@@ -70,18 +70,25 @@ class ChildController extends Controller
                     }
 
                     $data['relatives'] = $relatives;
-                    $data['relationOptions'] = Relation::model()->getOptions();
                     $data['childId'] = $childId;
                 } else {
                     $data['relatives'] = array();
-
                 }
-
+                $data['relationOptions'] = Relation::model()->getOptions();
 
                 if ($form->submitted('next_step')) {
                     $form['child']->model->user_id = Yii::app()->user->getId();
                     if ($form->validate()) {
                         if ($form['child']->model->save(false)) {
+
+                            if (!$childId) {
+                                $childId = $form['child']->model->primaryKey;
+                            }
+
+                            if (isset($_POST['Relative'])) {
+                                Relative::model()->saveRelatives($childId, $_POST['Relative']);
+                            }
+
                             $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $form['child']->model->id));
                         }
                     }

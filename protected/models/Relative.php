@@ -92,4 +92,36 @@ class Relative extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function saveRelatives($childId, $relatives)
+    {
+        foreach ($relatives as $relative) {
+            if (!isset($relative['childRelationId'])) {
+                if (!isset($relative['relative_id'])) {
+                    //add new relative
+                    $relativeModel = new self;
+                    $relativeModel->first_name = $relative['first_name'];
+                    $relativeModel->last_name = $relative['last_name'];
+
+                    $relativeModel->save();
+                    $errors = $relativeModel->getErrors();
+                    $relativeId = $relativeModel->primaryKey;
+
+
+                    $childRelativeModel = new ChildRelative;
+                    $childRelativeModel->child_id = $childId;
+                    $childRelativeModel->relative_id = $relativeId;
+                    $childRelativeModel->relation_id = $relative['relation_id'];
+                    $childRelativeModel->save();
+                    $errors = $childRelativeModel->getErrors();
+                }
+                //adding relative
+            }
+        }
+    }
+
+
+
+
+
 }
