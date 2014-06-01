@@ -82,8 +82,12 @@ $(function() {
             },
             type: 'DELETE',
             success: function(data) {
-                row.remove();
-                relativesNumber--;
+                if (data) {
+                    row.remove();
+                    relativesNumber--;
+                } else {
+                  alert('Failed to delete! Make sure child has at least one relative!');
+                }
             },
             complete: function() {
             },

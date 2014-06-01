@@ -154,8 +154,6 @@ class ChildController extends Controller
 
     public function actionDeleteRelativeMapping()
     {
-        $this->layout = 'ajax';
-
         $childId = Yii::app()->request->getDelete('childId');
         $relativeId = Yii::app()->request->getDelete('relativeId');
 
@@ -163,49 +161,14 @@ class ChildController extends Controller
             throw new CHttpException('500', 'Incorrect parameters!');
         }
 
-        $model = ChildRelative::model();
-
         try {
-            $model->removeMapping($childId, $relativeId);
+            $model = ChildRelative::model();
+            $result = $model->removeMapping($childId, $relativeId);
+            $this->renderJSON($result);
+
         } catch(Exception $e) {
             throw new CHttpException('500', 'Failed to delete relative!');
         }
-
-
-//        $transaction = $model->dbConnection->beginTransaction();
-//
-//        try {
-//            $deleted = $model->removePermission($employeeId, array($regionId));
-//
-//            if ($deleted) {
-//                $comment = 'Revoke region permission' . $regionId . ' for employee '. $employeeId;
-//                ActionLog::log(Action::ACTION_MAP_UNMAP_RECORD_ID, 'RegionPermission', $regionId, $comment);
-//            }
-//
-//            $transaction->commit();
-//
-//            $this->renderJSON($deleted);
-//        } catch(Exception $e) {
-//            $transaction->rollback();
-//            throw new CHttpException('500', 'Failed to revoke region permission!');
-//        }
-
-
-
-//        $id  = Yii::app()->request->getDelete('id');
-//
-//        if (empty($id)) {
-//            throw new CHttpException('500', 'id was not provided!');
-//        }
-//
-//        $model = ChildRelative::model();
-//        $childRelative = $model->findByPk($id);
-//        if (!$childRelative) {
-//            throw new CHttpException('404', 'Relation does not exist!');
-//        }
-//
-//        $childRelative->delete();
-
     }
 
     public function actionList()
