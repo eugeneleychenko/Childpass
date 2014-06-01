@@ -93,52 +93,47 @@ class Relative extends CActiveRecord
 		));
 	}
 
+
     public function saveRelatives($childId, $relatives)
     {
         foreach ($relatives as $relative) {
+            if (!isset($relative['first_name']) || !isset($relative['first_name']) || !isset($relative['relation_id'])) {
+                continue;
+            }
+
             if (!isset($relative['child_relative_id'])) {
-                //create new mapping
                 if (!isset($relative['relative_id'])) {
-                    //add new relative
-                    $relativeModel = new self;
-                    $relativeModel->first_name = $relative['first_name'];
-                    $relativeModel->last_name = $relative['last_name'];
-
-                    $relativeModel->save();
-                    $errors = $relativeModel->getErrors();
+                    $relativeModel = $this->saveRelative($relative['first_name'], $relative['last_name']);
                     $relativeId = $relativeModel->primaryKey;
-
-                    $childRelativeModel = new ChildRelative;
-                    $childRelativeModel->child_id = $childId;
-                    $childRelativeModel->relative_id = $relativeId;
-                    $childRelativeModel->relation_id = $relative['relation_id'];
-                    $childRelativeModel->save();
-                    $errors = $childRelativeModel->getErrors();
+                    $childRelativeModel = ChildRelative::model()->saveMapping($childId, $relativeId,
+                                                                              $relative['relation_id']);
                 }
             } else {
                 if (!isset($relative['relative_id'])) {
                     continue;
                 }
 
-                //edit relative
-                $relativeModel = Relative::model()->findByPk($relative['relative_id']);
-                $relativeModel->first_name = $relative['first_name'];
-                $relativeModel->last_name = $relative['last_name'];
-
-                $relativeModel->save();
-                $errors = $relativeModel->getErrors();
+                $relativeModel = $this->saveRelative($relative['first_name'], $relative['last_name'],
+                                                                                 $relative['relative_id']);
                 $relativeId = $relativeModel->primaryKey;
-
-                //edit childRelative mapping
-                $childRelativeModel = ChildRelative::model()->findByPk($relative['child_relative_id']);
-                $childRelativeModel->child_id = $childId;
-                $childRelativeModel->relative_id = $relativeId;
-                $childRelativeModel->relation_id = $relative['relation_id'];
-                $childRelativeModel->save();
-                $errors = $childRelativeModel->getErrors();
-
+                $childRelativeModel = ChildRelative::model()->saveMapping($childId, $relativeId,
+                                                              $relative['relation_id'], $relative['child_relative_id']);
             }
         }
+    }
+
+
+    public function saveRelative($firstName, $lastName, $relativeId = null)
+    {
+        if ($relativeId) {
+            $relativeModel = self::model()->findByPk($relativeId);
+        } else {
+            $relativeModel = new self;
+        }
+        $relativeModel->first_name = $firstName;
+        $relativeModel->last_name = $lastName;
+        $relativeModel->save();
+        return $relativeModel;
     }
 
 }

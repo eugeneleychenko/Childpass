@@ -81,7 +81,8 @@ return array(
 //                    'class' => 'fieldstyle',
                     'label' => 'Distinctive marks',
                     'rows' => '10',
-                    'cols' => '50',
+                    'cols' => '30',
+                    'maxlength' => '255'
                 ),
                 'school' => array(
                     'type'  => 'text',

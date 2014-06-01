@@ -124,4 +124,19 @@ class ChildRelative extends CActiveRecord
         return $this->findAll('child_id = :child_id', array(':child_id' => $childId));
     }
 
+    public function saveMapping($childId, $relativeId, $relationId, $childRelativeId = null)
+    {
+        if ($childRelativeId) {
+            $childRelativeModel = ChildRelative::model()->findByPk($childRelativeId);
+        } else {
+            $childRelativeModel =  new ChildRelative;
+        }
+
+        $childRelativeModel->child_id = $childId;
+        $childRelativeModel->relative_id = $relativeId;
+        $childRelativeModel->relation_id = $relationId;
+        $childRelativeModel->save();
+        return $childRelativeModel;
+    }
+
 }
