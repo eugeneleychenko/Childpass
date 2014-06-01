@@ -46,7 +46,7 @@ $(function() {
         select.removeAttr('id');
         select.attr('name', namePrefix + '[relation_id]');
         select.val('');
-        var row =  '<tr><td><input name="' + namePrefix + '[first_name]"></td><td><input name="' + namePrefix + '[last_name]"> </td><td>' + select.text() + '</td><td><button type="type" class="button small delete_relative">-</button></td></tr>';
+        var row =  '<tr><td><input name="' + namePrefix + '[first_name]" required maxlength="100"></td><td><input name="' + namePrefix + '[last_name]" required maxlength="100"> </td><td>' + select.text() + '</td><td><button type="type" class="button small delete_relative">-</button></td></tr>';
         $('#relatives_table').append(row);
         $('#relatives_table tbody').find('tr').last().find('td').eq(2).html(select);
         relativesNumber++;

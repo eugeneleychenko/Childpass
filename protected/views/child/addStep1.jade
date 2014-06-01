@@ -97,13 +97,13 @@
                                     tr
                                         td
                                             :php
-                                                echo CHtml::textField("Relative[$counter][first_name]", $relative['first_name']);
+                                                echo CHtml::textField("Relative[$counter][first_name]", $relative['first_name'], array('maxlength' => '100', 'required' => 'required'));
                                         td
                                             :php
-                                                echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name']);
+                                                echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name'], array('maxlength' => '100', 'required' => 'required'));
                                         td
                                             :php
-                                                echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation'));
+                                                echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required'));
                                         td
                                             button.button.small.delete_relative(type="button") -
                                             :php
@@ -122,12 +122,12 @@
                              tbody
                                 tr
                                     td
-                                        input(name="Relative[0][first_name]")
+                                        input(name="Relative[0][first_name]", required, maxlength="100")
                                     td
-                                        input(name="Relative[0][last_name]")
+                                        input(name="Relative[0][last_name]", required, , maxlength="100")
                                     td
                                         :php
-                                            echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation'));
+                                            echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required'));
                                     td
 
                             :php
