@@ -77,7 +77,11 @@ class ChildController extends Controller
                 $data['relationOptions'] = Relation::model()->getOptions();
 
                 if ($form->submitted('next_step')) {
+
                     $form['child']->model->user_id = Yii::app()->user->getId();
+
+                    $transaction = $form['child']->model->dbConnection->beginTransaction();
+
                     if ($form->validate()) {
                         if ($form['child']->model->save(false)) {
 
@@ -86,7 +90,15 @@ class ChildController extends Controller
                             }
 
                             if (isset($_POST['Relative'])) {
-                                Relative::model()->saveRelatives($childId, $_POST['Relative']);
+                                Relative::model()->saveRelatives($childId, $_POST['Relative'], $form['child']->model->user_id);
+                            }
+
+                            $childRelativesNumber = count(ChildRelative::model()->childRelativesMapping($childId));
+                            if (!$childRelativesNumber) {
+                                $transaction->rollback();
+                                $this->redirect(array('child/list'));
+                            } else {
+                                $transaction->commit();
                             }
 
                             $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $form['child']->model->id));
