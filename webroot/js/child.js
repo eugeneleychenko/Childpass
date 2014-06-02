@@ -44,12 +44,9 @@ $(function() {
     });
 
     function addNewRelative() {
-        var namePrefix = 'Relative[' + relativesNumber  + ']';
-        var  select = $('#relatives_table tbody').find('tr').first().find('select').clone();
-        select.removeAttr('id');
-        select.attr('name', namePrefix + '[relation_id]');
-        select.val('');
-        var row =  '<tr><td><input name="' + namePrefix + '[first_name]" required maxlength="100"></td><td><input name="' + namePrefix + '[last_name]" required maxlength="100"> </td><td>' + select.text() + '</td><td><button type="type" class="button small delete_relative">-</button></td></tr>';
+        var namePrefix = getNamePrefix();
+        select = relationsElement(namePrefix, '');
+        var row =  '<tr><td><input name="' + namePrefix + '[first_name]" required maxlength="100"></td><td><input name="' + namePrefix + '[last_name]" required maxlength="100"> </td><td>' + select/*.text()*/ + '</td><td><button type="type" class="button small delete_relative">-</button></td></tr>';
         $('#relatives_table').append(row);
         $('#relatives_table tbody').find('tr').last().find('td').eq(2).html(select);
         relativesNumber++;
@@ -96,23 +93,28 @@ $(function() {
     }
 
     function prefilledRelativeRow(relativeInfo) {
+        var namePrefix = getNamePrefix();
+        var select = relationsElement(namePrefix, relativeInfo['relation_id']);
+        return  '<tr><td>' + firstNameElement(namePrefix, relativeInfo['first_name']) + '</td><td>' + lastNameElement(namePrefix, relativeInfo['last_name']) + '</td><td>' + select + '</td><td>' + deleteRelativeButton() + relativeIdElement(namePrefix, relativeInfo['relative_id']) + '</td></tr>';
+    }
+
+    function relationsElement(namePrefix, relationId) {
         var options = '';
         relationOptions.each(function() {
-           var element = $(this);
-           var selected;
-            if (element.val() ==  relativeInfo['relation_id']) {
+            var element = $(this);
+            var selected;
+            if (element.val() ==  relationId) {
                 selected = 'selected';
             } else {
                 selected = '';
             }
-           options +=  '<option value="' + element.val() + '"' +  selected  + ' >' + element.text() + '</option>';
+            options +=  '<option value="' + element.val() + '"' +  selected  + ' >' + element.text() + '</option>';
         });
         var namePrefix = getNamePrefix();
 
-        var select = '<select required="required" class="relation_id" name="' + namePrefix + '[relation_id]">' + options + '</select>';
-
-        return  '<tr><td>' + firstNameElement(namePrefix, relativeInfo['first_name']) + '</td><td>' + lastNameElement(namePrefix, relativeInfo['last_name']) + '</td><td>' + select + '</td><td>' + deleteRelativeButton() + relativeIdElement(namePrefix, relativeInfo['relative_id']) + '</td></tr>';
+        return '<select required="required" class="relation_id" name="' + namePrefix + '[relation_id]">' + options + '</select>';
     }
+
 
     function firstNameElement(namePrefix, value) {
         var value = typeof value !== 'undefined' ? 'value="' + value + '"' : '';

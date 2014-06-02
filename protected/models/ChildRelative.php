@@ -102,9 +102,6 @@ class ChildRelative extends CActiveRecord
     public function removeMapping($childId, $relativeId)
     {
         $childRelativesNumber = count($this->childRelativesMapping($childId));
-        if ($childRelativesNumber < 2) {
-            return false;
-        }
 
         $criteria = new CDbCriteria();
         $criteria->addCondition('child_id = :child_id AND relative_id = :relative_id');
