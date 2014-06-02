@@ -137,6 +137,7 @@ class ChildRelative extends CActiveRecord
                 }
             }
         } else {
+            $forbidToEditChildRelative = false;
             $childRelativeModel =  new ChildRelative;
         }
 

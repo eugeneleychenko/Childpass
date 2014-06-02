@@ -32,6 +32,19 @@ function deleteChildPhoto(button) {
 }
 
 $(function() {
+
+    $('form').submit(function( event ) {
+        if (!$('#relatives_table tbody tr').length) {
+          if (!$('#relatives_error').length) {
+              $('<div class="errorMessage" id="relatives_error" style="color: #f00;">Input a least on relative!</div>').insertBefore($('#relatives_table'));
+          }
+          event.preventDefault();
+        }
+    });
+
+
+
+
     relationOptions = $('select.relation_id').first().find('option');
 
     $('#relatives_table tbody').on('click', '.delete_relative', function() {
