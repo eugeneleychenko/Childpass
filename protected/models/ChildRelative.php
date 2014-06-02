@@ -139,4 +139,15 @@ class ChildRelative extends CActiveRecord
         return $childRelativeModel;
     }
 
+    public function userHasChildRelativeMapping($userId)
+    {
+        return $this->with(array(
+            'relative',
+            'child' => array(
+                'alias' => 'child',
+                'joinType'=>'INNER JOIN',
+                'condition'=> 'child.user_id = :user_id',
+                'params' => array(':user_id' => $userId) )))->exists();
+    }
+
 }

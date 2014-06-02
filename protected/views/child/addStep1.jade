@@ -103,7 +103,7 @@
                                                 echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name'], array('maxlength' => '100', 'required' => 'required'));
                                         td
                                             :php
-                                                echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required'));
+                                                echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required', 'class' => 'relation_id'));
                                         td
                                             button.button.small.delete_relative(type="button") -
                                             :php
@@ -127,7 +127,7 @@
                                         input(name="Relative[0][last_name]", required, , maxlength="100")
                                     td
                                         :php
-                                            echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required'));
+                                            echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required', 'class' => 'relation_id'));
                                     td
 
                             :php
@@ -135,6 +135,9 @@
 
 
                     button.button.small#add_relative(type="button") +
+                    if (data.addingNextChild)
+                        &nbsp;&nbsp;&nbsp;
+                        button.button.small#add_saved_relatives(type="button") Add Saved Relatives
 
 
 

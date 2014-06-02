@@ -64,16 +64,19 @@ class ChildController extends Controller
                             'first_name' => $relative->first_name,
                             'last_name' => $relative->last_name,
                             'relation' => $childRelation->relation,
-                            'selectedRelation' => array( $childRelation->relation->id ),
+                            'selectedRelation' => array( $childRelation->relation->id),
                             'childRelationId' => $childRelation->primaryKey
                         );
                     }
 
                     $data['relatives'] = $relatives;
                     $data['childId'] = $childId;
+                    $data['addingNextChild'] = false;
                 } else {
                     $data['relatives'] = array();
+                    $data['addingNextChild'] = ChildRelative::model()->userHasChildRelativeMapping(Yii::app()->user->getId());
                 }
+
                 $data['relationOptions'] = Relation::model()->getOptions();
 
                 if ($form->submitted('next_step')) {
@@ -184,7 +187,7 @@ class ChildController extends Controller
     }
 
 
-    function actionGetSavedRelatives(/*$childId*/)
+    function actionGetSavedRelatives()
     {
         $userId = Yii::app()->user->getId();
         $relatives = array();
@@ -207,38 +210,7 @@ class ChildController extends Controller
             }
         }
 
-        $this->renderJSON($relatives);
-        exit;
-
-//
-//
-//        $children = Child::model()->with('relatives.childRelative')->findAll('user_id = :user_id',
-//            array(
-//                ':user_id' => $userId
-//            ));
-//
-//        foreach ($children as $child) {
-//            if ($child->relatives) {
-//                foreach ($child->relatives as $childRelative) {
-//                    if (!array_key_exists($childRelative->id, $relatives)) {
-//                        if ($childRelative->childRelative) {
-//                            $relation_id = $childRelative->childRelative->relation_id;
-//                        } else {
-//                            $relation_id = '';
-//                        }
-//
-//                        $relatives[$childRelative->id] = array(
-//                            'relative_id' =>  $childRelative->id,
-//                            'first_name' => $childRelative->first_name,
-//                            'last_name' => $childRelative->last_name,
-//                            'relation_id' => $childRelative->childRelative->relation_id
-//                        );
-//                    }
-//                }
-//            }
-//        }
-//
-//        $this->renderJSON($relatives);
+        $this->renderJSON(array_values($relatives));
     }
 
     public function actionList()
