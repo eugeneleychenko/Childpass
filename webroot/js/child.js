@@ -34,7 +34,7 @@ function deleteChildPhoto(button) {
 $(function() {
 
     $('form').submit(function( event ) {
-        if (!$('#relatives_table tbody tr').length) {
+        if (step == 'step1' && !$('#relatives_table tbody tr').length) {
           if (!$('#relatives_error').length) {
               $('<div class="errorMessage" id="relatives_error" style="color: #f00;">Input a least on relative!</div>').insertBefore($('#relatives_table'));
           }

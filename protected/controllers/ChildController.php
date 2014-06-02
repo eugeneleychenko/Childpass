@@ -158,6 +158,8 @@ class ChildController extends Controller
                 break;
         }
 
+        $data['step'] = $step;
+
         $this->render(
             'add' . ucfirst($step), array(
                 'form' => $form,

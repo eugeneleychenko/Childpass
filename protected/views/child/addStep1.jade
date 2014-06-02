@@ -1,9 +1,13 @@
 :php
     if (isset($data['childId'])) {
-            echo '<script> var childId = ' .  $data['childId'] . '; </script>';
+            echo '<script> var childId = "' .  $data['childId'] . '"; </script>';
     } else {
         echo "<script> var childId = null; </script>";
     }
+
+    echo '<script> var step = "' .  $data['step'] . '"; </script>';
+
+
 
 .step-header
     .step-description
