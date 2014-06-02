@@ -71,11 +71,10 @@ class ChildController extends Controller
 
                     $data['relatives'] = $relatives;
                     $data['childId'] = $childId;
-                    $data['addingNextChild'] = false;
                 } else {
                     $data['relatives'] = array();
-                    $data['addingNextChild'] = ChildRelative::model()->userHasChildRelativeMapping(Yii::app()->user->getId());
                 }
+                $data['addingNextChild'] = ChildRelative::model()->userHasChildRelativeMapping(Yii::app()->user->getId());
 
                 $data['relationOptions'] = Relation::model()->getOptions();
 
