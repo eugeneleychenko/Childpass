@@ -129,7 +129,7 @@ class Relative extends CActiveRecord
                                                                                  $relative['relative_id']);
                 $relativeId = $relativeModel->primaryKey;
                 $childRelativeModel = ChildRelative::model()->saveMapping($childId, $relativeId,
-                                                              $relative['relation_id'], $relative['child_relative_id']);
+                                                              $relative['relation_id'], $relative['child_relative_id'], $userId);
             }
         }
     }

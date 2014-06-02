@@ -121,18 +121,30 @@ class ChildRelative extends CActiveRecord
         return $this->findAll('child_id = :child_id', array(':child_id' => $childId));
     }
 
-    public function saveMapping($childId, $relativeId, $relationId, $childRelativeId = null)
+    public function saveMapping($childId, $relativeId, $relationId, $childRelativeId = null, $userId = null)
     {
         if ($childRelativeId) {
-            $childRelativeModel = ChildRelative::model()->findByPk($childRelativeId);
+            $childRelativeModel = ChildRelative::model()->with('child')->findByPk($childRelativeId);
+            if (!$childRelativeModel) {
+                $forbidToEditChildRelative = true;
+            } else {
+                if ($userId) {
+                    //don't allow to edit chilrelative of other user
+                    if ($childRelativeModel->child->user_id != $userId) {
+                        $forbidToEditChildRelative = true;
+                    }
+                }
+            }
         } else {
             $childRelativeModel =  new ChildRelative;
         }
 
-        $childRelativeModel->child_id = $childId;
-        $childRelativeModel->relative_id = $relativeId;
-        $childRelativeModel->relation_id = $relationId;
-        $childRelativeModel->save();
+        if (!$forbidToEditChildRelative) {
+            $childRelativeModel->child_id = $childId;
+            $childRelativeModel->relative_id = $relativeId;
+            $childRelativeModel->relation_id = $relationId;
+            $childRelativeModel->save();
+        }
         return $childRelativeModel;
     }
 
