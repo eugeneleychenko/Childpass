@@ -183,6 +183,64 @@ class ChildController extends Controller
         }
     }
 
+
+    function actionGetSavedRelatives(/*$childId*/)
+    {
+        $userId = Yii::app()->user->getId();
+        $relatives = array();
+        $childRelatives = ChildRelative::model()->with(array(
+                                                            'relative',
+                                                            'child' => array(
+                                                                            'alias' => 'child',
+                                                                            'joinType'=>'INNER JOIN',
+                                                                            'condition'=> 'child.user_id = :user_id',
+                                                                            'params' => array(':user_id' => $userId) )))->findAll();
+
+        foreach ($childRelatives as $childRelative) {
+            if (!array_key_exists($childRelative->relative_id, $relatives)) {
+                $relatives[$childRelative->relative_id] = array(
+                    'relative_id' =>  $childRelative->relative_id,
+                    'first_name' => $childRelative->relative->first_name,
+                    'last_name' => $childRelative->relative->last_name,
+                    'relation_id' => $childRelative->relation_id
+                );
+            }
+        }
+
+        $this->renderJSON($relatives);
+        exit;
+
+//
+//
+//        $children = Child::model()->with('relatives.childRelative')->findAll('user_id = :user_id',
+//            array(
+//                ':user_id' => $userId
+//            ));
+//
+//        foreach ($children as $child) {
+//            if ($child->relatives) {
+//                foreach ($child->relatives as $childRelative) {
+//                    if (!array_key_exists($childRelative->id, $relatives)) {
+//                        if ($childRelative->childRelative) {
+//                            $relation_id = $childRelative->childRelative->relation_id;
+//                        } else {
+//                            $relation_id = '';
+//                        }
+//
+//                        $relatives[$childRelative->id] = array(
+//                            'relative_id' =>  $childRelative->id,
+//                            'first_name' => $childRelative->first_name,
+//                            'last_name' => $childRelative->last_name,
+//                            'relation_id' => $childRelative->childRelative->relation_id
+//                        );
+//                    }
+//                }
+//            }
+//        }
+//
+//        $this->renderJSON($relatives);
+    }
+
     public function actionList()
     {
         $userId = Yii::app()->user->getId();
