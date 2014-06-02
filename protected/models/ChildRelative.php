@@ -128,6 +128,7 @@ class ChildRelative extends CActiveRecord
             if (!$childRelativeModel) {
                 $forbidToEditChildRelative = true;
             } else {
+                $forbidToEditChildRelative = false;
                 if ($userId) {
                     //don't allow to edit chilrelative of other user
                     if ($childRelativeModel->child->user_id != $userId) {
