@@ -81,8 +81,7 @@ $(function() {
        var length = relativesInfo.length;
        var rows = '';
        for (var i = 0; i < length; i++) {
-           if (relativeExistsOnTheForm(relativesInfo['relative_id'])) {
-               console.log('already exists');
+           if (relativeExistsOnTheForm(relativesInfo[i]['relative_id'])) {
                continue;
            }
 
@@ -93,7 +92,7 @@ $(function() {
     }
 
     function relativeExistsOnTheForm(relativeId) {
-        return ($('.relation_id[value="' + relativeId + '"]').length > 0);
+        return ($('.relative_id[value="' + relativeId + '"]').length > 0);
     }
 
     function prefilledRelativeRow(relativeInfo) {
