@@ -106,7 +106,15 @@ class Relative extends CActiveRecord
                     $relativeModel = $this->saveRelative($relative['first_name'], $relative['last_name']);
                     $relativeId = $relativeModel->primaryKey;
                     $childRelativeModel = ChildRelative::model()->saveMapping($childId, $relativeId,
-                                                                              $relative['relation_id']);
+                                                                                $relative['relation_id']);
+                } else {
+                    if (!$this->relativeBelongsToUser($relative['relative_id'], $userId)) {
+                        continue;
+                    }
+                    $relativeModel = $this->saveRelative($relative['first_name'], $relative['last_name'],
+                                                                                 $relative['relative_id']);
+                    $childRelativeModel = ChildRelative::model()->saveMapping($childId, $relative['relative_id'],
+                        $relative['relation_id']);
                 }
             } else {
                 if (!isset($relative['relative_id'])) {
@@ -116,8 +124,6 @@ class Relative extends CActiveRecord
                 if (!$this->relativeBelongsToUser($relative['relative_id'], $userId)) {
                     continue;
                 }
-
-
 
                 $relativeModel = $this->saveRelative($relative['first_name'], $relative['last_name'],
                                                                                  $relative['relative_id']);

@@ -94,16 +94,22 @@ $(function() {
 
     function relativeExistsOnTheForm(relativeId) {
         return ($('.relation_id[value="' + relativeId + '"]').length > 0);
-        //return $('Relative_' + relativeId + '_relative_id').length > 0;
     }
 
     function prefilledRelativeRow(relativeInfo) {
         var options = '';
         relationOptions.each(function() {
            var element = $(this);
-           options +=  '<option value="' + element.val() + '">' + element.text() + '</option>';
+           var selected;
+            if (element.val() ==  relativeInfo['relation_id']) {
+                selected = 'selected';
+            } else {
+                selected = '';
+            }
+           options +=  '<option value="' + element.val() + '"' +  selected  + ' >' + element.text() + '</option>';
         });
-        var namePrefix = getNamePrefix();//'Relative[' + relativesNumber  + ']';
+        var namePrefix = getNamePrefix();
+
         var select = '<select required="required" class="relation_id" name="' + namePrefix + '[relation_id]">' + options + '</select>';
 
         return  '<tr><td>' + firstNameElement(namePrefix, relativeInfo['first_name']) + '</td><td>' + lastNameElement(namePrefix, relativeInfo['last_name']) + '</td><td>' + select + '</td><td>' + deleteRelativeButton() + relativeIdElement(namePrefix, relativeInfo['relative_id']) + '</td></tr>';
