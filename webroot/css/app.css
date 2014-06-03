@@ -1263,3 +1263,8 @@ hr {
 .flyerWrapper .footer .logo {
   margin-top: 0;
 }
+
+/* line 719, D:/projects/web/childPass/webroot/scss/_styles.scss */
+table#relatives_table th {
+  background: #fff;
+}

@@ -69,17 +69,17 @@ return array(
                 'zip_code' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'City State Zip',
+                    'label' => 'Zip',
                 ),
                 'birthday' => array(
                     'type'  => 'date',
                     'class' => 'fieldstyle',
-                    'label' => 'Date of Birth',
+                    'label' => 'Date of Birth (DD/MM/YY)',
                 ),
                 'distinctive_marks' => array(
                     'type'  => 'textarea',
 //                    'class' => 'fieldstyle',
-                    'label' => 'Distinctive marks',
+                    'label' => 'Please provide details such as location of scars, birthmarks, tattos or any other marks',
                     'rows' => '10',
                     'cols' => '30',
                     'maxlength' => '255'
@@ -87,7 +87,7 @@ return array(
                 'school' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'School',
+                    'label' => 'School Name',
                 ),
                 'school_address' => array(
                     'type'  => 'text',
@@ -102,7 +102,7 @@ return array(
                 'school_zip_code' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'City State Zip',
+                    'label' => 'Zip',
                 ),
                 'state' => array(
                     'type'  => 'dropdownlist',
@@ -121,6 +121,17 @@ return array(
                     'class' => 'fieldstyle',
                     'label' => "Grade",
                 ),
+                'city' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => "City",
+                ),
+                'school_city' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => "City",
+                ),
+
             ),
         ),
     ),

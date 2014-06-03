@@ -105,6 +105,7 @@ class ChildController extends Controller
 
                             $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $form['child']->model->id));
                         }
+                    } else {
                     }
                 }
 

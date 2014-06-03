@@ -7,8 +7,8 @@
  * @property integer $id
  * @property string $created_at
  * @property string $first_name
- * @property string $middle_namee
- * @property string $last_namee
+ * @property string $middle_name
+ * @property string $last_name
  * @property string $gender
  * @property integer $height_feet
  * @property integer $height_inches
@@ -31,6 +31,8 @@
  * @property string $state
  * @property string $school_state
  * @property integer $grade
+ * @property integer $city
+ * @property integer $school_city
 
 
  * The followings are the available model relations:
@@ -68,7 +70,7 @@ class Child extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, first_name, middle_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, state, school_state, grade', 'required'),
+			array('user_id, first_name, middle_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, state, school_state, grade, city, school_city', 'required'),
 			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, grade', 'numerical', 'integerOnly'=>true),
 			array('first_name, middle_name, last_name, address, address2, school_address, school_address2', 'length', 'max'=>100),
 			array('gender', 'length', 'max'=>1),
@@ -76,6 +78,7 @@ class Child extends CActiveRecord
 			array('zip_code, school_zip_code', 'length', 'max'=>10),
 			array('distinctive_marks, missing_from', 'length', 'max'=>255),
 			array('school', 'length', 'max'=>150),
+            array('city, school_city', 'length', 'max'=>100),
 			array('birthday, missing_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -134,7 +137,10 @@ class Child extends CActiveRecord
 			'missing_from' => 'Missing From',
             'state' => 'State',
             'school_state' => 'State',
-            'grade' => 'Grade'
+            'grade' => 'Grade',
+            'city' => 'City',
+            'school_city' => 'City'
+
 		);
 	}
 

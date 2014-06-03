@@ -44,44 +44,52 @@
         !=$form->renderBegin()
             div(style='width: 96%; text-align: center;')
                 div.row
-                    !=$form['child']['first_name']
+                    table
+                        tr
+                            td(style="width: 25%")
+                                !=$form['child']['first_name']
+                            td(style="width: 25%")
+                                !=$form['child']['last_name']
+                            td(style="width: 25%")
+                                !=$form['child']['middle_name']
+                            td(style="width: 25%")
+                                !=$form['child']['birthday']
                 div.row
-                    !=$form['child']['last_name']
+                    table
+                        tr
+                            td(style="width: 25%")
+                                !=$form['child']['address']
+                            td(style="width: 25%")
+                                !=$form['child']['address2']
+                            td(style="width: 25%")
+                                !=$form['child']['city']
+                            td(style="width: 10%")
+                                !=$form['child']['state']
+                            td(style="width: 15%")
+                                !=$form['child']['zip_code']
                 div.row
-                    !=$form['child']['middle_name']
-                div.row
-                    !=$form['child']['gender']
-                div.row
-                    !=$form['child']['ethnicity_id']
-                div.row
-                    !=$form['child']['eyes_color_id']
-                div.row
-                    !=$form['child']['hair_color_id']
-                div.row
-                    !=$form['child']['address']
-                div.row
-                    !=$form['child']['address2']
-                div.row
-                    !=$form['child']['zip_code']
-                div.row
-                    !=$form['child']['birthday']
-                div.row
-                    !=$form['child']['distinctive_marks']
-                div.row
-                    !=$form['child']['school']
-                div.row
-                    !=$form['child']['school_address']
-                div.row
-                    !=$form['child']['school_address2']
-                div.row
-                    !=$form['child']['school_zip_code']
-                div.row
-                    !=$form['child']['state']
-                div.row
-                    !=$form['child']['school_state']
-                div.row
-                    !=$form['child']['grade']
+                    table
+                        tr
+                            td(style="width: 25%")
+                                !=$form['child']['school']
+                            td(style="width: 25%")
+                                !=$form['child']['grade']
+                            td(style="width: 25%")
+                            td(style="width: 25%")
 
+                div.row
+                    table
+                        tr
+                            td(style="width: 25%")
+                                !=$form['child']['school_address']
+                            td(style="width: 25%")
+                                !=$form['child']['school_address2']
+                            td(style="width: 25%")
+                                !=$form['child']['school_city']
+                            td(style="width: 10%")
+                                !=$form['child']['school_state']
+                            td(style="width: 15%")
+                                !=$form['child']['school_zip_code']
 
                 div#relatives
                     h3 Known Relatives

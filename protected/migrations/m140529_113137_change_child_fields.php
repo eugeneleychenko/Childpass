@@ -14,6 +14,12 @@ class m140529_113137_change_child_fields extends CDbMigration
         $this->addColumn('{{child}}', 'school_state', 'varchar(30) NOT NULL');
 
         $this->addColumn('{{child}}', 'grade', 'integer NOT NULL');
+
+        $this->addColumn('{{child}}', 'city', 'varchar(100) NOT NULL');
+        $this->addColumn('{{child}}', 'school_city', 'varchar(100) NOT NULL');
+
+
+
         $this->dropColumn('{{child}}', 'known_relatives');
 	}
 
@@ -26,6 +32,10 @@ class m140529_113137_change_child_fields extends CDbMigration
         $this->dropColumn('{{child}}', 'school_state');
 
         $this->dropColumn('{{child}}', 'grade');
+
+        $this->dropColumn('{{child}}', 'city');
+        $this->dropColumn('{{child}}', 'school_city');
+
         $this->addColumn('{{child}}', 'known_relatives', 'varchar(255) NOT NULL');
 	}
 }
