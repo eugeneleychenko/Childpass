@@ -31,8 +31,8 @@
  * @property string $state
  * @property string $school_state
  * @property integer $grade
- * @property integer $city
- * @property integer $school_city
+ * @property string $city
+ * @property string $school_city
 
 
  * The followings are the available model relations:
