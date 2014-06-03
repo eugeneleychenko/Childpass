@@ -109,12 +109,14 @@ return array(
                     'items' => Child::model()->getStateOptions(),
                     'prompt'=>'Select state',
                     'class' => 'fieldstyle',
+                    'style' => 'width: 60px;'
                 ),
                 'school_state' => array(
                     'type'  => 'dropdownlist',
                     'items' => Child::model()->getStateOptions(),
                     'prompt'=>'Select state',
                     'class' => 'fieldstyle',
+                    'style' => 'width: 60px;'
                 ),
                 'grade' => array(
                     'type'  => 'text',
