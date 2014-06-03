@@ -33,6 +33,13 @@ function deleteChildPhoto(button) {
 
 $(function() {
 
+    if (step == 'step1') {
+        $('form').validate({
+            wrapper: 'div',
+            errorLabelContainer: "#messageBox"
+        });
+    }
+
     $('form').submit(function( event ) {
         if (step == 'step1' && !$('#relatives_table tbody tr').length) {
           if (!$('#relatives_error').length) {
