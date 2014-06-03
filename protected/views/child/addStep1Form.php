@@ -74,7 +74,7 @@ return array(
                 'birthday' => array(
                     'type'  => 'date',
                     'class' => 'fieldstyle',
-                    'label' => 'Date of Birth (DD/MM/YY)',
+                    'label' => 'Date of Birth',
                 ),
                 'distinctive_marks' => array(
                     'type'  => 'textarea',
