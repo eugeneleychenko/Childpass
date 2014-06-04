@@ -222,7 +222,7 @@ class ChildController extends Controller
         $userId = Yii::app()->user->getId();
         $userChildren = Child::model()->with('incident')->findAll('user_id = :user_id',
                                                                   array(':user_id' => $userId));
-        //$incidentModels = array();
+
         $childrenInfo = array();
         foreach ($userChildren as $child) {
             $incidentModel = new Incident();
@@ -230,20 +230,45 @@ class ChildController extends Controller
             $incidentModel->child_description = $child->distinctive_marks;
             $childrenInfo[] = array(
                 'child' => $child,
-                'incidentModel' => $incidentModel);
-//            $incidentModels[] = $incidentModel;
+                'incidentModel' => $incidentModel
+            );
         }
 
-        if(Yii::app()->request->isPostRequest){
-            var_dump($_POST);
-            exit;
+        $incidentModelClass = 'Incident';
+
+        // Yii::app()->request->isPostRequest
+        if ( isset($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass]) && count($_POST[$incidentModelClass]) ) {
+            $errorsExist = false;
+            foreach ($_POST[$incidentModelClass] as $number => $incident) {
+                if (! (int) $incident['child_id']) {
+                    continue;
+                }
+
+//                $incidentModel = new $incidentModelClass;
+                $attributes = $incident + array(
+                        'description' => $_POST['description'],
+                        'date' => $_POST['date']);
+                $childrenInfo[$number]['incidentModel']->attributes = $attributes;
+                if (!$childrenInfo[$number]['incidentModel']->save()) {
+                    $errorsExist = true;
+                }
+            }
+//            var_dump($_POST);
         }
+
+        if (!isset($errorsExist)) {
+            $saved = false;
+        } else {
+            $saved = !$errorsExist;
+        }
+
 
         $this->render(
             'activateAlert',
             array(
                 'childrenInfo' => $childrenInfo,
-            )
+                'saved' => $saved
+                )
         );
 
 //        var_dump($incidentModels);

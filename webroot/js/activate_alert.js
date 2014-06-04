@@ -40,6 +40,18 @@ $(function() {
 
 function submitForm(form, data, hasError) {
 //        var container =  $('.dialogs');
+        $.post(
+                form.attr('action'),
+                form.serialize()
+            ).done(function(data) {
+                console.log(data);
+                form.parent().parent().html(data);
+            }).fail(function () {
+            });
+
+
+
+//        var container =  $('.dialogs');
 //        var submitted = container.data('wasSubmitted');
 //        container.data('wasSubmitted', true);
 //
