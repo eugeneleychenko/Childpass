@@ -230,7 +230,7 @@ class ChildController extends Controller
             $incidentModel->child_description = $child->distinctive_marks;
             $childrenInfo[] = array(
                 'child' => $child,
-                'incidentModel' => $incidentModel
+                'incidentModel' => $incidentModel,
             );
         }
 
@@ -238,22 +238,22 @@ class ChildController extends Controller
 
         // Yii::app()->request->isPostRequest
         if ( isset($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass]) && count($_POST[$incidentModelClass]) ) {
-            $errorsExist = false;
             foreach ($_POST[$incidentModelClass] as $number => $incident) {
                 if (! (int) $incident['child_id']) {
                     continue;
                 }
 
-//                $incidentModel = new $incidentModelClass;
+                $errorsExist = false;
+
                 $attributes = $incident + array(
                         'description' => $_POST['description'],
-                        'date' => $_POST['date']);
+                        'date' => $_POST['date']
+                    );
                 $childrenInfo[$number]['incidentModel']->attributes = $attributes;
                 if (!$childrenInfo[$number]['incidentModel']->save()) {
                     $errorsExist = true;
                 }
             }
-//            var_dump($_POST);
         }
 
         if (!isset($errorsExist)) {
