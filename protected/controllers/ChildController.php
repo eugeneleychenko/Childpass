@@ -222,21 +222,29 @@ class ChildController extends Controller
         $userId = Yii::app()->user->getId();
         $userChildren = Child::model()->with('incident')->findAll('user_id = :user_id',
                                                                   array(':user_id' => $userId));
-        $incidentModels = array();
+        //$incidentModels = array();
+        $childrenInfo = array();
         foreach ($userChildren as $child) {
             $incidentModel = new Incident();
             $incidentModel->child_id = $child->primaryKey;
             $incidentModel->child_description = $child->distinctive_marks;
-            $incidentModels[] = $incidentModel;
+            $childrenInfo[] = array(
+                'child' => $child,
+                'incidentModel' => $incidentModel);
+//            $incidentModels[] = $incidentModel;
+        }
+
+        if(Yii::app()->request->isPostRequest){
+            var_dump($_POST);
+            exit;
         }
 
         $this->render(
             'activateAlert',
             array(
-                'incidentModels' => $incidentModels,
+                'childrenInfo' => $childrenInfo,
             )
         );
-
 
 //        var_dump($incidentModels);
 //        exit;

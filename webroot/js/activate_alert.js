@@ -14,11 +14,6 @@ $(function() {
                dialog.dialog({
                    modal: true,
                    resizable: false,
-                   buttons : {
-                       'Save'   : function () {
-                       }
-                   },
-
                    open: function() {
                    },
                    close : function() {
@@ -27,4 +22,37 @@ $(function() {
 
            })
        }
+
+
 });
+
+function submitForm(form, data, hasError) {
+//        var container =  $('.dialogs');
+//        var submitted = container.data('wasSubmitted');
+//        container.data('wasSubmitted', true);
+//
+//        $.post(
+//                form.attr('action'),
+//                form.serialize()
+//            ).done(function(data) {
+//                var list = container.data('targetList');
+//
+//                //if we don't get info about edited item
+//                //we display form with error messages
+//                if (!data.id) {
+//                    form.parent().parent().html(data);
+//                    return;
+//                }
+//
+//                if (container.data('isNewItem')) {
+//                    addItemToList(list, data);
+//                } else {
+//                    updateItemInList(list, data);
+//                }
+//                form.closest('.dialog').dialog("close");
+//
+//            }).fail(function () {
+//                container.data('wasSubmitted', false);
+//            });
+}
+

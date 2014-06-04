@@ -6,7 +6,6 @@ div
     :php
         $form = $this->beginWidget('CActiveForm', array(
             'enableClientValidation'=>true,
-            //'focus'=>array($formModel,'productArticle'),
             'id' => 'activate_alert_form',
             'clientOptions' => array(
                 'afterValidate' => 'js:submitForm',
@@ -17,10 +16,17 @@ div
             ),
         ))
 
-    h2 Dialog
-    //each incidentModel in incidentModel
 
+    each childInfo in childrenInfo
+        div.row
+            !=$form->checkBox($childInfo['incidentModel'], 'child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => false))
+            :php
+                $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
 
-    -CHtml::submitButton('submit');
+            label(style="padding-left: 10px")
+                !=$full_name
+            !=$form->error($childInfo['incidentModel'], 'child_id')
+
+    !=CHtml::submitButton('save');
     -$this->endWidget();
 
