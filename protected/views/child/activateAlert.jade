@@ -20,14 +20,14 @@ div
         $counter = 0;
     each childInfo in childrenInfo
         div.row
-            !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => false))
+            !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => false, 'class' => 'child_checkbox'))
             :php
                 $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
 
             label(style="padding-left: 10px")
                 !=$full_name
             !=$form->error($childInfo['incidentModel'], 'child_id')
-        div.row.child_description_row
+        div.row(style="display: none")
             !=$form->labelEx($childInfo['incidentModel'],   'child_description')
             !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'cols' => 30, 'rows' => 10))
             !=$form->error($childInfo['incidentModel'], 'child_id')
@@ -36,6 +36,6 @@ div
             $counter++;
 
 
-    !=CHtml::submitButton('save');
+    !=CHtml::submitButton('Activate Alert');
     -$this->endWidget();
 

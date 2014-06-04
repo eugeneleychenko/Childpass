@@ -4,6 +4,17 @@ $(function() {
        showActiveAlertDialog();
    });
 
+    $('#activateAlertDialog').on('change', '.child_checkbox', function() {
+        var checkbox = $(this);
+        var rowChildDescription = checkbox.closest('.row').next()
+        if (checkbox.is(':checked')) {
+            rowChildDescription.show();
+        } else {
+            rowChildDescription.hide();
+        }
+    });
+
+
    function  showActiveAlertDialog() {
        $.get('/child/activateAlert/',
              {
