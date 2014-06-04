@@ -12,6 +12,7 @@ $(function() {
                var dialog = $('#activateAlertDialog');
                dialog.html(data);
                dialog.dialog({
+                   width: '20%',
                    modal: true,
                    resizable: false,
                    open: function() {

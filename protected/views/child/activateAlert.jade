@@ -5,7 +5,7 @@
 div
     :php
         $form = $this->beginWidget('CActiveForm', array(
-            'enableClientValidation'=>true,
+            'enableClientValidation' => true,
             'id' => 'activate_alert_form',
             'clientOptions' => array(
                 'afterValidate' => 'js:submitForm',
@@ -16,16 +16,25 @@ div
             ),
         ))
 
-
+    :php
+        $counter = 0;
     each childInfo in childrenInfo
         div.row
-            !=$form->checkBox($childInfo['incidentModel'], 'child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => false))
+            !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => false))
             :php
                 $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
 
             label(style="padding-left: 10px")
                 !=$full_name
             !=$form->error($childInfo['incidentModel'], 'child_id')
+        div.row.child_description_row
+            !=$form->labelEx($childInfo['incidentModel'],   'child_description')
+            !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'cols' => 30, 'rows' => 10))
+            !=$form->error($childInfo['incidentModel'], 'child_id')
+
+        :php
+            $counter++;
+
 
     !=CHtml::submitButton('save');
     -$this->endWidget();

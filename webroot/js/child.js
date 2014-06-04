@@ -33,21 +33,25 @@ function deleteChildPhoto(button) {
 
 $(function() {
 
-    if (step == 'step1') {
-        $('form').validate({
-            wrapper: 'div',
-            errorLabelContainer: "#messageBox"
+    if (typeof variable !== 'undefined') {
+        if (step == 'step1') {
+            $('form').validate({
+                wrapper: 'div',
+                errorLabelContainer: "#messageBox"
+            });
+        }
+        $('form').submit(function( event ) {
+            if (step == 'step1' && !$('#relatives_table tbody tr').length) {
+                if (!$('#relatives_error').length) {
+                    $('<div class="errorMessage" id="relatives_error" style="color: #f00;">Input a least on relative!</div>').insertBefore($('#relatives_table'));
+                }
+                event.preventDefault();
+            }
         });
+
     }
 
-    $('form').submit(function( event ) {
-        if (step == 'step1' && !$('#relatives_table tbody tr').length) {
-          if (!$('#relatives_error').length) {
-              $('<div class="errorMessage" id="relatives_error" style="color: #f00;">Input a least on relative!</div>').insertBefore($('#relatives_table'));
-          }
-          event.preventDefault();
-        }
-    });
+
 
 
 
