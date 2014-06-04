@@ -100,6 +100,7 @@ class Child extends CActiveRecord
 			'eyesColor' => array(self::BELONGS_TO, 'EyesColor', 'eyes_color_id'),
 			'childPhotos' => array(self::HAS_MANY, 'ChildPhoto', 'child_id'),
             'relatives' => array(self::MANY_MANY, 'Relative', '{{child_relative}}(child_id, relative_id)'),
+            'incident' => array(self::HAS_ONE, 'Incident', 'child_id'),
 		);
 	}
 

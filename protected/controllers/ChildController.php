@@ -215,6 +215,33 @@ class ChildController extends Controller
         $this->renderJSON(array_values($relatives));
     }
 
+
+    public function actionActivateAlert()
+    {
+        $this->layout = 'ajax';
+        $userId = Yii::app()->user->getId();
+        $userChildren = Child::model()->with('incident')->findAll('user_id = :user_id',
+                                                                  array(':user_id' => $userId));
+        $incidentModels = array();
+        foreach ($userChildren as $child) {
+            $incidentModel = new Incident();
+            $incidentModel->child_id = $child->primaryKey;
+            $incidentModel->child_description = $child->distinctive_marks;
+            $incidentModels[] = $incidentModel;
+        }
+
+        $this->render(
+            'activateAlert',
+            array(
+                'incidentModels' => $incidentModels,
+            )
+        );
+
+
+//        var_dump($incidentModels);
+//        exit;
+    }
+
     public function actionList()
     {
         $userId = Yii::app()->user->getId();

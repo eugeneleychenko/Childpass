@@ -1,0 +1,26 @@
+:php
+    Yii::app()->clientScript->scriptMap['jquery.js'] = false;
+    Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
+    Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
+div
+    :php
+        $form = $this->beginWidget('CActiveForm', array(
+            'enableClientValidation'=>true,
+            //'focus'=>array($formModel,'productArticle'),
+            'id' => 'activate_alert_form',
+            'clientOptions' => array(
+                'afterValidate' => 'js:submitForm',
+                'validateOnSubmit' => true,
+                'validateOnChange' => true,
+                'validateOnType' => true,
+                'hideErrorMessage' => false
+            ),
+        ))
+
+    h2 Dialog
+    //each incidentModel in incidentModel
+
+
+    -CHtml::submitButton('submit');
+    -$this->endWidget();
+
