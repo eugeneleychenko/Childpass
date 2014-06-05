@@ -52,6 +52,7 @@ function submitForm(form, data, hasError) {
             form.serialize()
         ).done(function(data) {
                 form.parent().parent().html(data);
+                $('#activateAlertDialog #date').mask('9999-99-99 99:99:99');
             }).fail(function () {
             });
 }
