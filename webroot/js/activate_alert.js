@@ -25,7 +25,7 @@ $(function() {
                dialog.html(data);
                dialog.dialog({
                   'title': 'Activate Alert',
-                   width: '30%',
+                   width: '40%',
                    modal: true,
                    resizable: false,
                    open: function() {
