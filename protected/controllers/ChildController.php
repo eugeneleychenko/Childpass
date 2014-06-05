@@ -37,7 +37,7 @@ class ChildController extends Controller
         if ($childId) {
             $form['child']->model = Child::model()->with('relatives.childRelative.relation')->findByPk($childId);
 
-            if (!$form['child']->model->checkAccess()) {
+            if (!$form['child']->model ||  !$form['child']->model->checkAccess()) {
                 $this->redirect(array('child/list'));
             }
         } else {
@@ -251,6 +251,8 @@ class ChildController extends Controller
                     continue;
                 }
 
+
+
                 $errorsExist = false;
 
                 $attributes = $incident + array(
@@ -284,9 +286,6 @@ class ChildController extends Controller
                 'dateValue' => $dateValue
                 )
         );
-
-//        var_dump($incidentModels);
-//        exit;
     }
 
     public function actionList()
