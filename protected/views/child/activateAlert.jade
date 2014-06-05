@@ -5,7 +5,7 @@ else
         Yii::app()->clientScript->scriptMap['jquery.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
-    div
+    div(style="width:90%; max-height: 450px;  margin: 10px auto;")
         :php
             $form = $this->beginWidget('CActiveForm', array(
                 'enableClientValidation' => true,
@@ -31,18 +31,18 @@ else
                 :php
                     $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
                     if  (isset($childInfo['incidentModel']->errors['description'])) {
-                        $descriptionError = $form->error($childInfo['incidentModel'], 'description');
+                        $descriptionError = $form->error($childInfo['incidentModel'], 'description', array('style' => 'color: #f00'));
                         $modelWithError = $childInfo['incidentModel'];
                     }
 
                     if  (isset($childInfo['incidentModel']->errors['date'])) {
-                        $dateError = $form->error($childInfo['incidentModel'], 'date');
+                        $dateError = $form->error($childInfo['incidentModel'], 'date', array('style' => 'color: #f00'));
                         $modelWithError = $childInfo['incidentModel'];
                     }
 
                 label(style="padding-left: 10px")
                     !=$full_name
-                !=$form->error($childInfo['incidentModel'], 'child_id')
+                !=$form->error($childInfo['incidentModel'], 'child_id', array('style' => 'color: #f00'))
 
 
             :php
@@ -55,8 +55,8 @@ else
 
             div.row(style=style)
                 !=$form->labelEx($childInfo['incidentModel'],   'child_description')
-                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'cols' => 30, 'rows' => 10, 'maxlength' => '255', 'style' => 'resize:none;'))
-                !=$form->error($childInfo['incidentModel'], 'child_description')
+                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255', 'style' => 'resize:none;'))
+                !=$form->error($childInfo['incidentModel'], 'child_description', array('style' => 'color: #f00'))
 
             :php
                 $counter++;
@@ -65,7 +65,7 @@ else
             lable(style="display: block;") Description *
 
             :php
-                echo CHtml::textArea('description', $descriptionValue, array('rows' => '10', 'cols' => '30', 'maxlength' => '255', 'style' => 'resize:none;'));
+                echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255', 'style' => 'resize:none;'));
                 if ($descriptionError) {
                    echo $descriptionError;
                 }

@@ -23,7 +23,8 @@ $(function() {
                var dialog = $('#activateAlertDialog');
                dialog.html(data);
                dialog.dialog({
-                   width: '20%',
+                  'title': 'Activate Alert',
+                   width: '30%',
                    modal: true,
                    resizable: false,
                    open: function() {
