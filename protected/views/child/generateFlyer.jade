@@ -55,11 +55,17 @@
                     =missingInfo["from"]
 
     .description
-        p.
-            Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
-        p.
-            Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
-            Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+        if ($missingInfo['incident'])
+            p
+                !=$missingInfo['incident']->description
+            p
+                !=$missingInfo['incident']->child_description
+        else
+            p.
+                Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
+            p.
+                Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Integer pharetra lectus dictum blandit vestibulum.
+                Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
     .footer
         .warningWrapper
             strong.warning

@@ -274,7 +274,7 @@ class Child extends CActiveRecord
     public function getMissingInfo($childId)
     {
         /** @var Child $child */
-        $child = Child::model()->with('ethnicity', 'eyesColor', 'hairColor')->findByPk($childId);
+        $child = Child::model()->with('ethnicity', 'eyesColor', 'hairColor', 'incident')->findByPk($childId);
 
         $imageHelper = new ImageHelper();
 
@@ -289,6 +289,7 @@ class Child extends CActiveRecord
             'age'        => $child->getAge(),
             'childPhoto' => $childPhotoUrl,
             'from'       => '',
+            'incident'   => $child->incident
         );
 
         return $missingInfo;
