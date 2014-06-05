@@ -276,6 +276,10 @@ class Child extends CActiveRecord
         /** @var Child $child */
         $child = Child::model()->with('ethnicity', 'eyesColor', 'hairColor', 'incident')->findByPk($childId);
 
+        if (!$child) {
+            return false;
+        }
+
         $imageHelper = new ImageHelper();
 
         $childPhotoUrl = false;
@@ -289,7 +293,8 @@ class Child extends CActiveRecord
             'age'        => $child->getAge(),
             'childPhoto' => $childPhotoUrl,
             'from'       => '',
-            'incident'   => $child->incident
+            'incident'   => $child->incident,
+            'user_id' => $child->user_id
         );
 
         return $missingInfo;

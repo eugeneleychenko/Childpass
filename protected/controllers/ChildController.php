@@ -324,18 +324,31 @@ class ChildController extends Controller
     public function actionGenerateFlyer($id)
     {
         $missingInfo = Child::model()->getMissingInfo($id);
+        if (!$missingInfo) {
+            throw new CHttpException('404', 'Child does not exist!');
+        }
+
+        if (Yii::app()->user->getId() != $missingInfo) {
+            throw new CHttpException('403', 'Access forbidden!');
+        };
 
         $this->render(
             'generateFlyer', array(
                 'missingInfo'   => $missingInfo,
             )
         );
-
     }
 
     public function actionDownloadFlyer($id)
     {
         $missingInfo = Child::model()->getMissingInfo($id);
+        if (!$missingInfo) {
+            throw new CHttpException('404', 'Child does not exist!');
+        }
+
+        if (Yii::app()->user->getId() != $missingInfo) {
+            throw new CHttpException('403', 'Access forbidden!');
+        };
 
         # You can easily override default constructor's params
         $mPDF1 = Yii::app()->ePdf->mpdf('', 'Letter-L');
