@@ -31,6 +31,7 @@ $(function() {
                    open: function() {
                    },
                    close : function() {
+                       window.location = '/child/list';
                    }
                });
 
