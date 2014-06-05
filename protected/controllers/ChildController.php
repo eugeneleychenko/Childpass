@@ -328,7 +328,7 @@ class ChildController extends Controller
             throw new CHttpException('404', 'Child does not exist!');
         }
 
-        if (Yii::app()->user->getId() != $missingInfo) {
+        if (Yii::app()->user->getId() != $missingInfo['user_id']) {
             throw new CHttpException('403', 'Access forbidden!');
         };
 
@@ -346,7 +346,7 @@ class ChildController extends Controller
             throw new CHttpException('404', 'Child does not exist!');
         }
 
-        if (Yii::app()->user->getId() != $missingInfo) {
+        if (Yii::app()->user->getId() != $missingInfo['user_id']) {
             throw new CHttpException('403', 'Access forbidden!');
         };
 

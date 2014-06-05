@@ -55,7 +55,7 @@ else
 
             div.row(style=style)
                 !=$form->labelEx($childInfo['incidentModel'],   'child_description')
-                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'cols' => 30, 'rows' => 10, 'maxlength' => '255'))
+                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'cols' => 30, 'rows' => 10, 'maxlength' => '255', 'style' => 'resize:none;'))
                 !=$form->error($childInfo['incidentModel'], 'child_description')
 
             :php
@@ -65,7 +65,7 @@ else
             lable(style="display: block;") Description *
 
             :php
-                echo CHtml::textArea('description', $descriptionValue, array('rows' => '10', 'cols' => '30', 'maxlength' => '255'));
+                echo CHtml::textArea('description', $descriptionValue, array('rows' => '10', 'cols' => '30', 'maxlength' => '255', 'style' => 'resize:none;'));
                 if ($descriptionError) {
                    echo $descriptionError;
                 }
