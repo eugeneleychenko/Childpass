@@ -228,12 +228,13 @@ class ChildController extends Controller
             exit;
         }
 
-
         $incidentModelClass = 'Incident';
 
         $childrenInfo = array();
+        $userChildIds = array();
         foreach ($userChildren as $child) {
             $incidentModel = new $incidentModelClass;
+            $userChildIds[] = $child->primaryKey;
             $incidentModel->child_id = $child->primaryKey;
             $incidentModel->child_description = $child->distinctive_marks;
             $childrenInfo[] = array(
@@ -242,16 +243,15 @@ class ChildController extends Controller
             );
         }
 
-
         $descriptionValue = '';
         $dateValue = '';
         if ( isset($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass]) && count($_POST[$incidentModelClass]) ) {
             foreach ($_POST[$incidentModelClass] as $number => $incident) {
-                if (! (int) $incident['child_id']) {
+                
+                //to ignore children of other users
+                if (!in_array($incident['child_id'], $userChildIds)) {
                     continue;
                 }
-
-
 
                 $errorsExist = false;
 
