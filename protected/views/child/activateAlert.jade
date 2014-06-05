@@ -34,7 +34,7 @@ else
 
             :php
                 $style = 'display:';
-                if (isset($childInfo['incidentModel']['errors']['child_description'])) {
+                if ($childInfo['incidentModel']->errors) {
                     $style .= 'block;';
                 } else {
                     $style .= 'none;';

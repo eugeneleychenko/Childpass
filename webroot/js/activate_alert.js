@@ -50,7 +50,6 @@ function submitForm(form, data, hasError) {
                 form.attr('action'),
                 form.serialize()
             ).done(function(data) {
-                console.log(data);
                 form.parent().parent().html(data);
             }).fail(function () {
             });
