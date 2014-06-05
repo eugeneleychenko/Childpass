@@ -1,4 +1,5 @@
 $(function() {
+
    $('.activateAlert').click(function(event) {
        event.preventDefault();
        showActiveAlertDialog();
@@ -35,8 +36,6 @@ $(function() {
 
            })
        }
-
-
 });
 
 function submitForm(form, data, hasError) {

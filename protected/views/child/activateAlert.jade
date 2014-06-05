@@ -29,6 +29,7 @@ else
                 !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => ($childInfo['incidentModel']->errors) ? 'checked' : false, 'class' => 'child_checkbox'))
 
                 :php
+                    $checkbox_id = 'Incident_' . $counter . '_child_id';
                     $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
                     if  (isset($childInfo['incidentModel']->errors['description'])) {
                         $descriptionError = $form->error($childInfo['incidentModel'], 'description', array('style' => 'color: #f00'));
@@ -40,7 +41,8 @@ else
                         $modelWithError = $childInfo['incidentModel'];
                     }
 
-                label(style="padding-left: 10px")
+                //!=$form->labelEx($childInfo['incidentModel'],   'child_description')
+                label(style="padding-left: 10px", for=checkbox_id)
                     !=$full_name
                 !=$form->error($childInfo['incidentModel'], 'child_id', array('style' => 'color: #f00'))
 
