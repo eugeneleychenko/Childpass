@@ -247,7 +247,7 @@ class ChildController extends Controller
         $dateValue = '';
         if ( isset($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass]) && count($_POST[$incidentModelClass]) ) {
             foreach ($_POST[$incidentModelClass] as $number => $incident) {
-                
+
                 //to ignore children of other users
                 if (!in_array($incident['child_id'], $userChildIds)) {
                     continue;
@@ -296,11 +296,12 @@ class ChildController extends Controller
 
         $childList = Child::model()->with(
             array('childPhotos' => array(
-                'select'   => array('filename'),
-                'joinType' => 'LEFT JOIN',
-                'order'    => 'is_main DESC'
-            ),
-            )
+                                         'select'   => array('filename'),
+                                         'joinType' => 'LEFT JOIN',
+                                         'order'    => 'is_main DESC'
+                                        ),
+                 'incident'
+                 )
         )->findAll('user_id = :user_id', array(':user_id' => $userId));
 
         foreach ($childList as &$child) {
