@@ -72,7 +72,7 @@ else
                 }
 
         div.row
-            label(style="padding-right: 10px") Date (yyyy-mm-dd hh:mm:ss) *
+            label(style="display: block;") Date (yyyy-mm-dd hh:mm:ss) *
             !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
             if ($dateError)
                 !=$dateError;
