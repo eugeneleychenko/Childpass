@@ -220,8 +220,14 @@ class ChildController extends Controller
     {
         $this->layout = 'ajax';
         $userId = Yii::app()->user->getId();
-        $userChildren = Child::model()->with('incident')->findAll('user_id = :user_id',
-                                                                  array(':user_id' => $userId));
+        $userChildren = Child::model()->findAll('user_id = :user_id AND NOT EXISTS (SELECT incident.id FROM incident WHERE incident.child_id = t.id)',
+                                                array(':user_id' => $userId));
+
+        if (!count($userChildren)) {
+            echo '<p>No children to activate alert.</p>';
+            exit;
+        }
+
 
         $incidentModelClass = 'Incident';
 
