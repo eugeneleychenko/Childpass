@@ -1,4 +1,5 @@
 $(function() {
+    console.log($('#activateAlertDialog #date'));
 
    $('.activateAlert').click(function(event) {
        event.preventDefault();
@@ -29,6 +30,7 @@ $(function() {
                    modal: true,
                    resizable: false,
                    open: function() {
+                       $('#activateAlertDialog #date').mask('9999-99-99 99:99:99');
                    },
                    close : function() {
                        window.location = '/child/list';
