@@ -41,7 +41,6 @@ else
                         $modelWithError = $childInfo['incidentModel'];
                     }
 
-                //!=$form->labelEx($childInfo['incidentModel'],   'child_description')
                 label(style="padding-left: 10px", for=checkbox_id)
                     !=$full_name
                 !=$form->error($childInfo['incidentModel'], 'child_id', array('style' => 'color: #f00'))
@@ -56,7 +55,7 @@ else
                 }
 
             div.row(style=style)
-                !=$form->labelEx($childInfo['incidentModel'],   'child_description')
+                !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('style' => 'display: block'))
                 !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255', 'style' => 'resize:none;'))
                 !=$form->error($childInfo['incidentModel'], 'child_description', array('style' => 'color: #f00'))
 
