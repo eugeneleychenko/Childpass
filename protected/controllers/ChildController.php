@@ -223,9 +223,11 @@ class ChildController extends Controller
         $userChildren = Child::model()->with('incident')->findAll('user_id = :user_id',
                                                                   array(':user_id' => $userId));
 
+        $incidentModelClass = 'Incident';
+
         $childrenInfo = array();
         foreach ($userChildren as $child) {
-            $incidentModel = new Incident();
+            $incidentModel = new $incidentModelClass;
             $incidentModel->child_id = $child->primaryKey;
             $incidentModel->child_description = $child->distinctive_marks;
             $childrenInfo[] = array(
@@ -234,9 +236,9 @@ class ChildController extends Controller
             );
         }
 
-        $incidentModelClass = 'Incident';
 
-        // Yii::app()->request->isPostRequest
+        $descriptionValue = '';
+        $dateValue = '';
         if ( isset($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass]) && count($_POST[$incidentModelClass]) ) {
             foreach ($_POST[$incidentModelClass] as $number => $incident) {
                 if (! (int) $incident['child_id']) {
@@ -251,12 +253,15 @@ class ChildController extends Controller
                     );
                 $childrenInfo[$number]['incidentModel']->attributes = $attributes;
                 if (!$childrenInfo[$number]['incidentModel']->save()) {
+                    $descriptionValue = $childrenInfo[$number]['incidentModel']->description;
+                    $dateValue = $childrenInfo[$number]['incidentModel']->date;
                     $errorsExist = true;
                 }
             }
         }
 
         if (!isset($errorsExist)) {
+            $errorsExist = false;
             $saved = false;
         } else {
             $saved = !$errorsExist;
@@ -267,7 +272,10 @@ class ChildController extends Controller
             'activateAlert',
             array(
                 'childrenInfo' => $childrenInfo,
-                'saved' => $saved
+                'saved' => $saved,
+                'errorsExist' => $errorsExist,
+                'descriptionValue' => $descriptionValue,
+                'dateValue' => $dateValue
                 )
         );
 

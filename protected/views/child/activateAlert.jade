@@ -21,16 +21,29 @@ else
 
         :php
             $counter = 0;
+            $descriptionError = null;
+            $dateError = null;
+            $modelWithError = null;
         each childInfo in childrenInfo
             div.row
                 !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => ($childInfo['incidentModel']->errors) ? 'checked' : false, 'class' => 'child_checkbox'))
 
                 :php
                     $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
+                    if  (isset($childInfo['incidentModel']->errors['description'])) {
+                        $descriptionError = $form->error($childInfo['incidentModel'], 'description');
+                        $modelWithError = $childInfo['incidentModel'];
+                    }
+
+                    if  (isset($childInfo['incidentModel']->errors['date'])) {
+                        $dateError = $form->error($childInfo['incidentModel'], 'date');
+                        $modelWithError = $childInfo['incidentModel'];
+                    }
 
                 label(style="padding-left: 10px")
                     !=$full_name
                 !=$form->error($childInfo['incidentModel'], 'child_id')
+
 
             :php
                 $style = 'display:';
@@ -49,13 +62,21 @@ else
                 $counter++;
 
         div.row
-            lable Description
-            textarea(name="description", rows="10", cols="30")
-            //!=CHtml::textArea('description', '', , array('rows' => 10, 'maxlength' => '255'))
+            lable(style="display: block;") Description *
+
+            :php
+                echo CHtml::textArea('description', $descriptionValue, array('rows' => '10', 'cols' => '30', 'maxlength' => '255'));
+                if ($descriptionError) {
+                   echo $descriptionError;
+                }
+
         div.row
-            label(style="padding-right: 10px") Date
-            !=CHtml::textField('date', '', array('maxlength' => '255'))
+            label(style="padding-right: 10px") Date (yyyy-MM-dd hh:mm:ss) *
+            !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
+            if ($dateError)
+                !=$dateError;
 
         div.row
             !=CHtml::submitButton('Activate Alert');
+
         -$this->endWidget();

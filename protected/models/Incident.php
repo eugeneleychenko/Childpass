@@ -45,6 +45,7 @@ class Incident extends CActiveRecord
 			array('child_id', 'numerical', 'integerOnly'=>true),
             array('child_id', 'unique'),
 			array('child_description, description', 'length', 'max'=>255),
+            array('date', 'date', 'format'=>'yyyy-MM-dd hh:mm:ss', 'message'=>'{attribute} has wrong format. Format should be: yyyy-MM-dd hh:mm:ss.'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, child_id, child_description, description, date', 'safe', 'on'=>'search'),

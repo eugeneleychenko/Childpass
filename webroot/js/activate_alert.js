@@ -44,12 +44,10 @@ function submitForm(form, data, hasError) {
         return;
     }
 
-
-
-        $.post(
-                form.attr('action'),
-                form.serialize()
-            ).done(function(data) {
+    $.post(
+            form.attr('action'),
+            form.serialize()
+        ).done(function(data) {
                 form.parent().parent().html(data);
             }).fail(function () {
             });
