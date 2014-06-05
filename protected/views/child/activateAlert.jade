@@ -5,7 +5,7 @@ else
         Yii::app()->clientScript->scriptMap['jquery.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
-    div(style="width:90%; max-height: 450px;  margin: 10px auto;")
+    div(style="width:96%; height: 700px; overflow: auto;  margin: 10px auto;")
         :php
             $form = $this->beginWidget('CActiveForm', array(
                 'enableClientValidation' => true,
@@ -73,7 +73,7 @@ else
                 }
 
         div.row
-            label(style="padding-right: 10px") Date (yyyy-MM-dd hh:mm:ss) *
+            label(style="padding-right: 10px") Date (yyyy-mm-dd hh:mm:ss) *
             !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
             if ($dateError)
                 !=$dateError;
