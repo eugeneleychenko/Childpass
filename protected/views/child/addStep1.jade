@@ -32,80 +32,76 @@
 
 
                 span Dental Record
-            li.step4
-                .step-number.icons-step4_disable
-                .step-icon.icons-survey_gray
-                span Survey
 
 .panel
     .contentWrapper
         h2 Child Profile
-        p(style='margin-left: 20px;') (All fields are required.)
+        p (All fields are required.)
         !=$form->renderBegin()
-            div(style='width: 98%; text-align: center;')
-                div(style="margin-bottom: 20px;")
-                    div(style="display:inline-block; width:25%;")
+            div(style='width: 98%;')
+                .formRow
+                    .fieldWrapper
                         !=$form['child']['first_name']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['last_name']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['middle_name']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['birthday']
 
 
-                div(style="margin-bottom: 20px;")
-                    div(style="display:inline-block; width:25%;")
+                .formRow
+                    .fieldWrapper
                         !=$form['child']['gender']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['ethnicity_id']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['eyes_color_id']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['hair_color_id']
 
-                div(style="margin-bottom: 20px;")
-                    div(style="display:inline-block; width:25%;")
+                .formRow
+                    .fieldWrapper
                         !=$form['child']['address']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['address2']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['city']
-                    div(style="display:inline-block; width:25%;")
-                        div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
+                        .fieldWrapper.state
                             !=$form['child']['state']
-                        div(style="display:inline-block; width:70%;")
+                        .fieldWrapper.zipCode
                             !=$form['child']['zip_code']
 
-                div(style="width: 100%; margin-bottom: 20px; text-align: left;")
-                    h3(style="margin: 3px;") Distinctive marks
+                .distinctiveMarksWrapper.formRow
+                    h3 Distinctive marks
                     !=$form['child']['distinctive_marks']
 
 
-                div(style="margin-bottom: 20px;")
-                    div(style="display:inline-block; width:25%;")
+                .formRow
+                    .fieldWrapper
                         !=$form['child']['school']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['grade']
-                    div(style="display:inline-block; width:25%;")
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
+                    .fieldWrapper
 
-                div(style="margin-bottom: 20px;")
-                    div(style="display:inline-block; width:25%;")
+                .formRow
+                    .fieldWrapper
                         !=$form['child']['school_address']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['school_address2']
-                    div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
                         !=$form['child']['school_city']
-                    div(style="display:inline-block; width:25%;")
-                        div(style="display:inline-block; width:25%;")
+                    .fieldWrapper
+                        .fieldWrapper.state
                             !=$form['child']['school_state']
-                        div(style="display:inline-block; width:70%;")
+                        .fieldWrapper.zipCode
                             !=$form['child']['school_zip_code']
 
 
-                div#relatives(style="margin-top:30px;")
-                    h3(style="margin: 3px;") Known Relatives
+                div#relatives
+                    h3 Known Relatives
                     if data.relatives
                         table#relatives_table(style="margin: 0 auto;  text-align: left; border-spacing: 10px;border-collapse: separate;")
                             thead
@@ -167,7 +163,7 @@
 
 
 
-                div.row(style='margin-bottom: 60px; position: relative;')
+                div.row.formActions
                     !=$form->buttons['next_step']
 
 

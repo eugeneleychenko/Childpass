@@ -5,7 +5,7 @@ else
         Yii::app()->clientScript->scriptMap['jquery.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
-    div(style="width:90%; height: 700px; margin: 10px auto;")
+    div(style="width:90%; height: 800px; margin: 10px auto;")
         div.row(style="margin-bottom: 20px")
             div(style="float: left")
                 img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
@@ -84,7 +84,7 @@ else
             if ($dateError)
                 !=$dateError;
 
-        div.row(style="text-align: center;margin-left: 0;")
+        div.row(style="text-align: center;margin-left: 0; margin-top: 2em;")
             !=CHtml::submitButton('Activate Alert!', array('style' => 'background: #f00; color: #fff; border: 1px #000 solid; height: 50px; margin-right: 50px;'));
             a#cancelAlert(href="#", style="color: #f00; text-decoration:none;") Cancel
 

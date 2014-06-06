@@ -81,7 +81,6 @@ return array(
                     'rows' => 10,
                     'label' => 'Please provide details such as location of scars, birthmarks, tattos or any other marks',
                     'maxlength' => '255',
-                    'style' => 'resize:none; width: 50%;'
                 ),
                 'school' => array(
                     'type'  => 'text',
