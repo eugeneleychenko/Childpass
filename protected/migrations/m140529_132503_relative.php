@@ -26,7 +26,7 @@ class m140529_132503_relative extends CDbMigration
         );
         $this->insert('{{relation}}', array(
                 'id' => 4,
-                'name' => 'GrandMother')
+                'name' => 'Grandmother')
         );
         $this->insert('{{relation}}', array(
                 'id' => 5,
