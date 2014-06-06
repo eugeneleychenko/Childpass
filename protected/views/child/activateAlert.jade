@@ -5,8 +5,8 @@ else
         Yii::app()->clientScript->scriptMap['jquery.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
-    div(style="width:90%; height: 700px; overflow: auto;  margin: 10px auto;")
-        div.row
+    div(style="width:90%; height: 700px; overflow: auto; margin: 10px auto;")
+        div.row(style="margin-bottom: 10px")
             div(style="float: left")
                 img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
             div(style="margin-left: 400px; padding-left: 50px; height: 125px; display: table-cell; vertical-align: middle; color: #f00; font-size: 1.5em;")  ALERT!
@@ -32,7 +32,7 @@ else
             $dateError = null;
             $modelWithError = null;
         each childInfo in childrenInfo
-            div.row
+            div.row(style="margin-bottom: 5px; font: 1em sans-serif")
                 !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => ($childInfo['incidentModel']->errors) ? 'checked' : false, 'class' => 'child_checkbox'))
 
                 :php
@@ -48,7 +48,7 @@ else
                         $modelWithError = $childInfo['incidentModel'];
                     }
 
-                label(style="padding-left: 10px", for=checkbox_id)
+                label(style="padding-left: 10px;", for=checkbox_id)
                     !=$full_name
                 !=$form->error($childInfo['incidentModel'], 'child_id', array('style' => 'color: #f00'))
 
@@ -62,15 +62,15 @@ else
                 }
 
             div.row(style=style)
-                !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('style' => 'display: block'))
+                !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('style' => 'display: block; margin-bottom: 5px;'))
                 !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255', 'style' => 'resize:none;'))
                 !=$form->error($childInfo['incidentModel'], 'child_description', array('style' => 'color: #f00'))
 
             :php
                 $counter++;
 
-        div.row
-            label(style="display: block;") Description *
+        div.row(style="margin-top: 10px;")
+            label(style="display: block;margin-bottom: 5px;") Description *
 
             :php
                 echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255', 'style' => 'resize:none;'));
@@ -79,16 +79,17 @@ else
                 }
 
         div.row
-            label(style="display: block;") Date (yyyy-mm-dd hh:mm:ss) *
+            label(style="display: block;margin-bottom: 5px;") Date (yyyy-mm-dd hh:mm:ss) *
             !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
             if ($dateError)
                 !=$dateError;
 
         div.row(style="text-align: center;")
-            !=CHtml::submitButton('Activate Alert!', array('style' => 'background: #f00; color: #fff; border: 1px #000 solid; height: 50px;'));
-
-        div.row(style="text-align: right;")
+            !=CHtml::submitButton('Activate Alert!', array('style' => 'background: #f00; color: #fff; border: 1px #000 solid; height: 50px; margin-right: 50px;'));
             a#cancelAlert(href="#", style="color: #f00; text-decoration:none;") Cancel
+
+        //div.row(style="text-align: right;")
+
 
 
         -$this->endWidget();
