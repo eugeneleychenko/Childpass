@@ -6,6 +6,8 @@ else
         Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
     div(style="width:90%; height: 700px; overflow: auto;  margin: 10px auto;")
+        div.row(style="margin-bottom: 10px; font-size: 0.8em;") Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
+
         :php
             $form = $this->beginWidget('CActiveForm', array(
                 'enableClientValidation' => true,
@@ -77,7 +79,7 @@ else
             if ($dateError)
                 !=$dateError;
 
-        div.row
-            !=CHtml::submitButton('Activate Alert');
+        div.row(style="text-align: center;")
+            !=CHtml::submitButton('Activate Alert!', array('style' => 'background: #f00; color: #fff; border: 1px #000 solid; height: 50px;'));
 
         -$this->endWidget();
