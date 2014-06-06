@@ -285,6 +285,10 @@ hr {
   }
 }
 
+#child-info-form label {
+  display: block;
+}
+
 .row {
     &.error {
         input {
@@ -296,12 +300,20 @@ hr {
             font-size: 90%;
         }
     }
+
     .fieldstyle {
         width: 180px;
         height: 26px;
         line-height: 26px;
     }
 }
+
+.fieldstyle {
+  width: 90%;
+  height: 26px;
+  line-height: 26px;
+}
+
 
 .distributedItems {
   text-align: justify;
