@@ -78,12 +78,10 @@ return array(
                 ),
                 'distinctive_marks' => array(
                     'type'  => 'textarea',
-//                    'class' => 'fieldstyle',
+                    'rows' => 10,
                     'label' => 'Please provide details such as location of scars, birthmarks, tattos or any other marks',
-                    'rows' => '10',
-                    'cols' => '30',
                     'maxlength' => '255',
-                    'style' => 'resize:none;'
+                    'style' => 'resize:none; width: 50%;'
                 ),
                 'school' => array(
                     'type'  => 'text',

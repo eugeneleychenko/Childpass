@@ -42,7 +42,7 @@
         h2 Child Profile
         p(style='margin-left: 20px;') (All fields are required.)
         !=$form->renderBegin()
-            div(style='width: 98%; text-align: center ')
+            div(style='width: 98%; text-align: center;')
                 div(style="margin-bottom: 20px;")
                     div(style="display:inline-block; width:25%;")
                         !=$form['child']['first_name']
@@ -78,11 +78,11 @@
                             !=$form['child']['zip_code']
 
                 div(style="width: 100%; margin-bottom: 20px; text-align: left;")
-                    h3 Distinctive marks
+                    h3(style="margin: 3px;") Distinctive marks
                     !=$form['child']['distinctive_marks']
 
 
-                div(style="margin-bottom: 10px;")
+                div(style="margin-bottom: 20px;")
                     div(style="display:inline-block; width:25%;")
                         !=$form['child']['school']
                     div(style="display:inline-block; width:25%;")
@@ -90,7 +90,7 @@
                     div(style="display:inline-block; width:25%;")
                     div(style="display:inline-block; width:25%;")
 
-                div(style="margin-bottom: 10px;")
+                div(style="margin-bottom: 20px;")
                     div(style="display:inline-block; width:25%;")
                         !=$form['child']['school_address']
                     div(style="display:inline-block; width:25%;")
@@ -104,8 +104,8 @@
                             !=$form['child']['school_zip_code']
 
 
-                div#relatives
-                    h3 Known Relatives
+                div#relatives(style="margin-top:30px;")
+                    h3(style="margin: 3px;") Known Relatives
                     if data.relatives
                         table#relatives_table(style="margin: 0 auto;  text-align: left; border-spacing: 10px;border-collapse: separate;")
                             thead
