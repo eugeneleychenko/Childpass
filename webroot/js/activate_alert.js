@@ -1,6 +1,4 @@
 $(function() {
-    console.log($('#activateAlertDialog #date'));
-
    $('.activateAlert').click(function(event) {
        event.preventDefault();
        showActiveAlertDialog();
@@ -26,7 +24,7 @@ $(function() {
                dialog.html(data);
                dialog.dialog({
                   'title': 'Activate Alert',
-                   width: '40%',
+                   width: '38%',
                    modal: true,
                    resizable: false,
                    open: function() {
