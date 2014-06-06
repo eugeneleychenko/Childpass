@@ -15,6 +15,11 @@ $(function() {
     });
 
 
+    $('#activateAlertDialog').on('click', '#cancelAlert', function() {
+        $('#activateAlertDialog').dialog("close");
+    });
+
+
    function  showActiveAlertDialog() {
        $.get('/child/activateAlert/',
              {
@@ -23,8 +28,7 @@ $(function() {
                var dialog = $('#activateAlertDialog');
                dialog.html(data);
                dialog.dialog({
-                  'title': 'Activate Alert',
-                   width: '38%',
+                   width: '40%',
                    modal: true,
                    resizable: false,
                    open: function() {
@@ -34,7 +38,7 @@ $(function() {
                        window.location = '/child/list';
                    }
                });
-
+               $(".ui-dialog-titlebar").hide();
            })
        }
 });

@@ -6,7 +6,12 @@ else
         Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
     div(style="width:90%; height: 700px; overflow: auto;  margin: 10px auto;")
-        div.row(style="margin-bottom: 10px; font-size: 0.8em;") Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
+        div.row
+            div(style="float: left")
+                img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
+            div(style="margin-left: 400px; padding-left: 50px; height: 125px; display: table-cell; vertical-align: middle; color: #f00; font-size: 1.5em;")  ALERT!
+
+        div.row(style="clear: both;margin-bottom: 10px; font-size: 0.8em;") Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
 
         :php
             $form = $this->beginWidget('CActiveForm', array(
@@ -81,5 +86,9 @@ else
 
         div.row(style="text-align: center;")
             !=CHtml::submitButton('Activate Alert!', array('style' => 'background: #f00; color: #fff; border: 1px #000 solid; height: 50px;'));
+
+        div.row(style="text-align: right;")
+            a#cancelAlert(href="#", style="color: #f00; text-decoration:none;") Cancel
+
 
         -$this->endWidget();
