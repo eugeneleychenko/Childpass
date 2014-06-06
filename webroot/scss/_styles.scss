@@ -65,6 +65,17 @@ hr {
   clear: none;
 }
 
+form {
+  .row {
+    margin-bottom: 0.5em;
+    margin-left: 0;
+
+    &.submit {
+      margin-top: 2em;
+    }
+  }
+}
+
 .panel {
   background: #fff;
   border: 2px solid orange;
@@ -285,8 +296,55 @@ hr {
   }
 }
 
-#child-info-form label {
-  display: block;
+#child-info-form {
+  label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.2em;
+  }
+
+  .fieldstyle {
+    width: 100%;
+  }
+
+  .fieldWrapper {
+    width: 24%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top;
+
+    &.state {
+      width: 25%;
+      margin-right: 2%;
+    }
+
+    &.zipCode {
+      width: 72%;
+    }
+  }
+
+  [name='Child[distinctive_marks]'] {
+    width: 48.5%;
+  }
+
+  .formRow {
+    margin-bottom: 1em;
+  }
+
+  #relatives {
+    text-align: center;
+
+    h2 {
+      margin-bottom: 0.2em;
+    }
+  }
+
+  .formActions {
+    margin-bottom: 60px;
+    position: relative;
+    text-align: right;
+  }
+
 }
 
 .row {
@@ -310,8 +368,10 @@ hr {
 
 .fieldstyle {
   width: 90%;
-  height: 26px;
-  line-height: 26px;
+  height: 28px;
+  line-height: 28px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
@@ -669,7 +729,14 @@ hr {
 }
 
 #teeth-area {
-    margin: 60px;
+  margin: 60px;
+  position: relative;
+
+  .legend {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 .flyerWrapper {

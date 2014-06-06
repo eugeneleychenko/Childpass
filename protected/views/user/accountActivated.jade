@@ -1,2 +1,6 @@
-.aboutbox
-    | Congratulation! Your acccount was activated.
+.panel.contentWrapper
+    | Congratulations. Your account is now active. Click
+    =' '
+    a(href=$this->createUrl('child/add', array('step' => 'step1'))) here
+    =' '
+    | to fill out your child's profile.

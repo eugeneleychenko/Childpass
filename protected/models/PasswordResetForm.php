@@ -31,34 +31,13 @@ class PasswordResetForm extends CFormModel
         );
     }
 
-    /**
-     * Logs in the user using the given username and password in the model.
-     * @return boolean whether login is successful
-     */
-    public function login()
-    {
-        if ($this->_identity === null) {
-            $this->_identity = $this->returnIdentityObject();
-            $this->_identity->authenticate();
-        }
-
-        if ($this->_identity->errorCode === UserIdentity::ERROR_NONE) {
-            $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
-            $user     = $this->returnCWebuserObject();
-            $user->login($this->_identity, $duration);
-            return true;
-        } else
-            $this->addError('password', 'Incorrect email or password.');
-            return false;
-    }
-
     public function resetPassword()
     {
         /** @var User $user */
         $user = User::model()->findByAttributes(array('email' => $this->email));
 
         if (!$user) {
-            $this->addError('email', 'User with such email does not exists!');
+            $this->addError('email', 'User with such email does not exist!');
             return false;
         };
 
