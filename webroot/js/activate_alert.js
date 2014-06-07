@@ -6,7 +6,8 @@ $(function() {
 
     $('#activateAlertDialog').on('change', '.child_checkbox', function() {
         var checkbox = $(this);
-        var rowChildDescription = checkbox.closest('.row').next()
+        var rowChildDescription = checkbox.closest('.row').next();
+
         if (checkbox.is(':checked')) {
             rowChildDescription.show();
         } else {
@@ -21,7 +22,7 @@ $(function() {
 
 
    function  showActiveAlertDialog() {
-       $.get('/child/activateAlert/',
+       $.get(Yii.app.createUrl('child/activate-alert'),
              {
                  'time' : new Date().getTime()
              }).done(function (data) {
@@ -35,7 +36,7 @@ $(function() {
                        $('#activateAlertDialog #date').mask('9999-99-99 99:99:99');
                    },
                    close : function() {
-                       window.location = '/child/list';
+                       window.location = Yii.app.createUrl('child/list');
                    }
                });
                $(".ui-dialog-titlebar").hide();
@@ -45,7 +46,7 @@ $(function() {
 
 function submitForm(form, data, hasError) {
     if (!$('.child_checkbox:checked').length) {
-        alert('Select at least on child!');
+        alert('Select at least one child!');
         return;
     }
 
@@ -53,9 +54,9 @@ function submitForm(form, data, hasError) {
             form.attr('action'),
             form.serialize()
         ).done(function(data) {
-                form.parent().parent().html(data);
-                $('#activateAlertDialog #date').mask('9999-99-99 99:99:99');
-            }).fail(function () {
-            });
+            form.parent().parent().html(data);
+            $('#activateAlertDialog #date').mask('9999-99-99 99:99:99');
+        }).fail(function () {
+        });
 }
 

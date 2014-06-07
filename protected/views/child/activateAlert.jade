@@ -1,5 +1,6 @@
 if (saved)
     p You activated alert! You can download flyer for lost children now!
+    a(href=$this->createUrl('child/list')) Proceed
 else
     :php
         Yii::app()->clientScript->scriptMap['jquery.js'] = false;

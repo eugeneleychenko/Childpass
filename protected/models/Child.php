@@ -70,7 +70,7 @@ class Child extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, first_name, middle_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, state, school_state, grade, city, school_city', 'required'),
+			array('user_id, first_name, middle_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, zip_code, birthday, distinctive_marks, school, school_address, school_zip_code, state, school_state, grade, city, school_city', 'required'),
 			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, grade', 'numerical', 'integerOnly'=>true),
 			array('first_name, middle_name, last_name, address, address2, school_address, school_address2', 'length', 'max'=>100),
 			array('gender', 'length', 'max'=>1),
@@ -94,13 +94,13 @@ class Child extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-            'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-			'hairColor' => array(self::BELONGS_TO, 'HairColor', 'hair_color_id'),
-			'ethnicity' => array(self::BELONGS_TO, 'Ethnicity', 'ethnicity_id'),
-			'eyesColor' => array(self::BELONGS_TO, 'EyesColor', 'eyes_color_id'),
-			'childPhotos' => array(self::HAS_MANY, 'ChildPhoto', 'child_id'),
-            'relatives' => array(self::MANY_MANY, 'Relative', '{{child_relative}}(child_id, relative_id)'),
-            'incident' => array(self::HAS_ONE, 'Incident', 'child_id'),
+            'user'        => array(self::BELONGS_TO, 'User', 'user_id'),
+            'hairColor'   => array(self::BELONGS_TO, 'HairColor', 'hair_color_id'),
+            'ethnicity'   => array(self::BELONGS_TO, 'Ethnicity', 'ethnicity_id'),
+            'eyesColor'   => array(self::BELONGS_TO, 'EyesColor', 'eyes_color_id'),
+            'childPhotos' => array(self::HAS_MANY, 'ChildPhoto', 'child_id'),
+            'relatives'   => array(self::MANY_MANY, 'Relative', '{{child_relative}}(child_id, relative_id)'),
+            'incident'    => array(self::HAS_ONE, 'Incident', 'child_id'),
 		);
 	}
 
@@ -109,40 +109,40 @@ class Child extends CActiveRecord
 	 */
 	public function attributeLabels()
 	{
-		return array(
-			'id' => 'ID',
-            'user_id' => 'User ID',
-			'created_at' => 'Created At',
-			'first_name' => 'First Name',
-            'middle_name' => 'Middle Name',
-            'last_name' => 'Last Name',
-			'gender' => 'Gender',
-			'height_feet' => 'Height Feet',
-			'height_inches' => 'Height Inches',
-			'weight' => 'Weight',
-			'ethnicity_id' => 'Ethnicity',
-			'eyes_color_id' => 'Eyes Color',
-			'hair_color_id' => 'Hair Color',
-			'address' => 'Address',
-			'address2' => 'Address2',
-			'zip_code' => 'Zip Code',
-			'birthday' => 'Birthday',
-			'distinctive_marks' => 'Distinctive Marks',
-			'school' => 'School',
-			'school_address' => 'School Address',
-			'school_address2' => 'School Address2',
-			'school_zip_code' => 'School Zip Code',
-			'known_relatives' => 'Known Relatives',
-            'teeth' => 'Teeth',
-			'missing_date' => 'Missing Date',
-			'missing_from' => 'Missing From',
-            'state' => 'State',
-            'school_state' => 'State',
-            'grade' => 'Grade',
-            'city' => 'City',
-            'school_city' => 'City'
+        return array(
+            'id'                => 'ID',
+            'user_id'           => 'User ID',
+            'created_at'        => 'Created At',
+            'first_name'        => 'First Name',
+            'middle_name'       => 'Middle Name',
+            'last_name'         => 'Last Name',
+            'gender'            => 'Gender',
+            'height_feet'       => 'Height Feet',
+            'height_inches'     => 'Height Inches',
+            'weight'            => 'Weight',
+            'ethnicity_id'      => 'Ethnicity',
+            'eyes_color_id'     => 'Eyes Color',
+            'hair_color_id'     => 'Hair Color',
+            'address'           => 'Address',
+            'address2'          => 'Address2',
+            'zip_code'          => 'Zip Code',
+            'birthday'          => 'Birthday',
+            'distinctive_marks' => 'Distinctive Marks',
+            'school'            => 'School',
+            'school_address'    => 'School Address',
+            'school_address2'   => 'School Address2',
+            'school_zip_code'   => 'School Zip Code',
+            'known_relatives'   => 'Known Relatives',
+            'teeth'             => 'Teeth',
+            'missing_date'      => 'Missing Date',
+            'missing_from'      => 'Missing From',
+            'state'             => 'State',
+            'school_state'      => 'State',
+            'grade'             => 'Grade',
+            'city'              => 'City',
+            'school_city'       => 'City'
 
-		);
+        );
 	}
 
 	/**

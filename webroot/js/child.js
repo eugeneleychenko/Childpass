@@ -12,7 +12,7 @@ function afterSelect(e, v, m) {
 function deleteChildPhoto(button) {
     button = $(button);
     var photo_item = button.closest('.child-photo');
-    if (confirm("You really want to delete this photo?")) {
+    if (confirm("Do you really want to delete this photo?")) {
         $.ajax({
             url: Yii.app.createUrl('child-photo/delete'),
             data: {'photo_id': photo_item.attr('data-photo_id')},
@@ -43,16 +43,13 @@ $(function() {
         $('form').submit(function( event ) {
             if (step == 'step1' && !$('#relatives_table tbody tr').length) {
                 if (!$('#relatives_error').length) {
-                    $('<div class="errorMessage" id="relatives_error" style="color: #f00;">Input a least on relative!</div>').insertBefore($('#relatives_table'));
+                    $('<div class="errorMessage" id="relatives_error" style="color: #f00;">Input at least one relative!</div>').insertBefore($('#relatives_table'));
                 }
                 event.preventDefault();
             }
         });
 
     }
-
-
-
 
 
 
@@ -82,7 +79,7 @@ $(function() {
 
     function prefillWithSavedRelatives() {
         $.ajax({
-            url: '/child/GetSavedRelatives',
+            url: Yii.app.createUrl('child/get-saved-relatives'),
             type: 'GET',
             success: function(data) {
                var rows = prefilledRelativeRows(data);
@@ -186,7 +183,7 @@ $(function() {
         }
 
         $.ajax({
-            url: '/child/deleteRelativeMapping',
+            url: Yii.app.createUrl('child/delete-relative-mapping'),
             data: {
                 'childId' : childId,
                 'relativeId' : relativeId
