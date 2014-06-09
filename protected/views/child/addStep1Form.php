@@ -47,7 +47,7 @@ return array(
                 'eyes_color_id' => array(
                     'type'  => 'dropdownlist',
                     'items' => EyesColor::model()->getOptions(),
-                    'prompt'=>'Select eyes color',
+                    'prompt'=>'Select eye color',
                     'class' => 'fieldstyle',
                 ),
                 'hair_color_id' => array(
@@ -79,7 +79,7 @@ return array(
                 'distinctive_marks' => array(
                     'type'  => 'textarea',
                     'rows' => 10,
-                    'label' => 'Please provide details such as location of scars, birthmarks, tattos or any other marks',
+                    'label' => 'Please provide details such as location of scars, birthmarks, tattoos or any other marks',
                     'maxlength' => '255',
                 ),
                 'school' => array(

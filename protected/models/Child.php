@@ -121,7 +121,7 @@ class Child extends CActiveRecord
             'height_inches'     => 'Height Inches',
             'weight'            => 'Weight',
             'ethnicity_id'      => 'Ethnicity',
-            'eyes_color_id'     => 'Eyes Color',
+            'eyes_color_id'     => 'Eye Color',
             'hair_color_id'     => 'Hair Color',
             'address'           => 'Address',
             'address2'          => 'Address2',
