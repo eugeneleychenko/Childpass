@@ -35,8 +35,6 @@ $(function() {
                    resizable: false,
                    open: function() {
                        $('#activateAlertDialog #date').datetimepicker({
-                           changeYear: true,
-                           yearRange: "-40:+60",
                            dateFormat: 'yy-mm-dd',
                            timeFormat: 'HH:mm:ss'
                         });
@@ -62,8 +60,6 @@ function submitForm(form, data, hasError) {
         ).done(function(data) {
             form.parent().parent().html(data);
             $('#activateAlertDialog #date').datetimepicker({
-                changeYear: true,
-                yearRange: "-40:+60",
                 dateFormat: 'yy-mm-dd',
                 timeFormat: 'HH:mm:ss'
             });
