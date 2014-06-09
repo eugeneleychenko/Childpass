@@ -64,7 +64,7 @@ else
 
             div.row(class=classes)
                 !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('class' => 'alertLabel'))
-                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255', 'class' => 'alert_textarea'))
+                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255'))
                 !=$form->error($childInfo['incidentModel'], 'child_description')
 
             :php
@@ -74,7 +74,7 @@ else
             label.alertLabel Description *
 
             :php
-                echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255', 'class' => 'alert_textarea'));
+                echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255'));
                 if ($descriptionError) {
                    echo $descriptionError;
                 }
