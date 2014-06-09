@@ -1344,37 +1344,42 @@ table#relatives_table th {
   background: #fff;
 }
 
-/* line 803, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 802, D:/projects/web/childPass/webroot/scss/_styles.scss */
+.errorMessage {
+  color: #f00;
+}
+
+/* line 807, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div .ui-widget-header {
   margin-bottom: 8px;
 }
 
-/* line 804, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 808, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div dl {
   text-align: left;
 }
 
-/* line 805, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 809, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div dl dt {
   height: 25px;
 }
 
-/* line 806, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 810, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div dl dd {
   margin: -25px 0 10px 65px;
 }
 
-/* line 807, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 811, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div td {
   font-size: 90%;
 }
 
-/* line 809, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 813, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div + .ui-datepicker-buttonpane.ui-widget-content {
   margin-top: 50px;
 }
 
-/* line 813, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 817, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui_tpicker_second, .ui_tpicker_second_label {
   display: none;
 }
