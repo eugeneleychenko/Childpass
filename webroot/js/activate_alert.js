@@ -1,4 +1,5 @@
 $(function() {
+
    $('.activateAlert').click(function(event) {
        event.preventDefault();
        showActiveAlertDialog();
@@ -33,7 +34,7 @@ $(function() {
                    modal: true,
                    resizable: false,
                    open: function() {
-                       $('#activateAlertDialog #date').mask('9999-99-99 99:99:99');
+                       $('#activateAlertDialog #date').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'HH:mm:ss' });
                    },
                    close : function() {
                        window.location = Yii.app.createUrl('child/list');
@@ -55,7 +56,7 @@ function submitForm(form, data, hasError) {
             form.serialize()
         ).done(function(data) {
             form.parent().parent().html(data);
-            $('#activateAlertDialog #date').mask('9999-99-99 99:99:99');
+            $('#activateAlertDialog #date').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'HH:mm:ss' });
         }).fail(function () {
         });
 }
