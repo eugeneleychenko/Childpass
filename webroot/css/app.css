@@ -1394,14 +1394,15 @@ table#relatives_table th {
 /* line 832, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_contents {
   width: 90%;
+  min-width: 525px;
   height: 70%;
   margin: 10px auto;
 }
-/* line 838, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 839, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_logo {
   float: left;
 }
-/* line 842, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 843, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_logo_message {
   margin-left: 400px;
   padding-left: 50px;
@@ -1411,61 +1412,61 @@ table#relatives_table th {
   color: #f00;
   font-size: 1.5em;
 }
-/* line 852, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 853, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_text {
   clear: both;
   margin-bottom: 10px;
   font: 0.9em;
 }
-/* line 858, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 859, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #row_logo {
   margin-bottom: 20px;
 }
-/* line 863, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 864, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .alert_child_row {
   margin-bottom: 5px;
   font: 1em;
   margin-left: 0;
 }
-/* line 869, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 870, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .child_label {
   padding-left: 10px;
 }
-/* line 873, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 874, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .description_child_row {
   margin-left: 0;
 }
-/* line 877, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 878, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .description_child_row {
   margin-left: 0;
 }
-/* line 881, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 882, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .hidden {
   display: none;
 }
-/* line 886, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 887, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #incident_datetime_row {
   font: 1em;
   margin-left: 0;
 }
-/* line 891, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 892, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #incident_description_row {
   margin-top: 10px;
   font: 1em;
   margin-left: 0;
 }
-/* line 897, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 898, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .alertLabel {
   display: block;
   margin-bottom: 5px;
 }
-/* line 902, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 903, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_buttons_row {
   text-align: center;
   margin-left: 0;
   margin-top: 2em;
 }
-/* line 908, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 909, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_submit {
   background: #f00;
   color: #fff;
@@ -1473,7 +1474,7 @@ table#relatives_table th {
   height: 50px;
   margin-right: 50px;
 }
-/* line 916, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 917, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #cancelAlert {
   color: #f00;
   text-decoration: none;
