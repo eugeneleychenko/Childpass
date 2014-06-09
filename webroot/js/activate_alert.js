@@ -34,7 +34,10 @@ $(function() {
                    modal: true,
                    resizable: false,
                    open: function() {
-                       $('#activateAlertDialog #date').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'HH:mm:ss' });
+                       $('#activateAlertDialog #date').datetimepicker({
+                           dateFormat: 'yy-mm-dd',
+                           timeFormat: 'HH:mm:ss'
+                        });
                    },
                    close : function() {
                        window.location = Yii.app.createUrl('child/list');
@@ -56,7 +59,10 @@ function submitForm(form, data, hasError) {
             form.serialize()
         ).done(function(data) {
             form.parent().parent().html(data);
-            $('#activateAlertDialog #date').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'HH:mm:ss' });
+            $('#activateAlertDialog #date').datetimepicker({
+                dateFormat: 'yy-mm-dd',
+                timeFormat: 'HH:mm:ss'
+            });
         }).fail(function () {
         });
 }

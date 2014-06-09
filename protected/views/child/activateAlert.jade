@@ -6,13 +6,13 @@ else
         Yii::app()->clientScript->scriptMap['jquery.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
         Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
-    div(style="width:90%; height: 800px; margin: 10px auto;")
-        div.row(style="margin-bottom: 20px")
-            div(style="float: left")
+    div#alert_contents
+        div#row_logo.row
+            div#alert_logo
                 img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
-            div(style="margin-left: 400px; padding-left: 50px; height: 125px; display: table-cell; vertical-align: middle; color: #f00; font-size: 1.5em;")  ALERT!
+            div#alert_logo_message  ALERT!
 
-        div.row(style="clear: both;margin-bottom: 10px; font: 0.9em serif") Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
+        div#alert_text.row Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
 
         :php
             $form = $this->beginWidget('CActiveForm', array(
@@ -33,25 +33,25 @@ else
             $dateError = null;
             $modelWithError = null;
         each childInfo in childrenInfo
-            div.row(style="margin-bottom: 5px; font: 1em sans-serif; margin-left: 0;")
+            div.row.alert_child_row
                 !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => ($childInfo['incidentModel']->errors) ? 'checked' : false, 'class' => 'child_checkbox'))
 
                 :php
                     $checkbox_id = 'Incident_' . $counter . '_child_id';
                     $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
                     if  (isset($childInfo['incidentModel']->errors['description'])) {
-                        $descriptionError = $form->error($childInfo['incidentModel'], 'description', array('style' => 'color: #f00'));
+                        $descriptionError = $form->error($childInfo['incidentModel'], 'description');
                         $modelWithError = $childInfo['incidentModel'];
                     }
 
                     if  (isset($childInfo['incidentModel']->errors['date'])) {
-                        $dateError = $form->error($childInfo['incidentModel'], 'date', array('style' => 'color: #f00'));
+                        $dateError = $form->error($childInfo['incidentModel'], 'date');
                         $modelWithError = $childInfo['incidentModel'];
                     }
 
-                label(style="padding-left: 10px;", for=checkbox_id)
+                label.child_label(for=checkbox_id)
                     !=$full_name
-                !=$form->error($childInfo['incidentModel'], 'child_id', array('style' => 'color: #f00'))
+                !=$form->error($childInfo['incidentModel'], 'child_id')
 
 
             :php
@@ -63,30 +63,30 @@ else
                 }
 
             div.row(style=style)
-                !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('style' => 'display: block; margin-bottom: 5px;'))
-                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255', 'style' => 'resize:none;'))
-                !=$form->error($childInfo['incidentModel'], 'child_description', array('style' => 'color: #f00'))
+                !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('class' => 'alertLabel'))
+                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255', 'class' => 'alert_textarea'))
+                !=$form->error($childInfo['incidentModel'], 'child_description')
 
             :php
                 $counter++;
 
-        div.row(style="margin-top: 10px; font: 1em serif;margin-left: 0;")
-            label(style="display: block;margin-bottom: 5px;") Description *
+        div#incident_description_row.row
+            label.alertLabel Description *
 
             :php
-                echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255', 'style' => 'resize:none;'));
+                echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255', 'class' => 'alert_textarea'));
                 if ($descriptionError) {
                    echo $descriptionError;
                 }
 
-        div.row(style="font: 1em serif;margin-left: 0;")
-            label(style="display: block;margin-bottom: 5px;") Date (yyyy-mm-dd hh:mm:ss) *
+        div#incident_datetime_row.row
+            label.alertLabel Date (yyyy-mm-dd hh:mm:ss) *
             !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
             if ($dateError)
                 !=$dateError;
 
-        div.row(style="text-align: center;margin-left: 0; margin-top: 2em;")
-            !=CHtml::submitButton('Activate Alert!', array('style' => 'background: #f00; color: #fff; border: 1px #000 solid; height: 50px; margin-right: 50px;'));
-            a#cancelAlert(href="#", style="color: #f00; text-decoration:none;") Cancel
+        div#alert_buttons_row.row
+            !=CHtml::submitButton('Activate Alert!', array('id' => 'alert_submit'));
+            a#cancelAlert(href="#") Cancel
 
         -$this->endWidget();

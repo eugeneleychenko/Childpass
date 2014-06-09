@@ -323,6 +323,7 @@ form {
     }
   }
 
+
   [name='Child[distinctive_marks]'] {
     width: 48.5%;
   }
@@ -817,3 +818,84 @@ table#relatives_table th {
 .ui_tpicker_second, .ui_tpicker_second_label {
   display: none;
 }
+
+//alert styles
+#alert_contents {
+  width:90%;
+  height: 800px;
+  margin: 10px auto;
+}
+
+#alert_logo {
+  float: left;
+}
+
+#alert_logo_message {
+  margin-left: 400px;
+  padding-left: 50px;
+  height: 125px;
+  display: table-cell;
+  vertical-align: middle;
+  color: #f00;
+  font-size: 1.5em;
+}
+
+#alert_text {
+ clear: both;
+ margin-bottom: 10px;
+  font: 0.9em serif;
+}
+
+#row_logo {
+  margin-bottom: 20px;
+}
+
+.alert_child_row {
+  margin-bottom: 5px;
+  font: 1em sans-serif;
+  margin-left: 0;
+}
+
+.child_label {
+  padding-left: 10px;
+}
+
+#incident_datetime_row {
+  font: 1em serif;
+  margin-left: 0;
+}
+
+#incident_description_row {
+  margin-top: 10px;
+  font: 1em serif;
+  margin-left: 0;
+}
+
+.alertLabel {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#alert_buttons_row {
+  text-align: center;
+  margin-left: 0;
+  margin-top: 2em;
+}
+
+#alert_submit {
+  background: #f00;
+  color: #fff;
+  border: 1px #000 solid;
+  height: 50px;
+  margin-right: 50px;
+}
+
+#cancelAlert {
+  color: #f00;
+  text-decoration:none;
+}
+
+.alert_textarea {
+  resize:none;
+}
+
