@@ -851,6 +851,7 @@ table#relatives_table th {
     margin-bottom: 20px;
   }
 
+
   .alert_child_row {
     margin-bottom: 5px;
     font: 1em;
@@ -860,6 +861,19 @@ table#relatives_table th {
   .child_label {
     padding-left: 10px;
   }
+
+  .description_child_row {
+    margin-left: 0;
+  }
+
+  .description_child_row {
+    margin-left: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
 
   #incident_datetime_row {
     font: 1em;

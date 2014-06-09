@@ -56,14 +56,13 @@ else
 
 
             :php
-                $style = 'margin-left: 0;display:';
+                $classes = 'description_child_row';
                 if ($childInfo['incidentModel']->errors) {
-                    $style .= 'block;';
                 } else {
-                    $style .= 'none;';
+                    $classes .=  ' hidden';
                 }
 
-            div.row(style=style)
+            div.row(class=classes)
                 !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('class' => 'alertLabel'))
                 !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255', 'class' => 'alert_textarea'))
                 !=$form->error($childInfo['incidentModel'], 'child_description')

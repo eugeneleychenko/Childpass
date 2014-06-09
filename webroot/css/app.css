@@ -1414,39 +1414,51 @@ table#relatives_table th {
 #activateAlertDialog #row_logo {
   margin-bottom: 20px;
 }
-/* line 854, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 855, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .alert_child_row {
   margin-bottom: 5px;
   font: 1em;
   margin-left: 0;
 }
-/* line 860, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 861, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .child_label {
   padding-left: 10px;
 }
-/* line 864, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 865, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#activateAlertDialog .description_child_row {
+  margin-left: 0;
+}
+/* line 869, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#activateAlertDialog .description_child_row {
+  margin-left: 0;
+}
+/* line 873, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#activateAlertDialog .hidden {
+  display: none;
+}
+/* line 878, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #incident_datetime_row {
   font: 1em;
   margin-left: 0;
 }
-/* line 869, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 883, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #incident_description_row {
   margin-top: 10px;
   font: 1em;
   margin-left: 0;
 }
-/* line 875, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 889, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .alertLabel {
   display: block;
   margin-bottom: 5px;
 }
-/* line 880, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 894, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_buttons_row {
   text-align: center;
   margin-left: 0;
   margin-top: 2em;
 }
-/* line 886, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 900, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_submit {
   background: #f00;
   color: #fff;
@@ -1454,7 +1466,7 @@ table#relatives_table th {
   height: 50px;
   margin-right: 50px;
 }
-/* line 894, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 908, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #cancelAlert {
   color: #f00;
   text-decoration: none;
