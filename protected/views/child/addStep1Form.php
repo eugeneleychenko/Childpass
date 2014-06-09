@@ -106,7 +106,7 @@ return array(
                     'type'  => 'dropdownlist',
                     'items' => Child::model()->getStateOptions(),
                     'prompt'=>'Select state',
-                    'class' => 'fieldstyle',
+                    'class' => 'fieldstyle'
                 ),
                 'school_state' => array(
                     'type'  => 'dropdownlist',
