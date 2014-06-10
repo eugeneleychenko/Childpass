@@ -935,8 +935,28 @@ table#relatives_table {
     vertical-align: top;
   }
 
-
   .formRow {
     margin-bottom: 1em;
+    width: 50%;
   }
+
+  textarea {
+    width: 100%;
+  }
+
+  .submit_buttons {
+    margin-bottom: 60px;
+    position: relative;
+    text-align: right;
+  }
+
+  .prev_button_container {
+    float: left;
+  }
+
 }
+
+#alert_settings_description, #notification_email_description {
+  margin-bottom: 1em;
+}
+

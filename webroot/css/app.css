@@ -1493,7 +1493,27 @@ table#relatives_table th {
   display: inline-block;
   vertical-align: top;
 }
-/* line 939, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 938, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-alert-settings-form .formRow {
+  margin-bottom: 1em;
+  width: 50%;
+}
+/* line 943, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#child-alert-settings-form textarea {
+  width: 100%;
+}
+/* line 947, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#child-alert-settings-form .submit_buttons {
+  margin-bottom: 60px;
+  position: relative;
+  text-align: right;
+}
+/* line 953, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#child-alert-settings-form .prev_button_container {
+  float: left;
+}
+
+/* line 959, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#alert_settings_description, #notification_email_description {
   margin-bottom: 1em;
 }

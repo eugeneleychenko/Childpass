@@ -24,22 +24,22 @@ return array(
                 ),
                 'facebook_notification' => array(
                     'type'  => 'checkbox',
-                    'class' => 'fieldstyle',
+//                    'class' => 'fieldstyle',
                     'label' => 'Facebook',
                 ),
                 'linked_in_notification' => array(
                     'type'  => 'checkbox',
-                    'class' => 'fieldstyle',
+//                    'class' => 'fieldstyle',
                     'label' => 'LinkedIn',
                 ),
                 'twitter_notification' => array(
                     'type'  => 'checkbox',
-                    'class' => 'fieldstyle',
+//                    'class' => 'fieldstyle',
                     'label' => 'Twitter',
                 ),
                 'google_plus_notification' => array(
                     'type'  => 'checkbox',
-                    'class' => 'fieldstyle',
+//                    'class' => 'fieldstyle',
                     'label' => 'Google Plus',
                 ),
           ),
