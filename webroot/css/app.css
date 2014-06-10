@@ -1475,3 +1475,25 @@ table#relatives_table th {
   color: #f00;
   text-decoration: none;
 }
+
+/* line 921, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#child-alert-settings-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.2em;
+}
+/* line 927, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#child-alert-settings-form .fieldstyle {
+  width: 100%;
+}
+/* line 931, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#child-alert-settings-form .fieldWrapper {
+  width: 24%;
+  margin-right: 1%;
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 939, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#child-alert-settings-form .formRow {
+  margin-bottom: 1em;
+}

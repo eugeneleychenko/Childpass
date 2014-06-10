@@ -915,3 +915,28 @@ table#relatives_table {
     text-decoration:none;
   }
 }
+
+
+#child-alert-settings-form {
+  label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.2em;
+  }
+
+  .fieldstyle {
+    width: 100%;
+  }
+
+  .fieldWrapper {
+    width: 24%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+
+  .formRow {
+    margin-bottom: 1em;
+  }
+}

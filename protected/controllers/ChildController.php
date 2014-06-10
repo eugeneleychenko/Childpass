@@ -149,13 +149,23 @@ class ChildController extends Controller
                 if ($form->submitted('next_step')) {
                     $form['child']->model->teeth = $_POST['Child']['teeth'];
                     if ($form['child']->model->save(false)) {
-                        $this->redirect(array('child/list'));
+                        $this->redirect(array('child/add', 'step' => 'step4', 'child_id' => $childId));
                     }
                 } elseif ($form->submitted('prev_step')) {
                     $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $childId));
                 }
                 break;
             case 'step4':
+                $form['child']->model = User::model()->findByPk(Yii::app()->user->getId());
+                if ($form->submitted('next_step')) {
+                    if ($form->validate()) {
+                        if ($form['child']->model->save(false)) {
+                            $this->redirect(array('child/list'));
+                        }
+                    }
+                } elseif ($form->submitted('prev_step')) {
+                    $this->redirect(array('child/add', 'step' => 'step3', 'child_id' => $childId));
+                }
                 break;
         }
 

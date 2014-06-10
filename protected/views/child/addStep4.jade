@@ -1,0 +1,44 @@
+.step-header
+    .step-description
+        h2.welcome
+            span Welcome,&nbsp
+            !=Yii::app()->user->getName();
+        p This page in Step 2 of the 3 Step Child Profile Process
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    .step-list
+        ul
+            li.step1.active
+                .step-number.icons-step1
+                .step-icon.icons-kids
+                span Personal Profile
+            li.step2.active
+                .step-number.icons-step2
+                .step-icon.icons-camera
+                span Recent Photo
+            li.step3
+                .step-number.icons-step3_disable
+                .step-icon.icons-dental_gray
+                span Dental Record
+.panel
+    .contentWrapper
+        !=$form->renderBegin()
+            div
+                .formRow
+                    .fieldWrapper
+                        !=$form['child']['facebook_notification']
+                    .fieldWrapper
+                        !=$form['child']['linked_in_notification']
+                    .fieldWrapper
+                        !=$form['child']['twitter_notification']
+                    .fieldWrapper
+                        !=$form['child']['google_plus_notification']
+                .formRow
+                    !=$form['child']['notification_emails']
+
+                .row(style='margin-bottom: 60px; position: relative;')
+                    div(style='float: left')
+                        !=$form->buttons['prev_step']
+                    !=$form->buttons['next_step']
+        !=$form->renderEnd();
+:php
+    Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/child.js');
