@@ -32,9 +32,13 @@ html(lang='en')
                 .mainMenuWrapper
                     #infoMessage
                         -if (!Yii::app()->user->isGuest):
+                            a.survey_link(href=$this->createUrl('child/survey')) Survey
+                                br
+                                    &nbsp;
                             a.activateAlert(href=$this->createUrl('child/list')) Activate
                                 br
                                 | Emergency Alert
+
                         :php
                             $this->widget('application.components.LoginFormWidget');
                     ul.nav

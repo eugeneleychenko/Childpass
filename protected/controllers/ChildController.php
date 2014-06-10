@@ -377,4 +377,8 @@ class ChildController extends Controller
         $mPDF1->Output($fileName, 'D');
     }
 
+    public function survey()
+    {
+        
+    }
 }
