@@ -146,6 +146,8 @@ form {
   }
 
   .login-form {
+      display: table-cell;
+      float: right;
       form {
           overflow: hidden;
           font-family: Arial;
@@ -206,6 +208,7 @@ form {
       top: 0;
       left: 360px;
       right: 0;
+      display: table;
     }
 
     .activateAlert {
@@ -216,10 +219,12 @@ form {
       padding: 0.5em 0.5em;
       background: #FF0000;
       color: #FFFFFF;
-      float: right;
+//      float: left;
       border: 2px solid #002F66;
       text-transform: uppercase;
       text-decoration: none;
+      display: table-cell;
+      vertical-align: middle;
     }
 
     .survey_link {
@@ -230,10 +235,16 @@ form {
       padding: 0.5em 0.5em;
       background: #EE8B38;
       color: #FFF;
-      float: right;
-      border: 2px solid #EE8B38;
+//      float: left;
+//      border: 2px solid #EE8B38;
+      border-left: 2px solid #EE8B38;
+      border-top: 2px solid #EE8B38;
+      border-bottom: 2px solid #EE8B38;
       text-transform: uppercase;
       text-decoration: none;
+      display: table-cell;
+      vertical-align: middle;
+//      height: 100%;
     }
 
 
