@@ -377,7 +377,23 @@ class ChildController extends Controller
         $mPDF1->Output($fileName, 'D');
     }
 
-    public function survey()
+    public function actionSurvey()
     {
+        $this->layout = 'main';
+        $model = new SurveyForm();
+
+        if(isset($_POST['SurveyForm'])) {
+            $model->attributes = $_POST['SurveyForm'];
+            if ($model->validate()) {
+                $this->redirect(array('child/list'));
+            }
+        }
+
+        $this->render(
+            'survey', array(
+                'model' => $model
+            )
+        );
+
     }
 }
