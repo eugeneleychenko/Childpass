@@ -104,7 +104,7 @@ class UserController extends Controller
 
         if ($user) {
             $user->is_active = 1;
-            $user->save();
+            $user->save(true, 'is_active');
             $this->render('accountActivated');
         } else {
             $this->render('accountActivationWrongLink');
