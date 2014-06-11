@@ -697,7 +697,7 @@ form .row.submit {
 /* line 148, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .login-form {
   display: table-cell;
-  float: right;
+  padding-left: 10px;
 }
 /* line 151, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .login-form form {
@@ -779,7 +779,7 @@ form .row.submit {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 230, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 229, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .survey_link {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -796,7 +796,7 @@ form .row.submit {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 251, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 247, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav {
   list-style: none;
   margin-bottom: 10px;
@@ -807,7 +807,7 @@ form .row.submit {
   background: #002F66;
   border-collapse: separate;
 }
-/* line 261, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 257, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav li {
   float: none;
   display: table-cell;
@@ -817,45 +817,45 @@ form .row.submit {
   border-width: 6px 3px;
   border-color: #002F66;
 }
-/* line 269, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 265, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav li:hover, #header .mainMenuWrapper .nav li.active {
   background: #5581b4;
 }
-/* line 272, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 268, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav li:first-child {
   border-left-width: 6px;
 }
-/* line 275, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 271, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav li.reg {
   border: 6px solid #ed8b37;
   background: #ed8b37;
 }
-/* line 279, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 275, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav li.reg:hover, #header .mainMenuWrapper .nav li.reg.active {
   background: #c9650f;
 }
-/* line 283, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 279, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav li.separator {
   width: 7px;
   border: 0;
   background: url("../images/dots.png") no-repeat scroll center;
 }
-/* line 287, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 283, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav li.separator:hover, #header .mainMenuWrapper .nav li.separator.active {
   background-color: #002F66;
 }
-/* line 293, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 289, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #header .mainMenuWrapper .nav a {
   color: #FFFFFF;
   text-decoration: none;
 }
 
-/* line 301, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 297, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #content {
   overflow: hidden;
 }
 
-/* line 305, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 301, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #footer {
   background: #FFFFFF;
   text-align: center;
@@ -863,86 +863,86 @@ form .row.submit {
   font-weight: bold;
   margin-top: 2%;
 }
-/* line 312, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 308, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #footer .logosWrapper {
   display: inline-block;
   list-style: none;
   margin-bottom: 0;
 }
-/* line 317, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 313, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #footer .logosWrapper li {
   display: inline-block;
   vertical-align: middle;
   margin: 0.5em 3em;
 }
 
-/* line 326, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 322, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form label {
   display: block;
   text-align: left;
   margin-bottom: 0.2em;
 }
-/* line 332, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 328, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form .fieldstyle {
   width: 100%;
 }
-/* line 336, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 332, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form .fieldWrapper {
   width: 24%;
   margin-right: 1%;
   display: inline-block;
   vertical-align: top;
 }
-/* line 342, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 338, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form .fieldWrapper.state {
   width: 25%;
   margin-right: 2%;
 }
-/* line 347, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 343, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form .fieldWrapper.zipCode {
   width: 72%;
 }
-/* line 353, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 349, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form [name='Child[distinctive_marks]'] {
   width: 48.5%;
 }
-/* line 357, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 353, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form .formRow {
   margin-bottom: 1em;
 }
-/* line 361, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 357, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form #relatives {
   text-align: center;
 }
-/* line 364, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 360, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form #relatives h2 {
   margin-bottom: 0.2em;
 }
-/* line 369, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 365, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form .formActions {
   margin-bottom: 60px;
   position: relative;
   text-align: right;
 }
 
-/* line 379, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 375, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .row.error input {
   border: 1px solid #d83b75;
 }
-/* line 382, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 378, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .row.error .errorMessage {
   color: #D8000C;
   padding-top: 5px;
   font-size: 90%;
 }
-/* line 389, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 385, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .row .fieldstyle {
   width: 180px;
   height: 26px;
   line-height: 26px;
 }
 
-/* line 396, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 392, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .fieldstyle {
   width: 90%;
   height: 28px;
@@ -951,18 +951,18 @@ form .row.submit {
   box-sizing: border-box;
 }
 
-/* line 405, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 401, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .distributedItems {
   text-align: justify;
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
 }
-/* line 410, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 406, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .distributedItems .item {
   display: inline-block;
   width: 31%;
 }
-/* line 415, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 411, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .distributedItems .stretch {
   width: 100%;
   display: inline-block;
@@ -970,16 +970,16 @@ form .row.submit {
   line-height: 0;
 }
 
-/* line 425, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 421, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .page-siteIndex .coin-slider {
   float: none;
 }
-/* line 429, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 425, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .page-siteIndex .desc {
   margin: 0.5em 0;
 }
 
-/* line 434, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 430, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -987,11 +987,11 @@ form .row.submit {
   padding: 1em 2em;
   margin: 0;
 }
-/* line 441, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 437, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage h1:first-child {
   margin-top: 0;
 }
-/* line 445, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 441, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forHome {
   position: relative;
   min-height: 414px;
@@ -999,18 +999,18 @@ form .row.submit {
   padding-left: 535px;
   background: url("../images/broch.png") no-repeat scroll left top;
 }
-/* line 453, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 449, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forHome p.textUnderImage {
   position: absolute;
   left: 535px;
   top: 300px;
 }
-/* line 462, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 458, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList {
   list-style: none;
   padding-left: 0;
 }
-/* line 466, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 462, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li {
   display: inline-block;
   -moz-box-sizing: border-box;
@@ -1019,14 +1019,14 @@ form .row.submit {
   vertical-align: top;
   margin: 0.5em 0;
 }
-/* line 474, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 470, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li .imageWrapper {
   width: 80px;
   text-align: right;
   padding-right: 1em;
   float: left;
 }
-/* line 481, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 477, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li span {
   vertical-align: middle;
   font-weight: bold;
@@ -1034,30 +1034,30 @@ form .row.submit {
   font-size: 118%;
   color: #707070;
 }
-/* line 491, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 487, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table {
   margin-top: 2em;
   margin-bottom: 0;
 }
-/* line 495, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 491, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table td {
   vertical-align: top;
 }
-/* line 499, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 495, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock {
   width: 30%;
 }
-/* line 502, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 498, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock .registerButton {
   text-decoration: none;
 }
-/* line 506, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 502, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock .powerblock {
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
-/* line 515, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 511, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .relatedProducts {
   list-style: none;
   margin: 2% 0 0;
@@ -1065,7 +1065,7 @@ form .row.submit {
   table-layout: fixed;
   width: 100%;
 }
-/* line 522, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 518, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li {
   display: table-cell;
   vertical-align: top;
@@ -1074,27 +1074,27 @@ form .row.submit {
   width: 49%;
   padding: 1em;
 }
-/* line 530, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 526, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li:first-child {
   margin-right: 2%;
 }
-/* line 534, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 530, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li.spacer {
   width: 2%;
 }
-/* line 538, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 534, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li .imageWrapper {
   float: left;
   margin-right: 1em;
 }
-/* line 543, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 539, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .relatedProducts li .productTitle span {
   color: #5581b4;
   font-size: 85%;
   font-family: OsloLight, sans-serif;
 }
 
-/* line 554, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 550, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .aboutPage .rightColumn {
   width: 33%;
   float: right;
@@ -1102,39 +1102,39 @@ form .row.submit {
   box-sizing: border-box;
   padding: 0 0 0 1em;
 }
-/* line 561, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 557, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .aboutPage .rightColumn .regiserButton {
   text-decoration: none;
 }
-/* line 566, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 562, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .aboutPage .mainColumn {
   margin-right: 33%;
 }
-/* line 569, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 565, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .aboutPage .mainColumn > .contentWrapper {
   padding: 1em;
 }
 
-/* line 577, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 573, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .mainContentWrapper {
   padding: 0 1em;
 }
-/* line 581, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 577, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper {
   padding: 1em;
 }
-/* line 584, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 580, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper {
   display: table;
   width: 60%;
   margin-bottom: 2em;
 }
-/* line 589, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 585, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .spacer {
   width: 4%;
   display: table-cell;
 }
-/* line 594, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 590, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .powerblock {
   display: table-cell;
   vertical-align: middle;
@@ -1144,28 +1144,28 @@ form .row.submit {
   text-align: left;
   opacity: .5;
 }
-/* line 603, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 599, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .powerblock.active {
   opacity: 1;
 }
 
-/* line 611, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 607, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header {
   color: #808080;
   margin: 1em 0;
   overflow: hidden;
 }
-/* line 616, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 612, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header .step-description {
   float: left;
   width: 50%;
   padding-top: 10px;
 }
-/* line 623, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 619, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header .step-description h2.welcome span {
   color: #707070;
 }
-/* line 629, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 625, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list {
   float: right;
   width: 50%;
@@ -1174,12 +1174,12 @@ form .row.submit {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 637, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 633, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul {
   list-style-type: none;
   margin: 0;
 }
-/* line 641, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 637, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul li {
   display: block;
   height: 46px;
@@ -1189,34 +1189,34 @@ form .row.submit {
   font-weight: bold;
   color: #c4c4c4;
 }
-/* line 650, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 646, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul li .step-number {
   float: left;
 }
-/* line 654, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 650, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul li .step-icon {
   float: left;
   margin: 0 20px;
 }
-/* line 659, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 655, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .step-header .step-list ul li.active {
   color: #6a6a6a;
 }
 
-/* line 667, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 663, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .MultiFile-wrap {
   padding: 20px 0;
   text-align: left;
 }
-/* line 671, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 667, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .MultiFile-wrap .MultiFile-applied {
   padding: 10px 0;
 }
-/* line 675, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 671, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .MultiFile-wrap .MultiFile-label {
   padding: 10px 0;
 }
-/* line 678, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 674, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .MultiFile-wrap .MultiFile-label .MultiFile-remove {
   display: inline-block;
   float: left;
@@ -1226,29 +1226,29 @@ form .row.submit {
   margin-right: 5px;
 }
 
-/* line 689, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 685, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list ul, .child-photos ul {
   list-style-type: none;
   margin: 1.5em;
 }
-/* line 692, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 688, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list ul li, .child-photos ul li {
   display: inline-block;
   vertical-align: top;
   margin: 0 2em 1em 0;
 }
-/* line 697, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 693, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list ul li img, .child-photos ul li img {
   border: 1px solid #9f9f9f;
   border-radius: 5px;
 }
-/* line 702, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 698, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list ul li .edit-link, .child-photos ul li .edit-link {
   display: block;
   padding: 10px 0.2em 0.2em;
   color: #002F66;
 }
-/* line 708, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 704, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list ul li .flyer-link, .child-photos ul li .flyer-link {
   background: #FF0000;
   color: #FFFFFF;
@@ -1256,11 +1256,11 @@ form .row.submit {
   padding: 0.2em;
   display: block;
 }
-/* line 717, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 713, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list ul li .child-photo, .child-photos ul li .child-photo {
   position: relative;
 }
-/* line 719, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 715, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list ul li .child-photo .photo-delete, .child-photos ul li .child-photo .photo-delete {
   position: absolute;
   right: 0;
@@ -1269,11 +1269,11 @@ form .row.submit {
   cursor: pointer;
 }
 
-/* line 731, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 727, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list ul li {
   margin: 0 2em 2em 2em;
 }
-/* line 736, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 732, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .child-list .edit-child {
   display: inline-block;
   font-size: 16px;
@@ -1282,7 +1282,7 @@ form .row.submit {
   padding: 0 0 20px 26px;
 }
 
-/* line 745, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 741, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .errorbox {
   float: left;
   color: #D8000C;
@@ -1296,137 +1296,137 @@ form .row.submit {
   line-height: 20px;
 }
 
-/* line 758, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 754, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #teeth-area {
   margin: 60px;
   position: relative;
 }
-/* line 762, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 758, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #teeth-area .legend {
   position: absolute;
   right: 0;
   top: 0;
 }
 
-/* line 769, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 765, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper {
   padding-right: 3em;
 }
-/* line 772, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 768, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection {
   overflow: hidden;
   margin-bottom: 1em;
 }
-/* line 776, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 772, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .photoWrapper {
   float: left;
   width: 48%;
   text-align: center;
 }
-/* line 782, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 778, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .childData {
   float: left;
   margin-left: 2%;
   width: 40%;
   line-height: 1.5;
 }
-/* line 788, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 784, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .childData .childName {
   text-transform: uppercase;
   margin-top: 0;
   line-height: 1;
   margin-bottom: 0.5em;
 }
-/* line 795, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 791, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .mainSection .childData .fieldName {
   color: #FF0000;
   text-transform: uppercase;
 }
-/* line 804, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 800, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .footer {
   margin-top: 2em;
   overflow: hidden;
 }
-/* line 808, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 804, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .footer .warningWrapper {
   float: right;
   width: 50%;
 }
-/* line 812, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 808, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .footer .warningWrapper .warning {
   color: #FF0000;
   font-size: 180%;
   font-weight: normal;
 }
-/* line 819, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 815, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .flyerWrapper .footer .logo {
   margin-top: 0;
 }
 
-/* line 825, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 821, D:/projects/web/childPass/webroot/scss/_styles.scss */
 table#relatives_table {
   margin: 0 auto;
   text-align: left;
   border-spacing: 10px;
   border-collapse: separate;
 }
-/* line 831, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 827, D:/projects/web/childPass/webroot/scss/_styles.scss */
 table#relatives_table th {
   background: #fff;
 }
 
-/* line 837, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 833, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .errorMessage {
   color: #f00;
 }
 
-/* line 842, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 838, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div .ui-widget-header {
   margin-bottom: 8px;
 }
 
-/* line 843, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 839, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div dl {
   text-align: left;
 }
 
-/* line 844, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 840, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div dl dt {
   height: 25px;
 }
 
-/* line 845, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 841, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div dl dd {
   margin: -25px 0 10px 65px;
 }
 
-/* line 846, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 842, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div td {
   font-size: 90%;
 }
 
-/* line 848, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 844, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui-timepicker-div + .ui-datepicker-buttonpane.ui-widget-content {
   margin-top: 100px;
 }
 
-/* line 852, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 848, D:/projects/web/childPass/webroot/scss/_styles.scss */
 .ui_tpicker_second, .ui_tpicker_second_label {
   display: none;
 }
 
-/* line 858, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 854, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_contents {
   width: 90%;
   min-width: 525px;
   height: 70%;
   margin: 10px auto;
 }
-/* line 865, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 861, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_logo {
   float: left;
 }
-/* line 869, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 865, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_logo_message {
   margin-left: 400px;
   padding-left: 50px;
@@ -1436,57 +1436,57 @@ table#relatives_table th {
   color: #f00;
   font-size: 1.5em;
 }
-/* line 879, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 875, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_text {
   clear: both;
   margin-bottom: 10px;
   font: 0.9em;
 }
-/* line 885, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 881, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #row_logo {
   margin-bottom: 20px;
 }
-/* line 890, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 886, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .alert_child_row {
   margin-bottom: 5px;
   font: 1em;
   margin-left: 0;
 }
-/* line 896, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 892, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .child_label {
   padding-left: 10px;
 }
-/* line 900, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 896, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .description_child_row {
   margin: 1em 1.2em;
 }
-/* line 904, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 900, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .hidden {
   display: none;
 }
-/* line 909, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 905, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #incident_datetime_row {
   font: 1em;
   margin-left: 0;
 }
-/* line 914, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 910, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #incident_description_row {
   margin-top: 10px;
   font: 1em;
   margin-left: 0;
 }
-/* line 920, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 916, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog .alertLabel {
   display: block;
   margin-bottom: 5px;
 }
-/* line 925, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 921, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_buttons_row {
   text-align: center;
   margin-left: 0;
   margin-top: 2em;
 }
-/* line 931, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 927, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #alert_submit {
   background: #f00;
   color: #fff;
@@ -1494,96 +1494,96 @@ table#relatives_table th {
   height: 50px;
   margin-right: 50px;
 }
-/* line 939, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 935, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #activateAlertDialog #cancelAlert {
   color: #f00;
   text-decoration: none;
 }
 
-/* line 947, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 943, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-alert-settings-form label {
   display: block;
   text-align: left;
   margin-bottom: 0.2em;
 }
-/* line 953, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 949, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-alert-settings-form .fieldstyle {
   width: 100%;
 }
-/* line 957, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 953, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-alert-settings-form .fieldWrapper {
   width: 24%;
   margin-right: 1%;
   display: inline-block;
   vertical-align: top;
 }
-/* line 964, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 960, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-alert-settings-form .formRow {
   margin-bottom: 1em;
   width: 50%;
 }
-/* line 969, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 965, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-alert-settings-form textarea {
   width: 100%;
 }
-/* line 973, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 969, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-alert-settings-form .submit_buttons {
   margin-bottom: 60px;
   position: relative;
   text-align: right;
 }
-/* line 979, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 975, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-alert-settings-form .prev_button_container {
   float: left;
 }
 
-/* line 985, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 981, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #alert_settings_description, #notification_email_description {
   margin-bottom: 1em;
 }
 
-/* line 990, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 986, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .left {
   float: left;
   width: 30%;
   padding-left: 5%;
 }
-/* line 996, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 992, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .right {
   margin-left: 31%;
   width: 50%;
 }
-/* line 1001, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 997, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form label.block {
   display: block;
   margin-top: 1em;
 }
-/* line 1006, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1002, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form textarea {
   width: 90%;
   resize: none;
 }
-/* line 1011, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1007, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .sumbit_row {
   margin-top: 1em;
   text-align: center;
   clear: both;
 }
-/* line 1016, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1012, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .sumbit_row input {
   background: #ee8b38;
   color: #fff;
 }
-/* line 1024, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1020, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form span label {
   font-size: 0.8em;
 }
-/* line 1029, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1025, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .kit_rate_table {
   width: 50%;
   margin: auto;
 }
-/* line 1032, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1028, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .kit_rate_table td {
   width: 25%;
   text-align: center;

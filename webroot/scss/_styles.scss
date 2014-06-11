@@ -147,7 +147,7 @@ form {
 
   .login-form {
       display: table-cell;
-      float: right;
+      padding-left: 10px;
       form {
           overflow: hidden;
           font-family: Arial;
@@ -219,7 +219,6 @@ form {
       padding: 0.5em 0.5em;
       background: #FF0000;
       color: #FFFFFF;
-//      float: left;
       border: 2px solid #002F66;
       text-transform: uppercase;
       text-decoration: none;
@@ -235,8 +234,6 @@ form {
       padding: 0.5em 0.5em;
       background: #EE8B38;
       color: #FFF;
-//      float: left;
-//      border: 2px solid #EE8B38;
       border-left: 2px solid #EE8B38;
       border-top: 2px solid #EE8B38;
       border-bottom: 2px solid #EE8B38;
@@ -244,7 +241,6 @@ form {
       text-decoration: none;
       display: table-cell;
       vertical-align: middle;
-//      height: 100%;
     }
 
 
