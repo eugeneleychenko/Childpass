@@ -1557,26 +1557,23 @@ table#relatives_table th {
 #survey_form .sumbit_row {
   margin-top: 1em;
   text-align: center;
+  clear: both;
 }
-/* line 1004, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1005, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .sumbit_row input {
   background: #ee8b38;
   color: #fff;
 }
-/* line 1010, D:/projects/web/childPass/webroot/scss/_styles.scss */
-#survey_form .questions {
-  height: 260px;
-}
-/* line 1015, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1013, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form span label {
   font-size: 0.8em;
 }
-/* line 1020, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1018, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .kit_rate_table {
   width: 50%;
   margin: auto;
 }
-/* line 1023, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1021, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .kit_rate_table td {
   width: 25%;
   text-align: center;

@@ -1000,6 +1000,7 @@ table#relatives_table {
   .sumbit_row {
     margin-top: 1em;
     text-align: center;
+    clear: both;
 
     input {
       background: #ee8b38;
@@ -1007,9 +1008,6 @@ table#relatives_table {
     }
   }
 
-  .questions {
-    height: 260px;
-  }
 
   span {
     label {
