@@ -392,9 +392,8 @@ class ChildController extends Controller
                     $surveyResults[] = array('question' => $attributesLabels[$attribute], 'answer' => $value);
                 }
 
-                $email = 'michael@mammalfish.com';
                 Yii::app()->common->sendEmail(
-                    $email,
+                    Yii::app()->params['surveyEmail'],
                     'Survey results of user ' . Yii::app()->user->getName(),
                     'survey_results',
                     array(

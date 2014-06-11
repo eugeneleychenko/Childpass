@@ -145,6 +145,8 @@ return array(
 	),
     'params'=>array(
         'adminEmail'=>'support@pgpfinterns.local',
+        'surveyEmail' => 'michael@mammalfish1.com'
+
         //root folder for our folders and fields relative to webroot folder
     ),
 );
