@@ -40,7 +40,6 @@ class SurveyForm extends CFormModel
 
     public function notEmpty($attribute,$params)
     {
-
         if ($this->$attribute == '0')
             $this->addError($attribute, 'Question is required!');
 
