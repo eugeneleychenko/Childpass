@@ -976,5 +976,21 @@ table#relatives_table {
 }
 
 #survey_form {
+  .left {
+    float: left;
+    width: 30%;
+  }
+
+  .right {
+    margin-left: 31%;
+  }
+
+  label.block {
+    display: block;
+  }
+
+  textarea {
+    width: 60%;
+  }
 }
 

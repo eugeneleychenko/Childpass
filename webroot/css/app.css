@@ -1530,3 +1530,21 @@ table#relatives_table th {
 #alert_settings_description, #notification_email_description {
   margin-bottom: 1em;
 }
+
+/* line 979, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form .left {
+  float: left;
+  width: 30%;
+}
+/* line 984, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form .right {
+  margin-left: 31%;
+}
+/* line 988, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form label.block {
+  display: block;
+}
+/* line 992, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form textarea {
+  width: 60%;
+}

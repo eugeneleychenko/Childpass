@@ -7,8 +7,7 @@
             -$form=$this->beginWidget('CActiveForm', array('id' => 'survey_form'));
             div
                 div.left
-                    !=$form->labelEx($model, 'like_survey');
-                    br
+                    !=$form->labelEx($model, 'like_survey', array('class' => 'block'));
                     !=$form->radioButton($model, 'like_survey', array('value'=> 'I like it!'));
                     label I like it!
                     br
@@ -19,9 +18,7 @@
                     label I liked 2003
                     !=$form->error($model, 'like_survey')
 
-                    br
-                    !=$form->labelEx($model, 'like_kit');
-                    br
+                    !=$form->labelEx($model, 'like_kit', array('class' => 'block'));
                     !=$form->radioButton($model, 'like_kit', array('value'=> 'Better'));
                     label Better
                     br
@@ -35,12 +32,12 @@
 
                 div.right
                     div
-                        !=$form->labelEx($model, 'kit_opinion');
-                        !=$form->textArea($model, 'kit_opinion');
+                        !=$form->labelEx($model, 'kit_opinion', array('class' => 'block'));
+                        !=$form->textArea($model, 'kit_opinion', array('rows' => '3'));
                         !=$form->error($model, 'kit_opinion')
 
                     div
-                        !=$form->labelEx($model, 'kit_rate');
+                        !=$form->labelEx($model, 'kit_rate', array('class' => 'block'));
                         br
                         label 1
                         !=$form->radioButton($model, 'kit_rate', array('value'=> '1'));
@@ -57,49 +54,3 @@
         div
             !=CHtml::submitButton('submit');
             -$this->endWidget();
-
-            //!=$form->labelEx($model, 'like_survey');
-            //form#survey_form
-            //    div
-            //        div.left
-            //            div  Do you like this survey?
-            //            br
-            //            input(type="radio", name="like_survey", value="I like it!")
-            //            label I like it!
-            //            br
-            //            input(type="radio", name="like_survey", value="I think it's complicated")
-            //            label I think it's complicated
-            //            br
-            //            input(type="radio", name="like_survey", value="I liked 2003")
-            //            label I liked 2003
-            //            br
-            //            br
-            //            br
-            //
-            //            div  Do you like this kit?
-            //            br
-            //            input(type="radio", name="like_kit", value="Better")
-            //            label Better
-            //            br
-            //            input(type="radio", name="like_kit", value="Nice")
-            //            label Nice
-            //            br
-            //            input(type="radio", name="like_survey", value="I don't like it")
-            //            label I don't like it
-            //            br
-            //        div.right
-            //            div
-            //                label What do you think of this kit (ie, sizing, quality, etc)?
-            //                textarea(name="kit_opinion"
-            //            div
-            //               p Rate this kit:
-            //               label 1
-            //               input(type="radio", name="kit_rate", value="1")
-            //               label 2
-            //               input(type="radio", name="kit_rate", value="2")
-            //               label 3
-            //               input(type="radio", name="kit_rate", value="3")
-            //               label 4
-            //               input(type="radio", name="kit_rate", value="4")
-            //               label 5
-            //               input(type="radio", name="kit_rate", value="5")
