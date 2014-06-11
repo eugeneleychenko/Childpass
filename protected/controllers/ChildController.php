@@ -379,6 +379,5 @@ class ChildController extends Controller
 
     public function survey()
     {
-        
     }
 }

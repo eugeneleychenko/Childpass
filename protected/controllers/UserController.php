@@ -206,6 +206,7 @@ class UserController extends Controller
                 if (!Yii::app()->user->getIsActive()) {
                     Yii::app()->user->logout();
                     $this->render('error', array('message' => 'You have not activated your account. Please activate your account before entering the site. Activation instructions have been sent to your email.'));
+                    return;
                 } else {
                     if (Child::model()->findAll('user_id = :user_id', array(':user_id' => Yii::app()->user->getId()))) {
                         $this->redirect(Yii::app()->homeUrl);
