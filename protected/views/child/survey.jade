@@ -8,6 +8,7 @@
             div.row.questions
                 div.left
                     p (All questions are required)
+
                     !=$form->labelEx($model, 'like_survey', array('class' => 'block'));
                     !=$form->radioButtonList($model,'like_survey',array('I like it!' => 'I like it!', 'I think it\'s complicated' => 'I think it\'s complicated', 'I liked 2003' => 'I liked 2003'), array('separator' => '<br>'));
                     !=$form->error($model, 'like_survey')

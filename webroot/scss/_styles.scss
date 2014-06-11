@@ -976,14 +976,17 @@ table#relatives_table {
   .left {
     float: left;
     width: 30%;
+    height: 100%;
   }
 
   .right {
     margin-left: 31%;
+    height: 100%;
   }
 
   label.block {
     display: block;
+    margin-top: 1em;
   }
 
   textarea {
@@ -991,12 +994,12 @@ table#relatives_table {
   }
 
   .sumbit_row {
-    margin-top: 2em;
+    margin-top: 1em;
     text-align: center;
   }
 
   .questions {
-    height: 250px;
+    height: 260px;
   }
 
 }

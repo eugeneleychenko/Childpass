@@ -1533,25 +1533,28 @@ table#relatives_table th {
 #survey_form .left {
   float: left;
   width: 30%;
+  height: 100%;
 }
-/* line 981, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 982, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .right {
   margin-left: 31%;
+  height: 100%;
 }
-/* line 985, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 987, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form label.block {
   display: block;
+  margin-top: 1em;
 }
-/* line 989, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 992, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form textarea {
   width: 60%;
 }
-/* line 993, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 996, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .sumbit_row {
-  margin-top: 2em;
+  margin-top: 1em;
   text-align: center;
 }
-/* line 998, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 1001, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .questions {
-  height: 250px;
+  height: 260px;
 }
