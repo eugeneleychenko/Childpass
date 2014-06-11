@@ -25,7 +25,32 @@
 
                     div.row
                         !=$form->labelEx($model, 'kit_rate', array('class' => 'block'));
-                        !=$form->radioButtonList($model,'kit_rate',array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5'), array('separator' => ' ', 'template' => '{label}{input}'));
+                        table.kit_rate_table
+                            tr
+                                td Low
+                                td
+                                td Average
+                                td
+                                td Hight
+                            tr
+                                td 1
+                                td 2
+                                td 3
+                                td 4
+                                td 5
+                            tr
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 1, 'uncheckValue' => null));
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 2, 'uncheckValue' => null));
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 3, 'uncheckValue' => null));
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 4, 'uncheckValue' => null));
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 5, 'uncheckValue' => null));
+
+
                         !=$form->error($model, 'kit_rate')
 
             div.row.sumbit_row

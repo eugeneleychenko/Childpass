@@ -1571,3 +1571,14 @@ table#relatives_table th {
 #survey_form span label {
   font-size: 0.8em;
 }
+/* line 1020, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form .kit_rate_table {
+  width: 50%;
+  margin: auto;
+}
+/* line 1023, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form .kit_rate_table td {
+  width: 25%;
+  text-align: center;
+  font-size: 0.8em;
+}

@@ -1017,5 +1017,15 @@ table#relatives_table {
     }
   }
 
+  .kit_rate_table {
+    width: 50%;
+    margin: auto;
+    td {
+      width: 25%;
+      text-align: center;
+      font-size: 0.8em;
+    }
+  }
+
 }
 
