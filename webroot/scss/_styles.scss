@@ -976,12 +976,12 @@ table#relatives_table {
   .left {
     float: left;
     width: 30%;
-    height: 100%;
+    padding-left: 5%;
   }
 
   .right {
     margin-left: 31%;
-    height: 100%;
+    width: 50%;
   }
 
   label.block {
@@ -990,16 +990,28 @@ table#relatives_table {
   }
 
   textarea {
-    width: 60%;
+    width: 90%;
+    resize: none;
   }
 
   .sumbit_row {
     margin-top: 1em;
     text-align: center;
+
+    input {
+      background: #ee8b38;
+      color: #fff;
+    }
   }
 
   .questions {
     height: 260px;
+  }
+
+  span {
+    label {
+      font-size: 0.8em;
+    }
   }
 
 }

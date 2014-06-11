@@ -1533,12 +1533,12 @@ table#relatives_table th {
 #survey_form .left {
   float: left;
   width: 30%;
-  height: 100%;
+  padding-left: 5%;
 }
 /* line 982, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .right {
   margin-left: 31%;
-  height: 100%;
+  width: 50%;
 }
 /* line 987, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form label.block {
@@ -1547,14 +1547,24 @@ table#relatives_table th {
 }
 /* line 992, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form textarea {
-  width: 60%;
+  width: 90%;
+  resize: none;
 }
-/* line 996, D:/projects/web/childPass/webroot/scss/_styles.scss */
+/* line 997, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .sumbit_row {
   margin-top: 1em;
   text-align: center;
 }
 /* line 1001, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form .sumbit_row input {
+  background: #ee8b38;
+  color: #fff;
+}
+/* line 1007, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .questions {
   height: 260px;
+}
+/* line 1012, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form span label {
+  font-size: 0.8em;
 }
