@@ -5,27 +5,28 @@
         div.row
             h3 Feedback
             -$form=$this->beginWidget('CActiveForm', array('id' => 'survey_form'));
-            div
+            div.row.questions
                 div.left
+                    p (All questions are required)
                     !=$form->labelEx($model, 'like_survey', array('class' => 'block'));
-                    !=$form->radioButtonList($model,'like_survey',array('I like it!' => 'I like it!', 'I think it\'s complicated' => 'I think it\'s complicated', 'I liked 2003' => 'I liked 2003'), array('separator'=>'<br>'));
+                    !=$form->radioButtonList($model,'like_survey',array('I like it!' => 'I like it!', 'I think it\'s complicated' => 'I think it\'s complicated', 'I liked 2003' => 'I liked 2003'), array('separator' => '<br>'));
                     !=$form->error($model, 'like_survey')
 
                     !=$form->labelEx($model, 'like_kit', array('class' => 'block'));
-                    !=$form->radioButtonList($model,'like_kit',array('Better' => 'Better', 'Nice' => 'Nice', 'I don\'t like it' => 'I don\'t like it'), array('separator'=>'<br>'));
+                    !=$form->radioButtonList($model,'like_kit',array('Better' => 'Better', 'Nice' => 'Nice', 'I don\'t like it' => 'I don\'t like it'), array('separator' => '<br>'));
                     !=$form->error($model, 'like_kit')
 
                 div.right
-                    div
+                    div.row
                         !=$form->labelEx($model, 'kit_opinion', array('class' => 'block'));
                         !=$form->textArea($model, 'kit_opinion', array('rows' => '3'));
                         !=$form->error($model, 'kit_opinion')
 
-                    div
+                    div.row
                         !=$form->labelEx($model, 'kit_rate', array('class' => 'block'));
-                        !=$form->radioButtonList($model,'kit_rate',array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5'), array('separator'=>' '));
+                        !=$form->radioButtonList($model,'kit_rate',array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5'), array('separator' => ' ', 'template' => '{label}{input}'));
                         !=$form->error($model, 'kit_rate')
 
-        div
-            !=CHtml::submitButton('submit');
-            -$this->endWidget();
+            div.row.sumbit_row
+                !=CHtml::submitButton('submit');
+                -$this->endWidget();

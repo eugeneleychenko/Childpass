@@ -1546,3 +1546,12 @@ table#relatives_table th {
 #survey_form textarea {
   width: 60%;
 }
+/* line 993, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form .sumbit_row {
+  margin-top: 2em;
+  text-align: center;
+}
+/* line 998, D:/projects/web/childPass/webroot/scss/_styles.scss */
+#survey_form .questions {
+  height: 250px;
+}

@@ -990,10 +990,14 @@ table#relatives_table {
     width: 60%;
   }
 
-  #SurveyForm_like_survey {
-//    input {
-//      display: block;
-//    }
+  .sumbit_row {
+    margin-top: 2em;
+    text-align: center;
   }
+
+  .questions {
+    height: 250px;
+  }
+
 }
 
