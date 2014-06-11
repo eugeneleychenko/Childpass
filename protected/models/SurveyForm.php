@@ -20,9 +20,8 @@ class SurveyForm extends CFormModel
     {
         return array(
             // username and password are required
-            array('like_survey, like_kit, kit_rate', 'required'),
+            array('like_survey, like_kit, kit_rate, kit_opinion', 'required'),
             array('like_survey, like_kit, kit_rate', 'notEmpty'),
-            array('kit_opinion', 'safe')
         );
     }
 

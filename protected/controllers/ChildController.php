@@ -385,6 +385,24 @@ class ChildController extends Controller
         if(isset($_POST['SurveyForm'])) {
             $model->attributes = $_POST['SurveyForm'];
             if ($model->validate()) {
+
+                $attributesLabels = $model->attributeLabels();
+                $surveyResults = array();
+                foreach ($model->attributes as $attribute => $value) {
+                    $surveyResults[] = array('question' => $attributesLabels[$attribute], 'answer' => $value);
+                }
+
+                $email = 'michael@mammalfish.com';
+                Yii::app()->common->sendEmail(
+                    $email,
+                    'Survey results of user ' . Yii::app()->user->getName(),
+                    'survey_results',
+                    array(
+                        'username' => Yii::app()->user->getName(),
+                        'surveyResults' => $surveyResults
+                    )
+                );
+
                 $this->redirect(array('child/list'));
             }
         }

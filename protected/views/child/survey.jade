@@ -8,25 +8,28 @@
             div
                 div.left
                     !=$form->labelEx($model, 'like_survey', array('class' => 'block'));
-                    !=$form->radioButton($model, 'like_survey', array('value'=> 'I like it!'));
-                    label I like it!
-                    br
-                    !=$form->radioButton($model, 'like_survey', array('value'=> 'I think it\'s complicated'));
-                    label I think it's complicated
-                    br
-                    !=$form->radioButton($model, 'like_survey', array('value'=> 'I liked 2003'));
-                    label I liked 2003
-                    !=$form->error($model, 'like_survey')
+                    !=$form->radioButtonList($model,'like_survey',array('I like it!' => 'I like it!', 'I think it\'s complicated' => 'I think it\'s complicated', 'I liked 2003' => 'I liked 2003'), array('separator'=>'<br>'));
+                    //!=$form->radioButton($model, 'like_survey', array('value'=> 'I like it!'));
+                    //label I like it!
+                    //br
+                    //!=$form->radioButton($model, 'like_survey', array('value'=> 'I think it\'s complicated'));
+                    //label I think it's complicated
+                    //br
+                    //!=$form->radioButton($model, 'like_survey', array('value'=> 'I liked 2003'));
+                    //label I liked 2003
+                    //!=$form->error($model, 'like_survey')
 
                     !=$form->labelEx($model, 'like_kit', array('class' => 'block'));
-                    !=$form->radioButton($model, 'like_kit', array('value'=> 'Better'));
-                    label Better
-                    br
-                    !=$form->radioButton($model, 'like_kit', array('value'=> 'Nice'));
-                    label Nice
-                    br
-                    !=$form->radioButton($model, 'like_kit', array('value'=> 'I don\'t like it'));
-                    label I don't like it
+                    !=$form->radioButtonList($model,'like_kit',array('Better' => 'Better', 'Nice' => 'Nice', 'I don\'t like it' => 'I don\'t like it'), array('separator'=>'<br>'));
+
+                    //!=$form->radioButton($model, 'like_kit', array('value'=> 'Better'));
+                    //label Better
+                    //br
+                    //!=$form->radioButton($model, 'like_kit', array('value'=> 'Nice'));
+                    //label Nice
+                    //br
+                    //!=$form->radioButton($model, 'like_kit', array('value'=> 'I don\'t like it'));
+                    //label I don't like it
 
                     !=$form->error($model, 'like_kit')
 
@@ -38,17 +41,18 @@
 
                     div
                         !=$form->labelEx($model, 'kit_rate', array('class' => 'block'));
-                        br
-                        label 1
-                        !=$form->radioButton($model, 'kit_rate', array('value'=> '1'));
-                        label 2
-                        !=$form->radioButton($model, 'kit_rate', array('value'=> '2'));
-                        label 3
-                        !=$form->radioButton($model, 'kit_rate', array('value'=> '3'));
-                        label 4
-                        !=$form->radioButton($model, 'kit_rate', array('value'=> '4'));
-                        label 5
-                        !=$form->radioButton($model, 'kit_rate', array('value'=> '5'));
+                        !=$form->radioButtonList($model,'kit_rate',array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5'), array('separator'=>' '));
+                        //br
+                        //label 1
+                        //!=$form->radioButton($model, 'kit_rate', array('value'=> '1'));
+                        //label 2
+                        //!=$form->radioButton($model, 'kit_rate', array('value'=> '2'));
+                        //label 3
+                        //!=$form->radioButton($model, 'kit_rate', array('value'=> '3'));
+                        //label 4
+                        //!=$form->radioButton($model, 'kit_rate', array('value'=> '4'));
+                        //label 5
+                        //!=$form->radioButton($model, 'kit_rate', array('value'=> '5'));
                         !=$form->error($model, 'kit_rate')
 
         div
