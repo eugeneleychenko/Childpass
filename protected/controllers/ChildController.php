@@ -55,22 +55,26 @@ class ChildController extends Controller
                     $relatives = array();
                     foreach ($form['child']->model->relatives as $relative) {
 
-                        $childRelation = ChildRelative::model()->with('relation')->find('child_id = :child_id AND relative_id = :relative_id',
-                                                                                        array(':child_id' => $childId, ':relative_id' => $relative->id)
-                                                                                       );
+                        $childRelation = ChildRelative::model()->with('relation')->find(
+                            'child_id = :child_id AND relative_id = :relative_id',
+                            array(
+                                ':child_id'    => $childId,
+                                ':relative_id' => $relative->id
+                            )
+                        );
 
                         $relatives[] = array(
-                            'id' => $relative->primaryKey,
-                            'first_name' => $relative->first_name,
-                            'last_name' => $relative->last_name,
-                            'relation' => $childRelation->relation,
-                            'selectedRelation' => array( $childRelation->relation->id),
-                            'childRelationId' => $childRelation->primaryKey
+                            'id'               => $relative->primaryKey,
+                            'first_name'       => $relative->first_name,
+                            'last_name'        => $relative->last_name,
+                            'relation'         => $childRelation->relation,
+                            'selectedRelation' => array($childRelation->relation->id),
+                            'childRelationId'  => $childRelation->primaryKey
                         );
                     }
 
                     $data['relatives'] = $relatives;
-                    $data['childId'] = $childId;
+                    $data['childId']   = $childId;
                 } else {
                     $data['relatives'] = array();
                 }
@@ -95,13 +99,13 @@ class ChildController extends Controller
                                 Relative::model()->saveRelatives($childId, $_POST['Relative'], $form['child']->model->user_id);
                             }
 
-                            $childRelativesNumber = count(ChildRelative::model()->childRelativesMapping($childId));
-                            if (!$childRelativesNumber) {
-                                $transaction->rollback();
-                                $this->redirect(array('child/list'));
-                            } else {
-                                $transaction->commit();
-                            }
+                            //$childRelativesNumber = count(ChildRelative::model()->childRelativesMapping($childId));
+                            //if (!$childRelativesNumber) {
+                            //    $transaction->rollback();
+                            //    $this->redirect(array('child/list'));
+                            //} else {
+                            $transaction->commit();
+                            //}
 
                             $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $form['child']->model->id));
                         }
@@ -204,12 +208,14 @@ class ChildController extends Controller
         $userId = Yii::app()->user->getId();
         $relatives = array();
         $childRelatives = ChildRelative::model()->with(array(
-                                                            'relative',
-                                                            'child' => array(
-                                                                            'alias' => 'child',
-                                                                            'joinType'=>'INNER JOIN',
-                                                                            'condition'=> 'child.user_id = :user_id',
-                                                                            'params' => array(':user_id' => $userId) )))->findAll();
+            'relative',
+            'child' => array(
+                'alias'     => 'child',
+                'joinType'  => 'INNER JOIN',
+                'condition' => 'child.user_id = :user_id',
+                'params'    => array(':user_id' => $userId)
+            )
+        ))->findAll();
 
         foreach ($childRelatives as $childRelative) {
             if (!array_key_exists($childRelative->relative_id, $relatives)) {
@@ -304,15 +310,14 @@ class ChildController extends Controller
 
         $imageHelper = new ImageHelper();
 
-        $childList = Child::model()->with(
-            array('childPhotos' => array(
-                                         'select'   => array('filename'),
-                                         'joinType' => 'LEFT JOIN',
-                                         'order'    => 'is_main DESC'
-                                        ),
-                 'incident'
-                 )
-        )->findAll('user_id = :user_id', array(':user_id' => $userId));
+        $childList = Child::model()->with(array(
+            'childPhotos' => array(
+                'select'   => array('filename'),
+                'joinType' => 'LEFT JOIN',
+                'order'    => 'is_main DESC'
+            ),
+            'incident'
+        ))->findAll('user_id = :user_id', array(':user_id' => $userId));
 
         foreach ($childList as &$child) {
             if (isset($child->childPhotos[0])) {

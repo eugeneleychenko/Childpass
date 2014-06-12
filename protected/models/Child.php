@@ -283,8 +283,15 @@ class Child extends CActiveRecord
         $imageHelper = new ImageHelper();
 
         $childPhotoUrl = false;
-        if (!empty($child->childPhotos[0])) {
-            $childPhotoUrl = $imageHelper->getChildImageUrl($childId, $child->childPhotos[0]->filename, ImageHelper::IMAGE_MEDIUM);
+
+        $photo = ChildPhoto::model()->find(array(
+            'condition' => 'child_id = :child_id',
+            'params'    => array(':child_id' => $childId),
+            'order'     => 'id DESC',
+        ));
+
+        if (!empty($photo)) {
+            $childPhotoUrl = $imageHelper->getChildImageUrl($childId, $photo->filename, ImageHelper::IMAGE_MEDIUM);
         }
 
         $missingInfo = array(

@@ -3,8 +3,7 @@
         -$form=$this->beginWidget('CActiveForm');
 
         .row.signUpLink
-            | Do not have an account?&nbsp;
-            a(href=$this->createUrl('user/register')) Register
+            | Welcome to Child Pass, please login below:
 
         .row
             !=$form->textField($model,'username', array('placeholder' => 'Email'))
@@ -20,6 +19,8 @@
 
         .row.forgotPasswordLink
             a(href=$this->createUrl('user/forgotPassword')) Forgot password?
+        | Do not have an account?&nbsp;
+        a(href=$this->createUrl('user/register')) Register
 
         .row.submit
             !=CHtml::submitButton('Login')

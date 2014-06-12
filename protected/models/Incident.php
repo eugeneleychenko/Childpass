@@ -73,7 +73,7 @@ class Incident extends CActiveRecord
 			'id' => 'ID',
 			'child_id' => 'Child',
 			'child_description' => 'Child Description',
-			'description' => 'Description',
+			'description' => 'Describe the incident',
 			'date' => 'Date',
 		);
 	}
