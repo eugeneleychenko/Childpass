@@ -35,8 +35,9 @@ class ChildController extends Controller
         $childId = isset($_GET['child_id']) ? $_GET['child_id'] : false;
 
         if ($childId) {
-            $form['child']->model = Child::model()->findByPk($childId);
-            if (!$form['child']->model->checkAccess()) {
+            $form['child']->model = Child::model()->with('relatives.childRelative.relation')->findByPk($childId);
+
+            if (!$form['child']->model ||  !$form['child']->model->checkAccess()) {
                 $this->redirect(array('child/list'));
             }
         } else {
@@ -49,12 +50,66 @@ class ChildController extends Controller
             case 'step1':
                 $form['child']->model->birthday = $form['child']->model->getBirthday();
 
+                //get relatives mapped to child
+                if ($childId) {
+                    $relatives = array();
+                    foreach ($form['child']->model->relatives as $relative) {
+
+                        $childRelation = ChildRelative::model()->with('relation')->find(
+                            'child_id = :child_id AND relative_id = :relative_id',
+                            array(
+                                ':child_id'    => $childId,
+                                ':relative_id' => $relative->id
+                            )
+                        );
+
+                        $relatives[] = array(
+                            'id'               => $relative->primaryKey,
+                            'first_name'       => $relative->first_name,
+                            'last_name'        => $relative->last_name,
+                            'relation'         => $childRelation->relation,
+                            'selectedRelation' => array($childRelation->relation->id),
+                            'childRelationId'  => $childRelation->primaryKey
+                        );
+                    }
+
+                    $data['relatives'] = $relatives;
+                    $data['childId']   = $childId;
+                } else {
+                    $data['relatives'] = array();
+                }
+                $data['addingNextChild'] = ChildRelative::model()->userHasChildRelativeMapping(Yii::app()->user->getId());
+
+                $data['relationOptions'] = Relation::model()->getOptions();
+
                 if ($form->submitted('next_step')) {
+
                     $form['child']->model->user_id = Yii::app()->user->getId();
+
+                    $transaction = $form['child']->model->dbConnection->beginTransaction();
+
                     if ($form->validate()) {
                         if ($form['child']->model->save(false)) {
+
+                            if (!$childId) {
+                                $childId = $form['child']->model->primaryKey;
+                            }
+
+                            if (isset($_POST['Relative'])) {
+                                Relative::model()->saveRelatives($childId, $_POST['Relative'], $form['child']->model->user_id);
+                            }
+
+                            //$childRelativesNumber = count(ChildRelative::model()->childRelativesMapping($childId));
+                            //if (!$childRelativesNumber) {
+                            //    $transaction->rollback();
+                            //    $this->redirect(array('child/list'));
+                            //} else {
+                            $transaction->commit();
+                            //}
+
                             $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $form['child']->model->id));
                         }
+                    } else {
                     }
                 }
 
@@ -98,15 +153,27 @@ class ChildController extends Controller
                 if ($form->submitted('next_step')) {
                     $form['child']->model->teeth = $_POST['Child']['teeth'];
                     if ($form['child']->model->save(false)) {
-                        $this->redirect(array('child/list'));
+                        $this->redirect(array('child/add', 'step' => 'step4', 'child_id' => $childId));
                     }
                 } elseif ($form->submitted('prev_step')) {
                     $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $childId));
                 }
                 break;
             case 'step4':
+                $form['child']->model = User::model()->findByPk(Yii::app()->user->getId());
+                if ($form->submitted('next_step')) {
+                    if ($form->validate()) {
+                        if ($form['child']->model->save(false)) {
+                            $this->redirect(array('child/list'));
+                        }
+                    }
+                } elseif ($form->submitted('prev_step')) {
+                    $this->redirect(array('child/add', 'step' => 'step3', 'child_id' => $childId));
+                }
                 break;
         }
+
+        $data['step'] = $step;
 
         $this->render(
             'add' . ucfirst($step), array(
@@ -116,20 +183,141 @@ class ChildController extends Controller
         );
     }
 
+    public function actionDeleteRelativeMapping()
+    {
+        $childId = Yii::app()->request->getDelete('childId');
+        $relativeId = Yii::app()->request->getDelete('relativeId');
+
+        if (empty($childId) || is_array($relativeId) || empty($relativeId)) {
+            throw new CHttpException('500', 'Incorrect parameters!');
+        }
+
+        try {
+            $model = ChildRelative::model();
+            $result = $model->removeMapping($childId, $relativeId);
+            $this->renderJSON($result);
+
+        } catch(Exception $e) {
+            throw new CHttpException('500', 'Failed to delete relative!');
+        }
+    }
+
+
+    function actionGetSavedRelatives()
+    {
+        $userId = Yii::app()->user->getId();
+        $relatives = array();
+        $childRelatives = ChildRelative::model()->with(array(
+            'relative',
+            'child' => array(
+                'alias'     => 'child',
+                'joinType'  => 'INNER JOIN',
+                'condition' => 'child.user_id = :user_id',
+                'params'    => array(':user_id' => $userId)
+            )
+        ))->findAll();
+
+        foreach ($childRelatives as $childRelative) {
+            if (!array_key_exists($childRelative->relative_id, $relatives)) {
+                $relatives[$childRelative->relative_id] = array(
+                    'relative_id' =>  $childRelative->relative_id,
+                    'first_name' => $childRelative->relative->first_name,
+                    'last_name' => $childRelative->relative->last_name,
+                    'relation_id' => $childRelative->relation_id
+                );
+            }
+        }
+
+        $this->renderJSON(array_values($relatives));
+    }
+
+
+    public function actionActivateAlert()
+    {
+        $this->layout = 'ajax';
+        $userId = Yii::app()->user->getId();
+        $userChildren = Child::model()->findAll('user_id = :user_id AND NOT EXISTS (SELECT incident.id FROM incident WHERE incident.child_id = t.id)',
+                                                array(':user_id' => $userId));
+
+        if (!count($userChildren)) {
+            echo '<p>No children to activate alert.</p>';
+            exit;
+        }
+
+        $incidentModelClass = 'Incident';
+
+        $childrenInfo = array();
+        $userChildIds = array();
+        foreach ($userChildren as $child) {
+            $incidentModel = new $incidentModelClass;
+            $userChildIds[] = $child->primaryKey;
+            $incidentModel->child_id = $child->primaryKey;
+            $incidentModel->child_description = $child->distinctive_marks;
+            $childrenInfo[] = array(
+                'child' => $child,
+                'incidentModel' => $incidentModel,
+            );
+        }
+
+        $descriptionValue = '';
+        $dateValue = '';
+        if ( isset($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass]) && count($_POST[$incidentModelClass]) ) {
+            foreach ($_POST[$incidentModelClass] as $number => $incident) {
+
+                //to ignore children of other users
+                if (!in_array($incident['child_id'], $userChildIds)) {
+                    continue;
+                }
+
+                $errorsExist = false;
+
+                $attributes = $incident + array(
+                        'description' => $_POST['description'],
+                        'date' => $_POST['date']
+                    );
+                $childrenInfo[$number]['incidentModel']->attributes = $attributes;
+                if (!$childrenInfo[$number]['incidentModel']->save()) {
+                    $descriptionValue = $childrenInfo[$number]['incidentModel']->description;
+                    $dateValue = $childrenInfo[$number]['incidentModel']->date;
+                    $errorsExist = true;
+                }
+            }
+        }
+
+        if (!isset($errorsExist)) {
+            $errorsExist = false;
+            $saved = false;
+        } else {
+            $saved = !$errorsExist;
+        }
+
+
+        $this->render(
+            'activateAlert',
+            array(
+                'childrenInfo' => $childrenInfo,
+                'saved' => $saved,
+                'errorsExist' => $errorsExist,
+                'descriptionValue' => $descriptionValue,
+                'dateValue' => $dateValue
+                )
+        );
+    }
+
     public function actionList()
     {
         $userId = Yii::app()->user->getId();
 
         $imageHelper = new ImageHelper();
 
-        $childList = Child::model()->with(
-            array('childPhotos' => array(
+        $childList = Child::model()->with(array(
+            'childPhotos' => array(
                 'select'   => array('filename'),
                 'joinType' => 'LEFT JOIN',
                 'order'    => 'is_main DESC'
             ),
-            )
-        )->findAll('user_id = :user_id', array(':user_id' => $userId));
+            'incident'
+        ))->findAll('user_id = :user_id', array(':user_id' => $userId));
 
         foreach ($childList as &$child) {
             if (isset($child->childPhotos[0])) {
@@ -151,18 +339,31 @@ class ChildController extends Controller
     public function actionGenerateFlyer($id)
     {
         $missingInfo = Child::model()->getMissingInfo($id);
+        if (!$missingInfo) {
+            throw new CHttpException('404', 'Child does not exist!');
+        }
+
+        if (Yii::app()->user->getId() != $missingInfo['user_id']) {
+            throw new CHttpException('403', 'Access forbidden!');
+        };
 
         $this->render(
             'generateFlyer', array(
                 'missingInfo'   => $missingInfo,
             )
         );
-
     }
 
     public function actionDownloadFlyer($id)
     {
         $missingInfo = Child::model()->getMissingInfo($id);
+        if (!$missingInfo) {
+            throw new CHttpException('404', 'Child does not exist!');
+        }
+
+        if (Yii::app()->user->getId() != $missingInfo['user_id']) {
+            throw new CHttpException('403', 'Access forbidden!');
+        };
 
         # You can easily override default constructor's params
         $mPDF1 = Yii::app()->ePdf->mpdf('', 'Letter-L');
@@ -177,8 +378,44 @@ class ChildController extends Controller
         );
 
         # Outputs ready PDF
-        $fileName = $missingInfo['child']->name . ' is missing';
+        $fileName = $missingInfo['child']->first_name . ' is missing';
         $mPDF1->Output($fileName, 'D');
     }
 
+    public function actionSurvey()
+    {
+        $this->layout = 'main';
+        $model = new SurveyForm();
+
+        if(isset($_POST['SurveyForm'])) {
+            $model->attributes = $_POST['SurveyForm'];
+            if ($model->validate()) {
+
+                $attributesLabels = $model->attributeLabels();
+                $surveyResults = array();
+                foreach ($model->attributes as $attribute => $value) {
+                    $surveyResults[] = array('question' => $attributesLabels[$attribute], 'answer' => $value);
+                }
+
+                Yii::app()->common->sendEmail(
+                    Yii::app()->params['surveyEmail'],
+                    'Survey results of user ' . Yii::app()->user->getName(),
+                    'survey_results',
+                    array(
+                        'username' => Yii::app()->user->getName(),
+                        'surveyResults' => $surveyResults
+                    )
+                );
+
+                $this->redirect(array('child/list'));
+            }
+        }
+
+        $this->render(
+            'survey', array(
+                'model' => $model
+            )
+        );
+
+    }
 }

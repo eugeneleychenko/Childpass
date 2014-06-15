@@ -15,6 +15,7 @@ html(lang='en')
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/960.css');
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/old/coin-slider-styles.css');
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/app.css');
+            Yii::app()->getClientScript()->registerCssFile('/libs/jquery-ui/themes/aristo/aristo.css');
 
     -$bodyClass = 'page-' . Yii::app()->controller->id . ucfirst(Yii::app()->controller->action->id);
     body(class=bodyClass)
@@ -31,9 +32,14 @@ html(lang='en')
                 .mainMenuWrapper
                     #infoMessage
                         -if (!Yii::app()->user->isGuest):
+                            a.survey_link(href=$this->createUrl('child/survey')) Survey
+                                //br
+                                //| &nbsp;
                             a.activateAlert(href=$this->createUrl('child/list')) Activate
                                 br
                                 | Emergency Alert
+
+
                         :php
                             $this->widget('application.components.LoginFormWidget');
                     ul.nav
@@ -72,9 +78,20 @@ html(lang='en')
                     li
                         img(src=$this->baseUrl . '/images/mammalfish_logo.png')
 
+            div.dialogs
+                div#activateAlertDialog.dialog(style="border: 10px #f00 solid; display: none; overlow: auto;")
+
+
         :php
             Yii::app()->getClientScript()->registerCoreScript('jquery');
             Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
+            Yii::app()->getClientScript()->registerCoreScript("yiiactiveform");
 
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/coin-slider.js');
+            Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/jquery-ui-timepicker-addon.js');
+
+
+            Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/placeholder-fix.js');
+
+            Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/activate_alert.js');
 

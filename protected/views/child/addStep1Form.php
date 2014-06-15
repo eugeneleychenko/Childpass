@@ -16,11 +16,22 @@ return array(
             'type' => 'form',
             'title' => false,
             'elements' => array(
-                'name' => array(
+                'first_name' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "Your Child's Name",
+                    'label' => 'First Name',
                 ),
+                'middle_name' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => 'Middle Name',
+                ),
+                'last_name' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => 'Last Name',
+                ),
+
                 'gender' => array(
                     'type'  => 'dropdownlist',
                     'items' => Child::model()->getGenderOptions(),
@@ -36,7 +47,7 @@ return array(
                 'eyes_color_id' => array(
                     'type'  => 'dropdownlist',
                     'items' => EyesColor::model()->getOptions(),
-                    'prompt'=>'Select eyes color',
+                    'prompt'=>'Select eye color',
                     'class' => 'fieldstyle',
                 ),
                 'hair_color_id' => array(
@@ -58,7 +69,7 @@ return array(
                 'zip_code' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'City State Zip',
+                    'label' => 'Zip',
                 ),
                 'birthday' => array(
                     'type'  => 'date',
@@ -66,14 +77,15 @@ return array(
                     'label' => 'Date of Birth',
                 ),
                 'distinctive_marks' => array(
-                    'type'  => 'text',
-                    'class' => 'fieldstyle',
-                    'label' => 'Distinctive marks',
+                    'type'  => 'textarea',
+                    'rows' => 10,
+                    'label' => 'Please provide details such as location of scars, birthmarks, tattoos or any other marks',
+                    'maxlength' => '255',
                 ),
                 'school' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'School',
+                    'label' => 'School Name',
                 ),
                 'school_address' => array(
                     'type'  => 'text',
@@ -88,13 +100,36 @@ return array(
                 'school_zip_code' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'City State Zip',
+                    'label' => 'Zip',
                 ),
-                'known_relatives' => array(
+                'state' => array(
+                    'type'  => 'dropdownlist',
+                    'items' => Child::model()->getStateOptions(),
+                    'prompt'=>'Select state',
+                    'class' => 'fieldstyle'
+                ),
+                'school_state' => array(
+                    'type'  => 'dropdownlist',
+                    'items' => Child::model()->getStateOptions(),
+                    'prompt'=>'Select state',
+                    'class' => 'fieldstyle',
+                ),
+                'grade' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'Known Relatives',
+                    'label' => "Grade",
                 ),
+                'city' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => "City",
+                ),
+                'school_city' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => "City",
+                ),
+
             ),
         ),
     ),

@@ -52,13 +52,7 @@ class UserController extends Controller
                 $user->password  = User::hashPassword($user->password);
 
                 if ($user->save(false)) {
-//                    Yii::app()->common->sendEmail(
-//                        $user->email, 'Thank you for registering as a 2014 PGPF Fiscal Internship host!',
-//                        'host_registration_success'
-//                    );
-
                     $this->sendActivationCodeEmail($user->primaryKey);
-
                     $this->redirect(array('user/registrationSuccess'));
                 }
             }
@@ -110,7 +104,7 @@ class UserController extends Controller
 
         if ($user) {
             $user->is_active = 1;
-            $user->save();
+            $user->save(true, array('is_active'));
             $this->render('accountActivated');
         } else {
             $this->render('accountActivationWrongLink');
@@ -142,23 +136,27 @@ class UserController extends Controller
 
         $user->scenario = 'passwordReset';
 
+        $model = new ChangePasswordForm();
+
         // collect user input data
-        if (isset($_POST['User'])) {
-            $user->attributes = $_POST['User'];
+        if (isset($_POST['ChangePasswordForm'])) {
 
-            $user->password            = $user->hashPassword($user->password);
-            $user->password_reset_code = '';
+            $model->attributes = $_POST['ChangePasswordForm'];
 
-            if ($user->save(true, array('password', 'password_reset_code'))) {
-                $this->sendActivationCodeEmail($user->primaryKey);
+            if ($model->validate()) {
+                $user->password = $user->hashPassword($model->password);
+                $user->password_reset_code = '';
 
-                $this->redirect(array('user/passwordResetSuccess'));
+                if ($user->save(true, array('password', 'password_reset_code'))) {
+                    $this->sendActivationCodeEmail($user->primaryKey);
+
+                    $this->redirect(array('user/passwordResetSuccess'));
+                }
             }
         }
 
-        $user->password = '';
 
-        $this->render('passwordReset', array('model' => $user));
+        $this->render('passwordReset', array('model' => $model));
     }
 
     public function actionPasswordResetSuccess()
@@ -207,7 +205,8 @@ class UserController extends Controller
             if($model->validate() && $model->login()) {
                 if (!Yii::app()->user->getIsActive()) {
                     Yii::app()->user->logout();
-                    $this->render('error', array('message' => 'You have not activated your account. Please activate your account before entering the site. Activation instructions sent to your email.'));
+                    $this->render('error', array('message' => 'You have not activated your account. Please activate your account before entering the site. Activation instructions have been sent to your email.'));
+                    return;
                 } else {
                     if (Child::model()->findAll('user_id = :user_id', array(':user_id' => Yii::app()->user->getId()))) {
                         $this->redirect(Yii::app()->homeUrl);

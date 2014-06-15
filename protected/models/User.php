@@ -12,6 +12,11 @@
  * @property string $name
  * @property integer $is_active
  * @property string $verification_code
+ * @property integer $facebook_notification
+ * @property integer $linked_in_notification
+ * @property integer $twitter_notification
+ * @property integer $google_plus_notification
+ * @property string $notification_emails
  */
 class User extends CActiveRecord
 {
@@ -41,13 +46,16 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, email, name', 'required'),
+			array('username, email, name, password', 'required'),
             array('username, email', 'unique'),
 			array('email', 'email'),
 			array('is_active', 'numerical', 'integerOnly'=>true),
 			array('username, email', 'length', 'max'=>50),
 			array('password, verification_code', 'length', 'max'=>64),
+            array('password', 'length', 'min'=> 6),
 			array('name', 'length', 'max'=>100),
+            array('facebook_notification, linked_in_notification, twitter_notification, google_plus_notification', 'boolean'),
+            array('notification_emails','safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, created_at, username, password, email, name, is_active, verification_code', 'safe', 'on'=>'search'),

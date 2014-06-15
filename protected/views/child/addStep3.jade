@@ -4,7 +4,7 @@
             span Welcome,&nbsp
             !=Yii::app()->user->getName();
         p This page in Step 3 of the 4 Step Child Profile Process
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        p Please, click on the teeth, that your child is missing, so they appear grey.
     .step-list
         ul
             li.step1.active
@@ -22,10 +22,32 @@
             li.step4
                 .step-number.icons-step4_disable
                 .step-icon.icons-survey_gray
-                span Survey
+                span Alert Settings
+
     .clear
-.panel
+.panel.contentWrapper
     #teeth-area
+        .legend
+            div.row(style="margin-bottom: 30px;margin-left:100px;") Explanation of color coding:
+            div.row(style="margin-bottom: 30px;margin-left:100px;")
+                table
+                    tr
+                        td(style="background:#00c040;width:50px;height:50px;border-bottom: 30px solid #fff;") &nbsp;
+                        td(style="vertical-align: middle;padding-left: 10px;border-bottom: 30px solid #fff;") Central and Lateral Incisors
+
+                    tr
+                        td(style="background:#ff4200;width:50px;height:50px;border-bottom:30px solid #fff;") &nbsp;
+                        td(style="vertical-align: middle;padding-left: 10px;border-bottom:30px solid #fff;") Canines (cuspids)
+
+                    tr
+                        td(style="background:#ffc800;width:50px;height:50px;border-bottom:30px solid #fff;") &nbsp;
+                        td(style="vertical-align: middle;padding-left: 10px;border-bottom:30px solid #fff;") Pre Molars (bicuspids)
+
+                    tr
+                        td(style="background:#00a0d4;width:50px;height:50px;border-bottom:30px solid #fff;") &nbsp;
+                        td(style="vertical-align: middle;padding-left: 10px;border-bottom:30px solid #fff;") Molars and Wisdom
+
+
     !=$form->renderBegin()
         .row
             !=$form['child']['teeth']

@@ -1,10 +1,21 @@
+:php
+    if (isset($data['childId'])) {
+            echo '<script> var childId = "' .  $data['childId'] . '"; </script>';
+    } else {
+        echo "<script> var childId = null; </script>";
+    }
+
+    echo '<script> var step = "' .  $data['step'] . '"; </script>';
+
+
+
 .step-header
     .step-description
         h2.welcome
             | Welcome,&nbsp
             span=Yii::app()->user->getName();
         p This page in Step 1 of the 4 Step Child Profile Process
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        p Please, complete the Child Profile in as much detail as you can.
     .step-list
         ul
             li.step1.active
@@ -22,43 +33,147 @@
             li.step4
                 .step-number.icons-step4_disable
                 .step-icon.icons-survey_gray
-                span Survey
+                span Alert Settings
+
 
 .panel
     .contentWrapper
-        p(style='margin-left: 20px;') (All fields are required.)
+        h2 Child Profile
+        p (All fields are required.)
         !=$form->renderBegin()
-            div(style='width: 380px; text-align: right;')
-                div.row
-                    !=$form['child']['name']
-                div.row
-                    !=$form['child']['gender']
-                div.row
-                    !=$form['child']['ethnicity_id']
-                div.row
-                    !=$form['child']['eyes_color_id']
-                div.row
-                    !=$form['child']['hair_color_id']
-                div.row
-                    !=$form['child']['address']
-                div.row
-                    !=$form['child']['address2']
-                div.row
-                    !=$form['child']['zip_code']
-                div.row
-                    !=$form['child']['birthday']
-                div.row
+            div(style='width: 98%;')
+                .formRow
+                    .fieldWrapper
+                        !=$form['child']['first_name']
+                    .fieldWrapper
+                        !=$form['child']['last_name']
+                    .fieldWrapper
+                        !=$form['child']['middle_name']
+                    .fieldWrapper
+                        !=$form['child']['birthday']
+
+
+                .formRow
+                    .fieldWrapper
+                        !=$form['child']['gender']
+                    .fieldWrapper
+                        !=$form['child']['ethnicity_id']
+                    .fieldWrapper
+                        !=$form['child']['eyes_color_id']
+                    .fieldWrapper
+                        !=$form['child']['hair_color_id']
+
+                .formRow
+                    .fieldWrapper
+                        !=$form['child']['address']
+                    .fieldWrapper
+                        !=$form['child']['address2']
+                    .fieldWrapper
+                        !=$form['child']['city']
+                    .fieldWrapper
+                        .fieldWrapper.state
+                            !=$form['child']['state']
+                        .fieldWrapper.zipCode
+                            !=$form['child']['zip_code']
+
+                .distinctiveMarksWrapper.formRow
+                    h3 Distinctive marks
                     !=$form['child']['distinctive_marks']
-                div.row
-                    !=$form['child']['school']
-                div.row
-                    !=$form['child']['school_address']
-                div.row
-                    !=$form['child']['school_address2']
-                div.row
-                    !=$form['child']['school_zip_code']
-                div.row
-                    !=$form['child']['known_relatives']
-                div.row(style='margin-bottom: 60px; position: relative;')
+
+
+                .formRow
+                    .fieldWrapper
+                        !=$form['child']['school']
+                    .fieldWrapper
+                        !=$form['child']['grade']
+                    .fieldWrapper
+                    .fieldWrapper
+
+                .formRow
+                    .fieldWrapper
+                        !=$form['child']['school_address']
+                    .fieldWrapper
+                        !=$form['child']['school_address2']
+                    .fieldWrapper
+                        !=$form['child']['school_city']
+                    .fieldWrapper
+                        .fieldWrapper.state
+                            !=$form['child']['school_state']
+                        .fieldWrapper.zipCode
+                            !=$form['child']['school_zip_code']
+
+
+                div#relatives
+                    h3 Known Relatives
+                    if data.relatives
+                        table#relatives_table
+                            thead
+                                tr
+                                    th First Name
+                                    th Last Name
+                                    th Relation to Child?
+                                    th
+
+                                :php
+                                    $counter = 1;
+                            tbody
+                                each relative in data.relatives
+                                    tr
+                                        td
+                                            :php
+                                                echo CHtml::textField("Relative[$counter][first_name]", $relative['first_name'], array('maxlength' => '100', 'required' => 'required', 'class' => 'required'));
+                                        td
+                                            :php
+                                                echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name'], array('maxlength' => '100', 'required' => 'required', 'class' => 'required'));
+                                        td
+                                            :php
+                                                echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required', 'class' => 'relation_id required'));
+                                        td
+                                            button.button.small.delete_relative(type="button") -
+                                            :php
+                                                echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id'], array('class' => 'relative_id'));
+                                                echo CHtml::hiddenField("Relative[$counter][child_relative_id]", $relative['childRelationId'], array('class' => 'child_relative_id'));
+                                    :php
+                                        $counter++;
+                    else
+                        table#relatives_table
+                             thead
+                                tr
+                                    th First Name
+                                    th Last Name
+                                    th Relationship to Child?
+                                    th
+                             tbody
+                                tr
+                                    td
+                                        input(name="Relative[0][first_name]", required, maxlength="100", class="required")
+                                    td
+                                        input(name="Relative[0][last_name]", required, , maxlength="100", class="required")
+                                    td
+                                        :php
+                                            echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required', 'class' => 'relation_id required'));
+                                    td
+                                        button.button.small.delete_relative(type="button") -
+
+                            :php
+                                $counter = 1
+
+
+                    button.button.small#add_relative(type="button") +
+                    if (data.addingNextChild)
+                        &nbsp;&nbsp;&nbsp;
+                        button.button.small#add_saved_relatives(type="button") Add relatives from other children
+
+
+
+                div.row.formActions
                     !=$form->buttons['next_step']
+
+
+
         !=$form->renderEnd();
+
+:php
+    Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/jquery.validate.js');
+    echo '<script>var relativesNumber = ' . $counter . ';</script>';
+    Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/child.js');

@@ -65,6 +65,17 @@ hr {
   clear: none;
 }
 
+form {
+  .row {
+    margin-bottom: 0.5em;
+    margin-left: 0;
+
+    &.submit {
+      margin-top: 2em;
+    }
+  }
+}
+
 .panel {
   background: #fff;
   border: 2px solid orange;
@@ -135,6 +146,8 @@ hr {
   }
 
   .login-form {
+      display: table-cell;
+      padding-left: 10px;
       form {
           overflow: hidden;
           font-family: Arial;
@@ -175,6 +188,7 @@ hr {
           .welcome-label {
               font-size: 18px;
               color: #002F66;
+              margin-bottom: 0;
               span {
                   color: #808080;
               }
@@ -195,6 +209,7 @@ hr {
       top: 0;
       left: 360px;
       right: 0;
+      display: table;
     }
 
     .activateAlert {
@@ -205,11 +220,30 @@ hr {
       padding: 0.5em 0.5em;
       background: #FF0000;
       color: #FFFFFF;
-      float: right;
       border: 2px solid #002F66;
       text-transform: uppercase;
       text-decoration: none;
+      display: table-cell;
+      vertical-align: middle;
     }
+
+    .survey_link {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 200px;
+      text-align: center;
+      padding: 0.5em 0.5em;
+      background: #EE8B38;
+      color: #FFF;
+      border-left: 2px solid #EE8B38;
+      border-top: 2px solid #EE8B38;
+      border-bottom: 2px solid #EE8B38;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
 
     .nav {
       list-style: none;
@@ -285,6 +319,58 @@ hr {
   }
 }
 
+#child-info-form {
+  label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.2em;
+  }
+
+  .fieldstyle {
+    width: 100%;
+  }
+
+  .fieldWrapper {
+    width: 24%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top;
+
+    &.state {
+      width: 25%;
+      margin-right: 2%;
+    }
+
+    &.zipCode {
+      width: 72%;
+    }
+  }
+
+
+  [name='Child[distinctive_marks]'] {
+    width: 48.5%;
+  }
+
+  .formRow {
+    margin-bottom: 1em;
+  }
+
+  #relatives {
+    text-align: center;
+
+    h2 {
+      margin-bottom: 0.2em;
+    }
+  }
+
+  .formActions {
+    margin-bottom: 60px;
+    position: relative;
+    text-align: right;
+  }
+
+}
+
 .row {
     &.error {
         input {
@@ -296,12 +382,22 @@ hr {
             font-size: 90%;
         }
     }
+
     .fieldstyle {
         width: 180px;
         height: 26px;
         line-height: 26px;
     }
 }
+
+.fieldstyle {
+  width: 90%;
+  height: 28px;
+  line-height: 22px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 
 .distributedItems {
   text-align: justify;
@@ -657,7 +753,14 @@ hr {
 }
 
 #teeth-area {
-    margin: 30px;
+  margin: 60px;
+  position: relative;
+
+  .legend {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 .flyerWrapper {
@@ -713,5 +816,240 @@ hr {
     .logo {
       margin-top: 0;
     }
+  }
+}
+
+table#relatives_table {
+  margin: 0 auto;
+  text-align: left;
+  border-spacing: 10px;
+  border-collapse: separate;
+
+  th {
+    background: #fff;
+  }
+}
+
+
+.errorMessage {
+  color: #f00;
+}
+
+//styles for datetimepicker
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+
+.ui-timepicker-div + .ui-datepicker-buttonpane.ui-widget-content {
+  margin-top: 100px;
+}
+
+.ui_tpicker_second, .ui_tpicker_second_label {
+  display: none;
+}
+
+
+#activateAlertDialog {
+  background: #F8F8F8;
+
+  #alert_contents {
+    width:90%;
+    min-width: 525px;
+    height: 70%;
+    margin: 10px auto;
+  }
+
+  #alert_logo {
+    float: left;
+  }
+
+  #alert_logo_message {
+    margin-left: 400px;
+    padding-left: 50px;
+    height: 125px;
+    display: table-cell;
+    vertical-align: middle;
+    color: #f00;
+    font-size: 200%;
+    font-weight: bold;
+  }
+
+  #alert_text {
+    clear: both;
+    margin-bottom: 10px;
+    font: 0.9em;
+  }
+
+  #row_logo {
+    margin-bottom: 20px;
+  }
+
+
+  .alert_child_row {
+    margin-bottom: 5px;
+    font: 1em;
+    margin-left: 0;
+  }
+
+  .child_label {
+    padding-left: 10px;
+  }
+
+  .description_child_row {
+    margin: 1em 1.2em;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+
+  #incident_datetime_row {
+    font: 1em;
+    margin-left: 0;
+  }
+
+  #incident_description_row {
+    margin-top: 10px;
+    font: 1em;
+    margin-left: 0;
+  }
+
+  .alertLabel {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #alert_buttons_row {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 2em;
+  }
+
+  #alert_submit {
+    background: #f00;
+    color: #fff;
+    border: 1px #000 solid;
+    height: 50px;
+    margin-right: 50px;
+    text-transform: uppercase;
+    padding: 0 1em;
+  }
+
+  #cancelAlert {
+    color: #f00;
+    text-decoration:none;
+  }
+}
+
+
+#child-alert-settings-form {
+  label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.2em;
+  }
+
+  .fieldstyle {
+    width: 100%;
+  }
+
+  .fieldWrapper {
+    width: 24%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .formRow {
+    margin-bottom: 1em;
+    width: 50%;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  .submit_buttons {
+    margin-bottom: 60px;
+    position: relative;
+    text-align: right;
+  }
+
+  .prev_button_container {
+    float: left;
+  }
+
+}
+
+#alert_settings_description, #notification_email_description {
+  margin-bottom: 1em;
+}
+
+#survey_form {
+  .left {
+    float: left;
+    width: 30%;
+    padding-left: 5%;
+  }
+
+  .right {
+    margin-left: 31%;
+    width: 50%;
+  }
+
+  label.block {
+    display: block;
+    margin-top: 1em;
+  }
+
+  textarea {
+    width: 90%;
+    resize: none;
+  }
+
+  .sumbit_row {
+    margin-top: 1em;
+    text-align: center;
+    clear: both;
+
+    input {
+      background: #ee8b38;
+      color: #fff;
+    }
+  }
+
+
+  span {
+    label {
+      font-size: 0.8em;
+    }
+  }
+
+  .kit_rate_table {
+    width: 50%;
+    margin: auto;
+    td {
+      width: 25%;
+      text-align: center;
+      font-size: 0.8em;
+    }
+  }
+
+}
+
+.faq {
+  ul.faqList {
+    list-style: none;
+
+    li.item {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .question {
+    font-weight: bold;
   }
 }

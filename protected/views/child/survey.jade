@@ -1,0 +1,64 @@
+p.
+    This section is for those, who have their kit in hand.
+    Please, watch this video to help you properly DNA swab and fingerprint your child.
+    When completed, please place kit in a safe dry place.
+    Then, kindly answer some important questions to help us better serve you and complete your beta test participation.
+    Thank you!
+.panel
+    .contentWrapper
+        div.row
+            h3 Video Demo of Your Kit
+        div.row
+            h3 Feedback
+            -$form=$this->beginWidget('CActiveForm', array('id' => 'survey_form'));
+            div.row.questions
+                div.left
+                    p (All questions are required)
+
+                    !=$form->labelEx($model, 'like_survey', array('class' => 'block'));
+                    !=$form->radioButtonList($model,'like_survey',array('I like it!' => 'I like it!', 'I think it\'s complicated' => 'I think it\'s complicated', 'I liked 2003' => 'I liked 2003'), array('separator' => '<br>'));
+                    !=$form->error($model, 'like_survey')
+
+                    !=$form->labelEx($model, 'like_kit', array('class' => 'block'));
+                    !=$form->radioButtonList($model,'like_kit',array('Better' => 'Better', 'Nice' => 'Nice', 'I don\'t like it' => 'I don\'t like it'), array('separator' => '<br>'));
+                    !=$form->error($model, 'like_kit')
+
+                div.right
+                    div.row
+                        !=$form->labelEx($model, 'kit_opinion', array('class' => 'block'));
+                        !=$form->textArea($model, 'kit_opinion', array('rows' => '3'));
+                        !=$form->error($model, 'kit_opinion')
+
+                    div.row
+                        !=$form->labelEx($model, 'kit_rate', array('class' => 'block'));
+                        table.kit_rate_table
+                            tr
+                                td Low
+                                td
+                                td Average
+                                td
+                                td High
+                            tr
+                                td 1
+                                td 2
+                                td 3
+                                td 4
+                                td 5
+                            tr
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 1, 'uncheckValue' => null));
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 2, 'uncheckValue' => null));
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 3, 'uncheckValue' => null));
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 4, 'uncheckValue' => null));
+                                td
+                                    !=$form->radioButton($model, 'kit_rate', array('value' => 5, 'uncheckValue' => null));
+
+
+                        !=$form->error($model, 'kit_rate')
+
+            div.row.sumbit_row
+                !=CHtml::submitButton('submit');
+                -$this->endWidget();

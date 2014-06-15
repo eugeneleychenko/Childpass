@@ -1,5 +1,7 @@
 .panel
     .contentWrapper
+        p.
+            Welcome to your My Kids page. We recommend you visit regularly to update your child's photo, and other important profile information. You can also download your missing child flyer.
         .child-list
             ul
                 - if (empty($childList)):
@@ -7,11 +9,17 @@
                 - else
                     - foreach ($childList as $child):
                         li
-                            h3!= $child->name
+                            h3
+                                != $child->first_name
+                                &nbsp;
+                                if ($child->incident)
+                                   span - Missing
+
                             - if(isset($child->childPhotos[0])):
                                 a(href=$this->createUrl('child/add', array('step' => 'step1', 'child_id' => $child->id)))
                                     img(src = $child->childPhotos[0]->filename)
-                            a(href=$this->createUrl('child/download-flyer', array('id' => $child->id)), class = 'flyer-link', target='_blank') Dowload Flyer
+                            if ($child->incident)
+                                a(href=$this->createUrl('child/download-flyer', array('id' => $child->id)), class = 'flyer-link', target='_blank') Dowload Flyer
                             a.edit-link(href=$this->createUrl('child/add', array('step' => 'step1', 'child_id' => $child->id))) Edit Child
                     - endforeach
             a.edit-child(href=$this->createUrl('child/add', array('step' => 'step1'))) Add Child »
