@@ -15,6 +15,7 @@
 class ChildPhoto extends CActiveRecord
 {
     public $image;
+    public $tempName;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -42,7 +43,7 @@ class ChildPhoto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('child_id, filename', 'required'),
+			array('child_id', 'required'),
 			array('child_id, is_main', 'numerical', 'integerOnly'=>true),
 			array('filename', 'length', 'max'=>100),
             array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'maxSize' => 10485760),
@@ -99,4 +100,39 @@ class ChildPhoto extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function getUrl($size)
+    {
+        $folder = $this->getPath();
+
+        $imageHelper = new ImageHelper();
+        if (!file_exists($folder.$this->filename)) {
+            $imageHelper->makeThumbnail($folder, $this->filename, $size);
+        }
+        $url = Yii::app()->getBaseUrl(true) . "/children/{$this->child_id}/photos/";
+        return $imageHelper->getImageUrl($url, $this->filename, $size);
+    }
+
+    public function getPath()
+    {
+        return Yii::getPathOfAlias('webroot') . "/children/{$this->child_id}/photos/";
+    }
+
+    public function getPathWithSize($size)
+    {
+        $imageHelper = new ImageHelper();
+        return $imageHelper->getImageFolder($this->getPath(), $size);
+    }
+
+    public function afterSave()
+    {
+        move_uploaded_file($this->tempName, $this->getPathWithSize(ImageHelper::IMAGE_ORIG).$this->filename);
+    }
+
+    public function afterDelete()
+    {
+        $imageHelper = new ImageHelper();
+        unlink($this->getPathWithSize(ImageHelper::IMAGE_ORIG).$this->filename);
+        $imageHelper->deleteImage($this->getPath(), $this->filename);
+    }
 }

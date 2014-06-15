@@ -27,13 +27,13 @@ class ImageHelper extends CComponent
     /**
      * Create image folder(if necessary) and return it path
      *
-     * @param string $childId
+     * @param string $path
      * @param string $size
      * @return string
      */
-    public function getChildImageFolder($childId, $size = ImageHelper::IMAGE_SMALL)
+    public function getImageFolder($path, $size = ImageHelper::IMAGE_SMALL)
     {
-        $folder = Yii::getPathOfAlias('webroot').'/children/'.$childId.'/photos/'.$size;
+        $folder = $path.$size;
         if (!file_exists($folder)) {
             mkdir($folder, 0777, true);
         }
@@ -43,69 +43,47 @@ class ImageHelper extends CComponent
     /**
      * Create image folder url
      *
-     * @param string $childId
+     * @param string $url
      * @param string $size
      * @return string
      */
-    function getChildImageFolderUrl($childId, $size = ImageHelper::IMAGE_SMALL)
+    function getImageFolderUrl($url, $size = ImageHelper::IMAGE_SMALL)
     {
-        return Yii::app()->request->getBaseUrl(true).'/children/'.$childId.'/photos/'.$size.'/';
+        return $url.$size.'/';
     }
 
     /**
-     * Save image in child folder
+     * Delete image in folder
      *
-     * @param string $childId
-     * @param string $tmpName
-     * @return string
-     */
-    public function saveImage($childId, $tmpName) {
-        $filename = $this->generateImageName();
-
-        $path = $this->getChildImageFolder($childId, self::IMAGE_ORIG);
-
-        move_uploaded_file($tmpName, $path.$filename);
-
-        return $filename;
-    }
-
-    /**
-     * Delete image in child folder
-     *
-     * @param string $childId
+     * @param string $url
      * @param string $filename
      */
-    public function deleteChildImage($childId, $filename)
+    public function deleteImage($path, $filename)
     {
         foreach ($this->thumbnail_dimensions as $imageSize => $dimensions) {
-            $file = $this->getChildImageFolder($childId, $imageSize).$filename;
+            $file = $this->getImageFolder($path, $imageSize).$filename;
             if (file_exists($file)) {
                 unlink($file);
             }
         }
-        unlink($this->getChildImageFolder($childId, self::IMAGE_ORIG).$filename);
     }
 
     /**
      * Get image url or call creating thumbnail if it does not exist
      *
-     * @param string $childId
+     * @param string $url
      * @param string $filename
      * @param string $size
+     * @param boolean $fileTime
      * @return string
      */
-    function getChildImageUrl($childId, $filename, $size = ImageHelper::IMAGE_SMALL, $fileTime = true)
+    function getImageUrl($url, $filename, $size = ImageHelper::IMAGE_SMALL, $fileTime = true)
     {
-        $folder = $this->getChildImageFolder($childId, $size);
-
-        if (!file_exists($folder.$filename)) {
-            $this->makeChildThumbnail($childId, $filename, $size);
-        }
-        if ($fileTime) {
-            $imageUrl = $this->getChildImageFolderUrl($childId, $size).$filename.'?'.filemtime($folder.$filename);
-        } else {
-            $imageUrl = $this->getChildImageFolderUrl($childId, $size).$filename;
-        }
+//        if ($fileTime) {
+//            $imageUrl = $this->getImageFolderUrl($url, $size).$filename.'?'.filemtime($folder.$filename);
+//        } else {
+            $imageUrl = $this->getImageFolderUrl($url, $size).$filename;
+//        }
 
         return $imageUrl;
     }
@@ -113,19 +91,19 @@ class ImageHelper extends CComponent
     /**
      * Create thumbnail image
      *
-     * @param string $childId
+     * @param string $path
      * @param string $filename
      * @param string $size
      */
-    function makeChildThumbnail($childId, $filename, $size = ImageHelper::IMAGE_SMALL) {
-        $origFolder = $this->getChildImageFolder($childId, ImageHelper::IMAGE_ORIG);
+    function makeThumbnail($path, $filename, $size = ImageHelper::IMAGE_SMALL) {
+        $origFolder = $this->getImageFolder($path, ImageHelper::IMAGE_ORIG);
 
         $file = $origFolder.$filename;
         /** @var $img Iwi */
         $img = Yii::app()->iwi->load($file);
 
         $dimensions = $this->thumbnail_dimensions[$size];
-        $folder = $this->getChildImageFolder($childId, $size);
+        $folder = $this->getImageFolder($path, $size);
         if (!$dimensions[2]) {
             $img->resize($dimensions[0],$dimensions[1]);
         } else {

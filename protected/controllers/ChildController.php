@@ -126,11 +126,10 @@ class ChildController extends Controller
 
                     if (!empty($images)) {
                         foreach ($images as $pic) {
-                            $filename = $imageHelper->saveImage($childId, $pic->tempname);
-
                             $photo           = new ChildPhoto();
+                            $photo->filename = $imageHelper->generateImageName();
                             $photo->image    = $pic;
-                            $photo->filename = $filename;
+                            $photo->tempName = $pic->tempname;
                             $photo->child_id = $childId;
                             $photo->save();
                         }
@@ -139,7 +138,7 @@ class ChildController extends Controller
                 } else {
                     $childPhotos = ChildPhoto::model()->findAll('child_id = :child_id', array(':child_id' => $childId));
                     foreach ($childPhotos as $photo) {
-                        $photo->filename = $imageHelper->getChildImageUrl($childId, $photo->filename);
+                        $photo->filename = $photo->getUrl(ImageHelper::IMAGE_SMALL);
                     }
                     $data['childPhotos'] = $childPhotos;
                 }
@@ -308,11 +307,9 @@ class ChildController extends Controller
     {
         $userId = Yii::app()->user->getId();
 
-        $imageHelper = new ImageHelper();
-
         $childList = Child::model()->with(array(
             'childPhotos' => array(
-                'select'   => array('filename'),
+                'select'   => array('filename', 'child_id'),
                 'joinType' => 'LEFT JOIN',
                 'order'    => 'is_main DESC'
             ),
@@ -321,11 +318,8 @@ class ChildController extends Controller
 
         foreach ($childList as &$child) {
             if (isset($child->childPhotos[0])) {
-                foreach ($child->childPhotos as $key => $photo) {
-                    if ($key == 0) {
-                        $photo->filename = $imageHelper->getChildImageUrl($child->id, $photo->filename);
-                    }
-                }
+                $photos = $child->childPhotos;
+                $photos[0]->filename = $photos[0]->getUrl(ImageHelper::IMAGE_SMALL);
             }
         }
 

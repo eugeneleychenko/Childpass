@@ -280,8 +280,6 @@ class Child extends CActiveRecord
             return false;
         }
 
-        $imageHelper = new ImageHelper();
-
         $childPhotoUrl = false;
 
         $photo = ChildPhoto::model()->find(array(
@@ -291,7 +289,7 @@ class Child extends CActiveRecord
         ));
 
         if (!empty($photo)) {
-            $childPhotoUrl = $imageHelper->getChildImageUrl($childId, $photo->filename, ImageHelper::IMAGE_MEDIUM);
+            $childPhotoUrl = $photo->getUrl(ImageHelper::IMAGE_MEDIUM);
         }
 
         $missingInfo = array(

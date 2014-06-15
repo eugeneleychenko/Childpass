@@ -38,10 +38,8 @@ class ChildPhotoController extends Controller
 
         $success = false;
 
-        $imageHelper = new ImageHelper();
         if (!empty($photo)) {
             $photo->delete();
-            $imageHelper->deleteChildImage($photo->child_id, $photo->filename);
             $success = true;
         };
 
