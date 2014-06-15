@@ -1597,3 +1597,16 @@ table#relatives_table th {
   text-align: center;
   font-size: 0.8em;
 }
+
+/* line 1044, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.faq ul.faqList {
+  list-style: none;
+}
+/* line 1047, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.faq ul.faqList li.item {
+  margin-bottom: 0.5em;
+}
+/* line 1052, D:/Projects/Web/childPass/webroot/scss/_styles.scss */
+.faq .question {
+  font-weight: bold;
+}

@@ -1040,3 +1040,16 @@ table#relatives_table {
 
 }
 
+.faq {
+  ul.faqList {
+    list-style: none;
+
+    li.item {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .question {
+    font-weight: bold;
+  }
+}
