@@ -852,6 +852,8 @@ table#relatives_table {
 
 
 #activateAlertDialog {
+  background: #F8F8F8;
+
   #alert_contents {
     width:90%;
     min-width: 525px;
@@ -870,7 +872,8 @@ table#relatives_table {
     display: table-cell;
     vertical-align: middle;
     color: #f00;
-    font-size: 1.5em;
+    font-size: 200%;
+    font-weight: bold;
   }
 
   #alert_text {
@@ -931,6 +934,8 @@ table#relatives_table {
     border: 1px #000 solid;
     height: 50px;
     margin-right: 50px;
+    text-transform: uppercase;
+    padding: 0 1em;
   }
 
   #cancelAlert {
