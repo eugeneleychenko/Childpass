@@ -228,39 +228,46 @@ class ChildController extends Controller
     {
         $this->layout = 'ajax';
         $userId = Yii::app()->user->getId();
-        $userChildren = Child::model()->findAll('user_id = :user_id AND NOT EXISTS (SELECT incident.id FROM incident WHERE incident.child_id = t.id)',
-                                                array(':user_id' => $userId));
 
-        if (!count($userChildren)) {
+        $userChildren = Child::model()->findAll(
+            'user_id = :user_id AND NOT EXISTS (SELECT incident.id FROM incident WHERE incident.child_id = t.id)',
+            array(':user_id' => $userId)
+        );
+
+        $noChildren = false;
+
+        if (empty($userChildren)) {
             $noChildren = true;
             $this->render(
                 'activateAlert',
-                array(
-                      'noChildren' => $noChildren
-                )
+                array('noChildren' => $noChildren)
             );
             exit;
         }
 
-        $noChildren = false;
 
         $incidentModelClass = 'Incident';
 
         $childrenInfo = array();
         $userChildIds = array();
         foreach ($userChildren as $child) {
-            $incidentModel = new $incidentModelClass;
             $userChildIds[] = $child->primaryKey;
-            $incidentModel->child_id = $child->primaryKey;
+
+            $incidentModel                    = new $incidentModelClass;
+            $incidentModel->child_id          = $child->primaryKey;
             $incidentModel->child_description = $child->distinctive_marks;
+
             $childrenInfo[$child->primaryKey] = array(
-                'child' => $child,
+                'child'         => $child,
                 'incidentModel' => $incidentModel,
             );
         }
 
         $descriptionValue = '';
         $dateValue = '';
+
+        $errorsExist = false;
+
         if ( !empty($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass])) {
             foreach ($_POST[$incidentModelClass] as $incident) {
 
@@ -269,28 +276,25 @@ class ChildController extends Controller
                     continue;
                 }
 
-                $errorsExist = false;
-
                 $attributes = $incident + array(
-                        'description' => $_POST['description'],
-                        'date' => $_POST['date']
-                    );
+                    'description' => $_POST['description'],
+                    'date'        => $_POST['date']
+                );
+
                 $childrenInfo[$incident['child_id']]['incidentModel']->attributes = $attributes;
+
                 if (!$childrenInfo[$incident['child_id']]['incidentModel']->save()) {
-                    //if there is any error we store commend field values to display on the form
+                    //if there is any error we store comment field values to display on the form
                     $descriptionValue = $childrenInfo[$incident['child_id']]['incidentModel']->description;
-                    $dateValue = $childrenInfo[$incident['child_id']]['incidentModel']->date;
-                    $errorsExist = true;
+                    $dateValue        = $childrenInfo[$incident['child_id']]['incidentModel']->date;
+                    $errorsExist      = true;
                 }
             }
+        } else {
+            $errorsExist = true;
         }
 
-        if (!isset($errorsExist)) {
-            $errorsExist = false;
-            $saved = false;
-        } else {
-            $saved = !$errorsExist;
-        }
+        $saved = !$errorsExist;
 
         $this->render(
             'activateAlert',
