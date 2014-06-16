@@ -17,6 +17,11 @@ html(lang='en')
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/app.css');
             Yii::app()->getClientScript()->registerCssFile('/libs/jquery-ui/themes/aristo/aristo.css');
 
+        | <!--[if lt IE 9]>
+        | <script src="<?php echo $this->baseUrl; ?>/js/placeholder-fix.js" />
+        | <![endif]-->
+
+
     -$bodyClass = 'page-' . Yii::app()->controller->id . ucfirst(Yii::app()->controller->action->id);
     body(class=bodyClass)
         #page.container_16
@@ -33,8 +38,6 @@ html(lang='en')
                     #infoMessage
                         -if (!Yii::app()->user->isGuest):
                             a.survey_link(href=$this->createUrl('child/survey')) Survey
-                                //br
-                                //| &nbsp;
                             a.activateAlert(href=$this->createUrl('child/list')) Activate
                                 br
                                 | Emergency Alert
@@ -89,6 +92,4 @@ html(lang='en')
 
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/coin-slider.js');
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/jquery-ui-timepicker-addon.js');
-
-            Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/placeholder-fix.js');
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/activate_alert.js');
