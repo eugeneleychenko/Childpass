@@ -220,8 +220,8 @@ class ChildController extends Controller
             if (!array_key_exists($childRelative->relative_id, $relatives)) {
                 $relatives[$childRelative->relative_id] = array(
                     'relative_id' =>  $childRelative->relative_id,
-                    'first_name' => $childRelative->relative->first_name,
-                    'last_name' => $childRelative->relative->last_name,
+                    'first_name'  => $childRelative->relative->first_name,
+                    'last_name'   => $childRelative->relative->last_name,
                     'relation_id' => $childRelative->relation_id
                 );
             }
@@ -268,7 +268,7 @@ class ChildController extends Controller
 
         $descriptionValue = '';
         $dateValue = '';
-        if ( isset($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass]) && count($_POST[$incidentModelClass]) ) {
+        if ( !empty($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass])) {
             foreach ($_POST[$incidentModelClass] as $number => $incident) {
 
                 //to ignore children of other users
@@ -302,12 +302,12 @@ class ChildController extends Controller
         $this->render(
             'activateAlert',
             array(
-                'noChildren' => $noChildren,
-                'childrenInfo' => $childrenInfo,
-                'saved' => $saved,
-                'errorsExist' => $errorsExist,
+                'noChildren'       => $noChildren,
+                'childrenInfo'     => $childrenInfo,
+                'saved'            => $saved,
+                'errorsExist'      => $errorsExist,
                 'descriptionValue' => $descriptionValue,
-                'dateValue' => $dateValue
+                'dateValue'        => $dateValue
                 )
         );
     }
