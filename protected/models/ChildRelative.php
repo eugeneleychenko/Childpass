@@ -124,29 +124,26 @@ class ChildRelative extends CActiveRecord
     public function saveMapping($childId, $relativeId, $relationId, $childRelativeId = null, $userId = null)
     {
         if ($childRelativeId) {
-            $childRelativeModel = ChildRelative::model()->with('child')->findByPk($childRelativeId);
+            $childRelativeModel = ChildRelative::model()->with(array(
+                'child' => array('alias'     => 'child',
+                                 'joinType'  => 'INNER JOIN',
+                                 'condition' => 'child.user_id = :user_id',
+                                 'params'    => array(':user_id' => $userId)
+                                 )
+            ))->findByPk($childRelativeId);
+
             if (!$childRelativeModel) {
-                $forbidToEditChildRelative = true;
-            } else {
-                $forbidToEditChildRelative = false;
-                if ($userId) {
-                    //don't allow to edit chilrelative of other user
-                    if ($childRelativeModel->child->user_id != $userId) {
-                        $forbidToEditChildRelative = true;
-                    }
-                }
+                return $childRelativeModel;
             }
+
         } else {
-            $forbidToEditChildRelative = false;
             $childRelativeModel =  new ChildRelative;
         }
 
-        if (!$forbidToEditChildRelative) {
-            $childRelativeModel->child_id = $childId;
-            $childRelativeModel->relative_id = $relativeId;
-            $childRelativeModel->relation_id = $relationId;
-            $childRelativeModel->save();
-        }
+        $childRelativeModel->child_id = $childId;
+        $childRelativeModel->relative_id = $relativeId;
+        $childRelativeModel->relation_id = $relationId;
+        $childRelativeModel->save();
         return $childRelativeModel;
     }
 

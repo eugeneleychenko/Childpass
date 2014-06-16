@@ -99,17 +99,10 @@ class ChildController extends Controller
                                 Relative::model()->saveRelatives($childId, $_POST['Relative'], $form['child']->model->user_id);
                             }
 
-                            //$childRelativesNumber = count(ChildRelative::model()->childRelativesMapping($childId));
-                            //if (!$childRelativesNumber) {
-                            //    $transaction->rollback();
-                            //    $this->redirect(array('child/list'));
-                            //} else {
                             $transaction->commit();
-                            //}
 
                             $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $form['child']->model->id));
                         }
-                    } else {
                     }
                 }
 
