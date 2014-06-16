@@ -262,7 +262,7 @@ class ChildController extends Controller
         $descriptionValue = '';
         $dateValue = '';
         if ( !empty($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass])) {
-            foreach ($_POST[$incidentModelClass] as $number => $incident) {
+            foreach ($_POST[$incidentModelClass] as $incident) {
 
                 //to ignore children of other users
                 if (!in_array($incident['child_id'], $userChildIds)) {
@@ -277,6 +277,7 @@ class ChildController extends Controller
                     );
                 $childrenInfo[$incident['child_id']]['incidentModel']->attributes = $attributes;
                 if (!$childrenInfo[$incident['child_id']]['incidentModel']->save()) {
+                    //if there is any error we store commend field values to display on the form
                     $descriptionValue = $childrenInfo[$incident['child_id']]['incidentModel']->description;
                     $dateValue = $childrenInfo[$incident['child_id']]['incidentModel']->date;
                     $errorsExist = true;
