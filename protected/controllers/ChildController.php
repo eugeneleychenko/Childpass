@@ -260,7 +260,7 @@ class ChildController extends Controller
             $userChildIds[] = $child->primaryKey;
             $incidentModel->child_id = $child->primaryKey;
             $incidentModel->child_description = $child->distinctive_marks;
-            $childrenInfo[] = array(
+            $childrenInfo[$child->primaryKey] = array(
                 'child' => $child,
                 'incidentModel' => $incidentModel,
             );
@@ -282,10 +282,10 @@ class ChildController extends Controller
                         'description' => $_POST['description'],
                         'date' => $_POST['date']
                     );
-                $childrenInfo[$number]['incidentModel']->attributes = $attributes;
-                if (!$childrenInfo[$number]['incidentModel']->save()) {
-                    $descriptionValue = $childrenInfo[$number]['incidentModel']->description;
-                    $dateValue = $childrenInfo[$number]['incidentModel']->date;
+                $childrenInfo[$incident['child_id']]['incidentModel']->attributes = $attributes;
+                if (!$childrenInfo[$incident['child_id']]['incidentModel']->save()) {
+                    $descriptionValue = $childrenInfo[$incident['child_id']]['incidentModel']->description;
+                    $dateValue = $childrenInfo[$incident['child_id']]['incidentModel']->date;
                     $errorsExist = true;
                 }
             }
@@ -297,7 +297,6 @@ class ChildController extends Controller
         } else {
             $saved = !$errorsExist;
         }
-
 
         $this->render(
             'activateAlert',
