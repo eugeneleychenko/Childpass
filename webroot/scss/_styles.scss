@@ -818,7 +818,6 @@ table#relatives_table {
 
 .errorMessage {
   color: #f00;
-  text-align: center;
 }
 
 //styles for datetimepicker
@@ -1007,6 +1006,10 @@ table#relatives_table {
     }
   }
 
+  .errorMessage {
+    text-align: center;
+  }
+
 
   span {
     label {
@@ -1023,7 +1026,6 @@ table#relatives_table {
       font-size: 0.8em;
     }
   }
-
 }
 
 .faq {
