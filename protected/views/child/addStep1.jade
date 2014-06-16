@@ -148,7 +148,7 @@
                                     td
                                         input(name="Relative[0][first_name]", required, maxlength="100", class="required")
                                     td
-                                        input(name="Relative[0][last_name]", required, , maxlength="100", class="required")
+                                        input(name="Relative[0][last_name]", required, maxlength="100", class="required")
                                     td
                                         :php
                                             echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required', 'class' => 'relation_id required'));
@@ -160,7 +160,7 @@
 
 
                     button.button.small#add_relative(type="button") +
-                    if (data.addingNextChild)
+                    if (data.isAddingNextChild)
                         &nbsp;&nbsp;&nbsp;
                         button.button.small#add_saved_relatives(type="button") Add relatives from other children
 

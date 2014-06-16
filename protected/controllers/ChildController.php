@@ -78,7 +78,7 @@ class ChildController extends Controller
                 } else {
                     $data['relatives'] = array();
                 }
-                $data['addingNextChild'] = ChildRelative::model()->userHasChildRelativeMapping(Yii::app()->user->getId());
+                $data['isAddingNextChild'] = ChildRelative::model()->userHasChildRelativeMapping(Yii::app()->user->getId());
 
                 $data['relationOptions'] = Relation::model()->getOptions();
 
@@ -239,9 +239,17 @@ class ChildController extends Controller
                                                 array(':user_id' => $userId));
 
         if (!count($userChildren)) {
-            echo '<p>No children to activate alert.</p>';
+            $noChildren = true;
+            $this->render(
+                'activateAlert',
+                array(
+                      'noChildren' => $noChildren
+                )
+            );
             exit;
         }
+
+        $noChildren = false;
 
         $incidentModelClass = 'Incident';
 
@@ -294,6 +302,7 @@ class ChildController extends Controller
         $this->render(
             'activateAlert',
             array(
+                'noChildren' => $noChildren,
                 'childrenInfo' => $childrenInfo,
                 'saved' => $saved,
                 'errorsExist' => $errorsExist,
