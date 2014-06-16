@@ -33,7 +33,7 @@ function deleteChildPhoto(button) {
 
 $(function() {
 
-    if (typeof variable !== 'undefined') {
+    if (typeof step !== 'undefined') {
         if (step == 'step1') {
             $('form').validate({
                 wrapper: 'div',
@@ -43,15 +43,16 @@ $(function() {
         $('form').submit(function( event ) {
             if (step == 'step1' && !$('#relatives_table tbody tr').length) {
                 if (!$('#relatives_error').length) {
-                    $('<div class="errorMessage" id="relatives_error" style="color: #f00;">Input at least one relative!</div>').insertBefore($('#relatives_table'));
+                    $('<div/>', {
+                        class: 'errorMessage',
+                        id: 'relatives_error'
+                      }).text('Input at least one relative!').insertBefore($('#relatives_table'));
                 }
                 event.preventDefault();
             }
         });
 
     }
-
-
 
     relationOptions = $('select.relation_id').first().find('option');
 
@@ -68,6 +69,7 @@ $(function() {
         var namePrefix = getNamePrefix();
         select = relationsElement(namePrefix, '');
         var row =  '<tr><td><input name="' + namePrefix + '[first_name]" required maxlength="100"></td><td><input name="' + namePrefix + '[last_name]" required maxlength="100"> </td><td>' + select/*.text()*/ + '</td><td><button type="type" class="button small delete_relative">-</button></td></tr>';
+
         $('#relatives_table').append(row);
         $('#relatives_table tbody').find('tr').last().find('td').eq(2).html(select);
         relativesNumber++;
