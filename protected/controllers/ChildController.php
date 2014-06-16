@@ -302,7 +302,6 @@ class ChildController extends Controller
                 'noChildren'       => $noChildren,
                 'childrenInfo'     => $childrenInfo,
                 'saved'            => $saved,
-                'errorsExist'      => $errorsExist,
                 'descriptionValue' => $descriptionValue,
                 'dateValue'        => $dateValue
                 )

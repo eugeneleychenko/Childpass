@@ -35,7 +35,6 @@ else
                 $counter = 0;
                 $descriptionError = null;
                 $dateError = null;
-                $modelWithError = null;
             each childInfo in childrenInfo
                 div.row.alert_child_row
                     !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => ($childInfo['incidentModel']->errors) ? 'checked' : false, 'class' => 'child_checkbox'))
@@ -45,12 +44,10 @@ else
                         $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
                         if  (isset($childInfo['incidentModel']->errors['description'])) {
                             $descriptionError = $form->error($childInfo['incidentModel'], 'description');
-                            $modelWithError = $childInfo['incidentModel'];
                         }
 
                         if  (isset($childInfo['incidentModel']->errors['date'])) {
                             $dateError = $form->error($childInfo['incidentModel'], 'date');
-                            $modelWithError = $childInfo['incidentModel'];
                         }
 
                     label.child_label(for=checkbox_id)
