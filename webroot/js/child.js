@@ -149,19 +149,27 @@ $(function() {
 
 
     function relationsElement(namePrefix, relationId) {
-        var options = '';
+        var options = [];
+        var selected;
         relationOptions.each(function() {
             var element = $(this);
-            var selected;
+
             if (element.val() ==  relationId) {
                 selected = 'selected';
             } else {
-                selected = '';
+                selected = false;
             }
-            options +=  '<option value="' + element.val() + '"' +  selected  + ' >' + element.text() + '</option>';
+            options.push($('<option/>', {
+                value: element.val(),
+                selected: selected
+            }).text(element.text()));
         });
 
-        return '<select required="required" class="relation_id" name="' + namePrefix + '[relation_id]">' + options + '</select>';
+        return $('<select/>', {
+               required: 'required',
+               class: 'relation_id',
+               name: namePrefix + '[relation_id]'
+            }).append(options);
     }
 
 
