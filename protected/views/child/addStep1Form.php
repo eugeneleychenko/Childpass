@@ -19,17 +19,14 @@ return array(
                 'first_name' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'First Name',
                 ),
                 'middle_name' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'Middle Name',
                 ),
                 'last_name' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'Last Name',
                 ),
 
                 'gender' => array(
@@ -59,12 +56,10 @@ return array(
                 'address' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "Address",
                 ),
                 'address2' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "Address 2",
                 ),
                 'zip_code' => array(
                     'type'  => 'text',
@@ -117,17 +112,14 @@ return array(
                 'grade' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "Grade",
                 ),
                 'city' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "City",
                 ),
                 'school_city' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "City",
                 ),
 
             ),

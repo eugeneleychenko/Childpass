@@ -220,9 +220,9 @@ class ChildController extends Controller
             if (!array_key_exists($childRelative->relative_id, $relatives)) {
                 $relatives[$childRelative->relative_id] = array(
                     'relative_id' =>  $childRelative->relative_id,
-                    'first_name'  => $childRelative->relative->first_name,
-                    'last_name'   => $childRelative->relative->last_name,
-                    'relation_id' => $childRelative->relation_id
+                    'first_name'  =>  $childRelative->relative->first_name,
+                    'last_name'   =>  $childRelative->relative->last_name,
+                    'relation_id' =>  $childRelative->relation_id
                 );
             }
         }
