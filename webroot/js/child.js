@@ -105,8 +105,9 @@ $(function() {
             type: 'GET',
             success: function(data) {
                var rows = prefilledRelativeRows(data);
+
                if (rows) {
-                   $('#relatives_table').append(rows);
+                   $('#relatives_table tbody').append(rows);
                }
             },
             complete: function() {
@@ -120,12 +121,16 @@ $(function() {
     function prefilledRelativeRows(relativesInfo) {
        var length = relativesInfo.length;
        var rows = '';
+       var row;
        for (var i = 0; i < length; i++) {
            if (relativeExistsOnTheForm(relativesInfo[i]['relative_id'])) {
                continue;
            }
 
-           rows += prefilledRelativeRow(relativesInfo[i]);
+           row = prefilledRelativeRow(relativesInfo[i]);
+           console.log(row);
+
+           rows += row;
            relativesNumber++;
        }
        return rows;
@@ -139,12 +144,14 @@ $(function() {
         var namePrefix = getNamePrefix();
         var selectRelationElement = relationsElement(namePrefix, relativeInfo['relation_id']);
 
-        return $('<tr/>').append([
+        var row = $('<tr/>');
+        row.append([
             $('<td/>').append( createFirstNameElement(namePrefix, relativeInfo['first_name']) ),
             $('<td/>').append( createLastNameElement(namePrefix, relativeInfo['last_name']) ),
             $('<td/>').append( selectRelationElement ),
             $('<td/>').append([ createDeleteRelativeButton(), createRelativeIdElement(namePrefix, relativeInfo['relative_id']) ])
-        ]).html();
+        ]);
+        return row.clone().wrap('<div>').parent().html();
     }
 
 
@@ -217,9 +224,7 @@ $(function() {
         }
 
         var row = button.closest('tr');
-
         var childRelativeIdElement = row.find('.child_relative_id');
-
 
         if (!childRelativeIdElement.length || !childRelativeIdElement.val()) {
             row.remove();
