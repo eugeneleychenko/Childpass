@@ -19,7 +19,7 @@
                                 a(href=$this->createUrl('child/add', array('step' => 'step1', 'child_id' => $child->id)))
                                     img(src = $child->childPhotos[0]->filename)
                             if ($child->incident)
-                                a(href=$this->createUrl('child/download-flyer', array('id' => $child->id)), class = 'flyer-link', target='_blank') Dowload Flyer
+                                a(href=$this->createUrl('child/download-flyer', array('id' => $child->id)), class = 'flyer-link', target='_blank') Download Flyer
                             a.edit-link(href=$this->createUrl('child/add', array('step' => 'step1', 'child_id' => $child->id))) Edit Child
                     - endforeach
             a.edit-child(href=$this->createUrl('child/add', array('step' => 'step1'))) Add Child »

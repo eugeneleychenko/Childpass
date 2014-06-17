@@ -17,9 +17,7 @@ html(lang='en')
             Yii::app()->getClientScript()->registerCssFile($this->baseUrl . '/css/app.css');
             Yii::app()->getClientScript()->registerCssFile('/libs/jquery-ui/themes/aristo/aristo.css');
 
-        | <!--[if lt IE 9]>
-        | <script src="<?php echo $this->baseUrl; ?>/js/placeholder-fix.js" />
-        | <![endif]-->
+
 
 
     -$bodyClass = 'page-' . Yii::app()->controller->id . ucfirst(Yii::app()->controller->action->id);
@@ -93,3 +91,10 @@ html(lang='en')
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/coin-slider.js');
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/jquery-ui-timepicker-addon.js');
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/activate_alert.js');
+
+
+
+        | <!--[if lt IE 9]>
+        | <script src="<?php echo $this->baseUrl; ?>/js/placeholder-fix.js">
+        | </script>
+        | <![endif]-->
