@@ -210,7 +210,8 @@ $(function() {
         return $('<input/>', {
                 type: 'hidden',
                 value: relativeId,
-                name: namePrefix + '[relative_id]'
+                name: namePrefix + '[relative_id]',
+                'class': 'relative_id'
         });
     }
 
