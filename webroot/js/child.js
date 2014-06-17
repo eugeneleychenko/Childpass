@@ -44,8 +44,8 @@ $(function() {
             if (step == 'step1' && !$('#relatives_table tbody tr').length) {
                 if (!$('#relatives_error').length) {
                     $('<div/>', {
-                            class: 'errorMessage',
-                            id: 'relatives_error'
+                            'class': 'errorMessage',
+                            'id': 'relatives_error'
                       }).text('Input at least one relative!').insertBefore($('#relatives_table'));
                 }
                 event.preventDefault();
@@ -80,8 +80,8 @@ $(function() {
         });
 
         var deleteRelativeButton = $('<button/>', {
-                type: 'type',
-                class: 'button small delete_relative'
+                'type': 'type',
+                'class': 'button small delete_relative'
         }).text('-');
 
 
@@ -175,7 +175,7 @@ $(function() {
 
         return $('<select/>', {
                 required: 'required',
-                class: 'relation_id',
+                'class': 'relation_id',
                 name: namePrefix + '[relation_id]'
             }).append(options);
     }
@@ -202,7 +202,7 @@ $(function() {
     function createDeleteRelativeButton() {
         return $('<button/>', {
                 type: 'type',
-                class: 'button small delete_relative'
+                'class': 'button small delete_relative'
         }).text('-');
     }
 
