@@ -1545,7 +1545,7 @@ table#relatives_table th {
 }
 /* line 983, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .right {
-  margin-left: 31%;
+  margin-left: 36%;
   width: 50%;
 }
 /* line 988, D:/projects/web/childPass/webroot/scss/_styles.scss */
@@ -1571,7 +1571,7 @@ table#relatives_table th {
 }
 /* line 1009, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form .errorMessage {
-  text-align: center;
+  text-align: left;
 }
 /* line 1015, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #survey_form span label {
