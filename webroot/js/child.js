@@ -36,6 +36,7 @@ $(function() {
     if (typeof step !== 'undefined') {
         if (step == 'step1') {
             $('form').validate({
+                ignore: '#Child_birthday',
                 wrapper: 'div',
                 errorLabelContainer: "#messageBox"
             });
