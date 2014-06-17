@@ -71,12 +71,12 @@ $(function() {
         var selectRelationElement = createRelationsElement(namePrefix, '');
         var firstNameElement = $('<input/>', {
                 name: namePrefix + '[first_name]',
-                required: 'required',
+                'class': 'required',
                 maxLength: '100'
         });
         var lastNameElement = $('<input/>', {
                 name: namePrefix + '[last_name]',
-                required: 'required',
+                'class': 'required',
                 maxLength: '100'
         });
 
@@ -175,8 +175,7 @@ $(function() {
         });
 
         return $('<select/>', {
-                required: 'required',
-                'class': 'relation_id',
+                'class': 'relation_id required',
                 name: namePrefix + '[relation_id]'
             }).append(options);
     }
@@ -185,7 +184,7 @@ $(function() {
     function createFirstNameElement(namePrefix, value) {
         return $('<input/>', {
                 name: namePrefix + '[first_name]',
-                required: 'required',
+                'class': 'required',
                 maxLength: '100',
                 value: typeof value !== 'undefined' ? value : ''
         });
@@ -194,7 +193,7 @@ $(function() {
     function createLastNameElement(namePrefix, value) {
         return $('<input/>', {
                 name: namePrefix + '[last_name]',
-                required: 'required',
+                'class': 'required',
                 maxLength: '100',
                 value: typeof value !== 'undefined' ? value : ''
         });
