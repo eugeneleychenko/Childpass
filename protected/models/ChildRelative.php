@@ -125,11 +125,12 @@ class ChildRelative extends CActiveRecord
     {
         if ($childRelativeId) {
             $childRelativeModel = ChildRelative::model()->with(array(
-                'child' => array('alias'     => 'child',
-                                 'joinType'  => 'INNER JOIN',
-                                 'condition' => 'child.user_id = :user_id',
-                                 'params'    => array(':user_id' => $userId)
-                                 )
+                'child' => array(
+                    'alias'     => 'child',
+                    'joinType'  => 'INNER JOIN',
+                    'condition' => 'child.user_id = :user_id',
+                    'params'    => array(':user_id' => $userId)
+                    )
             ))->findByPk($childRelativeId);
 
             if (!$childRelativeModel) {
@@ -151,10 +152,11 @@ class ChildRelative extends CActiveRecord
     {
         return $this->with(array(
             'child' => array(
-                'alias' => 'child',
-                'joinType'=>'INNER JOIN',
-                'condition'=> 'child.user_id = :user_id',
-                'params' => array(':user_id' => $userId) )))->exists();
+                    'alias' => 'child',
+                    'joinType'=>'INNER JOIN',
+                    'condition'=> 'child.user_id = :user_id',
+                    'params' => array(':user_id' => $userId)
+                )))->exists();
     }
 
 }

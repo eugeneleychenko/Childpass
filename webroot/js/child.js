@@ -44,8 +44,8 @@ $(function() {
             if (step == 'step1' && !$('#relatives_table tbody tr').length) {
                 if (!$('#relatives_error').length) {
                     $('<div/>', {
-                        class: 'errorMessage',
-                        id: 'relatives_error'
+                            class: 'errorMessage',
+                            id: 'relatives_error'
                       }).text('Input at least one relative!').insertBefore($('#relatives_table'));
                 }
                 event.preventDefault();
@@ -67,29 +67,30 @@ $(function() {
 
     function addNewRelative() {
         var namePrefix = getNamePrefix();
-        var selectRelationElement = relationsElement(namePrefix, '');
+        var selectRelationElement = createRelationsElement(namePrefix, '');
         var firstNameElement = $('<input/>', {
-            name: namePrefix + '[first_name]',
-            required: 'required',
-            maxLength: '100'
+                name: namePrefix + '[first_name]',
+                required: 'required',
+                maxLength: '100'
         });
         var lastNameElement = $('<input/>', {
-            name: namePrefix + '[last_name]',
-            required: 'required',
-            maxLength: '100'
+                name: namePrefix + '[last_name]',
+                required: 'required',
+                maxLength: '100'
         });
 
         var deleteRelativeButton = $('<button/>', {
-            type: 'type',
-            class: 'button small delete_relative'
+                type: 'type',
+                class: 'button small delete_relative'
         }).text('-');
 
 
-        var row = $('<tr/>').append([$('<td/>').append(firstNameElement),
-                                    $('<td/>').append(lastNameElement),
-                                    $('<td/>').append(selectRelationElement),
-                                    $('<td/>').append( createDeleteRelativeButton() )]
-                                   );
+        var row = $('<tr/>').append([
+                $('<td/>').append(firstNameElement),
+                $('<td/>').append(lastNameElement),
+                $('<td/>').append(selectRelationElement),
+                $('<td/>').append( createDeleteRelativeButton() )
+                ]);
 
         $('#relatives_table').append(row);
         relativesNumber++;
@@ -128,8 +129,6 @@ $(function() {
            }
 
            row = prefilledRelativeRow(relativesInfo[i]);
-           console.log(row);
-
            rows += row;
            relativesNumber++;
        }
@@ -142,20 +141,22 @@ $(function() {
 
     function prefilledRelativeRow(relativeInfo) {
         var namePrefix = getNamePrefix();
-        var selectRelationElement = relationsElement(namePrefix, relativeInfo['relation_id']);
 
         var row = $('<tr/>');
         row.append([
-            $('<td/>').append( createFirstNameElement(namePrefix, relativeInfo['first_name']) ),
-            $('<td/>').append( createLastNameElement(namePrefix, relativeInfo['last_name']) ),
-            $('<td/>').append( selectRelationElement ),
-            $('<td/>').append([ createDeleteRelativeButton(), createRelativeIdElement(namePrefix, relativeInfo['relative_id']) ])
+                $('<td/>').append( createFirstNameElement(namePrefix, relativeInfo['first_name']) ),
+                $('<td/>').append( createLastNameElement(namePrefix, relativeInfo['last_name']) ),
+                $('<td/>').append( createRelationsElement(namePrefix, relativeInfo['relation_id']) ),
+                $('<td/>').append([
+                        createDeleteRelativeButton(),
+                        createRelativeIdElement(namePrefix, relativeInfo['relative_id'])
+                        ])
         ]);
         return row.clone().wrap('<div>').parent().html();
     }
 
 
-    function relationsElement(namePrefix, relationId) {
+    function createRelationsElement(namePrefix, relationId) {
         var options = [];
         var selected;
         relationOptions.each(function() {
@@ -167,49 +168,49 @@ $(function() {
                 selected = false;
             }
             options.push($('<option/>', {
-                value: element.val(),
-                selected: selected
+                    value: element.val(),
+                    selected: selected
             }).text(element.text()));
         });
 
         return $('<select/>', {
-               required: 'required',
-               class: 'relation_id',
-               name: namePrefix + '[relation_id]'
+                required: 'required',
+                class: 'relation_id',
+                name: namePrefix + '[relation_id]'
             }).append(options);
     }
 
 
     function createFirstNameElement(namePrefix, value) {
         return $('<input/>', {
-            name: namePrefix + '[first_name]',
-            required: 'required',
-            maxLength: '100',
-            value: typeof value !== 'undefined' ? value : ''
+                name: namePrefix + '[first_name]',
+                required: 'required',
+                maxLength: '100',
+                value: typeof value !== 'undefined' ? value : ''
         });
     }
 
     function createLastNameElement(namePrefix, value) {
         return $('<input/>', {
-            name: namePrefix + '[last_name]',
-            required: 'required',
-            maxLength: '100',
-            value: typeof value !== 'undefined' ? value : ''
+                name: namePrefix + '[last_name]',
+                required: 'required',
+                maxLength: '100',
+                value: typeof value !== 'undefined' ? value : ''
         });
     }
 
     function createDeleteRelativeButton() {
         return $('<button/>', {
-            type: 'type',
-            class: 'button small delete_relative'
+                type: 'type',
+                class: 'button small delete_relative'
         }).text('-');
     }
 
     function createRelativeIdElement(namePrefix, relativeId) {
         return $('<input/>', {
-            type: 'hidden',
-            value: relativeId,
-            name: namePrefix + '[relative_id]'
+                type: 'hidden',
+                value: relativeId,
+                name: namePrefix + '[relative_id]'
         });
     }
 

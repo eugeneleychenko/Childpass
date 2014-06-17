@@ -202,10 +202,10 @@ class ChildController extends Controller
         $childRelatives = ChildRelative::model()->with(array(
             'relative',
             'child' => array(
-                'alias'     => 'child',
-                'joinType'  => 'INNER JOIN',
-                'condition' => 'child.user_id = :user_id',
-                'params'    => array(':user_id' => $userId)
+                    'alias'     => 'child',
+                    'joinType'  => 'INNER JOIN',
+                    'condition' => 'child.user_id = :user_id',
+                    'params'    => array(':user_id' => $userId)
             )
         ))->findAll();
 
