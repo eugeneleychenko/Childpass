@@ -67,6 +67,7 @@ return array(
                     'label' => 'Zip',
                 ),
                 'birthday' => array(
+                    'type' => 'date',
                     'class' => 'fieldstyle datepicker',
                     'label' => 'Date of Birth',
                 ),

@@ -1601,3 +1601,13 @@ div.errorMessage, label.errorMessage {
 .faq .question {
   font-weight: bold;
 }
+
+/* line 1048, D:/projects/web/childPass/webroot/scss/_styles.scss */
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* line 1052, D:/projects/web/childPass/webroot/scss/_styles.scss */
+input[type="date"]::-webkit-input-placeholder {
+  visibility: hidden !important;
+}
