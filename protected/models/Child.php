@@ -79,7 +79,8 @@ class Child extends CActiveRecord
 			array('distinctive_marks, missing_from', 'length', 'max'=>255),
 			array('school', 'length', 'max'=>150),
             array('city, school_city', 'length', 'max'=>100),
-			array('birthday, missing_date', 'safe'),
+            array('birthday', 'date', 'format'=>'yyyy-MM-dd', 'message'=>'{attribute} has wrong format. Format should be: yyyy-mm-dd.'),
+			array('missing_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, user_id, created_at, first_name, middle_name, last_name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, teeth, missing_date, missing_from, state, school_state, grade', 'safe', 'on'=>'search'),
