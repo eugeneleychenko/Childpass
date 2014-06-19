@@ -35,12 +35,17 @@ $(function() {
     $( ".datepicker" ).datepicker({
             changeYear: true,
             yearRange: "-50:+0",
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'yy-mm-dd',
+            onSelect: function (dateText, inst) {
+                $(this).prev().removeClass('error');
+                $(this).next().hide();
+            }
     });
 
     if (typeof step !== 'undefined') {
         if (step == 'step1') {
             $('form').validate({
+                errorClass: 'errorMessage',
                 ignore: '#Child_birthday',
                 wrapper: 'div',
                 errorLabelContainer: "#messageBox"
