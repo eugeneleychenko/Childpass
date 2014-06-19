@@ -326,9 +326,9 @@ form {
     margin-bottom: 0.2em;
   }
 
-  label.error {
-    color: #f00;
-  }
+//  label.error {
+//    color: #f00;
+//  }
 
 
   .fieldstyle {
@@ -821,7 +821,7 @@ table#relatives_table {
 }
 
 
-.errorMessage {
+div.errorMessage, label.errorMessage {
   color: #f00;
 }
 

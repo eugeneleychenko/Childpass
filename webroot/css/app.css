@@ -883,10 +883,6 @@ form .row.submit {
   text-align: left;
   margin-bottom: 0.2em;
 }
-/* line 329, D:/projects/web/childPass/webroot/scss/_styles.scss */
-#child-info-form label.error {
-  color: #f00;
-}
 /* line 334, D:/projects/web/childPass/webroot/scss/_styles.scss */
 #child-info-form .fieldstyle {
   width: 100%;
@@ -1368,7 +1364,7 @@ table#relatives_table th {
 }
 
 /* line 824, D:/projects/web/childPass/webroot/scss/_styles.scss */
-.errorMessage {
+div.errorMessage, label.errorMessage {
   color: #f00;
 }
 
