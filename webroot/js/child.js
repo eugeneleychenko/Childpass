@@ -32,6 +32,11 @@ function deleteChildPhoto(button) {
 }
 
 $(function() {
+    $( ".datepicker" ).datepicker({
+            changeYear: true,
+            yearRange: "-50:+0",
+            dateFormat: 'yy-mm-dd'
+    });
 
     if (typeof step !== 'undefined') {
         if (step == 'step1') {
