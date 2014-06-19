@@ -158,8 +158,9 @@ $(function() {
 
 
     function createRelationsElement(namePrefix, relationId) {
-        var options = [];
+        var options = '';
         var selected;
+
         relationOptions.each(function() {
             var element = $(this);
 
@@ -168,10 +169,9 @@ $(function() {
             } else {
                 selected = false;
             }
-            options.push($('<option/>', {
-                    value: element.val(),
-                    selected: selected
-            }).text(element.text()));
+
+          //this syntax works in ie8 too
+          options +=  '<option value="' + element.val() + '"' +  selected  + ' >' + element.text() + '</option>';
         });
 
         return $('<select/>', {
