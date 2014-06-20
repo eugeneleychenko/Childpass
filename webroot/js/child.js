@@ -46,10 +46,14 @@ $(function() {
         if (step == 'step1') {
             $('form').validate({
                 errorClass: 'errorMessage',
-                ignore: '#Child_birthday',
+                ignore: '.datepicker',
                 wrapper: 'div',
                 errorLabelContainer: "#messageBox"
             });
+
+            //to avoid issues with date validator of jquery validate
+            delete $.validator.methods.date;
+
         }
         $('form').submit(function( event ) {
             if (step == 'step1' && !$('#relatives_table tbody tr').length) {
