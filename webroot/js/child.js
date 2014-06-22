@@ -45,7 +45,7 @@ $(function() {
     if (typeof step !== 'undefined') {
         if (step == 'step1') {
             $('form').validate({
-                errorClass: 'errorMessage',
+                errorClass: 'clientErrorMessage',
                 ignore: '.datepicker',
                 wrapper: 'div',
                 errorLabelContainer: "#messageBox"
@@ -59,7 +59,7 @@ $(function() {
             if (step == 'step1' && !$('#relatives_table tbody tr').length) {
                 if (!$('#relatives_error').length) {
                     $('<div/>', {
-                            'class': 'errorMessage',
+                            'class': 'clientErrorMessage',
                             'id': 'relatives_error'
                       }).text('Input at least one relative!').insertBefore($('#relatives_table'));
                 }

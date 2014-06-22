@@ -3,11 +3,11 @@ return array(
     'title'      => '',
     'activeForm' => array(
         'class'                  => 'CActiveForm',
-        'enableAjaxValidation'   => false,
+        'enableAjaxValidation'   => true,
         'enableClientValidation' => true,
         'id'                     => 'child-info-form',
         'clientOptions'          => array(
-            'validateOnSubmit' => true,
+            'validateOnChange' => true,
         ),
     ),
 
