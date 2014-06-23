@@ -7,7 +7,6 @@ return array(
         'enableClientValidation' => true,
         'id'                     => 'child-info-form',
         'clientOptions'          => array(
-            'validateOnChange' => false,
         ),
     ),
 
