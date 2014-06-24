@@ -55,6 +55,7 @@ return array(
                 'address' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
+                    'placeholder' => 'Please include PO Box or Apartment number, if applicable'
                 ),
                 'address2' => array(
                     'type'  => 'text',
@@ -75,6 +76,7 @@ return array(
                     'rows' => 10,
                     'label' => 'Please provide details such as location of scars, birthmarks, tattoos or any other marks',
                     'maxlength' => '255',
+                    'class' => 'distinctive_marks'
                 ),
                 'school' => array(
                     'type'  => 'text',
@@ -85,6 +87,7 @@ return array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
                     'label' => 'Address',
+                    'placeholder' => 'Please include PO Box or Apartment number, if applicable'
                 ),
                 'school_address2' => array(
                     'type'  => 'text',
@@ -111,6 +114,11 @@ return array(
                 'grade' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
+                ),
+                'additional_school_details' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'placeholder' => 'Special Programs/Clubs/Sports'
                 ),
                 'city' => array(
                     'type'  => 'text',

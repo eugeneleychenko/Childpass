@@ -217,7 +217,7 @@ $(function() {
         return $('<button/>', {
                 type: 'type',
                 'class': 'button small delete_relative'
-        }).text('-');
+        }).text('delete');
     }
 
     function createRelativeIdElement(namePrefix, relativeId) {
