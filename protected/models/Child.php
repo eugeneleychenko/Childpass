@@ -76,6 +76,7 @@ class Child extends CActiveRecord
 			array('zip_code, school_zip_code', 'length', 'max'=>10),
 			array('distinctive_marks, missing_from', 'length', 'max'=>255),
 			array('school', 'length', 'max'=>150),
+            array('grade', 'length', 'max'=> 5),
             array('city, school_city, additional_school_details', 'length', 'max'=>100),
             array('birthday', 'date', 'format'=>'yyyy-MM-dd', 'message'=>'{attribute} has wrong format. Format should be: yyyy-mm-dd.'),
 			array('missing_date', 'safe'),
