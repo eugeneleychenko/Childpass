@@ -26,9 +26,10 @@ html(lang='en')
             #header
                 .logoWrapper
                     div.hintText
-                        span(style='color: #757575;') Toll Free:
-                        span(style='color: #ed8b37;') 1.800.CHILD
-                        span(style='color: #002f65;') IK
+                        span
+                            span(style='color: #757575;') Toll Free:
+                            span
+                               a.email_link(href="info@yourchildpass.com") info@yourchildpass.com
                     div
                         a(href=$this->baseUrl . '/')
                             img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
