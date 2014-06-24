@@ -57,10 +57,6 @@ return array(
                     'class' => 'fieldstyle',
                     'placeholder' => 'Please include PO Box or Apartment number, if applicable'
                 ),
-                'address2' => array(
-                    'type'  => 'text',
-                    'class' => 'fieldstyle',
-                ),
                 'zip_code' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
@@ -88,11 +84,6 @@ return array(
                     'class' => 'fieldstyle',
                     'label' => 'Address',
                     'placeholder' => 'Please include PO Box or Apartment number, if applicable'
-                ),
-                'school_address2' => array(
-                    'type'  => 'text',
-                    'class' => 'fieldstyle',
-                    'label' => 'Address 2',
                 ),
                 'school_zip_code' => array(
                     'type'  => 'text',

@@ -17,13 +17,11 @@
  * @property integer $eyes_color_id
  * @property integer $hair_color_id
  * @property string $address
- * @property string $address2
  * @property string $zip_code
  * @property string $birthday
  * @property string $distinctive_marks
  * @property string $school
  * @property string $school_address
- * @property string $school_address2
  * @property string $school_zip_code
  * @property string $teeth
  * @property string $missing_date
@@ -72,7 +70,7 @@ class Child extends CActiveRecord
 		return array(
 			array('user_id, first_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, zip_code, birthday, distinctive_marks, school, school_address, school_zip_code, state, school_state, city, school_city', 'required'),
 			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id', 'numerical', 'integerOnly'=>true),
-			array('first_name, middle_name, last_name, address, address2, school_address, school_address2', 'length', 'max'=>100),
+			array('first_name, middle_name, last_name, address, school_address', 'length', 'max'=>100),
 			array('gender', 'length', 'max'=>1),
             array('state, school_state', 'length', 'max'=>30),
 			array('zip_code, school_zip_code', 'length', 'max'=>10),
@@ -83,7 +81,7 @@ class Child extends CActiveRecord
 			array('missing_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, created_at, first_name, middle_name, last_name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, teeth, missing_date, missing_from, state, school_state, grade', 'safe', 'on'=>'search'),
+			array('id, user_id, created_at, first_name, middle_name, last_name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, zip_code, birthday, distinctive_marks, school, school_address, school_zip_code, teeth, missing_date, missing_from, state, school_state, grade', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -125,13 +123,11 @@ class Child extends CActiveRecord
             'eyes_color_id'             => 'Eye Color',
             'hair_color_id'             => 'Hair Color',
             'address'                   => 'Address',
-            'address2'                  => 'Address2',
             'zip_code'                  => 'Zip Code',
             'birthday'                  => 'Birthday',
             'distinctive_marks'         => 'Distinctive Marks',
             'school'                    => 'School',
             'school_address'            => 'School Address',
-            'school_address2'           => 'School Address2',
             'school_zip_code'           => 'School Zip Code',
             'known_relatives'           => 'Known Relatives',
             'teeth'                     => 'Teeth',
@@ -169,13 +165,11 @@ class Child extends CActiveRecord
 		$criteria->compare('eyes_color_id',$this->eyes_color_id);
 		$criteria->compare('hair_color_id',$this->hair_color_id);
 		$criteria->compare('address',$this->address,true);
-		$criteria->compare('address2',$this->address2,true);
 		$criteria->compare('zip_code',$this->zip_code,true);
 		$criteria->compare('birthday',$this->birthday,true);
 		$criteria->compare('distinctive_marks',$this->distinctive_marks,true);
 		$criteria->compare('school',$this->school,true);
 		$criteria->compare('school_address',$this->school_address,true);
-		$criteria->compare('school_address2',$this->school_address2,true);
 		$criteria->compare('school_zip_code',$this->school_zip_code,true);
 		$criteria->compare('known_relatives',$this->known_relatives,true);
         $criteria->compare('teeth',$this->teeth,true);

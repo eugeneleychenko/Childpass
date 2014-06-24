@@ -11,6 +11,22 @@ class m140624_102127_change_child_fields extends CDbMigration
 
         $this->dropColumn('{{child}}', 'address2');
         $this->dropColumn('{{child}}', 'school_address2');
+
+        $this->insert('{{relation}}', array(
+                'id' => 7,
+                'name' => 'Sister')
+        );
+
+        $this->insert('{{relation}}', array(
+                'id' => 8,
+                'name' => 'Brother')
+        );
+
+        $this->insert('{{relation}}', array(
+                'id' => 9,
+                'name' => 'Caregiver')
+        );
+
 	}
 
 	public function safeDown()
@@ -21,6 +37,9 @@ class m140624_102127_change_child_fields extends CDbMigration
 
         $this->addColumn('{{child}}', 'address2', 'varchar(100) NOT NULL');
         $this->addColumn('{{child}}', 'school_address2', 'varchar(100) NOT NULL');
+
+        $this->delete('{{child_relative}}','relation_id = 7 OR relation_id = 8 OR relation_id = 9');
+        $this->delete('{{relation}}','id = 7 OR id = 8 OR id = 9');
 	}
 
 }
