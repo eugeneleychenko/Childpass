@@ -4,7 +4,7 @@
 // Any writable CConsoleApplication properties can be configured here.
 return array(
     'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-    'name'=>'PGPF Interns',
+    'name'=>'Child Pass',
     // autoloading model and component classes
     'import'=>array(
         'application.models.*',
@@ -17,7 +17,7 @@ return array(
 //		),
         // uncomment the following to use a MySQL database
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=pgpf_interns',
+            'connectionString' => 'mysql:host=127.0.0.1;dbname=childpass',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => '',
@@ -35,6 +35,6 @@ return array(
 
     ),
     'params'=>array(
-        'adminEmail'=>'support@pgpfinterns.local',
+        'adminEmail'=>'support@childpass.local',
     ),
 );

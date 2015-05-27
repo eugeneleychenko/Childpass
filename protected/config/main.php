@@ -142,7 +142,7 @@ return array(
         ),
 	),
     'params'=>array(
-        'adminEmail'=>'support@pgpfinterns.local',
+        'adminEmail'=>'support@childpass.local',
         'surveyEmail' => 'michael@mammalfish.com'
 
         //root folder for our folders and fields relative to webroot folder
