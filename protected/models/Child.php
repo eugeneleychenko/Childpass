@@ -17,13 +17,11 @@
  * @property integer $eyes_color_id
  * @property integer $hair_color_id
  * @property string $address
- * @property string $address2
  * @property string $zip_code
  * @property string $birthday
  * @property string $distinctive_marks
  * @property string $school
  * @property string $school_address
- * @property string $school_address2
  * @property string $school_zip_code
  * @property string $teeth
  * @property string $missing_date
@@ -70,19 +68,21 @@ class Child extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, first_name, middle_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, zip_code, birthday, distinctive_marks, school, school_address, school_zip_code, state, school_state, grade, city, school_city', 'required'),
-			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, grade', 'numerical', 'integerOnly'=>true),
-			array('first_name, middle_name, last_name, address, address2, school_address, school_address2', 'length', 'max'=>100),
+			array('user_id, first_name, last_name, gender, ethnicity_id, eyes_color_id, hair_color_id, address, zip_code, birthday, distinctive_marks, school, school_address, school_zip_code, state, school_state, city, school_city', 'required'),
+			array('user_id, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id', 'numerical', 'integerOnly'=>true),
+			array('first_name, middle_name, last_name, address, school_address', 'length', 'max'=>100),
 			array('gender', 'length', 'max'=>1),
             array('state, school_state', 'length', 'max'=>30),
 			array('zip_code, school_zip_code', 'length', 'max'=>10),
 			array('distinctive_marks, missing_from', 'length', 'max'=>255),
 			array('school', 'length', 'max'=>150),
-            array('city, school_city', 'length', 'max'=>100),
-			array('birthday, missing_date', 'safe'),
+            array('grade', 'length', 'max'=> 5),
+            array('city, school_city, additional_school_details', 'length', 'max'=>100),
+            array('birthday', 'date', 'format'=>'yyyy-MM-dd', 'message'=>'{attribute} has wrong format. Format should be: yyyy-mm-dd.'),
+			array('missing_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, created_at, first_name, middle_name, last_name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, address2, zip_code, birthday, distinctive_marks, school, school_address, school_address2, school_zip_code, teeth, missing_date, missing_from, state, school_state, grade', 'safe', 'on'=>'search'),
+			array('id, user_id, created_at, first_name, middle_name, last_name, gender, height_feet, height_inches, weight, ethnicity_id, eyes_color_id, hair_color_id, address, zip_code, birthday, distinctive_marks, school, school_address, school_zip_code, teeth, missing_date, missing_from, state, school_state, grade', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -110,38 +110,36 @@ class Child extends CActiveRecord
 	public function attributeLabels()
 	{
         return array(
-            'id'                => 'ID',
-            'user_id'           => 'User ID',
-            'created_at'        => 'Created At',
-            'first_name'        => 'First Name',
-            'middle_name'       => 'Middle Name',
-            'last_name'         => 'Last Name',
-            'gender'            => 'Gender',
-            'height_feet'       => 'Height Feet',
-            'height_inches'     => 'Height Inches',
-            'weight'            => 'Weight',
-            'ethnicity_id'      => 'Ethnicity',
-            'eyes_color_id'     => 'Eye Color',
-            'hair_color_id'     => 'Hair Color',
-            'address'           => 'Address',
-            'address2'          => 'Address2',
-            'zip_code'          => 'Zip Code',
-            'birthday'          => 'Birthday',
-            'distinctive_marks' => 'Distinctive Marks',
-            'school'            => 'School',
-            'school_address'    => 'School Address',
-            'school_address2'   => 'School Address2',
-            'school_zip_code'   => 'School Zip Code',
-            'known_relatives'   => 'Known Relatives',
-            'teeth'             => 'Teeth',
-            'missing_date'      => 'Missing Date',
-            'missing_from'      => 'Missing From',
-            'state'             => 'State',
-            'school_state'      => 'State',
-            'grade'             => 'Grade',
-            'city'              => 'City',
-            'school_city'       => 'City'
-
+            'id'                        => 'ID',
+            'user_id'                   => 'User ID',
+            'created_at'                => 'Created At',
+            'first_name'                => 'First Name',
+            'middle_name'               => 'Middle Name',
+            'last_name'                 => 'Last Name',
+            'gender'                    => 'Gender',
+            'height_feet'               => 'Height Feet',
+            'height_inches'             => 'Height Inches',
+            'weight'                    => 'Weight',
+            'ethnicity_id'              => 'Ethnicity',
+            'eyes_color_id'             => 'Eye Color',
+            'hair_color_id'             => 'Hair Color',
+            'address'                   => 'Address',
+            'zip_code'                  => 'Zip Code',
+            'birthday'                  => 'Birthday',
+            'distinctive_marks'         => 'Distinctive Marks',
+            'school'                    => 'School',
+            'school_address'            => 'School Address',
+            'school_zip_code'           => 'School Zip Code',
+            'known_relatives'           => 'Known Relatives',
+            'teeth'                     => 'Teeth',
+            'missing_date'              => 'Missing Date',
+            'missing_from'              => 'Missing From',
+            'state'                     => 'State',
+            'school_state'              => 'State',
+            'grade'                     => 'Grade',
+            'city'                      => 'City',
+            'school_city'               => 'City',
+            'additional_school_details' => 'Additional school details'
         );
 	}
 
@@ -168,13 +166,11 @@ class Child extends CActiveRecord
 		$criteria->compare('eyes_color_id',$this->eyes_color_id);
 		$criteria->compare('hair_color_id',$this->hair_color_id);
 		$criteria->compare('address',$this->address,true);
-		$criteria->compare('address2',$this->address2,true);
 		$criteria->compare('zip_code',$this->zip_code,true);
 		$criteria->compare('birthday',$this->birthday,true);
 		$criteria->compare('distinctive_marks',$this->distinctive_marks,true);
 		$criteria->compare('school',$this->school,true);
 		$criteria->compare('school_address',$this->school_address,true);
-		$criteria->compare('school_address2',$this->school_address2,true);
 		$criteria->compare('school_zip_code',$this->school_zip_code,true);
 		$criteria->compare('known_relatives',$this->known_relatives,true);
         $criteria->compare('teeth',$this->teeth,true);

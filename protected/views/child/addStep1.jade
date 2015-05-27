@@ -39,7 +39,7 @@
 .panel
     .contentWrapper
         h2 Child Profile
-        p (All fields are required.)
+        p (All "*"  fields are required)
         !=$form->renderBegin()
             div(style='width: 98%;')
                 .formRow
@@ -64,10 +64,8 @@
                         !=$form['child']['hair_color_id']
 
                 .formRow
-                    .fieldWrapper
+                    .addressWrapper
                         !=$form['child']['address']
-                    .fieldWrapper
-                        !=$form['child']['address2']
                     .fieldWrapper
                         !=$form['child']['city']
                     .fieldWrapper
@@ -86,14 +84,13 @@
                         !=$form['child']['school']
                     .fieldWrapper
                         !=$form['child']['grade']
-                    .fieldWrapper
+                    .schoolDetailsWrapper
+                        !=$form['child']['additional_school_details']
                     .fieldWrapper
 
                 .formRow
-                    .fieldWrapper
+                    .addressWrapper
                         !=$form['child']['school_address']
-                    .fieldWrapper
-                        !=$form['child']['school_address2']
                     .fieldWrapper
                         !=$form['child']['school_city']
                     .fieldWrapper
@@ -104,7 +101,7 @@
 
 
                 div#relatives
-                    h3 Known Relatives
+                    h3 known relative/caregiver
                     if data.relatives
                         table#relatives_table
                             thead
@@ -121,15 +118,15 @@
                                     tr
                                         td
                                             :php
-                                                echo CHtml::textField("Relative[$counter][first_name]", $relative['first_name'], array('maxlength' => '100', 'required' => 'required', 'class' => 'required'));
+                                                echo CHtml::textField("Relative[$counter][first_name]", $relative['first_name'], array('maxlength' => '100', 'class' => 'required'));
                                         td
                                             :php
-                                                echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name'], array('maxlength' => '100', 'required' => 'required', 'class' => 'required'));
+                                                echo CHtml::textField("Relative[$counter][last_name]", $relative['last_name'], array('maxlength' => '100', 'class' => 'required'));
                                         td
                                             :php
-                                                echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required', 'class' => 'relation_id required'));
+                                                echo CHtml::dropDownList("Relative[$counter][relation_id]", $relative['selectedRelation'], $data['relationOptions'], array('empty' => 'Select Relation', 'class' => 'relation_id required'));
                                         td
-                                            button.button.small.delete_relative(type="button") -
+                                            button.button.small.delete_relative(type="button") delete
                                             :php
                                                 echo CHtml::hiddenField("Relative[$counter][relative_id]", $relative['id'], array('class' => 'relative_id'));
                                                 echo CHtml::hiddenField("Relative[$counter][child_relative_id]", $relative['childRelationId'], array('class' => 'child_relative_id'));
@@ -146,21 +143,21 @@
                              tbody
                                 tr
                                     td
-                                        input(name="Relative[0][first_name]", required, maxlength="100", class="required")
+                                        input(name="Relative[0][first_name]", maxlength="100", class="required")
                                     td
-                                        input(name="Relative[0][last_name]", required, , maxlength="100", class="required")
+                                        input(name="Relative[0][last_name]", maxlength="100", class="required")
                                     td
                                         :php
-                                            echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation', 'required' => 'required', 'class' => 'relation_id required'));
+                                            echo CHtml::dropDownList("Relative[0][relation_id]", '', $data['relationOptions'], array('empty' => 'Select Relation', 'class' => 'relation_id required'));
                                     td
-                                        button.button.small.delete_relative(type="button") -
+                                        button.button.small.delete_relative(type="button") delete
 
                             :php
                                 $counter = 1
 
 
                     button.button.small#add_relative(type="button") +
-                    if (data.addingNextChild)
+                    if (data.isAddingNextChild)
                         &nbsp;&nbsp;&nbsp;
                         button.button.small#add_saved_relatives(type="button") Add relatives from other children
 

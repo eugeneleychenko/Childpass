@@ -24,22 +24,18 @@ return array(
                 ),
                 'facebook_notification' => array(
                     'type'  => 'checkbox',
-//                    'class' => 'fieldstyle',
                     'label' => 'Facebook',
                 ),
                 'linked_in_notification' => array(
                     'type'  => 'checkbox',
-//                    'class' => 'fieldstyle',
                     'label' => 'LinkedIn',
                 ),
                 'twitter_notification' => array(
                     'type'  => 'checkbox',
-//                    'class' => 'fieldstyle',
                     'label' => 'Twitter',
                 ),
                 'google_plus_notification' => array(
                     'type'  => 'checkbox',
-//                    'class' => 'fieldstyle',
                     'label' => 'Google Plus',
                 ),
           ),
@@ -55,7 +51,7 @@ return array(
         'next_step' => array(
             'type'  => 'submit',
             'class' => 'btn',
-            'label' => 'next»',
+            'label' => 'save',
         ),
     ),
 );

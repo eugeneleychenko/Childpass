@@ -1,92 +1,92 @@
-if (saved)
-    p You activated alert! You can now download the flyer for your lost child now!
-
-    a(href=$this->createUrl('child/list')) Proceed
+if (noChildren)
+    p   No children to activate alert.
 else
-    :php
-        Yii::app()->clientScript->scriptMap['jquery.js'] = false;
-        Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
-        Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
-    div#alert_contents
-        div#row_logo.row
-            div#alert_logo
-                img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
-            div#alert_logo_message  ALERT!
+    if (saved)
+        p You activated alert! You can now download the flyer for your lost child now!
 
-        div#alert_text.row Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
-
+        a(href=$this->createUrl('child/list')) Proceed
+    else
         :php
-            $form = $this->beginWidget('CActiveForm', array(
-                'enableClientValidation' => true,
-                'id' => 'activate_alert_form',
-                'clientOptions' => array(
-                    'afterValidate' => 'js:submitForm',
-                    'validateOnSubmit' => true,
-                    'validateOnChange' => true,
-                    'validateOnType' => true,
-                    'hideErrorMessage' => false
-                ),
-            ))
+            Yii::app()->clientScript->scriptMap['jquery.js'] = false;
+            Yii::app()->clientScript->scriptMap['jquery.min.js'] = false;
+            Yii::app()->clientScript->scriptMap['jquery-ui.min.js'] = false;
+        div#alert_contents
+            div#row_logo.row
+                div#alert_logo
+                    img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
+                div#alert_logo_message  ALERT!
 
-        :php
-            $counter = 0;
-            $descriptionError = null;
-            $dateError = null;
-            $modelWithError = null;
-        each childInfo in childrenInfo
-            div.row.alert_child_row
-                !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => ($childInfo['incidentModel']->errors) ? 'checked' : false, 'class' => 'child_checkbox'))
+            div#alert_text.row Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
+
+            :php
+                $form = $this->beginWidget('CActiveForm', array(
+                    'enableClientValidation' => true,
+                    'id' => 'activate_alert_form',
+                    'clientOptions' => array(
+                        'afterValidate' => 'js:submitForm',
+                        'validateOnSubmit' => true,
+                        'validateOnChange' => true,
+                        'validateOnType' => true,
+                        'hideErrorMessage' => false
+                    ),
+                ))
+
+            :php
+                $counter = 0;
+                $descriptionError = null;
+                $dateError = null;
+            each childInfo in childrenInfo
+                div.row.alert_child_row
+                    !=$form->checkBox($childInfo['incidentModel'], '[' . $counter . ']child_id', array('value' => $childInfo['incidentModel']->child_id, 'checked' => ($childInfo['incidentModel']->errors) ? 'checked' : false, 'class' => 'child_checkbox'))
+
+                    :php
+                        $checkbox_id = 'Incident_' . $counter . '_child_id';
+                        $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
+                        if  (isset($childInfo['incidentModel']->errors['description'])) {
+                            $descriptionError = $form->error($childInfo['incidentModel'], 'description');
+                        }
+
+                        if  (isset($childInfo['incidentModel']->errors['date'])) {
+                            $dateError = $form->error($childInfo['incidentModel'], 'date');
+                        }
+
+                    label.child_label(for=checkbox_id)
+                        !=$full_name
+                    !=$form->error($childInfo['incidentModel'], 'child_id')
+
 
                 :php
-                    $checkbox_id = 'Incident_' . $counter . '_child_id';
-                    $full_name = $childInfo['child']->first_name . ' ' . $childInfo['child']->middle_name . ' ' . $childInfo['child']->last_name;
-                    if  (isset($childInfo['incidentModel']->errors['description'])) {
-                        $descriptionError = $form->error($childInfo['incidentModel'], 'description');
-                        $modelWithError = $childInfo['incidentModel'];
+                    $classes = 'description_child_row';
+                    if ($childInfo['incidentModel']->errors) {
+                    } else {
+                        $classes .=  ' hidden';
                     }
 
-                    if  (isset($childInfo['incidentModel']->errors['date'])) {
-                        $dateError = $form->error($childInfo['incidentModel'], 'date');
-                        $modelWithError = $childInfo['incidentModel'];
+                div.row(class=classes)
+                    !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('class' => 'alertLabel'))
+                    !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'disabled' => 'disabled',  'rows' => 6, 'cols' => 50, 'maxlength' => '255'))
+                    !=$form->error($childInfo['incidentModel'], 'child_description')
+
+                :php
+                    $counter++;
+
+            div#incident_description_row.row
+                label.alertLabel Describe the incident *
+
+                :php
+                    echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255'));
+                    if ($descriptionError) {
+                       echo $descriptionError;
                     }
 
-                label.child_label(for=checkbox_id)
-                    !=$full_name
-                !=$form->error($childInfo['incidentModel'], 'child_id')
+            div#incident_datetime_row.row
+                label.alertLabel Date (yyyy-mm-dd hh:mm:ss) *
+                !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
+                if ($dateError)
+                    !=$dateError;
 
+            div#alert_buttons_row.row
+                !=CHtml::submitButton('Activate Alert!', array('id' => 'alert_submit'));
+                a#cancelAlert(href="#") Cancel
 
-            :php
-                $classes = 'description_child_row';
-                if ($childInfo['incidentModel']->errors) {
-                } else {
-                    $classes .=  ' hidden';
-                }
-
-            div.row(class=classes)
-                !=$form->labelEx($childInfo['incidentModel'],   'child_description', array('class' => 'alertLabel'))
-                !=$form->textArea($childInfo['incidentModel'], '[' . $counter . ']child_description', array('value' => $childInfo['incidentModel']->child_description, 'rows' => 6, 'cols' => 50, 'maxlength' => '255'))
-                !=$form->error($childInfo['incidentModel'], 'child_description')
-
-            :php
-                $counter++;
-
-        div#incident_description_row.row
-            label.alertLabel Describe the incident *
-
-            :php
-                echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255'));
-                if ($descriptionError) {
-                   echo $descriptionError;
-                }
-
-        div#incident_datetime_row.row
-            label.alertLabel Date (yyyy-mm-dd hh:mm:ss) *
-            !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
-            if ($dateError)
-                !=$dateError;
-
-        div#alert_buttons_row.row
-            !=CHtml::submitButton('Activate Alert!', array('id' => 'alert_submit'));
-            a#cancelAlert(href="#") Cancel
-
-        -$this->endWidget();
+            -$this->endWidget();

@@ -7,7 +7,6 @@ return array(
         'enableClientValidation' => true,
         'id'                     => 'child-info-form',
         'clientOptions'          => array(
-            'validateOnSubmit' => true,
         ),
     ),
 
@@ -19,17 +18,14 @@ return array(
                 'first_name' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'First Name',
                 ),
                 'middle_name' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'Middle Name',
                 ),
                 'last_name' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => 'Last Name',
                 ),
 
                 'gender' => array(
@@ -59,12 +55,7 @@ return array(
                 'address' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "Address",
-                ),
-                'address2' => array(
-                    'type'  => 'text',
-                    'class' => 'fieldstyle',
-                    'label' => "Address 2",
+                    'placeholder' => 'Please include PO Box or Apartment number, if applicable'
                 ),
                 'zip_code' => array(
                     'type'  => 'text',
@@ -72,8 +63,8 @@ return array(
                     'label' => 'Zip',
                 ),
                 'birthday' => array(
-                    'type'  => 'date',
-                    'class' => 'fieldstyle',
+                    'type' => 'date',
+                    'class' => 'fieldstyle datepicker',
                     'label' => 'Date of Birth',
                 ),
                 'distinctive_marks' => array(
@@ -81,6 +72,7 @@ return array(
                     'rows' => 10,
                     'label' => 'Please provide details such as location of scars, birthmarks, tattoos or any other marks',
                     'maxlength' => '255',
+                    'class' => 'distinctive_marks'
                 ),
                 'school' => array(
                     'type'  => 'text',
@@ -91,11 +83,7 @@ return array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
                     'label' => 'Address',
-                ),
-                'school_address2' => array(
-                    'type'  => 'text',
-                    'class' => 'fieldstyle',
-                    'label' => 'Address 2',
+                    'placeholder' => 'Please include PO Box or Apartment number, if applicable'
                 ),
                 'school_zip_code' => array(
                     'type'  => 'text',
@@ -117,17 +105,19 @@ return array(
                 'grade' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "Grade",
+                ),
+                'additional_school_details' => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'placeholder' => 'Special Programs/Clubs/Sports'
                 ),
                 'city' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "City",
                 ),
                 'school_city' => array(
                     'type'  => 'text',
                     'class' => 'fieldstyle',
-                    'label' => "City",
                 ),
 
             ),

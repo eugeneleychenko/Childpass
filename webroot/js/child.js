@@ -32,26 +32,42 @@ function deleteChildPhoto(button) {
 }
 
 $(function() {
+    $( ".datepicker" ).datepicker({
+            changeYear: true,
+            yearRange: "-50:+0",
+            dateFormat: 'yy-mm-dd',
+            onSelect: function (dateText, inst) {
+                $(this).prev().removeClass('error');
+                $(this).next().hide();
+            }
+    });
 
-    if (typeof variable !== 'undefined') {
+    if (typeof step !== 'undefined') {
         if (step == 'step1') {
             $('form').validate({
+                errorClass: 'clientErrorMessage',
+                ignore: '.datepicker',
                 wrapper: 'div',
                 errorLabelContainer: "#messageBox"
             });
+
+            //to avoid issues with date validator of jquery validate
+            delete $.validator.methods.date;
+
         }
         $('form').submit(function( event ) {
             if (step == 'step1' && !$('#relatives_table tbody tr').length) {
                 if (!$('#relatives_error').length) {
-                    $('<div class="errorMessage" id="relatives_error" style="color: #f00;">Input at least one relative!</div>').insertBefore($('#relatives_table'));
+                    $('<div/>', {
+                            'class': 'clientErrorMessage',
+                            'id': 'relatives_error'
+                      }).text('Input at least one relative!').insertBefore($('#relatives_table'));
                 }
                 event.preventDefault();
             }
         });
 
     }
-
-
 
     relationOptions = $('select.relation_id').first().find('option');
 
@@ -66,10 +82,32 @@ $(function() {
 
     function addNewRelative() {
         var namePrefix = getNamePrefix();
-        select = relationsElement(namePrefix, '');
-        var row =  '<tr><td><input name="' + namePrefix + '[first_name]" required maxlength="100"></td><td><input name="' + namePrefix + '[last_name]" required maxlength="100"> </td><td>' + select/*.text()*/ + '</td><td><button type="type" class="button small delete_relative">-</button></td></tr>';
+        var selectRelationElement = createRelationsElement(namePrefix, '');
+        var firstNameElement = $('<input/>', {
+                name: namePrefix + '[first_name]',
+                'class': 'required',
+                maxLength: '100'
+        });
+        var lastNameElement = $('<input/>', {
+                name: namePrefix + '[last_name]',
+                'class': 'required',
+                maxLength: '100'
+        });
+
+        var deleteRelativeButton = $('<button/>', {
+                'type': 'type',
+                'class': 'button small delete_relative'
+        }).text('-');
+
+
+        var row = $('<tr/>').append([
+                $('<td/>').append(firstNameElement),
+                $('<td/>').append(lastNameElement),
+                $('<td/>').append(selectRelationElement),
+                $('<td/>').append( createDeleteRelativeButton() )
+                ]);
+
         $('#relatives_table').append(row);
-        $('#relatives_table tbody').find('tr').last().find('td').eq(2).html(select);
         relativesNumber++;
     }
 
@@ -83,8 +121,9 @@ $(function() {
             type: 'GET',
             success: function(data) {
                var rows = prefilledRelativeRows(data);
+
                if (rows) {
-                   $('#relatives_table').append(rows);
+                   $('#relatives_table tbody').append(rows);
                }
             },
             complete: function() {
@@ -98,12 +137,14 @@ $(function() {
     function prefilledRelativeRows(relativesInfo) {
        var length = relativesInfo.length;
        var rows = '';
+       var row;
        for (var i = 0; i < length; i++) {
            if (relativeExistsOnTheForm(relativesInfo[i]['relative_id'])) {
                continue;
            }
 
-           rows += prefilledRelativeRow(relativesInfo[i]);
+           row = prefilledRelativeRow(relativesInfo[i]);
+           rows += row;
            relativesNumber++;
        }
        return rows;
@@ -115,50 +156,83 @@ $(function() {
 
     function prefilledRelativeRow(relativeInfo) {
         var namePrefix = getNamePrefix();
-        var select = relationsElement(namePrefix, relativeInfo['relation_id']);
-        return  '<tr><td>' + firstNameElement(namePrefix, relativeInfo['first_name']) + '</td><td>' + lastNameElement(namePrefix, relativeInfo['last_name']) + '</td><td>' + select + '</td><td>' + deleteRelativeButton() + relativeIdElement(namePrefix, relativeInfo['relative_id']) + '</td></tr>';
+
+        var row = $('<tr/>');
+        row.append([
+                $('<td/>').append( createFirstNameElement(namePrefix, relativeInfo['first_name']) ),
+                $('<td/>').append( createLastNameElement(namePrefix, relativeInfo['last_name']) ),
+                $('<td/>').append( createRelationsElement(namePrefix, relativeInfo['relation_id']) ),
+                $('<td/>').append([
+                        createDeleteRelativeButton(),
+                        createRelativeIdElement(namePrefix, relativeInfo['relative_id'])
+                        ])
+        ]);
+        return row.clone().wrap('<div>').parent().html();
     }
 
-    function relationsElement(namePrefix, relationId) {
+
+    function createRelationsElement(namePrefix, relationId) {
         var options = '';
+        var selected;
+
         relationOptions.each(function() {
             var element = $(this);
-            var selected;
+
             if (element.val() ==  relationId) {
                 selected = 'selected';
             } else {
-                selected = '';
+                selected = false;
             }
-            options +=  '<option value="' + element.val() + '"' +  selected  + ' >' + element.text() + '</option>';
+
+          //this syntax works in ie8 too
+          options +=  '<option value="' + element.val() + '"' +  selected  + ' >' + element.text() + '</option>';
         });
-        var namePrefix = getNamePrefix();
 
-        return '<select required="required" class="relation_id" name="' + namePrefix + '[relation_id]">' + options + '</select>';
+        return $('<select/>', {
+                'class': 'relation_id required',
+                name: namePrefix + '[relation_id]'
+            }).append(options);
     }
 
 
-    function firstNameElement(namePrefix, value) {
-        var value = typeof value !== 'undefined' ? 'value="' + value + '"' : '';
-        return '<input name="' + namePrefix + '[first_name]" required maxlength="100" ' +  value  +  '">';
+    function createFirstNameElement(namePrefix, value) {
+        return $('<input/>', {
+                name: namePrefix + '[first_name]',
+                'class': 'required',
+                maxLength: '100',
+                value: typeof value !== 'undefined' ? value : ''
+        });
     }
 
-    function lastNameElement(namePrefix, value) {
-        var value = typeof value !== 'undefined' ? 'value="' + value + '"' : '';
-        return '<input name="' + namePrefix + '[last_name]" required maxlength="100" ' +  value  +  '">';
+    function createLastNameElement(namePrefix, value) {
+        return $('<input/>', {
+                name: namePrefix + '[last_name]',
+                'class': 'required',
+                maxLength: '100',
+                value: typeof value !== 'undefined' ? value : ''
+        });
     }
 
-    function deleteRelativeButton() {
-        return '<button type="type" class="button small delete_relative">-</button>';
+    function createDeleteRelativeButton() {
+        return $('<button/>', {
+                type: 'type',
+                'class': 'button small delete_relative'
+        }).text('delete');
     }
 
-    function relativeIdElement(namePrefix, relativeId) {
-        return  '<input class="relative_id" type="hidden" value="'  + relativeId  + '" name="' + namePrefix + '[relative_id]">';
+    function createRelativeIdElement(namePrefix, relativeId) {
+        return $('<input/>', {
+                type: 'hidden',
+                value: relativeId,
+                name: namePrefix + '[relative_id]',
+                'class': 'relative_id'
+        });
     }
+
 
     function getNamePrefix() {
         return 'Relative[' + relativesNumber  + ']';
     }
-
 
     function deleteRelative(button) {
         if (!confirm('Do you want to remove this relative?')) {
@@ -166,9 +240,7 @@ $(function() {
         }
 
         var row = button.closest('tr');
-
         var childRelativeIdElement = row.find('.child_relative_id');
-
 
         if (!childRelativeIdElement.length || !childRelativeIdElement.val()) {
             row.remove();

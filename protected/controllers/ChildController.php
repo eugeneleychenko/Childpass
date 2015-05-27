@@ -78,7 +78,7 @@ class ChildController extends Controller
                 } else {
                     $data['relatives'] = array();
                 }
-                $data['addingNextChild'] = ChildRelative::model()->userHasChildRelativeMapping(Yii::app()->user->getId());
+                $data['isAddingNextChild'] = ChildRelative::model()->userHasChildRelativeMapping(Yii::app()->user->getId());
 
                 $data['relationOptions'] = Relation::model()->getOptions();
 
@@ -99,17 +99,10 @@ class ChildController extends Controller
                                 Relative::model()->saveRelatives($childId, $_POST['Relative'], $form['child']->model->user_id);
                             }
 
-                            //$childRelativesNumber = count(ChildRelative::model()->childRelativesMapping($childId));
-                            //if (!$childRelativesNumber) {
-                            //    $transaction->rollback();
-                            //    $this->redirect(array('child/list'));
-                            //} else {
                             $transaction->commit();
-                            //}
 
                             $this->redirect(array('child/add', 'step' => 'step2', 'child_id' => $form['child']->model->id));
                         }
-                    } else {
                     }
                 }
 
@@ -209,10 +202,10 @@ class ChildController extends Controller
         $childRelatives = ChildRelative::model()->with(array(
             'relative',
             'child' => array(
-                'alias'     => 'child',
-                'joinType'  => 'INNER JOIN',
-                'condition' => 'child.user_id = :user_id',
-                'params'    => array(':user_id' => $userId)
+                    'alias'     => 'child',
+                    'joinType'  => 'INNER JOIN',
+                    'condition' => 'child.user_id = :user_id',
+                    'params'    => array(':user_id' => $userId)
             )
         ))->findAll();
 
@@ -220,9 +213,9 @@ class ChildController extends Controller
             if (!array_key_exists($childRelative->relative_id, $relatives)) {
                 $relatives[$childRelative->relative_id] = array(
                     'relative_id' =>  $childRelative->relative_id,
-                    'first_name' => $childRelative->relative->first_name,
-                    'last_name' => $childRelative->relative->last_name,
-                    'relation_id' => $childRelative->relation_id
+                    'first_name'  =>  $childRelative->relative->first_name,
+                    'last_name'   =>  $childRelative->relative->last_name,
+                    'relation_id' =>  $childRelative->relation_id
                 );
             }
         }
@@ -235,70 +228,82 @@ class ChildController extends Controller
     {
         $this->layout = 'ajax';
         $userId = Yii::app()->user->getId();
-        $userChildren = Child::model()->findAll('user_id = :user_id AND NOT EXISTS (SELECT incident.id FROM incident WHERE incident.child_id = t.id)',
-                                                array(':user_id' => $userId));
 
-        if (!count($userChildren)) {
-            echo '<p>No children to activate alert.</p>';
+        $userChildren = Child::model()->findAll(
+            'user_id = :user_id AND NOT EXISTS (SELECT incident.id FROM incident WHERE incident.child_id = t.id)',
+            array(':user_id' => $userId)
+        );
+
+        $noChildren = false;
+
+        if (empty($userChildren)) {
+            $noChildren = true;
+            $this->render(
+                'activateAlert',
+                array('noChildren' => $noChildren)
+            );
             exit;
         }
+
 
         $incidentModelClass = 'Incident';
 
         $childrenInfo = array();
         $userChildIds = array();
         foreach ($userChildren as $child) {
-            $incidentModel = new $incidentModelClass;
             $userChildIds[] = $child->primaryKey;
-            $incidentModel->child_id = $child->primaryKey;
+
+            $incidentModel                    = new $incidentModelClass;
+            $incidentModel->child_id          = $child->primaryKey;
             $incidentModel->child_description = $child->distinctive_marks;
-            $childrenInfo[] = array(
-                'child' => $child,
+
+            $childrenInfo[$child->primaryKey] = array(
+                'child'         => $child,
                 'incidentModel' => $incidentModel,
             );
         }
 
         $descriptionValue = '';
         $dateValue = '';
-        if ( isset($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass]) && count($_POST[$incidentModelClass]) ) {
-            foreach ($_POST[$incidentModelClass] as $number => $incident) {
+
+        $errorsExist = false;
+
+        if ( !empty($_POST[$incidentModelClass]) && is_array($_POST[$incidentModelClass])) {
+            foreach ($_POST[$incidentModelClass] as $incident) {
 
                 //to ignore children of other users
                 if (!in_array($incident['child_id'], $userChildIds)) {
                     continue;
                 }
 
-                $errorsExist = false;
-
                 $attributes = $incident + array(
-                        'description' => $_POST['description'],
-                        'date' => $_POST['date']
-                    );
-                $childrenInfo[$number]['incidentModel']->attributes = $attributes;
-                if (!$childrenInfo[$number]['incidentModel']->save()) {
-                    $descriptionValue = $childrenInfo[$number]['incidentModel']->description;
-                    $dateValue = $childrenInfo[$number]['incidentModel']->date;
-                    $errorsExist = true;
+                    'description' => $_POST['description'],
+                    'date'        => $_POST['date']
+                );
+
+                $childrenInfo[$incident['child_id']]['incidentModel']->attributes = $attributes;
+
+                if (!$childrenInfo[$incident['child_id']]['incidentModel']->save()) {
+                    //if there is any error we store comment field values to display on the form
+                    $descriptionValue = $childrenInfo[$incident['child_id']]['incidentModel']->description;
+                    $dateValue        = $childrenInfo[$incident['child_id']]['incidentModel']->date;
+                    $errorsExist      = true;
                 }
             }
-        }
-
-        if (!isset($errorsExist)) {
-            $errorsExist = false;
-            $saved = false;
         } else {
-            $saved = !$errorsExist;
+            $errorsExist = true;
         }
 
+        $saved = !$errorsExist;
 
         $this->render(
             'activateAlert',
             array(
-                'childrenInfo' => $childrenInfo,
-                'saved' => $saved,
-                'errorsExist' => $errorsExist,
+                'noChildren'       => $noChildren,
+                'childrenInfo'     => $childrenInfo,
+                'saved'            => $saved,
                 'descriptionValue' => $descriptionValue,
-                'dateValue' => $dateValue
+                'dateValue'        => $dateValue
                 )
         );
     }

@@ -133,12 +133,17 @@ form {
     vertical-align: bottom;
   }
 
+  .email_link {
+    text-decoration: none;
+    color: #ed8b37;
+  }
+
   .logoWrapper {
     text-align: left;
     width: 360px;
 
     .hintText {
-      padding-left: 22px;
+      padding-left: 6px;
       font-weight: bold;
       font-family: helvetica, Sans-Serif;
       font-size: 118%;
@@ -326,6 +331,10 @@ form {
     margin-bottom: 0.2em;
   }
 
+  div.clientErrorMessage, label.clientErrorMessage {
+    color: #f00;
+  }
+
   .fieldstyle {
     width: 100%;
   }
@@ -346,9 +355,24 @@ form {
     }
   }
 
+  .addressWrapper {
+    width: 49%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .schoolDetailsWrapper {
+    width: 30%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+
 
   [name='Child[distinctive_marks]'] {
-    width: 48.5%;
+    width: 100%;
   }
 
   .formRow {
@@ -816,9 +840,10 @@ table#relatives_table {
 }
 
 
-.errorMessage {
+div.errorMessage, label.errorMessage {
   color: #f00;
 }
+
 
 //styles for datetimepicker
 .ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
@@ -981,7 +1006,7 @@ table#relatives_table {
   }
 
   .right {
-    margin-left: 31%;
+    margin-left: 36%;
     width: 50%;
   }
 
@@ -1006,6 +1031,10 @@ table#relatives_table {
     }
   }
 
+  .errorMessage {
+    text-align: left;
+  }
+
 
   span {
     label {
@@ -1022,7 +1051,6 @@ table#relatives_table {
       font-size: 0.8em;
     }
   }
-
 }
 
 .faq {
@@ -1037,4 +1065,13 @@ table#relatives_table {
   .question {
     font-weight: bold;
   }
+}
+
+
+input::-webkit-calendar-picker-indicator{
+  display: none;
+}
+
+input[type="date"]::-webkit-input-placeholder{
+  visibility: hidden !important;
 }
