@@ -79,6 +79,24 @@ html(lang='en')
                         img(src=$this->baseUrl . '/images/Lycee_LogoBlue.png', width="76px", height="97px")
                     li
                         img(src=$this->baseUrl . '/images/carnegie-hill.png', width="150px", height="30px")
+            .footer_nav
+                ul
+                    li
+                        a(href=$this->createUrl('site/page', array('view' => 'about')))
+                            | About Us
+                    li
+                        a(href=$this->createUrl('site/page', array('view' => 'product')))
+                            | Products
+                    li
+                        a(href=$this->createUrl('site/page', array('view' => 'testimonials')))
+                            | Testimonials
+                    li
+                        a(href=$this->createUrl('site/page', array('view' => 'faq')))
+                            | FAQ
+                    li
+                        a(href=$this->createUrl('site/page', array('view' => 'terms')))
+                            | Terms & conditions
+
             div.dialogs
                 div#activateAlertDialog.dialog(style="border: 10px #f00 solid; display: none; overlow: auto;")
 

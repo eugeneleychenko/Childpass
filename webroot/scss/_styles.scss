@@ -217,8 +217,6 @@ form {
       }
   }
 
-
-
   .mainMenuWrapper {
 
     #infoMessage {
@@ -260,7 +258,6 @@ form {
       display: table-cell;
       vertical-align: middle;
     }
-
 
     .nav {
       list-style: none;
@@ -381,8 +378,6 @@ form {
     vertical-align: top;
   }
 
-
-
   [name='Child[distinctive_marks]'] {
     width: 100%;
   }
@@ -405,6 +400,27 @@ form {
     text-align: right;
   }
 
+}
+
+.terms_and_conditions {
+
+  ol li {
+    margin-bottom: 10px;
+    margin-left: 25px;
+  }
+
+  ol li ol li {
+    margin-left: 20px;
+    list-style-type: lower-alpha;
+  }
+
+  ol li ol li ol li {
+    list-style-type: lower-roman;
+  }
+
+  ol li ol li ol li ol li {
+    list-style-type: decimal;
+  }
 }
 
 .row {
@@ -837,6 +853,23 @@ form {
     .logo {
       margin-top: 0;
     }
+  }
+}
+
+.footer_nav {
+  width: 380px;
+  margin: 20px auto;
+
+  ul li {
+    float: left;
+    list-style: none;
+    margin-left: 10px;
+  }
+
+  ul li a {
+    color: #ee8b38;
+    font-size: 14px;
+    text-decoration: none;
   }
 }
 
