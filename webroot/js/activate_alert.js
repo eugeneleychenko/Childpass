@@ -30,7 +30,7 @@ $(function() {
                var dialog = $('#activateAlertDialog');
                dialog.html(data);
                dialog.dialog({
-                   width: '40%',
+                   width: '700px',
                    modal: true,
                    resizable: false,
                    open: function() {
