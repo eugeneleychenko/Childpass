@@ -15,14 +15,13 @@
             )
         )); ?>
         <?php echo $form->errorSummary($model, ''); ?>
-        <div class="login-label">Log In</div>
         <div class="login-fields">
             <?php echo $form->textField($model,'username', array('placeholder' => 'Email')) ?>
             <?php echo $form->passwordField($model,'password', array('placeholder' => 'Password')) ?>
             <?php echo $form->hiddenField($model,'remember', array('value' => true)) ?>
         </div>
         <div class="login-buttons">
-            <?php echo CHtml::submitButton('login', array('class' => 'btn', 'name' => 'submit', 'value' => 'go»')); ?>
+            <?php echo CHtml::submitButton('login', array('class' => 'btn', 'name' => 'submit', 'value' => 'log in»')); ?>
             <a class="forgot-password" href="<?php echo $this->createUrl('user/forgotPassword') ?>">Forgot password?</a>
         </div>
         <?php $this->endWidget();
