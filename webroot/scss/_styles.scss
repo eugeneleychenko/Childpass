@@ -516,9 +516,10 @@ form {
         display: inline-block;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        width: 50%;
+        width: 100%;
         vertical-align: top;
-        margin: 0.5em 0;
+        margin: 1em 0;
+        padding-right: 10px;
 
         .imageWrapper {
           width: 80px;
@@ -533,6 +534,19 @@ form {
           font-family: helvetica, sans-serif;
           font-size: 118%;
           color: #707070;
+        }
+
+        .productDescription {
+          float: left;
+          width: 510px;
+        }
+
+        .productShowMore {
+          float: right;
+          font-size: 15px;
+          margin: -10px 10px 0 0;
+          cursor: pointer;
+          color: #ee8b38;
         }
       }
     }
