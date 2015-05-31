@@ -419,132 +419,132 @@ table {
   border-spacing: 0;
 }
 
-/* line 184, icons/*.png */
+/* line 184, ../../icons/*.png */
 .icons-sprite, .icons-camera, .icons-camera_gray, .icons-cancel_grey, .icons-cancel_small_grey, .icons-dental, .icons-dental_gray, .icons-kids, .icons-kids_grey, .icons-step1, .icons-step1_disable, .icons-step2, .icons-step2_disable, .icons-step3, .icons-step3_disable, .icons-step4, .icons-step4_disable, .icons-survey, .icons-survey_gray {
-  background-image: url('/images/icons-s3a494b4dc3.png');
+  background-image: url('../images/sprite-icons.png');
   background-repeat: no-repeat;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-camera {
   background-position: 0 0;
   height: 46px;
   width: 46px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-camera_gray {
   background-position: 0 -46px;
   height: 46px;
   width: 46px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-cancel_grey {
   background-position: 0 -92px;
   height: 32px;
   width: 32px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-cancel_small_grey {
   background-position: 0 -124px;
   height: 18px;
   width: 18px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-dental {
   background-position: 0 -142px;
   height: 46px;
   width: 46px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-dental_gray {
   background-position: 0 -188px;
   height: 46px;
   width: 46px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-kids {
   background-position: 0 -234px;
   height: 46px;
   width: 46px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-kids_grey {
   background-position: 0 -280px;
   height: 46px;
   width: 46px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step1 {
   background-position: 0 -326px;
   height: 39px;
   width: 41px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step1_disable {
   background-position: 0 -365px;
   height: 39px;
   width: 41px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step2 {
   background-position: 0 -404px;
   height: 39px;
   width: 41px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step2_disable {
   background-position: 0 -443px;
   height: 39px;
   width: 41px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step3 {
   background-position: 0 -482px;
   height: 39px;
   width: 41px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step3_disable {
   background-position: 0 -521px;
   height: 39px;
   width: 41px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step4 {
   background-position: 0 -560px;
   height: 39px;
   width: 41px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step4_disable {
   background-position: 0 -599px;
   height: 39px;
   width: 41px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-survey {
   background-position: 0 -638px;
   height: 46px;
   width: 46px;
 }
 
-/* line 84, ../../../../../../Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, C:/Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-survey_gray {
   background-position: 0 -684px;
   height: 46px;
@@ -663,11 +663,26 @@ form .row.submit {
 }
 
 /* line 120, ../scss/_styles.scss */
+.contentWrapper i {
+  font-style: italic;
+}
+
+/* line 124, ../scss/_styles.scss */
+.contentWrapper a {
+  text-decoration: none;
+}
+
+/* line 128, ../scss/_styles.scss */
+.contentWrapper a:hover {
+  text-decoration: underline;
+}
+
+/* line 132, ../scss/_styles.scss */
 #page {
   padding: 1em;
 }
 
-/* line 124, ../scss/_styles.scss */
+/* line 136, ../scss/_styles.scss */
 #header {
   display: table;
   width: 100%;
@@ -675,44 +690,44 @@ form .row.submit {
   margin-bottom: 0.5em;
   position: relative;
 }
-/* line 131, ../scss/_styles.scss */
+/* line 143, ../scss/_styles.scss */
 #header > div {
   display: table-cell;
   vertical-align: bottom;
 }
-/* line 136, ../scss/_styles.scss */
+/* line 148, ../scss/_styles.scss */
 #header .email_link {
   text-decoration: none;
   color: #ed8b37;
 }
-/* line 141, ../scss/_styles.scss */
+/* line 153, ../scss/_styles.scss */
 #header .logoWrapper {
   text-align: left;
   width: 360px;
 }
-/* line 145, ../scss/_styles.scss */
+/* line 157, ../scss/_styles.scss */
 #header .logoWrapper .hintText {
   padding-left: 6px;
   font-weight: bold;
   font-family: helvetica, Sans-Serif;
   font-size: 118%;
 }
-/* line 153, ../scss/_styles.scss */
+/* line 165, ../scss/_styles.scss */
 #header .login-form {
   display: table-cell;
-  padding-left: 10px;
+  padding-left: 0;
 }
-/* line 156, ../scss/_styles.scss */
+/* line 168, ../scss/_styles.scss */
 #header .login-form form {
   overflow: hidden;
   font-family: Arial;
 }
-/* line 159, ../scss/_styles.scss */
+/* line 171, ../scss/_styles.scss */
 #header .login-form form .login-fields {
   float: left;
   width: 136px;
 }
-/* line 162, ../scss/_styles.scss */
+/* line 174, ../scss/_styles.scss */
 #header .login-form form .login-fields input {
   border: 1px solid grey;
   width: 111px;
@@ -720,16 +735,16 @@ form .row.submit {
   font-size: 15px;
   padding-left: 8px;
 }
-/* line 168, ../scss/_styles.scss */
+/* line 180, ../scss/_styles.scss */
 #header .login-form form .login-fields input#LoginForm_username {
   margin-bottom: 5px;
 }
-/* line 173, ../scss/_styles.scss */
+/* line 185, ../scss/_styles.scss */
 #header .login-form form .login-buttons {
   float: left;
   width: 103px;
 }
-/* line 177, ../scss/_styles.scss */
+/* line 189, ../scss/_styles.scss */
 #header .login-form form .forgot-password {
   float: left;
   font-size: 13px;
@@ -737,7 +752,7 @@ form .row.submit {
   text-decoration: none;
   margin-top: 5px;
 }
-/* line 184, ../scss/_styles.scss */
+/* line 196, ../scss/_styles.scss */
 #header .login-form form .login-label {
   float: left;
   margin-right: 10px;
@@ -745,22 +760,22 @@ form .row.submit {
   font-weight: bold;
   color: #002F66;
 }
-/* line 193, ../scss/_styles.scss */
+/* line 205, ../scss/_styles.scss */
 #header .login-form .logout-buttons .welcome-label {
   font-size: 18px;
   color: #002F66;
   margin-bottom: 0;
 }
-/* line 197, ../scss/_styles.scss */
+/* line 209, ../scss/_styles.scss */
 #header .login-form .logout-buttons .welcome-label span {
   color: #808080;
 }
-/* line 201, ../scss/_styles.scss */
+/* line 213, ../scss/_styles.scss */
 #header .login-form .logout-buttons .btn.logout {
   font-size: 16px;
   text-decoration: none;
 }
-/* line 212, ../scss/_styles.scss */
+/* line 222, ../scss/_styles.scss */
 #header .mainMenuWrapper #infoMessage {
   position: absolute;
   top: 0;
@@ -768,7 +783,7 @@ form .row.submit {
   right: 0;
   display: table;
 }
-/* line 220, ../scss/_styles.scss */
+/* line 230, ../scss/_styles.scss */
 #header .mainMenuWrapper .activateAlert {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -783,7 +798,7 @@ form .row.submit {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 235, ../scss/_styles.scss */
+/* line 245, ../scss/_styles.scss */
 #header .mainMenuWrapper .survey_link {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -800,7 +815,7 @@ form .row.submit {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 253, ../scss/_styles.scss */
+/* line 262, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav {
   list-style: none;
   margin-bottom: 10px;
@@ -811,7 +826,7 @@ form .row.submit {
   background: #002F66;
   border-collapse: separate;
 }
-/* line 263, ../scss/_styles.scss */
+/* line 272, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav li {
   float: none;
   display: table-cell;
@@ -821,45 +836,45 @@ form .row.submit {
   border-width: 6px 3px;
   border-color: #002F66;
 }
-/* line 271, ../scss/_styles.scss */
+/* line 280, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav li:hover, #header .mainMenuWrapper .nav li.active {
   background: #5581b4;
 }
-/* line 274, ../scss/_styles.scss */
+/* line 283, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav li:first-child {
   border-left-width: 6px;
 }
-/* line 277, ../scss/_styles.scss */
+/* line 286, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav li.reg {
   border: 6px solid #ed8b37;
   background: #ed8b37;
 }
-/* line 281, ../scss/_styles.scss */
+/* line 290, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav li.reg:hover, #header .mainMenuWrapper .nav li.reg.active {
   background: #c9650f;
 }
-/* line 285, ../scss/_styles.scss */
+/* line 294, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav li.separator {
   width: 7px;
   border: 0;
   background: url("../images/dots.png") no-repeat scroll center;
 }
-/* line 289, ../scss/_styles.scss */
+/* line 298, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav li.separator:hover, #header .mainMenuWrapper .nav li.separator.active {
   background-color: #002F66;
 }
-/* line 295, ../scss/_styles.scss */
+/* line 304, ../scss/_styles.scss */
 #header .mainMenuWrapper .nav a {
   color: #FFFFFF;
   text-decoration: none;
 }
 
-/* line 303, ../scss/_styles.scss */
+/* line 312, ../scss/_styles.scss */
 #content {
   overflow: hidden;
 }
 
-/* line 307, ../scss/_styles.scss */
+/* line 316, ../scss/_styles.scss */
 #footer {
   background: #FFFFFF;
   text-align: center;
@@ -867,104 +882,123 @@ form .row.submit {
   font-weight: bold;
   margin-top: 2%;
 }
-/* line 314, ../scss/_styles.scss */
+/* line 323, ../scss/_styles.scss */
 #footer .logosWrapper {
   display: inline-block;
   list-style: none;
   margin-bottom: 0;
 }
-/* line 319, ../scss/_styles.scss */
+/* line 328, ../scss/_styles.scss */
 #footer .logosWrapper li {
   display: inline-block;
   vertical-align: middle;
   margin: 0.5em 1em;
 }
 
-/* line 328, ../scss/_styles.scss */
+/* line 337, ../scss/_styles.scss */
 #child-info-form label {
   display: block;
   text-align: left;
   margin-bottom: 0.2em;
 }
-/* line 334, ../scss/_styles.scss */
+/* line 343, ../scss/_styles.scss */
 #child-info-form div.clientErrorMessage, #child-info-form label.clientErrorMessage {
   color: #f00;
 }
-/* line 338, ../scss/_styles.scss */
+/* line 347, ../scss/_styles.scss */
 #child-info-form .fieldstyle {
   width: 100%;
 }
-/* line 342, ../scss/_styles.scss */
+/* line 351, ../scss/_styles.scss */
 #child-info-form .fieldWrapper {
   width: 24%;
   margin-right: 1%;
   display: inline-block;
   vertical-align: top;
 }
-/* line 348, ../scss/_styles.scss */
+/* line 357, ../scss/_styles.scss */
 #child-info-form .fieldWrapper.state {
   width: 25%;
   margin-right: 2%;
 }
-/* line 353, ../scss/_styles.scss */
+/* line 362, ../scss/_styles.scss */
 #child-info-form .fieldWrapper.zipCode {
   width: 72%;
 }
-/* line 358, ../scss/_styles.scss */
+/* line 367, ../scss/_styles.scss */
 #child-info-form .addressWrapper {
   width: 49%;
   margin-right: 1%;
   display: inline-block;
   vertical-align: top;
 }
-/* line 365, ../scss/_styles.scss */
+/* line 374, ../scss/_styles.scss */
 #child-info-form .schoolDetailsWrapper {
   width: 30%;
   margin-right: 1%;
   display: inline-block;
   vertical-align: top;
 }
-/* line 374, ../scss/_styles.scss */
+/* line 381, ../scss/_styles.scss */
 #child-info-form [name='Child[distinctive_marks]'] {
   width: 100%;
 }
-/* line 378, ../scss/_styles.scss */
+/* line 385, ../scss/_styles.scss */
 #child-info-form .formRow {
   margin-bottom: 1em;
 }
-/* line 382, ../scss/_styles.scss */
+/* line 389, ../scss/_styles.scss */
 #child-info-form #relatives {
   text-align: center;
 }
-/* line 385, ../scss/_styles.scss */
+/* line 392, ../scss/_styles.scss */
 #child-info-form #relatives h2 {
   margin-bottom: 0.2em;
 }
-/* line 390, ../scss/_styles.scss */
+/* line 397, ../scss/_styles.scss */
 #child-info-form .formActions {
   margin-bottom: 60px;
   position: relative;
   text-align: right;
 }
 
-/* line 400, ../scss/_styles.scss */
+/* line 407, ../scss/_styles.scss */
+.terms_and_conditions ol li {
+  margin-bottom: 10px;
+  margin-left: 25px;
+}
+/* line 412, ../scss/_styles.scss */
+.terms_and_conditions ol li ol li {
+  margin-left: 20px;
+  list-style-type: lower-alpha;
+}
+/* line 417, ../scss/_styles.scss */
+.terms_and_conditions ol li ol li ol li {
+  list-style-type: lower-roman;
+}
+/* line 421, ../scss/_styles.scss */
+.terms_and_conditions ol li ol li ol li ol li {
+  list-style-type: decimal;
+}
+
+/* line 428, ../scss/_styles.scss */
 .row.error input {
   border: 1px solid #d83b75;
 }
-/* line 403, ../scss/_styles.scss */
+/* line 431, ../scss/_styles.scss */
 .row.error .errorMessage {
   color: #D8000C;
   padding-top: 5px;
   font-size: 90%;
 }
-/* line 410, ../scss/_styles.scss */
+/* line 438, ../scss/_styles.scss */
 .row .fieldstyle {
   width: 180px;
   height: 26px;
   line-height: 26px;
 }
 
-/* line 417, ../scss/_styles.scss */
+/* line 445, ../scss/_styles.scss */
 .fieldstyle {
   width: 90%;
   height: 28px;
@@ -973,18 +1007,18 @@ form .row.submit {
   box-sizing: border-box;
 }
 
-/* line 426, ../scss/_styles.scss */
+/* line 454, ../scss/_styles.scss */
 .distributedItems {
   text-align: justify;
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
 }
-/* line 431, ../scss/_styles.scss */
+/* line 459, ../scss/_styles.scss */
 .distributedItems .item {
   display: inline-block;
   width: 31%;
 }
-/* line 436, ../scss/_styles.scss */
+/* line 464, ../scss/_styles.scss */
 .distributedItems .stretch {
   width: 100%;
   display: inline-block;
@@ -992,16 +1026,16 @@ form .row.submit {
   line-height: 0;
 }
 
-/* line 446, ../scss/_styles.scss */
+/* line 474, ../scss/_styles.scss */
 .page-siteIndex .coin-slider {
   float: none;
 }
-/* line 450, ../scss/_styles.scss */
+/* line 478, ../scss/_styles.scss */
 .page-siteIndex .desc {
   margin: 0.5em 0;
 }
 
-/* line 455, ../scss/_styles.scss */
+/* line 483, ../scss/_styles.scss */
 .productbox.productsPage {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1009,11 +1043,11 @@ form .row.submit {
   padding: 1em 2em;
   margin: 0;
 }
-/* line 462, ../scss/_styles.scss */
+/* line 490, ../scss/_styles.scss */
 .productbox.productsPage h1:first-child {
   margin-top: 0;
 }
-/* line 466, ../scss/_styles.scss */
+/* line 494, ../scss/_styles.scss */
 .productbox.productsPage .forHome {
   position: relative;
   min-height: 414px;
@@ -1021,34 +1055,35 @@ form .row.submit {
   padding-left: 535px;
   background: url("../images/broch.png") no-repeat scroll left top;
 }
-/* line 474, ../scss/_styles.scss */
+/* line 502, ../scss/_styles.scss */
 .productbox.productsPage .forHome p.textUnderImage {
   position: absolute;
   left: 535px;
   top: 300px;
 }
-/* line 483, ../scss/_styles.scss */
+/* line 511, ../scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList {
   list-style: none;
   padding-left: 0;
 }
-/* line 487, ../scss/_styles.scss */
+/* line 515, ../scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li {
   display: inline-block;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 50%;
+  width: 100%;
   vertical-align: top;
-  margin: 0.5em 0;
+  margin: 1em 0;
+  padding-right: 10px;
 }
-/* line 495, ../scss/_styles.scss */
+/* line 524, ../scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li .imageWrapper {
   width: 80px;
   text-align: right;
   padding-right: 1em;
   float: left;
 }
-/* line 502, ../scss/_styles.scss */
+/* line 531, ../scss/_styles.scss */
 .productbox.productsPage .forOnline .servicesList li span {
   vertical-align: middle;
   font-weight: bold;
@@ -1056,30 +1091,43 @@ form .row.submit {
   font-size: 118%;
   color: #707070;
 }
-/* line 512, ../scss/_styles.scss */
+/* line 539, ../scss/_styles.scss */
+.productbox.productsPage .forOnline .servicesList li .productDescription {
+  float: left;
+  width: 510px;
+}
+/* line 544, ../scss/_styles.scss */
+.productbox.productsPage .forOnline .servicesList li .productShowMore {
+  float: right;
+  font-size: 15px;
+  margin: -10px 10px 0 0;
+  cursor: pointer;
+  color: #ee8b38;
+}
+/* line 554, ../scss/_styles.scss */
 .productbox.productsPage .forOnline table {
   margin-top: 2em;
   margin-bottom: 0;
 }
-/* line 516, ../scss/_styles.scss */
+/* line 558, ../scss/_styles.scss */
 .productbox.productsPage .forOnline table td {
   vertical-align: top;
 }
-/* line 520, ../scss/_styles.scss */
+/* line 562, ../scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock {
   width: 30%;
 }
-/* line 523, ../scss/_styles.scss */
+/* line 565, ../scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock .registerButton {
   text-decoration: none;
 }
-/* line 527, ../scss/_styles.scss */
+/* line 569, ../scss/_styles.scss */
 .productbox.productsPage .forOnline table td.registerBlock .powerblock {
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
-/* line 536, ../scss/_styles.scss */
+/* line 578, ../scss/_styles.scss */
 .relatedProducts {
   list-style: none;
   margin: 2% 0 0;
@@ -1087,7 +1135,7 @@ form .row.submit {
   table-layout: fixed;
   width: 100%;
 }
-/* line 543, ../scss/_styles.scss */
+/* line 585, ../scss/_styles.scss */
 .relatedProducts li {
   display: table-cell;
   vertical-align: top;
@@ -1096,27 +1144,27 @@ form .row.submit {
   width: 49%;
   padding: 1em;
 }
-/* line 551, ../scss/_styles.scss */
+/* line 593, ../scss/_styles.scss */
 .relatedProducts li:first-child {
   margin-right: 2%;
 }
-/* line 555, ../scss/_styles.scss */
+/* line 597, ../scss/_styles.scss */
 .relatedProducts li.spacer {
   width: 2%;
 }
-/* line 559, ../scss/_styles.scss */
+/* line 601, ../scss/_styles.scss */
 .relatedProducts li .imageWrapper {
   float: left;
   margin-right: 1em;
 }
-/* line 564, ../scss/_styles.scss */
+/* line 606, ../scss/_styles.scss */
 .relatedProducts li .productTitle span {
   color: #5581b4;
   font-size: 85%;
   font-family: OsloLight, sans-serif;
 }
 
-/* line 575, ../scss/_styles.scss */
+/* line 617, ../scss/_styles.scss */
 .aboutPage .rightColumn {
   width: 33%;
   float: right;
@@ -1124,39 +1172,39 @@ form .row.submit {
   box-sizing: border-box;
   padding: 0 0 0 1em;
 }
-/* line 582, ../scss/_styles.scss */
+/* line 624, ../scss/_styles.scss */
 .aboutPage .rightColumn .regiserButton {
   text-decoration: none;
 }
-/* line 587, ../scss/_styles.scss */
+/* line 629, ../scss/_styles.scss */
 .aboutPage .mainColumn {
   margin-right: 33%;
 }
-/* line 590, ../scss/_styles.scss */
+/* line 632, ../scss/_styles.scss */
 .aboutPage .mainColumn > .contentWrapper {
   padding: 1em;
 }
 
-/* line 598, ../scss/_styles.scss */
+/* line 640, ../scss/_styles.scss */
 .page-userRegister .mainContentWrapper {
   padding: 0 1em;
 }
-/* line 602, ../scss/_styles.scss */
+/* line 644, ../scss/_styles.scss */
 .page-userRegister .registrationFormWrapper {
   padding: 1em;
 }
-/* line 605, ../scss/_styles.scss */
+/* line 647, ../scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper {
   display: table;
   width: 60%;
   margin-bottom: 2em;
 }
-/* line 610, ../scss/_styles.scss */
+/* line 652, ../scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .spacer {
   width: 4%;
   display: table-cell;
 }
-/* line 615, ../scss/_styles.scss */
+/* line 657, ../scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .powerblock {
   display: table-cell;
   vertical-align: middle;
@@ -1166,28 +1214,28 @@ form .row.submit {
   text-align: left;
   opacity: .5;
 }
-/* line 624, ../scss/_styles.scss */
+/* line 666, ../scss/_styles.scss */
 .page-userRegister .registrationFormWrapper .stepsWrapper .powerblock.active {
   opacity: 1;
 }
 
-/* line 632, ../scss/_styles.scss */
+/* line 674, ../scss/_styles.scss */
 .step-header {
   color: #808080;
   margin: 1em 0;
   overflow: hidden;
 }
-/* line 637, ../scss/_styles.scss */
+/* line 679, ../scss/_styles.scss */
 .step-header .step-description {
   float: left;
   width: 50%;
   padding-top: 10px;
 }
-/* line 644, ../scss/_styles.scss */
+/* line 686, ../scss/_styles.scss */
 .step-header .step-description h2.welcome span {
   color: #707070;
 }
-/* line 650, ../scss/_styles.scss */
+/* line 692, ../scss/_styles.scss */
 .step-header .step-list {
   float: right;
   width: 50%;
@@ -1196,12 +1244,12 @@ form .row.submit {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 658, ../scss/_styles.scss */
+/* line 700, ../scss/_styles.scss */
 .step-header .step-list ul {
   list-style-type: none;
   margin: 0;
 }
-/* line 662, ../scss/_styles.scss */
+/* line 704, ../scss/_styles.scss */
 .step-header .step-list ul li {
   display: block;
   height: 46px;
@@ -1211,34 +1259,34 @@ form .row.submit {
   font-weight: bold;
   color: #c4c4c4;
 }
-/* line 671, ../scss/_styles.scss */
+/* line 713, ../scss/_styles.scss */
 .step-header .step-list ul li .step-number {
   float: left;
 }
-/* line 675, ../scss/_styles.scss */
+/* line 717, ../scss/_styles.scss */
 .step-header .step-list ul li .step-icon {
   float: left;
   margin: 0 20px;
 }
-/* line 680, ../scss/_styles.scss */
+/* line 722, ../scss/_styles.scss */
 .step-header .step-list ul li.active {
   color: #6a6a6a;
 }
 
-/* line 688, ../scss/_styles.scss */
+/* line 730, ../scss/_styles.scss */
 .MultiFile-wrap {
   padding: 20px 0;
   text-align: left;
 }
-/* line 692, ../scss/_styles.scss */
+/* line 734, ../scss/_styles.scss */
 .MultiFile-wrap .MultiFile-applied {
   padding: 10px 0;
 }
-/* line 696, ../scss/_styles.scss */
+/* line 738, ../scss/_styles.scss */
 .MultiFile-wrap .MultiFile-label {
   padding: 10px 0;
 }
-/* line 699, ../scss/_styles.scss */
+/* line 741, ../scss/_styles.scss */
 .MultiFile-wrap .MultiFile-label .MultiFile-remove {
   display: inline-block;
   float: left;
@@ -1248,29 +1296,29 @@ form .row.submit {
   margin-right: 5px;
 }
 
-/* line 710, ../scss/_styles.scss */
+/* line 752, ../scss/_styles.scss */
 .child-list ul, .child-photos ul {
   list-style-type: none;
   margin: 1.5em;
 }
-/* line 713, ../scss/_styles.scss */
+/* line 755, ../scss/_styles.scss */
 .child-list ul li, .child-photos ul li {
   display: inline-block;
   vertical-align: top;
   margin: 0 2em 1em 0;
 }
-/* line 718, ../scss/_styles.scss */
+/* line 760, ../scss/_styles.scss */
 .child-list ul li img, .child-photos ul li img {
   border: 1px solid #9f9f9f;
   border-radius: 5px;
 }
-/* line 723, ../scss/_styles.scss */
+/* line 765, ../scss/_styles.scss */
 .child-list ul li .edit-link, .child-photos ul li .edit-link {
   display: block;
   padding: 10px 0.2em 0.2em;
   color: #002F66;
 }
-/* line 729, ../scss/_styles.scss */
+/* line 771, ../scss/_styles.scss */
 .child-list ul li .flyer-link, .child-photos ul li .flyer-link {
   background: #FF0000;
   color: #FFFFFF;
@@ -1278,11 +1326,11 @@ form .row.submit {
   padding: 0.2em;
   display: block;
 }
-/* line 738, ../scss/_styles.scss */
+/* line 780, ../scss/_styles.scss */
 .child-list ul li .child-photo, .child-photos ul li .child-photo {
   position: relative;
 }
-/* line 740, ../scss/_styles.scss */
+/* line 782, ../scss/_styles.scss */
 .child-list ul li .child-photo .photo-delete, .child-photos ul li .child-photo .photo-delete {
   position: absolute;
   right: 0;
@@ -1291,7 +1339,7 @@ form .row.submit {
   cursor: pointer;
 }
 
-/* line 751, ../scss/_styles.scss */
+/* line 793, ../scss/_styles.scss */
 .errorbox {
   float: left;
   color: #D8000C;
@@ -1305,141 +1353,159 @@ form .row.submit {
   line-height: 20px;
 }
 
-/* line 764, ../scss/_styles.scss */
+/* line 806, ../scss/_styles.scss */
 #teeth-area {
   margin: 60px;
   position: relative;
 }
-/* line 768, ../scss/_styles.scss */
+/* line 810, ../scss/_styles.scss */
 #teeth-area .legend {
   position: absolute;
   right: 0;
   top: 0;
 }
 
-/* line 775, ../scss/_styles.scss */
+/* line 817, ../scss/_styles.scss */
 .flyerWrapper {
   padding-right: 3em;
 }
-/* line 778, ../scss/_styles.scss */
+/* line 820, ../scss/_styles.scss */
 .flyerWrapper .mainSection {
   overflow: hidden;
   margin-bottom: 1em;
 }
-/* line 782, ../scss/_styles.scss */
+/* line 824, ../scss/_styles.scss */
 .flyerWrapper .mainSection .photoWrapper {
   float: left;
   width: 48%;
   text-align: center;
 }
-/* line 788, ../scss/_styles.scss */
+/* line 830, ../scss/_styles.scss */
 .flyerWrapper .mainSection .childData {
   float: left;
   margin-left: 2%;
   width: 40%;
   line-height: 1.5;
 }
-/* line 794, ../scss/_styles.scss */
+/* line 836, ../scss/_styles.scss */
 .flyerWrapper .mainSection .childData .childName {
   text-transform: uppercase;
   margin-top: 0;
   line-height: 1;
   margin-bottom: 0.5em;
 }
-/* line 801, ../scss/_styles.scss */
+/* line 843, ../scss/_styles.scss */
 .flyerWrapper .mainSection .childData .fieldName {
   color: #FF0000;
   text-transform: uppercase;
 }
-/* line 810, ../scss/_styles.scss */
+/* line 852, ../scss/_styles.scss */
 .flyerWrapper .footer {
   margin-top: 2em;
   overflow: hidden;
 }
-/* line 814, ../scss/_styles.scss */
+/* line 856, ../scss/_styles.scss */
 .flyerWrapper .footer .warningWrapper {
   float: right;
   width: 50%;
 }
-/* line 818, ../scss/_styles.scss */
+/* line 860, ../scss/_styles.scss */
 .flyerWrapper .footer .warningWrapper .warning {
   color: #FF0000;
   font-size: 180%;
   font-weight: normal;
 }
-/* line 825, ../scss/_styles.scss */
+/* line 867, ../scss/_styles.scss */
 .flyerWrapper .footer .logo {
   margin-top: 0;
 }
 
-/* line 831, ../scss/_styles.scss */
+/* line 873, ../scss/_styles.scss */
+.footer_nav {
+  width: 380px;
+  margin: 20px auto;
+}
+/* line 877, ../scss/_styles.scss */
+.footer_nav ul li {
+  float: left;
+  list-style: none;
+  margin-left: 10px;
+}
+/* line 883, ../scss/_styles.scss */
+.footer_nav ul li a {
+  color: #ee8b38;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* line 890, ../scss/_styles.scss */
 table#relatives_table {
   margin: 0 auto;
   text-align: left;
   border-spacing: 10px;
   border-collapse: separate;
 }
-/* line 837, ../scss/_styles.scss */
+/* line 896, ../scss/_styles.scss */
 table#relatives_table th {
   background: #fff;
 }
 
-/* line 843, ../scss/_styles.scss */
+/* line 902, ../scss/_styles.scss */
 div.errorMessage, label.errorMessage {
   color: #f00;
 }
 
-/* line 849, ../scss/_styles.scss */
+/* line 908, ../scss/_styles.scss */
 .ui-timepicker-div .ui-widget-header {
   margin-bottom: 8px;
 }
 
-/* line 850, ../scss/_styles.scss */
+/* line 909, ../scss/_styles.scss */
 .ui-timepicker-div dl {
   text-align: left;
 }
 
-/* line 851, ../scss/_styles.scss */
+/* line 910, ../scss/_styles.scss */
 .ui-timepicker-div dl dt {
   height: 25px;
 }
 
-/* line 852, ../scss/_styles.scss */
+/* line 911, ../scss/_styles.scss */
 .ui-timepicker-div dl dd {
   margin: -25px 0 10px 65px;
 }
 
-/* line 853, ../scss/_styles.scss */
+/* line 912, ../scss/_styles.scss */
 .ui-timepicker-div td {
   font-size: 90%;
 }
 
-/* line 855, ../scss/_styles.scss */
+/* line 914, ../scss/_styles.scss */
 .ui-timepicker-div + .ui-datepicker-buttonpane.ui-widget-content {
   margin-top: 100px;
 }
 
-/* line 859, ../scss/_styles.scss */
+/* line 918, ../scss/_styles.scss */
 .ui_tpicker_second, .ui_tpicker_second_label {
   display: none;
 }
 
-/* line 864, ../scss/_styles.scss */
+/* line 923, ../scss/_styles.scss */
 #activateAlertDialog {
   background: #F8F8F8;
 }
-/* line 867, ../scss/_styles.scss */
+/* line 926, ../scss/_styles.scss */
 #activateAlertDialog #alert_contents {
   width: 90%;
   min-width: 525px;
   height: 70%;
   margin: 10px auto;
 }
-/* line 874, ../scss/_styles.scss */
+/* line 933, ../scss/_styles.scss */
 #activateAlertDialog #alert_logo {
   float: left;
 }
-/* line 878, ../scss/_styles.scss */
+/* line 937, ../scss/_styles.scss */
 #activateAlertDialog #alert_logo_message {
   margin-left: 400px;
   padding-left: 50px;
@@ -1450,57 +1516,57 @@ div.errorMessage, label.errorMessage {
   font-size: 200%;
   font-weight: bold;
 }
-/* line 889, ../scss/_styles.scss */
+/* line 948, ../scss/_styles.scss */
 #activateAlertDialog #alert_text {
   clear: both;
   margin-bottom: 10px;
   font: 0.9em;
 }
-/* line 895, ../scss/_styles.scss */
+/* line 954, ../scss/_styles.scss */
 #activateAlertDialog #row_logo {
   margin-bottom: 20px;
 }
-/* line 900, ../scss/_styles.scss */
+/* line 959, ../scss/_styles.scss */
 #activateAlertDialog .alert_child_row {
   margin-bottom: 5px;
   font: 1em;
   margin-left: 0;
 }
-/* line 906, ../scss/_styles.scss */
+/* line 965, ../scss/_styles.scss */
 #activateAlertDialog .child_label {
   padding-left: 10px;
 }
-/* line 910, ../scss/_styles.scss */
+/* line 969, ../scss/_styles.scss */
 #activateAlertDialog .description_child_row {
   margin: 1em 1.2em;
 }
-/* line 914, ../scss/_styles.scss */
+/* line 973, ../scss/_styles.scss */
 #activateAlertDialog .hidden {
   display: none;
 }
-/* line 919, ../scss/_styles.scss */
+/* line 978, ../scss/_styles.scss */
 #activateAlertDialog #incident_datetime_row {
   font: 1em;
   margin-left: 0;
 }
-/* line 924, ../scss/_styles.scss */
+/* line 983, ../scss/_styles.scss */
 #activateAlertDialog #incident_description_row {
   margin-top: 10px;
   font: 1em;
   margin-left: 0;
 }
-/* line 930, ../scss/_styles.scss */
+/* line 989, ../scss/_styles.scss */
 #activateAlertDialog .alertLabel {
   display: block;
   margin-bottom: 5px;
 }
-/* line 935, ../scss/_styles.scss */
+/* line 994, ../scss/_styles.scss */
 #activateAlertDialog #alert_buttons_row {
   text-align: center;
   margin-left: 0;
   margin-top: 2em;
 }
-/* line 941, ../scss/_styles.scss */
+/* line 1000, ../scss/_styles.scss */
 #activateAlertDialog #alert_submit {
   background: #f00;
   color: #fff;
@@ -1510,125 +1576,125 @@ div.errorMessage, label.errorMessage {
   text-transform: uppercase;
   padding: 0 1em;
 }
-/* line 951, ../scss/_styles.scss */
+/* line 1010, ../scss/_styles.scss */
 #activateAlertDialog #cancelAlert {
   color: #f00;
   text-decoration: none;
 }
 
-/* line 959, ../scss/_styles.scss */
+/* line 1018, ../scss/_styles.scss */
 #child-alert-settings-form label {
   display: block;
   text-align: left;
   margin-bottom: 0.2em;
 }
-/* line 965, ../scss/_styles.scss */
+/* line 1024, ../scss/_styles.scss */
 #child-alert-settings-form .fieldstyle {
   width: 100%;
 }
-/* line 969, ../scss/_styles.scss */
+/* line 1028, ../scss/_styles.scss */
 #child-alert-settings-form .fieldWrapper {
   width: 24%;
   margin-right: 1%;
   display: inline-block;
   vertical-align: top;
 }
-/* line 976, ../scss/_styles.scss */
+/* line 1035, ../scss/_styles.scss */
 #child-alert-settings-form .formRow {
   margin-bottom: 1em;
   width: 50%;
 }
-/* line 981, ../scss/_styles.scss */
+/* line 1040, ../scss/_styles.scss */
 #child-alert-settings-form textarea {
   width: 100%;
 }
-/* line 985, ../scss/_styles.scss */
+/* line 1044, ../scss/_styles.scss */
 #child-alert-settings-form .submit_buttons {
   margin-bottom: 60px;
   position: relative;
   text-align: right;
 }
-/* line 991, ../scss/_styles.scss */
+/* line 1050, ../scss/_styles.scss */
 #child-alert-settings-form .prev_button_container {
   float: left;
 }
 
-/* line 997, ../scss/_styles.scss */
+/* line 1056, ../scss/_styles.scss */
 #alert_settings_description, #notification_email_description {
   margin-bottom: 1em;
 }
 
-/* line 1002, ../scss/_styles.scss */
+/* line 1061, ../scss/_styles.scss */
 #survey_form .left {
   float: left;
   width: 30%;
   padding-left: 5%;
 }
-/* line 1008, ../scss/_styles.scss */
+/* line 1067, ../scss/_styles.scss */
 #survey_form .right {
   margin-left: 36%;
   width: 50%;
 }
-/* line 1013, ../scss/_styles.scss */
+/* line 1072, ../scss/_styles.scss */
 #survey_form label.block {
   display: block;
   margin-top: 1em;
 }
-/* line 1018, ../scss/_styles.scss */
+/* line 1077, ../scss/_styles.scss */
 #survey_form textarea {
   width: 90%;
   resize: none;
 }
-/* line 1023, ../scss/_styles.scss */
+/* line 1082, ../scss/_styles.scss */
 #survey_form .sumbit_row {
   margin-top: 1em;
   text-align: center;
   clear: both;
 }
-/* line 1028, ../scss/_styles.scss */
+/* line 1087, ../scss/_styles.scss */
 #survey_form .sumbit_row input {
   background: #ee8b38;
   color: #fff;
 }
-/* line 1034, ../scss/_styles.scss */
+/* line 1093, ../scss/_styles.scss */
 #survey_form .errorMessage {
   text-align: left;
 }
-/* line 1040, ../scss/_styles.scss */
+/* line 1099, ../scss/_styles.scss */
 #survey_form span label {
   font-size: 0.8em;
 }
-/* line 1045, ../scss/_styles.scss */
+/* line 1104, ../scss/_styles.scss */
 #survey_form .kit_rate_table {
   width: 50%;
   margin: auto;
 }
-/* line 1048, ../scss/_styles.scss */
+/* line 1107, ../scss/_styles.scss */
 #survey_form .kit_rate_table td {
   width: 25%;
   text-align: center;
   font-size: 0.8em;
 }
 
-/* line 1057, ../scss/_styles.scss */
+/* line 1116, ../scss/_styles.scss */
 .faq ul.faqList {
   list-style: none;
 }
-/* line 1060, ../scss/_styles.scss */
+/* line 1119, ../scss/_styles.scss */
 .faq ul.faqList li.item {
   margin-bottom: 0.5em;
 }
-/* line 1065, ../scss/_styles.scss */
+/* line 1124, ../scss/_styles.scss */
 .faq .question {
   font-weight: bold;
 }
 
-/* line 1071, ../scss/_styles.scss */
+/* line 1130, ../scss/_styles.scss */
 input::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-/* line 1075, ../scss/_styles.scss */
+/* line 1134, ../scss/_styles.scss */
 input[type="date"]::-webkit-input-placeholder {
   visibility: hidden !important;
 }
