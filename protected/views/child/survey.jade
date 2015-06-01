@@ -12,53 +12,134 @@ p.
             h3 Feedback
             -$form=$this->beginWidget('CActiveForm', array('id' => 'survey_form'));
             div.row.questions
-                div.left
-                    p (All questions are required)
+                div
+                    .query
+                        !=$form->labelEx($model, 'ever_purchased', array('class' => 'block'));
+                        !=$form->radioButtonList($model,'ever_purchased',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>', '2' => 'query-trigger'));
+                        !=$form->error($model, 'ever_purchased')
+                        .query-extended
+                            !=$form->labelEx($model, 'ever_purchased_yes', array('class' => 'block'));
+                            !=$form->radioButtonList($model,'ever_purchased_yes',array('1 year' => '1 year', '3 years' => '3 years', '5 years' => '5 years'), array('separator' => '<br>'));
+                            !=$form->error($model, 'ever_purchased')
 
-                    !=$form->labelEx($model, 'like_survey', array('class' => 'block'));
-                    !=$form->radioButtonList($model,'like_survey',array('I like it!' => 'I like it!', 'I think it\'s complicated' => 'I think it\'s complicated', 'I liked 2003' => 'I liked 2003'), array('separator' => '<br>'));
-                    !=$form->error($model, 'like_survey')
+                            !=$form->labelEx($model, 'how_satisfied', array('class' => 'block'));
+                            !=$form->radioButtonList($model,'how_satisfied',array('Somewhat' => 'Somewhat', 'Very' => 'Very', 'Not at All' => 'Not at All'), array('separator' => '<br>'));
+                            !=$form->error($model, 'how_satisfied')
 
-                    !=$form->labelEx($model, 'like_kit', array('class' => 'block'));
-                    !=$form->radioButtonList($model,'like_kit',array('Better' => 'Better', 'Nice' => 'Nice', 'I don\'t like it' => 'I don\'t like it'), array('separator' => '<br>'));
-                    !=$form->error($model, 'like_kit')
-
-                div.right
-                    div.row
-                        !=$form->labelEx($model, 'kit_opinion', array('class' => 'block'));
-                        !=$form->textArea($model, 'kit_opinion', array('rows' => '3'));
-                        !=$form->error($model, 'kit_opinion')
-
-                    div.row
-                        !=$form->labelEx($model, 'kit_rate', array('class' => 'block'));
-                        table.kit_rate_table
-                            tr
-                                td Low
-                                td
-                                td Average
-                                td
-                                td High
-                            tr
-                                td 1
-                                td 2
-                                td 3
-                                td 4
-                                td 5
-                            tr
-                                td
-                                    !=$form->radioButton($model, 'kit_rate', array('value' => 1, 'uncheckValue' => null));
-                                td
-                                    !=$form->radioButton($model, 'kit_rate', array('value' => 2, 'uncheckValue' => null));
-                                td
-                                    !=$form->radioButton($model, 'kit_rate', array('value' => 3, 'uncheckValue' => null));
-                                td
-                                    !=$form->radioButton($model, 'kit_rate', array('value' => 4, 'uncheckValue' => null));
-                                td
-                                    !=$form->radioButton($model, 'kit_rate', array('value' => 5, 'uncheckValue' => null));
-
-
-                        !=$form->error($model, 'kit_rate')
+                            !=$form -> labelEx($model, 'tell_us', array('class' => 'block'));
+                            !=$form -> textArea($model, 'tell_us', array('separator' => '<br>'));
+                            !=$form -> error($model, 'tell_us')
+                    .query
+                        !=$form->labelEx($model, 'purchase_yourself', array('class' => 'block'));
+                        !=$form->radioButtonList($model,'purchase_yourself',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
+                        !=$form->error($model, 'purchase_yourself')
+                        .query-extended
+                            !=$form-> labelEx($model, 'purchase_yourself_not', array('class' => 'block'));
+                            !=$form-> textArea($model, 'purchase_yourself_not', array('separator' => '<br>'));
+                            !=$form-> error($model, 'purchase_yourself_not')
+                    .query
+                        !=$form->labelEx($model, 'purchase_family', array('class' => 'block'));
+                        !=$form-> radioButtonList($model, 'purchase_family', array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
+                        !=$form-> error($model, 'purchase_family')
+                        .query-extended
+                            !=$form->labelEx($model, 'purchase_family_not', array('class' => 'block'));
+                            !=$form->textArea($model,'purchase_family_not', array('separator' => '<br>'));
+                            !=$form-> error($model, 'purchase_family_not')
+                    .query
+                        !=$form->labelEx($model, 'easy_to_use', array('class' => 'block'));
+                        !=$form->radioButtonList($model,'easy_to_use',array('yes' => 'Yes', 'no' => 'No'), array('separator' => '<br>'));
+                        !=$form->error($model, 'easy_to_use')
+                        .query-extended
+                            !=$form-> labelEx($model, 'easy_to_use_not', array('class' => 'block'));
+                            !=$form-> textArea($model, 'easy_to_use_not', array('separator' => '<br>'));
+                            !=$form-> error($model, 'easy_to_use_not')
+                    .query
+                        !=$form->labelEx($model, 'easy_to_follow', array('class' => 'block'));
+                        !=$form->radioButtonList($model,'easy_to_follow',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
+                        !=$form->error($model, 'easy_to_follow')
+                        .query-extended
+                            !=$form->labelEx($model, 'easy_to_follow_not', array('class' => 'block'));
+                            !=$form->textArea($model, 'easy_to_follow_not', array('separator' => '<br>'));
+                            !=$form->error($model, 'easy_to_follow_not')
+                    .query
+                        !=$form->labelEx($model, 'fingerprinting', array('class' => 'block'));
+                        !=$form->radioButtonList($model,'fingerprinting',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
+                        !=$form->error($model, 'fingerprinting')
+                        .query-extended
+                            !=$form->labelEx($model, 'fingerprinting_yes', array('class' => 'block'));
+                            !=$form->textArea($model, 'fingerprinting_yes', array('separator' => '<br>'));
+                            !=$form->error($model, 'fingerprinting_yes')
+                    .query
+                        !=$form->labelEx($model, 'kit_design', array('class' => 'block'));
+                        !=$form->radioButtonList($model,'kit_design',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
+                        !=$form->error($model, 'kit_design')
+                        .query-extended
+                            !=$form-> labelEx($model, 'kit_design_not', array('class' => 'block'));
+                            !=$form-> textArea($model, 'kit_design_not', array('separator' => '<br>'));
+                            !=$form-> error($model, 'kit_design_not')
+                    .query
+                        !=$form->labelEx($model, 'kit_added', array('class' => 'block'));
+                        !=$form->textArea($model,'kit_added', array('separator' => '<br>'));
+                        !=$form->error($model, 'kit_added')
+                    .query
+                        !=$form->labelEx($model, 'one_future', array('class' => 'block'));
+                        !=$form->textArea($model,'one_future', array('separator' => '<br>'));
+                        !=$form->error($model, 'one_future')
+                    .query
+                        !=$form->labelEx($model, 'expect_to_find', array('class' => 'block'));
+                        !=$form->textArea($model, 'expect_to_find', array('separator' => '<br>'));
+                        !=$form->error($model, 'expect_to_find')
+                    .query
+                        !=$form->labelEx($model, 'most_appealing', array('class' => 'block'));
+                        !=$form->radioButtonList($model, 'most_appealing', array('Low cost of kit, low cost of  monthly service fee to keep online profile active and utilize Emergency Alert System' => 'Low cost of kit, low cost of  monthly service fee to keep online profile active and utilize Emergency Alert System', 'No cost of kit, pay more for monthly service fee to keep online profile active and utilize Emergency Alert System', 'No monthly service fee for first year, pay more for kit up front' => 'No monthly service fee for first year, pay more for kit up front', 'Other, please explain:' => 'Other, please explain:'), array('separator' => '<br>'));
+                        !=$form->error($model, ',most_appealing')
+                        .query-extended
+                            !=$form->textArea($model, 'most_appealing_other', array('separatot' => '<br>'));
+                    .query
+                        !=$form->labelEx($model, 'maximum_amount', array('class' => 'block'));
+                        !=$form->radioButtonList($model, 'maximum_amount', array('$24.99' => '$24.99', '$29.99' => '$29.99', '$39.00' => '$39.00', '$49.99' => '$49.99'), array('separator' => '<br>'));
+                        !=$form->error($model, 'maximum_amount')
+                    .query
+                        !=$form->labelEx($model, 'maximum_monthly_fee', array('class' => 'block'));
+                        !=$form->radioButtonList($model, 'maximum_monthly_fee', array('$4.99' => '$4.99', '$9.99' => '$9.99', '$14.99' => '$14.99', '$19.99' => '$19.99'), array('separator' => '<br>'));
+                        !=$form->error($model, 'maximum_monthly_fee')
+                    .query
+                        !=$form->labelEx($model, 'for_other_members', array('class' => 'block'));
+                        !=$form->checkBoxList($model, 'for_other_members', array('Pets' => 'Pets', 'Elderly' => 'Elderly', 'Special Needs' => 'Special Needs'), array('separator' => '<br>'));
+                        !=$form->error($model, 'for_other_members')
+                    .query
+                        !=$form->labelEx($model, 'preferred_method', array('class' => 'block'));
+                        !=$form->radioButtonList($model, 'preferred_method', array('PC – desktop, laptop' => 'PC – desktop, laptop', 'MAC– desktop, laptop' => 'MAC– desktop, laptop', 'TABLET – Android, iPad' => 'TABLET – Android, iPad', 'SMART PHONE' => 'SMART PHONE'), array('separator' => '<br>'));
+                        !=$form->error($model, 'preferred_method')
+                    .query
+                        !=$form->labelEx($model, 'other_systems', array('class' => 'block'));
+                        !=$form->textArea($model, 'other_systems', array('separator' => '<br>'));
+                        !=$form->error($model, 'other_systems')
+                    .query
+                        !=$form->labelEx($model, 'other_accounts', array('class' => 'block'));
+                        !=$form->textArea($model, 'other_accounts', array('separator' => '<br>'));
+                        !=$form->error($model, 'other_accounts')
+                    .query
+                        !=$form->labelEx($model, 'consider_for_child', array('class'=>'block'));
+                        !=$form->radioButtonList($model, 'consider_for_child', array('Yes' => 'Yes', 'No' => 'No', 'Maybe' => 'Maybe', 'Would consider GPS worn on body but not implanted' => 'Would consider GPS worn on body but not implanted', 'Other - Explain:' => 'Other - Explain:'), array('separator'=>'<br>'));
+                        !=$form->error($model, 'consider_for_child')
+                        .query-extended
+                            !=$form->textArea($model, 'consider_for_child_other', array('separator', '<br>'));
+                    .query
+                        !=$form->labelEx($model, 'level_of_insured', array('class'=>'block'));
+                        !=$form->radioButtonList($model, 'level_of_insured', array('Under insured'=>'Under insured ', 'Properly insured '=>'Properly insured', 'Over insured'=>'Over insured', 'Not certain'=>'Not certain'), array('separator'=>'<br>'));
+                        !=$form->error($model, 'level_of_insured')
 
             div.row.sumbit_row
                 !=CHtml::submitButton('submit');
                 -$this->endWidget();
+
+            //script
+            //    $("input[type='radio']").on({change: function() {
+            //        var $this = $(this);
+            //        if ($this.prop("value") == 'No') {
+            //            $this.parent().next().show().next().show();
+            //        } else {
+            //            $this.parent().next().hide().next().hide();
+            //        }
+            //    }});
