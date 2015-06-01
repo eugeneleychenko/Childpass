@@ -32,6 +32,28 @@
             <p class="welcome-label">Welcome, <span><?php echo Yii::app()->user->getName() ?></span></p>
             <?php echo CHtml::link('log out»', array('user/logout'), array('class' => 'btn logout')); ?>
         </div>
+
+        <!--<div id="oa_social_link_container"></div>
+
+        <script type="text/javascript">
+
+            /* Replace #your_callback_uri# with the url to your own callback script */
+            var your_callback_script = 'https://childpass.local/user/callback';
+
+            /* Dynamically add the user_token of the currently logged in user. */
+            /* If the user has no user_token then leave the field blank. */
+            var user_token = '64109c8a-fd52-4544-bc31-31a83f912dcb';
+
+            /* Embeds the buttons into the container oa_social_link_container */
+            var _oneall = _oneall || [];
+            _oneall.push(['social_link', 'set_providers', ['facebook', 'google', 'twitter']]);
+            _oneall.push(['social_link', 'set_callback_uri', your_callback_script]);
+            _oneall.push(['social_link', 'set_user_token', user_token]);
+            _oneall.push(['social_link', 'do_render_ui', 'oa_social_link_container']);
+
+        </script>-->
+
+
         <?php
     }
     ?>

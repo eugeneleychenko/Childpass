@@ -127,4 +127,22 @@ class User extends CActiveRecord
 
         return Yii::app()->createAbsoluteUrl('user/password-reset', array('code' => $code));
     }
+
+	/**
+	 * Returns User model by its email
+	 *
+	 * @param string $email
+	 * @access public
+	 * @return User
+	 */
+	public function findByEmail($email)
+	{
+		return self::model()->findByAttributes(array('email' => $email));
+	}
+
+	public function verifyPassword($password)
+	{
+		var_dump($password);
+		return true;
+	}
 }
