@@ -150,9 +150,11 @@ p.
                     if ($.inArray($target.prop("id"), id) >= 0) {
                         $extForm.show();
                     } else {
-                        $extForm.hide();
-                        $extForm.find("input[type='radio']").prop("checked", 0);
-                        $extForm.find("input[type='text']").val("");
-                        $extForm.find("textarea").val("");
+                        if ($target.parents('.query-extended').prop('class') != 'query-extended') {
+                            $extForm.hide();
+                            $extForm.find("input[type='radio']").prop("checked", 0);
+                            $extForm.find("input[type='text']").val("");
+                            $extForm.find("textarea").val("");
+                        }
                     }
                 }
