@@ -1,0 +1,18 @@
+
+.terms_and_conditions {
+  ol {
+    margin-bottom: 10px;
+    list-style-position: inside;
+    ol {
+      margin-left: 20px;
+      list-style-type: lower-alpha;
+      ol {
+        list-style-type: lower-roman;
+        ol {
+          list-style-type: decimal;
+        }
+      }
+    }
+  }
+}
+

@@ -115,18 +115,18 @@ form {
 
 .contentWrapper {
   padding: 1em;
-}
 
-.contentWrapper i {
-  font-style: italic;
-}
+  i {
+    font-style: italic;
+  }
 
-.contentWrapper a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
 
-.contentWrapper a:hover {
-  text-decoration: underline;
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 #page {
@@ -400,27 +400,6 @@ form {
     text-align: right;
   }
 
-}
-
-.terms_and_conditions {
-
-  ol li {
-    margin-bottom: 10px;
-    margin-left: 25px;
-  }
-
-  ol li ol li {
-    margin-left: 20px;
-    list-style-type: lower-alpha;
-  }
-
-  ol li ol li ol li {
-    list-style-type: lower-roman;
-  }
-
-  ol li ol li ol li ol li {
-    list-style-type: decimal;
-  }
 }
 
 .row {
@@ -877,13 +856,13 @@ form {
   ul li {
     float: left;
     list-style: none;
-    margin-left: 10px;
-  }
+    margin: 0 5px;
 
-  ul li a {
-    color: #ee8b38;
-    font-size: 14px;
-    text-decoration: none;
+    a {
+      color: #ee8b38;
+      font-size: 14px;
+      text-decoration: none;
+    }
   }
 }
 

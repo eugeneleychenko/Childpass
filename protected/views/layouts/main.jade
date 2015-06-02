@@ -74,28 +74,28 @@ html(lang='en')
                     li
                         img(src=$this->baseUrl . '/images/iss_logo.png')
                     li
-                        img(src=$this->baseUrl . '/images/thetownschool.jpg', width="100px", height="100px")
+                        img(src=$this->baseUrl . '/images/thetownschool.jpg')
                     li
-                        img(src=$this->baseUrl . '/images/Lycee_LogoBLUE.png', width="76px", height="97px")
+                        img(src=$this->baseUrl . '/images/Lycee_LogoBLUE.png')
                     li
-                        img(src=$this->baseUrl . '/images/carnegie-hill.png', width="150px", height="30px")
+                        img(src=$this->baseUrl . '/images/carnegie-hill.png')
             .footer_nav
                 ul
                     li
-                        a(href=$this->createUrl('site/page', array('view' => 'about')))
-                            | About Us
+                        :php
+                            echo CHtml::link('About us', array('site/page', 'view'=>'about'));
                     li
-                        a(href=$this->createUrl('site/page', array('view' => 'product')))
-                            | Products
+                        :php
+                            echo CHtml::link('Products', array('site/page', 'view'=>'product'));
                     li
-                        a(href=$this->createUrl('site/page', array('view' => 'testimonials')))
-                            | Testimonials
+                        :php
+                            echo CHtml::link('Testimonials', array('site/page', 'view'=>'testimonials'));
                     li
-                        a(href=$this->createUrl('site/page', array('view' => 'faq')))
-                            | FAQ
+                        :php
+                            echo CHtml::link('FAQ', array('site/page', 'view'=>'faq'));
                     li
-                        a(href=$this->createUrl('site/page', array('view' => 'terms')))
-                            | Terms & conditions
+                        :php
+                            echo CHtml::link('Terms & conditions', array('site/page', 'view'=>'terms'));
 
             div.dialogs
                 div#activateAlertDialog.dialog(style="border: 10px #f00 solid; display: none; overlow: auto;")
