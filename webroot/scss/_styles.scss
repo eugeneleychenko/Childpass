@@ -1015,6 +1015,12 @@ div.errorMessage, label.errorMessage {
     margin-top: 1em;
   }
 
+  .query {
+    .query-extended {
+      display: none;
+    }
+  }
+
   textarea {
     width: 90%;
     resize: none;

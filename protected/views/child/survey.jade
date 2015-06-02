@@ -20,15 +20,10 @@ p.
                         .query-extended
                             !=$form->labelEx($model, 'ever_purchased_yes', array('class' => 'block'));
                             !=$form->radioButtonList($model,'ever_purchased_yes',array('1 year' => '1 year', '3 years' => '3 years', '5 years' => '5 years'), array('separator' => '<br>'));
-                            !=$form->error($model, 'ever_purchased')
-
                             !=$form->labelEx($model, 'how_satisfied', array('class' => 'block'));
                             !=$form->radioButtonList($model,'how_satisfied',array('Somewhat' => 'Somewhat', 'Very' => 'Very', 'Not at All' => 'Not at All'), array('separator' => '<br>'));
-                            !=$form->error($model, 'how_satisfied')
-
                             !=$form -> labelEx($model, 'tell_us', array('class' => 'block'));
                             !=$form -> textArea($model, 'tell_us', array('separator' => '<br>'));
-                            !=$form -> error($model, 'tell_us')
                     .query
                         !=$form->labelEx($model, 'purchase_yourself', array('class' => 'block'));
                         !=$form->radioButtonList($model,'purchase_yourself',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
@@ -36,7 +31,6 @@ p.
                         .query-extended
                             !=$form-> labelEx($model, 'purchase_yourself_not', array('class' => 'block'));
                             !=$form-> textArea($model, 'purchase_yourself_not', array('separator' => '<br>'));
-                            !=$form-> error($model, 'purchase_yourself_not')
                     .query
                         !=$form->labelEx($model, 'purchase_family', array('class' => 'block'));
                         !=$form-> radioButtonList($model, 'purchase_family', array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
@@ -44,7 +38,6 @@ p.
                         .query-extended
                             !=$form->labelEx($model, 'purchase_family_not', array('class' => 'block'));
                             !=$form->textArea($model,'purchase_family_not', array('separator' => '<br>'));
-                            !=$form-> error($model, 'purchase_family_not')
                     .query
                         !=$form->labelEx($model, 'easy_to_use', array('class' => 'block'));
                         !=$form->radioButtonList($model,'easy_to_use',array('yes' => 'Yes', 'no' => 'No'), array('separator' => '<br>'));
@@ -52,15 +45,19 @@ p.
                         .query-extended
                             !=$form-> labelEx($model, 'easy_to_use_not', array('class' => 'block'));
                             !=$form-> textArea($model, 'easy_to_use_not', array('separator' => '<br>'));
-                            !=$form-> error($model, 'easy_to_use_not')
                     .query
                         !=$form->labelEx($model, 'easy_to_follow', array('class' => 'block'));
                         !=$form->radioButtonList($model,'easy_to_follow',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
-                        !=$form->error($model, 'easy_to_follow')
                         .query-extended
                             !=$form->labelEx($model, 'easy_to_follow_not', array('class' => 'block'));
                             !=$form->textArea($model, 'easy_to_follow_not', array('separator' => '<br>'));
-                            !=$form->error($model, 'easy_to_follow_not')
+                    .query
+                        !=$form->labelEx($model, 'dna_sample', array('class' => 'block'));
+                        !=$form->radioButtonList($model,'dna_sample',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
+                        !=$form->error($model, 'dna_sample')
+                        .query-extended
+                            !=$form->labelEx($model, 'dna_sample_yes', array('class' => 'block'));
+                            !=$form->textArea($model, 'dna_sample_yes', array('separator' => '<br>'));
                     .query
                         !=$form->labelEx($model, 'fingerprinting', array('class' => 'block'));
                         !=$form->radioButtonList($model,'fingerprinting',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
@@ -68,15 +65,13 @@ p.
                         .query-extended
                             !=$form->labelEx($model, 'fingerprinting_yes', array('class' => 'block'));
                             !=$form->textArea($model, 'fingerprinting_yes', array('separator' => '<br>'));
-                            !=$form->error($model, 'fingerprinting_yes')
                     .query
                         !=$form->labelEx($model, 'kit_design', array('class' => 'block'));
                         !=$form->radioButtonList($model,'kit_design',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
-                        !=$form->error($model, 'kit_design')
+                        !=$form->error($model, 'fingerprinting')
                         .query-extended
-                            !=$form-> labelEx($model, 'kit_design_not', array('class' => 'block'));
-                            !=$form-> textArea($model, 'kit_design_not', array('separator' => '<br>'));
-                            !=$form-> error($model, 'kit_design_not')
+                            !=$form->labelEx($model, 'kit_design_not', array('class' => 'block'));
+                            !=$form->textArea($model, 'kit_design_not', array('separator' => '<br>'));
                     .query
                         !=$form->labelEx($model, 'kit_added', array('class' => 'block'));
                         !=$form->textArea($model,'kit_added', array('separator' => '<br>'));
@@ -91,8 +86,8 @@ p.
                         !=$form->error($model, 'expect_to_find')
                     .query
                         !=$form->labelEx($model, 'most_appealing', array('class' => 'block'));
-                        !=$form->radioButtonList($model, 'most_appealing', array('Low cost of kit, low cost of  monthly service fee to keep online profile active and utilize Emergency Alert System' => 'Low cost of kit, low cost of  monthly service fee to keep online profile active and utilize Emergency Alert System', 'No cost of kit, pay more for monthly service fee to keep online profile active and utilize Emergency Alert System', 'No monthly service fee for first year, pay more for kit up front' => 'No monthly service fee for first year, pay more for kit up front', 'Other, please explain:' => 'Other, please explain:'), array('separator' => '<br>'));
-                        !=$form->error($model, ',most_appealing')
+                        !=$form->radioButtonList($model, 'most_appealing', array('Low cost of kit, low cost of  monthly service fee to keep online profile active and utilize Emergency Alert System'=>'Low cost of kit, low cost of  monthly service fee to keep online profile active and utilize Emergency Alert System', 'No cost of kit, pay more for monthly service fee to keep online profile active and utilize Emergency Alert System'=>'No cost of kit, pay more for monthly service fee to keep online profile active and utilize Emergency Alert System', 'No monthly service fee for first year, pay more for kit up front'=>'No monthly service fee for first year, pay more for kit up front', 'Other, please explain:'=>'Other, please explain:'), array('separator' => '<br>'));
+                        !=$form->error($model, 'most_appealing')
                         .query-extended
                             !=$form->textArea($model, 'most_appealing_other', array('separatot' => '<br>'));
                     .query
@@ -134,12 +129,30 @@ p.
                 !=CHtml::submitButton('submit');
                 -$this->endWidget();
 
-            //script
-            //    $("input[type='radio']").on({change: function() {
-            //        var $this = $(this);
-            //        if ($this.prop("value") == 'No') {
-            //            $this.parent().next().show().next().show();
-            //        } else {
-            //            $this.parent().next().hide().next().hide();
-            //        }
-            //    }});
+            script
+                $("input[type='radio']").on({change: function() {
+                    var $this = $(this);
+                    showExtendedForm($this);
+                }});
+
+                function showExtendedForm($target) {
+                    var id = ['SurveyForm_ever_purchased_0',
+                        'SurveyForm_purchase_yourself_1',
+                        'SurveyForm_purchase_family_1',
+                        'SurveyForm_easy_to_use_1',
+                        'SurveyForm_easy_to_follow_1',
+                        'SurveyForm_dna_sample_0',
+                        'SurveyForm_fingerprinting_0',
+                        'SurveyForm_kit_design_1',
+                        'SurveyForm_most_appealing_3',
+                        'SurveyForm_consider_for_child_4'],
+                        $extForm = $target.parents(".query").find(".query-extended");
+                    if ($.inArray($target.prop("id"), id) >= 0) {
+                        $extForm.show();
+                    } else {
+                        $extForm.hide();
+                        $extForm.find("input[type='radio']").prop("checked", 0);
+                        $extForm.find("input[type='text']").val("");
+                        $extForm.find("textarea").val("");
+                    }
+                }
