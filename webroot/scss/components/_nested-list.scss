@@ -1,18 +1,17 @@
+.nested-list {
+  margin-bottom: 10px;
+  list-style-position: inside;
 
-.terms_and_conditions {
   ol {
-    margin-bottom: 10px;
-    list-style-position: inside;
+    margin-left: 45px;
+    list-style-type: lower-alpha;
+
     ol {
-      margin-left: 20px;
-      list-style-type: lower-alpha;
+      list-style-type: lower-roman;
+
       ol {
-        list-style-type: lower-roman;
-        ol {
-          list-style-type: decimal;
-        }
+        list-style-type: decimal;
       }
     }
   }
 }
-

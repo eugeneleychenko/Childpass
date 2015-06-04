@@ -71,14 +71,10 @@ html(lang='en')
             #footer
                 | Endorsed by:
                 ul.logosWrapper
-                    li
-                        img(src=$this->baseUrl . '/images/iss_logo.png')
-                    li
-                        img(src=$this->baseUrl . '/images/thetownschool.jpg')
-                    li
-                        img(src=$this->baseUrl . '/images/Lycee_LogoBLUE.png')
-                    li
-                        img(src=$this->baseUrl . '/images/carnegie-hill.png')
+                    li: img(src=$this->baseUrl . '/images/iss_logo.png')
+                    li: img(src=$this->baseUrl . '/images/thetownschool.jpg')
+                    li: img(src=$this->baseUrl . '/images/Lycee_LogoBLUE.png')
+                    li: img(src=$this->baseUrl . '/images/carnegie-hill.png')
             .footer_nav
                 ul
                     li
@@ -96,7 +92,6 @@ html(lang='en')
                     li
                         :php
                             echo CHtml::link('Terms & conditions', array('site/page', 'view'=>'terms'));
-
             div.dialogs
                 div#activateAlertDialog.dialog(style="border: 10px #f00 solid; display: none; overlow: auto;")
 
