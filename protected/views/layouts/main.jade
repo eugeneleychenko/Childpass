@@ -42,29 +42,27 @@ html(lang='en')
                             $this->widget('application.components.LoginFormWidget');
                     ul.nav
                         li
-                            a(href=$this->createUrl('site/page', array('view'=>'about')))
-                                | About Us
+                            :php
+                                echo CHtml::link('About us', array('site/page', 'view'=>'about'));
                         li.separator
                         li
-                            a(href=$this->createUrl('site/page', array('view'=>'product')))
-                                | Products
+                            :php
+                                echo CHtml::link('Products', array('site/page', 'view'=>'product'));
                         li.separator
                         li
-                            a(href=$this->createUrl('site/page', array('view'=>'testimonials')))
-                                | Testimonials
+                            :php
+                                echo CHtml::link('Testimonials', array('site/page', 'view'=>'testimonials'));
                         li.separator
                         li
-                            a(href=$this->createUrl('site/page', array('view'=>'faq')))
-                                | FAQ
+                            :php
+                                echo CHtml::link('FAQ', array('site/page', 'view'=>'faq'));
                         li.reg
                             - if (Yii::app()->user->isGuest):
-                                a(href=$this->createUrl('user/register'))
-                                    | Join Our
-                                    br
-                                    | Beta Test
+                                :php
+                                    echo CHtml::link('Join Our<br>Beta Test', array('user/register', 'view'=>'faq'));
                             - else:
-                                a(href=$this->createUrl('child/list'))
-                                    | My Kids
+                                :php
+                                    echo CHtml::link('My Kids', array('child/list', 'view'=>'faq'));
             #content
                 !=$content
 
