@@ -16,6 +16,9 @@ else
                     img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
                 div#alert_logo_message  ALERT!
 
+            div.fow Please manage social networks profiles to post incident information:
+                - $this->widget('application.components.SocialNetworksWidget');
+
             div#alert_text.row Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
 
             :php

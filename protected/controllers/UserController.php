@@ -208,6 +208,13 @@ class UserController extends Controller
                     $this->render('error', array('message' => 'You have not activated your account. Please activate your account before entering the site. Activation instructions have been sent to your email.'));
                     return;
                 } else {
+
+                    require_once(dirname(__FILE__).'/../extensions/hoauth/models/UserOAuth.php');
+
+                    $hauth = UserOAuth::model()->getHybridAuth();
+                    $user = User::model()->findByPk(Yii::app()->user->getId());
+                    $hauth::restoreSessionData($user->hauth_session_data);
+
                     if (Child::model()->findAll('user_id = :user_id', array(':user_id' => Yii::app()->user->getId()))) {
                         $this->redirect(Yii::app()->homeUrl);
                     } else {
@@ -225,7 +232,44 @@ class UserController extends Controller
      */
     public function actionLogout()
     {
+        require_once(dirname(__FILE__).'/../extensions/hoauth/models/UserOAuth.php');
+
+        $hauth = UserOAuth::model()->getHybridAuth();
+        $sessionData = $hauth::getSessionData();
+        $user = User::model()->findByPk(Yii::app()->user->getId());
+        $user->hauth_session_data = $sessionData;
+        $user->save();
+
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
+    }
+
+    public function actionRemoveSocial()
+    {
+        if (!isset($_GET['provider'])) {
+            return false;
+        }
+
+        require_once(dirname(__FILE__).'/../extensions/hoauth/models/UserOAuth.php');
+
+        $hauth = UserOAuth::model()->getHybridAuth();
+
+        $provider = $_GET['provider'];
+        $adapter = $hauth::getAdapter($provider);
+        $adapter->logout();
+
+        UserOAuth::model()->deleteAllByAttributes(
+            array(
+                'user_id' => Yii::app()->user->getId(),
+                'provider' => $provider
+            )
+        );
+
+        $sessionData = $hauth::getSessionData();
+        $user = User::model()->findByPk(Yii::app()->user->getId());
+        $user->hauth_session_data = $sessionData;
+        $user->save();
+
+        return true;
     }
 }

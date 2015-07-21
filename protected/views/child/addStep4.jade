@@ -31,14 +31,7 @@
         !=$form->renderBegin()
             div
                 .formRow
-                    .fieldWrapper
-                        !=$form['child']['facebook_notification']
-                    .fieldWrapper
-                        !=$form['child']['linked_in_notification']
-                    .fieldWrapper
-                        !=$form['child']['twitter_notification']
-                    .fieldWrapper
-                        !=$form['child']['google_plus_notification']
+                    - $this->widget('application.components.SocialNetworksWidget');
                 .formRow
                     div#notification_email_description Email Local Police, Hospital, School, Friends, Family
                     !=$form['child']['notification_emails']

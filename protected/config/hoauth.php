@@ -32,21 +32,19 @@ return
 
 			"Google" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "id" => "884167945398-8l26mg1nblifmjeqhai41rkgm39beq1u.apps.googleusercontent.com", "secret" => "0VRyZdYezaeU6c2s36ljpfhj" )
+				"keys"    => array ( "id" => "1091484789374-r9k3m2qb8b0uk1lb8d3uj58eubvt55gb.apps.googleusercontent.com", "secret" => "cf7Qpw9rf1-VRyOiG6b-FLq1" )
 			),
 
 			"Facebook" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "id" => "1592825660989378", "secret" => "05ddb618aca69ca3e52447f33398b714" ),
+				"keys"    => array ( "id" => "1592498387688772", "secret" => "65aecd8013da60452d42d8845e0cc4c3" ),
 				"scope"   => "email, publish_actions",
 				"popup"	  => true
 			),
 
 			"Twitter" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "key" => "O0uCwoVYfXmphyxT8pAu4EdCD", "secret" => "nPZ9zsyb3ah8v3OI2q0u79rcZwLaxXSyEwP0uvhA8lsi3Zky5x" ),
-				//"oauth_token" =>
-				//"keys"    => array ( "key" => "231257772-yBRCTTnxHUl5AJbkTv5gWK7kfOBiTUOXRGIXISEG", "secret" => "U149fmBROLOSK9crvSf2G1p9As4zdcYHqb6jNgFSfZygV" )
+				"keys"    => array ( "key" => "pUKrdYVypqRkUM8dWibSHEtRH", "secret" => "zK0YuSaPUAHTor8KLzJTmJ7OTo5jYWkF46NdIydP8ckOJY32sy" ),
 			),
 
 			// windows live
@@ -63,7 +61,6 @@ return
 			"LinkedIn" => array ( 
 				"enabled" => true,
 				"keys"    => array ( "key" => "77b39b2bf2jdb0", "secret" => "ciDA5mAXue2Bpr8S" ),
-				//"scope"	  => "w_share, r_basicprofile, r_emailaddress"
 			),
 
 			"Foursquare" => array (
@@ -75,5 +72,5 @@ return
 		// if you want to enable logging, set 'debug_mode' to true  then provide a writable file by the web server on "debug_file"
 		"debug_mode" => true,
 
-		"debug_file" => "/home/lnkr-a/haouth.log"
+		"debug_file" => Yii::app()->basePath . "/../runtime/hoauth.log"
 	);
