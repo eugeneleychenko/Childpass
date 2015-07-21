@@ -65,7 +65,7 @@ class SocialHelper extends CComponent
 
         $content = array();
 
-        $content['title'] = 'TEST!!! TEST!!! Alert! ';
+        $content['title'] = 'Alert! ';
         $content['title'] .= $missingInfo['age'] . '-' . ($missingInfo['age'] % 10 === 1 ? 'year old ' : 'years old ');
         $content['title'] .= $missingInfo['child']->gender === 'M' ? 'boy ' : 'girl ';
         $content['title'] .= 'missed!';
@@ -74,7 +74,7 @@ class SocialHelper extends CComponent
         $content['photoPath'] = $missingInfo['childPhotoPath'];
         $content['flyerUrl'] = Yii::app()->getBaseUrl(true) . '/child/generate-flyer/' . $missingInfo['child']->id;
 
-        $content['description'] = 'Test!!! Test!!!' . $missingInfo['incident']->child_description . "\n\n" . $missingInfo['incident']->description;
+        $content['description'] = $missingInfo['incident']->child_description . "\n\n" . $missingInfo['incident']->description;
 
         return $content;
     }
