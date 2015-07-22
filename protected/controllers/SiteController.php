@@ -56,9 +56,9 @@ class SiteController extends Controller
             // this is an admin action that will help you to configure HybridAuth
             // (you must delete this action, when you'll be ready with configuration, or
             // specify rules for admin role. User shouldn't have access to this action!)
-            'oauthadmin' => array(
-                'class'=>'ext.hoauth.HOAuthAdminAction'
-            )
+            //'oauthadmin' => array(
+            //    'class'=>'ext.hoauth.HOAuthAdminAction'
+            //)
         );
     }
 
