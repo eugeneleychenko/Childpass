@@ -1684,13 +1684,17 @@ div.errorMessage, label.errorMessage {
 .faq .question {
   font-weight: bold;
 }
+/* line 1124, ../scss/_styles.scss */
+.faq .answer {
+  text-align: justify;
+}
 
-/* line 1126, ../scss/_styles.scss */
+/* line 1130, ../scss/_styles.scss */
 input::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-/* line 1130, ../scss/_styles.scss */
+/* line 1134, ../scss/_styles.scss */
 input[type="date"]::-webkit-input-placeholder {
   visibility: hidden !important;
 }
