@@ -863,18 +863,22 @@ form {
 }
 
 .footer_nav {
-  width: 380px;
   margin: 20px auto;
+  text-align: center;
 
-  ul li {
-    float: left;
-    list-style: none;
-    margin: 0 5px;
+  ul {
+    display: inline-block;
 
-    a {
-      color: #ee8b38;
-      font-size: 14px;
-      text-decoration: none;
+    li {
+      float: left;
+      list-style: none;
+      margin: 0 5px;
+
+      a {
+        color: #ee8b38;
+        font-size: 14px;
+        text-decoration: none;
+      }
     }
   }
 }
