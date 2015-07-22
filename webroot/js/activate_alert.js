@@ -34,28 +34,6 @@ $(function() {
         $('#activateAlertDialog').dialog("close");
     });
 
-    function setReturnUrlWithDialog() {
-        var url = window.location.href;
-        if (!url.match(/.*openAlertDialog$/)) {
-            var sep = '';
-            if (window.location.search === '') {
-                sep = '?';
-            } else {
-                sep = '&';
-            }
-            url += sep + 'openAlertDialog';
-        }
-        $.get(Yii.app.createUrl('site/set-return-url'), { 'url': url });
-    }
-
-    function resetReturnUrl() {
-        var url = window.location.href;
-        if (url.match(/.*openAlertDialog$/)) {
-            url = url.replace(/.openAlertDialog/, '');
-        }
-        $.get(Yii.app.createUrl('site/set-return-url'), { 'url': url });
-    }
-
    function  showActiveAlertDialog() {
        setReturnUrlWithDialog();
        $.get(Yii.app.createUrl('child/activate-alert'),
@@ -104,11 +82,36 @@ function restoreValues() {
     }
 }
 
+function setReturnUrlWithDialog() {
+    var url = window.location.href;
+    if (!url.match(/.*openAlertDialog$/)) {
+        var sep = '';
+        if (window.location.search === '') {
+            sep = '?';
+        } else {
+            sep = '&';
+        }
+        url += sep + 'openAlertDialog';
+    }
+    $.get(Yii.app.createUrl('site/set-return-url'), { 'url': url });
+}
+
+function resetReturnUrl() {
+    var url = window.location.href;
+    if (url.match(/.*openAlertDialog$/)) {
+        url = url.replace(/.openAlertDialog/, '');
+    }
+    $.get(Yii.app.createUrl('site/set-return-url'), { 'url': url });
+}
+
 function submitForm(form, data, hasError) {
     if (!$('.child_checkbox:checked').length) {
         alert('Select at least one child!');
         return;
     }
+
+    resetReturnUrl();
+    sessionStorage.clear();
 
     $.post(
             form.attr('action'),
