@@ -191,6 +191,7 @@ form {
               color: #ee8b38;
               text-decoration: none;
               margin-top: 5px;
+              white-space: nowrap;
           }
           .login-label {
               float: left;
@@ -517,6 +518,7 @@ form {
         .productDescription {
           float: left;
           width: 510px;
+          text-align: justify;
         }
 
         .productShowMore {
