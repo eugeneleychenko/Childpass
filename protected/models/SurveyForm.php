@@ -85,13 +85,13 @@ class SurveyForm extends CFormModel
             'most_appealing_other'      => 'Other, please explain:',
             'maximum_amount'            => 'What is the maximum amount you would pay for this physical kit in the store (or online) if the online account was free for the first year?',
             'maximum_monthly_fee'       => 'What is the maximum monthly service fee you would be willing to pay for the online service and  Emergency Alert System, if the kit was delivered free of charge?',
-            'for_other_members'         => 'Would you be interested in a kit and emergency alert system for other beloved family members?:',
-            'preferred_method'          => 'What is your preferred method to access the Internet?',
+            'for_other_members'         => 'Would you be interested in a kit and emergency alert system for other beloved family members? Please choose all that apply:',
+            'preferred_method'          => 'What is your preferred method to access the Internet? Circle One.',
             'other_systems'             => 'Tell us what other family security products you pay for (i.e. ADT, auto security systems, dropcams, etc):',
             'other_accounts'            => 'Tell us what other online accounts you pay for on a monthly basis: (cable TV, satellite radio, etc)',
-            'consider_for_child'        => 'Though controversial, the AMA is considering legalizing  the “chipping” of children with microchips for GPS tracking of your children.  Is this something you would consider for your child or a loved one with special needs:',
+            'consider_for_child'        => 'Though controversial, the AMA is considering legalizing  the “chipping” of children with microchips for GPS tracking of your children.  Is this something you would consider for your child or a loved one with special needs. Please choose:',
             'consider_for_child_other'  => 'Other - Explain:',
-            'level_of_insured'          => 'What level of “insured” would you consider you and your family? (Health, Auto, Life, Homeowner/Renters, Product):  '
+            'level_of_insured'          => 'What level of “insured” would you consider you and your family? (Health, Auto, Life, Homeowner/Renters, Product). Please choose:'
         );
     }
 
