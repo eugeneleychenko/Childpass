@@ -21,8 +21,8 @@ p.
                         !=$form->radioButtonList($model,'ever_purchased_yes',array('1 year' => '1 year', '3 years' => '3 years', '5 years' => '5 years'), array('separator' => '<br>'));
                         !=$form->labelEx($model, 'how_satisfied', array('class' => 'block'));
                         !=$form->radioButtonList($model,'how_satisfied',array('Somewhat' => 'Somewhat', 'Very' => 'Very', 'Not at All' => 'Not at All'), array('separator' => '<br>'));
-                        !=$form -> labelEx($model, 'tell_us', array('class' => 'block'));
-                        !=$form -> textArea($model, 'tell_us', array('separator' => '<br>'));
+                        !=$form->labelEx($model, 'tell_us', array('class' => 'block'));
+                        !=$form->textArea($model, 'tell_us', array('separator' => '<br>'));
                 .query.expandable(data-expand-on-value="No")
                     !=$form->labelEx($model, 'purchase_yourself', array('class' => 'block'));
                     !=$form->radioButtonList($model,'purchase_yourself',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
@@ -32,8 +32,8 @@ p.
                         !=$form-> textArea($model, 'purchase_yourself_not', array('separator' => '<br>'));
                 .query.expandable(data-expand-on-value="No")
                     !=$form->labelEx($model, 'purchase_family', array('class' => 'block'));
-                    !=$form-> radioButtonList($model, 'purchase_family', array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
-                    !=$form-> error($model, 'purchase_family')
+                    !=$form->radioButtonList($model, 'purchase_family', array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
+                    !=$form->error($model, 'purchase_family')
                     .query-expanded
                         !=$form->labelEx($model, 'purchase_family_not', array('class' => 'block'));
                         !=$form->textArea($model,'purchase_family_not', array('separator' => '<br>'));
@@ -42,11 +42,12 @@ p.
                     !=$form->radioButtonList($model,'easy_to_use',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
                     !=$form->error($model, 'easy_to_use')
                     .query-expanded
-                        !=$form-> labelEx($model, 'easy_to_use_not', array('class' => 'block'));
-                        !=$form-> textArea($model, 'easy_to_use_not', array('separator' => '<br>'));
+                        !=$form->labelEx($model, 'easy_to_use_not', array('class' => 'block'));
+                        !=$form->textArea($model, 'easy_to_use_not', array('separator' => '<br>'));
                 .query.expandable(data-expand-on-value="No")
                     !=$form->labelEx($model, 'easy_to_follow', array('class' => 'block'));
                     !=$form->radioButtonList($model,'easy_to_follow',array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '<br>'));
+                    !=$form->error($model, 'easy_to_follow')
                     .query-expanded
                         !=$form->labelEx($model, 'easy_to_follow_not', array('class' => 'block'));
                         !=$form->textArea($model, 'easy_to_follow_not', array('separator' => '<br>'));
