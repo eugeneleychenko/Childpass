@@ -49,7 +49,12 @@
                     .question How do we use and share the personal information that we have collected from parents?
                     p.answer
                         strong We Don’t!&nbsp;
-                        | Please refer to our PRIVACY POLICY but, in short, once your childs' information in entered, the only thing ChildPass does is keep it safe and secure. We have no access at that point unless granted permission by parents or guardians. The ChildPass solution is totally under control of the parents or legal guardian. ChildPass does not share ANY information whatsoever with any third party.
+                        | Please refer to our
+                        =' '
+                        :php
+                            echo CHtml::link('PRIVACY POLICY', array('site/page', 'view'=>'privacy-policy'), array('target' => '_blank'));
+                        =' '
+                        | but, in short, once your childs' information in entered, the only thing ChildPass does is keep it safe and secure. We have no access at that point unless granted permission by parents or guardians. The ChildPass solution is totally under control of the parents or legal guardian. ChildPass does not share ANY information whatsoever with any third party.
                 li.item
                     .question Are there ANY circumstances where ChildPass information would be revealed to law enforcement officials?
                     p.answer
