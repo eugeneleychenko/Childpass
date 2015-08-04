@@ -1708,6 +1708,24 @@ input[type="date"]::-webkit-input-placeholder {
   visibility: hidden !important;
 }
 
+/* line 1, ../scss/components/_social-networks.scss */
+.social-networks {
+  margin-top: 0.75em;
+}
+/* line 4, ../scss/components/_social-networks.scss */
+.social-networks > ._manage, .social-networks > ._active {
+  display: block;
+}
+/* line 10, ../scss/components/_social-networks.scss */
+.social-networks > ._manage p {
+  display: inline-block;
+}
+/* line 17, ../scss/components/_social-networks.scss */
+.social-networks > ._active li {
+  display: block;
+  margin-left: 1em;
+}
+
 /* line 1, ../scss/components/_nested-list.scss */
 .nested-list {
   margin-bottom: 10px;
@@ -1725,22 +1743,4 @@ input[type="date"]::-webkit-input-placeholder {
 /* line 12, ../scss/components/_nested-list.scss */
 .nested-list ol ol ol {
   list-style-type: decimal;
-}
-
-/* line 1, ../scss/components/_social-networks.scss */
-.social-networks {
-  margin-top: 0.75em;
-}
-/* line 4, ../scss/components/_social-networks.scss */
-.social-networks > ._manage, .social-networks > ._active {
-  display: block;
-}
-/* line 10, ../scss/components/_social-networks.scss */
-.social-networks > ._manage p {
-  display: inline-block;
-}
-/* line 17, ../scss/components/_social-networks.scss */
-.social-networks > ._active li {
-  display: block;
-  margin-left: 1em;
 }
