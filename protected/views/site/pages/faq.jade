@@ -17,7 +17,7 @@
                     .question How old do I have to be to use ChildPass?
                     p.answer
                         | We require any parent or legal guardian to be at least 18 years old to function as the custodian of this very serious and powerful tool.
-                li.items
+                li.item
                     .question Is ChildPass age specific?
                     p.answer
                         | We recommend you purchase ChildPass for children from toddler age to young adult. Parents of children with special needs, living with or without primary caregivers can continue to have their identity kit and web based profile updated after their childs' 18th birthday.
@@ -67,3 +67,9 @@
                     .answer
                         | We will email you a notification as well as making a note on our website.
         .clearRight
+
+script.
+    $(".faqList .question").on('click', function() {
+        var $this = $(this);
+        $this.closest('.item').find(".answer").slideToggle();
+    });

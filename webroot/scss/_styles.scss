@@ -1127,10 +1127,13 @@ div.errorMessage, label.errorMessage {
 
   .question {
     font-weight: bold;
+    cursor: pointer;
   }
 
   .answer {
-    text-align: justify;
+    display: none;
+    margin-top: 0.5em;
+    text-align: left;
   }
 }
 
