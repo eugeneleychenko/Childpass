@@ -115,6 +115,17 @@ form {
 
 .contentWrapper {
   padding: 1em;
+
+  i {
+    font-style: italic;
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 #page {
@@ -152,7 +163,7 @@ form {
 
   .login-form {
       display: table-cell;
-      padding-left: 10px;
+      padding-left: 0;
       form {
           overflow: hidden;
           font-family: Arial;
@@ -180,6 +191,7 @@ form {
               color: #ee8b38;
               text-decoration: none;
               margin-top: 5px;
+              white-space: nowrap;
           }
           .login-label {
               float: left;
@@ -204,8 +216,6 @@ form {
           }
       }
   }
-
-
 
   .mainMenuWrapper {
 
@@ -248,7 +258,6 @@ form {
       display: table-cell;
       vertical-align: middle;
     }
-
 
     .nav {
       list-style: none;
@@ -319,7 +328,7 @@ form {
     li {
       display: inline-block;
       vertical-align: middle;
-      margin: 0.5em 3em;
+      margin: 0.5em 1em;
     }
   }
 }
@@ -368,8 +377,6 @@ form {
     display: inline-block;
     vertical-align: top;
   }
-
-
 
   [name='Child[distinctive_marks]'] {
     width: 100%;
@@ -488,9 +495,10 @@ form {
         display: inline-block;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        width: 50%;
+        width: 100%;
         vertical-align: top;
-        margin: 0.5em 0;
+        margin: 1em 0;
+        padding-right: 10px;
 
         .imageWrapper {
           width: 80px;
@@ -505,6 +513,20 @@ form {
           font-family: helvetica, sans-serif;
           font-size: 118%;
           color: #707070;
+        }
+
+        .productDescription {
+          float: left;
+          width: 510px;
+          text-align: justify;
+        }
+
+        .productShowMore {
+          float: right;
+          font-size: 15px;
+          margin: -10px 10px 0 0;
+          cursor: pointer;
+          color: #ee8b38;
         }
       }
     }
@@ -589,6 +611,20 @@ form {
 
     >.contentWrapper {
       padding: 1em;
+    }
+  }
+
+  .founders {
+    width: 569px;
+    margin-top: 21px;
+
+    img {
+      float: left;
+      margin-right: 15px;
+    }
+
+    p {
+      margin-bottom: 48px;
     }
   }
 }
@@ -824,6 +860,27 @@ form {
 
     .logo {
       margin-top: 0;
+    }
+  }
+}
+
+.footer_nav {
+  margin: 20px auto;
+  text-align: center;
+
+  ul {
+    display: inline-block;
+
+    li {
+      float: left;
+      list-style: none;
+      margin: 0 5px;
+
+      a {
+        color: #ee8b38;
+        font-size: 14px;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -1070,6 +1127,10 @@ div.errorMessage, label.errorMessage {
 
   .question {
     font-weight: bold;
+  }
+
+  .answer {
+    text-align: justify;
   }
 }
 

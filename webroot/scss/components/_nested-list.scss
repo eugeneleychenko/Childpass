@@ -1,0 +1,17 @@
+.nested-list {
+  margin-bottom: 10px;
+  margin-left: 1em;
+
+  ol {
+    margin-left: 45px;
+    list-style-type: lower-alpha;
+
+    ol {
+      list-style-type: lower-roman;
+
+      ol {
+        list-style-type: decimal;
+      }
+    }
+  }
+}
