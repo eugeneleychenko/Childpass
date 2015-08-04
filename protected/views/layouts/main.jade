@@ -3,7 +3,7 @@ html(lang='en')
     head
         meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        meta(name='Child Pass', content='')
+        meta(name='ChildPass', content='')
 
         title
             | Childpass
@@ -28,7 +28,7 @@ html(lang='en')
                     div.hintText
                     div
                         a(href=$this->baseUrl . '/')
-                            img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='Child Pass')
+                            img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='ChildPass')
                 .mainMenuWrapper
                     #infoMessage
                         -if (!Yii::app()->user->isGuest):

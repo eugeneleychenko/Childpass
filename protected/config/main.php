@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'runtimePath' => dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'runtime',
-    'name'=>'Child Pass',
+    'name'=>'ChildPass',
 
 	// preloading 'log' component
 	'preload'=>array('log', 'EJSUrlManager'),
