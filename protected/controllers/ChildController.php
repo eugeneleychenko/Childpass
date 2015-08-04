@@ -385,17 +385,20 @@ class ChildController extends Controller
     {
         $this->layout = 'main';
         $model = new SurveyForm();
-
-        if(isset($_POST['SurveyForm'])) {
-            $model->attributes = $_POST['SurveyForm'];
+        if (isset($_POST['SurveyForm'])) {
+            $model->setAttributes($_POST['SurveyForm'], false);
             if ($model->validate()) {
-
                 $attributesLabels = $model->attributeLabels();
                 $surveyResults = array();
                 foreach ($model->attributes as $attribute => $value) {
-                    $surveyResults[] = array('question' => $attributesLabels[$attribute], 'answer' => $value);
+                    if (is_array($value)) {
+                        $value = implode(', ', $value);
+                    } elseif ($value == '') {
+                        continue;
+                    } else {
+                        $surveyResults[] = array('question' => $attributesLabels[$attribute], 'answer' => $value);
+                    }
                 }
-
                 Yii::app()->common->sendEmail(
                     Yii::app()->params['surveyEmail'],
                     'Survey results of user ' . Yii::app()->user->getName(),
@@ -405,16 +408,13 @@ class ChildController extends Controller
                         'surveyResults' => $surveyResults
                     )
                 );
-
                 $this->redirect(array('child/list'));
             }
         }
-
         $this->render(
             'survey', array(
                 'model' => $model
             )
         );
-
     }
 }
