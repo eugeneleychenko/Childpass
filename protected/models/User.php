@@ -136,10 +136,4 @@ class User extends CActiveRecord
 	{
 		return self::model()->findByAttributes(array('email' => $email));
 	}
-
-	public function verifyPassword($password)
-	{
-		var_dump($password);
-		return true;
-	}
 }

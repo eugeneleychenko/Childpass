@@ -65,10 +65,11 @@ class SocialHelper extends CComponent
 
         $content = array();
 
-        $content['title'] = 'Alert! ';
-        $content['title'] .= $missingInfo['age'] . '-' . ($missingInfo['age'] % 10 === 1 ? 'year old ' : 'years old ');
-        $content['title'] .= $missingInfo['child']->gender === 'M' ? 'boy ' : 'girl ';
-        $content['title'] .= 'missed!';
+        $age = $missingInfo['age'];
+        $ageNoun = $age % 10 === 1 ? 'year' : 'years';
+        $genderNoun = $missingInfo['child']->gender === 'M' ? 'boy' : 'girl';
+
+        $content['title'] = "Alert! $age-$ageNoun old $genderNoun missed!";
 
         $content['photoUrl'] = $missingInfo['childPhoto'];
         $content['photoPath'] = $missingInfo['childPhotoPath'];

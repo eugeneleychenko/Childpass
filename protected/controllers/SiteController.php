@@ -87,10 +87,4 @@ class SiteController extends Controller
             }
         }
     }
-
-    public function actionSetReturnUrl()
-    {
-        $url = $_GET['url'];
-        Yii::app()->user->setReturnUrl($url);
-    }
 }

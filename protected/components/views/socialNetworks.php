@@ -3,11 +3,6 @@
         <?php $this->widget('ext.hoauth.widgets.HOAuth', array('onlyIcons' => true, 'route' => 'site')); ?>
     </div>
 
-    <?php
-        require_once(dirname(__FILE__).'/../../extensions/hoauth/models/UserOAuth.php');
-        $hauth = UserOAuth::model()->getHybridAuth();
-        $connectedProviders = $hauth::getConnectedProviders();
-    ?>
     <?php if (count($connectedProviders) > 0) { ?>
         <div class="_active">
             Active networks:
@@ -18,14 +13,14 @@
                     echo $provider;
                     echo CHtml::ajaxLink(
                         ' (Remove)', Yii::app()->createUrl(
-                           'user/remove-social', array('provider' => $provider)
+                            'social-network/disconnect-user', array('provider' => $provider)
                         ),
                         array(
-                            'type' => 'post',
-                            'context' => 'js:this',
-                            'success' => 'js:function() {$(this).parent().remove();}'
+                            'type'      => 'post',
+                            'context'   => 'js:this',
+                            'success'   => 'js:function() {$(this).parent().remove();}'
                         ),
-                        array('class' => "remove-social")
+                        array('class'   => 'remove-social')
                     );
                 ?>
                 </li>

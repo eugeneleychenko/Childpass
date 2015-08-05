@@ -35,7 +35,7 @@ $(function() {
     });
 
    function  showActiveAlertDialog() {
-       setReturnUrlWithDialog();
+       setUrlWithDialog();
        $.get(Yii.app.createUrl('child/activate-alert'),
              {
                  'time' : new Date().getTime()
@@ -55,7 +55,7 @@ $(function() {
                         });
                    },
                    close : function() {
-                       resetReturnUrl();
+                       resetUrl();
                        sessionStorage.clear();
                        window.location = Yii.app.createUrl('child/list');
                    }
@@ -82,7 +82,7 @@ function restoreValues() {
     }
 }
 
-function setReturnUrlWithDialog() {
+function setUrlWithDialog() {
     var url = window.location.href;
     if (!url.match(/.*openAlertDialog$/)) {
         var sep = '';
@@ -93,15 +93,15 @@ function setReturnUrlWithDialog() {
         }
         url += sep + 'openAlertDialog';
     }
-    $.get(Yii.app.createUrl('site/set-return-url'), { 'url': url });
+    window.history.replaceState(null, null, url);
 }
 
-function resetReturnUrl() {
+function resetUrl() {
     var url = window.location.href;
     if (url.match(/.*openAlertDialog$/)) {
         url = url.replace(/.openAlertDialog/, '');
     }
-    $.get(Yii.app.createUrl('site/set-return-url'), { 'url': url });
+    window.history.replaceState(null, null, url);
 }
 
 function submitForm(form, data, hasError) {
@@ -110,7 +110,7 @@ function submitForm(form, data, hasError) {
         return;
     }
 
-    resetReturnUrl();
+    resetUrl();
     sessionStorage.clear();
 
     $.post(
