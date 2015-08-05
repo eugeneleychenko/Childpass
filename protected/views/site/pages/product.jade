@@ -1,15 +1,7 @@
 .productbox.panel.productsPage
     h1 Your Child's Personal Identity Kit
     .forHome
-        h2 For Home
-        p.
-            Duis lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
-        p.textUnderImage.
-            Duis lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
-    h2 For Online
     .forOnline
-        p.
-            Justo sit amet nibh luctus fringilla sit amet in sem. Pellentesque sed nibh quis nisi venenatis iaculis ut eu risus. Lorem est, blandit ac tortor sed, luctus luctus velit. Donec nisi libero, venenatis placerat ligula sed, ultrices fermentum justo.
         table
             tr
                 td
@@ -18,18 +10,86 @@
                             .imageWrapper
                                 img(src=$this->baseUrl . '/images/kids.png')
                             span Personal Profile
+                            .productDescription
+                                p
+                                    | Your child’s personal identity kit comes with an online Personal Profile page to store critical pedigree data about your child and you. The data is carefully stored and secured, allowing only you access to update pertinent data as needed.
+                                p.ui-helper-hidden
+                                    | The overall child profile will include personal and medical information including name, nicknames, birth date, hair and eye color, blood type, race, allergies, medications, chronic illnesses and other notes.
+                                p.ui-helper-hidden
+                                    | Physical characteristics are important as well including scars, birthmarks, identifying marks, piercings, tattoos  glasses, contacts, braces, etc.
+                                span.productShowMore
+                                    | More
                         li
                             .imageWrapper
                                 img(src=$this->baseUrl . '/images/camera.png')
                             span Recent Photo
+                            .productDescription
+                                p
+                                    | A quality identifying photograph is the single most important tool for recovering your child in case of a abduction. ChildPass recommends that for children under the age of five (5) should have a new photo taken every six (6) months-1year. Children over the age of five (5) should have a photo renewed yearly.
+                                p.ui-helper-hidden
+                                    | The photo should be a close up (above the shoulders) frontal view of child's face. For photos being added to the ChildPass Kit, Indicate date photo was taken, age of child, height and weight on back of each new photo.
+                                p.ui-helper-hidden
+                                    | Upload a new photo of your child as often as you wish, however at a minimum, ChildPass recommends following the standard guidelines above.  Most photo files format automatically and will be compressed and sized to fit in your profile gallery.
+                                span.productShowMore
+                                    | More
                         li
                             .imageWrapper
                                 img(src=$this->baseUrl . '/images/emergencyAlert.png')
                             span Emergency Alert PDF for Social Media Broadcast
+                            .productDescription
+                                p
+                                    | It is very important to review and update the important addresses in your child’s life: school, day care, recreational centers, close friends or relatives. These addresses could prove to be critical to law enforcement in the hours after your child goes missing.
                         li
                             .imageWrapper
                                 img(src=$this->baseUrl . '/images/dental.png')
                             span Dental Record
+                            .productDescription
+                                p
+                                    | We all remember the traditional 32-tooth chart our dentist prepared during your first visit to the dentist. Dental records, like fingerprints and DNA tell a unique story for each child. Our interactive online child dental map allows you to record teeth present or missing, deformities and characteristics that can assist with identifying your child.
+                                p.ui-helper-hidden
+                                    | Complete the interactive dental chart for baby and permanent teeth that are missing or marred in any way.  This is information you can obtain easily from your dentist and make the appropriate notes in your digital profile.
+                                span.productShowMore
+                                    | More
+                        li
+                            .imageWrapper
+                                img(src=$this->baseUrl . '/images/hands.png')
+                            span Fingerprint Kit
+                            .productDescription
+                                p
+                                    | The use of Fingerprints have been identified as early as the second millennium BC and were used as a method to sign and authenticate legal documents. Fingerprints consist of patterns of ridges and sweat glands on the fingertips and are unique to each individual. Our ChildPass fingerprint kit is a patent-pending home solution to assist you with securing your child’s fingerprints.
+                                p.ui-helper-hidden
+                                    | Please visit
+                                    | &nbsp;
+                                    a(href="http://www.yourchildpass.com", target="_blank") www.yourchildpass.com
+                                    | &nbsp;
+                                    | and watch our video on the best way to fingerprint your child using our simple ink strip below and the enclosed fingerprint card. You’ll see the chart is for both hands. Remember, once completed, store your ChildPass kit in a safe, dry place in your home.
+                                span.productShowMore
+                                    | More
+                        li
+                            .imageWrapper
+                                img(src=$this->baseUrl . '/images/DNA.png')
+                            span DNA Record
+                            .productDescription
+                                p
+                                    | These days it’s not enough to rely on a set of fingerprints or a photo to confirm the identity of your child. Our DNA Kit provides you with a sterile swab & receptacle to memorialize and store the fundamental, unchangeable and distinctive characteristics of your child.
+                                p.ui-helper-hidden
+                                    | To get the best DNA sample possible, please visit
+                                    | &nbsp;
+                                    a(href="http://www.yourchildpass.com", target="_blank") www.yourchildpass.com
+                                    | &nbsp;
+                                    | and watch our video on the how to swab your child’s mouth.  Again, it’s important once completed, to store the DNA sample and the ChildPass kit in a safe, dry place in your home.
+                                span.productShowMore
+                                    | More
+                    script
+                        $(".productShowMore").on({click: function() {
+                            var $this = $(this);
+                                $this.parent().find(".ui-helper-hidden").slideToggle();
+                                if ($this.html() == "More") {
+                                    $this.html("Less");
+                                } else {
+                                    $this.html("More");
+                                }
+                        }});
                 td.registerBlock
                     a.registerButton(href=$this->createUrl('user/register'))
                         .powerblock Register and upload now!

@@ -21,7 +21,7 @@ return array(
     'components'=>array(
         // uncomment the following to use a MySQL database
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=pgpf_interns',
+            'connectionString' => 'mysql:host=127.0.0.1;dbname=childpass',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
@@ -53,6 +53,6 @@ return array(
     // using Yii::app()->params['paramName']
     'params'=>array(
         // this is used in contact page
-        'adminEmail'=>'support@pgpfinterns.local',
+        'adminEmail'=>'support@childpass.local',
     ),
 );

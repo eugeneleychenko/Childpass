@@ -14,8 +14,8 @@ return array(
     'components'=>array(
         // uncomment the following to use a MySQL database
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=pgpf_interns',
-            'username' => 'pgpf_interns',
+            'connectionString' => 'mysql:host=localhost;dbname=childpass',
+            'username' => 'root',
             'password' => '',
         ),
         'log'=>array(
