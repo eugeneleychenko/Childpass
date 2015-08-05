@@ -13,7 +13,7 @@
 
 return 
 	array(
-		"base_url" => "http://childpass.local.optimuspro.ru:8086/site/oauth",
+		"base_url" => "http://<DOMAIN_NAME>/site/oauth",
 
 		"providers" => array ( 
 			// openid providers
@@ -37,14 +37,14 @@ return
 
 			"Facebook" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "id" => "1592498387688772", "secret" => "65aecd8013da60452d42d8845e0cc4c3" ),
+				"keys"    => array ( "id" => "/*App ID*/", "secret" => "/*App Secret*/" ),
 				"scope"   => "email, publish_actions",
 				"popup"	  => true
 			),
 
 			"Twitter" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "key" => "pUKrdYVypqRkUM8dWibSHEtRH", "secret" => "zK0YuSaPUAHTor8KLzJTmJ7OTo5jYWkF46NdIydP8ckOJY32sy" ),
+				"keys"    => array ( "key" => "/*Consumer Key (API Key)*/", "secret" => "/*Consumer Secret (API Secret)*/" ),
 			),
 
 			// windows live
@@ -60,7 +60,7 @@ return
 
 			"LinkedIn" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "key" => "77b39b2bf2jdb0", "secret" => "ciDA5mAXue2Bpr8S" ),
+				"keys"    => array ( "key" => "/*Client ID*/", "secret" => "Client Secret" ),
 			),
 
 			"Foursquare" => array (
@@ -70,7 +70,7 @@ return
 		),
 
 		// if you want to enable logging, set 'debug_mode' to true  then provide a writable file by the web server on "debug_file"
-		"debug_mode" => true,
+		"debug_mode" => false,
 
-		"debug_file" => Yii::app()->basePath . "/../runtime/hoauth.log"
+		//"debug_file" => Yii::app()->basePath . "/../runtime/hoauth.log"
 	);
