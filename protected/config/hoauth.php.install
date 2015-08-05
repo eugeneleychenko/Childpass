@@ -53,7 +53,7 @@ return
 
 			"LinkedIn" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "key" => "/*Client ID*/", "secret" => "Client Secret" ),
+				"keys"    => array ( "key" => "/*Client ID*/", "secret" => "/*Client Secret*/" ),
 			),
 
 			"Foursquare" => array (
