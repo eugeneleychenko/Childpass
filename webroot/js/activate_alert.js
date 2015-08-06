@@ -110,6 +110,8 @@ function submitForm(form, data, hasError) {
         return;
     }
 
+    $('#activateAlertDialog').find('#alert_submit').val('Uploading...');
+
     resetUrl();
     sessionStorage.clear();
 
