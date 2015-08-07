@@ -21,7 +21,7 @@ class ChildController extends Controller
                 'users' => array('@'),
             ),
             array('allow',
-                'actions' => array('add, list, generateFlyer'),
+                'actions' => array('add', 'list', 'generateFlyer'),
                 'users' => array('*'),
             ),
             array('deny'),
@@ -344,9 +344,9 @@ class ChildController extends Controller
             throw new CHttpException('404', 'Child does not exist!');
         }
 
-        if (Yii::app()->user->getId() != $missingInfo['user_id']) {
+        /*if (Yii::app()->user->getId() != $missingInfo['user_id']) {
             throw new CHttpException('403', 'Access forbidden!');
-        };
+        };*/
 
         $this->render(
             'generateFlyer', array(
