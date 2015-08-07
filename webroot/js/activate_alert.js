@@ -110,6 +110,11 @@ function submitForm(form, data, hasError) {
         return;
     }
 
+    if (!$('#activateAlertDialog').find('#description').val() || !$('#activateAlertDialog').find('#date').val()) {
+        alert('Please specify incident description and date.');
+        return;
+    }
+
     $('#activateAlertDialog').find('#alert_submit').val('Uploading...');
 
     resetUrl();

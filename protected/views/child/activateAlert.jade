@@ -77,14 +77,14 @@ else
                 label.alertLabel Describe the incident *
 
                 :php
-                    echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255'));
+                    echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255', 'class' => '_alert-description-input'));
                     if ($descriptionError) {
                        echo $descriptionError;
                     }
 
             div#incident_datetime_row.row
                 label.alertLabel Date (yyyy-mm-dd hh:mm:ss) *
-                !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
+                !=CHtml::textField('date', $dateValue, array('maxlength' => '255', 'class' => '_alert-date-input'));
                 if ($dateError)
                     !=$dateError;
 

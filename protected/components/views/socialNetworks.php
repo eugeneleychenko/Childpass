@@ -5,7 +5,7 @@
 
     <?php if (count($connectedProviders) > 0) { ?>
         <div class="_active">
-            Active networks:
+            <span class="_active-networks-header">Active networks:
             <ul>
             <?php foreach($connectedProviders as $provider) { ?>
                 <li>
@@ -18,9 +18,9 @@
                         array(
                             'type'      => 'post',
                             'context'   => 'js:this',
-                            'success'   => 'js:function() {$(this).parent().remove();}'
+                            'success'   => "js:function() { $(this).parent().remove(); if (!$('.social-networks').find('._remove-social').length) { $('.social-networks').find('._active-networks-header').remove(); } }"
                         ),
-                        array('class'   => 'remove-social')
+                        array('class'   => '_remove-social')
                     );
                 ?>
                 </li>
