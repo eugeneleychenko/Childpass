@@ -53,8 +53,11 @@ class Hybrid_Endpoint {
 		}
 		// Else if hauth.done
 		elseif ( isset( Hybrid_Endpoint::$request["hauth_done"] ) && Hybrid_Endpoint::$request["hauth_done"] ) {
-			die('hauth.done');
-			Hybrid_Endpoint::processAuthDone();
+			if (isset( Hybrid_Endpoint::$request["oauth_problem"] ) && Hybrid_Endpoint::$request["oauth_problem"]) {
+				die('Authorisation canceled ny user. Please close this window.');
+			} else {
+				Hybrid_Endpoint::processAuthDone();
+			}
 		}
 		// Else we advertise our XRDS document, something supposed to be done from the Realm URL page
 		else {
