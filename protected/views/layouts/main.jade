@@ -54,6 +54,10 @@ html(lang='en')
                         li
                             :php
                                 echo CHtml::link('FAQ', array('site/page', 'view'=>'faq'));
+                        li.separator
+                        li
+                            :php
+                                echo CHtml::link('Blog', 'http://childpass.tumblr.com/');
                         li.reg
                             - if (Yii::app()->user->isGuest):
                                 :php
