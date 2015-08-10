@@ -130,6 +130,10 @@ class HOAuthAction extends CAction
 		if($this->enabled) {
 			$this->setUp();
 
+			if(isset($_GET['oauth_problem']) && $_GET['oauth_problem'] === 'user_refused') {
+				$this->close(false);
+			}
+
 			if(isset($_GET['provider'])) {
 				// after oauth — working with user model and his data from SN
 				Yii::import('hoauth.models.*');
@@ -164,23 +168,7 @@ class HOAuthAction extends CAction
 
 			if($accessCode === 1) {
 				// the authentication was successfull. closing auth window
-				?>
-				<script>
-					var returnUrl = <?php echo $this->useUserReturnUrl ? CJavaScript::encode(Yii::app()->user->getReturnUrl(false)) : false; ?>;
-					if(window.opener) {
-						if(returnUrl) {
-							window.opener.location.href = returnUrl;
-						} else {
-							window.opener.location.reload();
-						}
-
-						window.close();
-					}else{
-						window.location.href = returnUrl ? returnUrl : '/';
-					}
-				</script>
-				<?php
-				Yii::app()->end();
+				$this->close();
 			}
 		} catch(Exception $e) {
 			$this->handleError($e);
@@ -190,6 +178,32 @@ class HOAuthAction extends CAction
 			window.close();
 		</script>
 		<?php
+	}
+
+	/**
+	 *
+	 */
+	protected function close($reload = true)
+	{
+		?>
+		<script>
+			var returnUrl = <?php echo $this->useUserReturnUrl ? CJavaScript::encode(Yii::app()->user->getReturnUrl(false)) : false; ?>;
+			if(window.opener) {
+				<?php if ($reload) { ?>
+					if(returnUrl) {
+						window.opener.location.href = returnUrl;
+					} else {
+						window.opener.location.reload();
+					}
+				<?php } ?>
+
+				window.close();
+			}else{
+				window.location.href = returnUrl ? returnUrl : '/';
+			}
+		</script>
+		<?php
+		Yii::app()->end();
 	}
 
 	/**
