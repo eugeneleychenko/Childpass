@@ -1716,6 +1716,25 @@ input[type="date"]::-webkit-input-placeholder {
   visibility: hidden !important;
 }
 
+/* line 1, ../scss/components/_nested-list.scss */
+.nested-list {
+  margin-bottom: 10px;
+  margin-left: 1em;
+}
+/* line 5, ../scss/components/_nested-list.scss */
+.nested-list ol {
+  margin-left: 45px;
+  list-style-type: lower-alpha;
+}
+/* line 9, ../scss/components/_nested-list.scss */
+.nested-list ol ol {
+  list-style-type: lower-roman;
+}
+/* line 12, ../scss/components/_nested-list.scss */
+.nested-list ol ol ol {
+  list-style-type: decimal;
+}
+
 /* line 3, ../scss/components/_youtube-video-block.scss */
 .youtube-video-block ._youtube-video {
   display: inherit;
