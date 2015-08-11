@@ -1749,12 +1749,12 @@ input[type="date"]::-webkit-input-placeholder {
   padding: 0 0 5px;
 }
 /* line 28, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-button {
+.child-social-buttons ._soc-button {
   display: inline-block;
   zoom: 1;
 }
 /* line 33, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons li a {
+.child-social-buttons ._soc-link {
   -moz-border-radius: 0;
   -moz-box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
@@ -1791,70 +1791,70 @@ input[type="date"]::-webkit-input-placeholder {
   z-index: 1;
 }
 /* line 72, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons li a:hover {
+.child-social-buttons ._soc-link:hover {
   z-index: 2;
 }
 /* line 77, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-icon-last {
+.child-social-buttons ._soc-icon-last {
   margin: 0 !important;
 }
 /* line 81, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-twitter {
+.child-social-buttons ._soc-twitter {
   background-color: #4da7de;
 }
 /* line 84, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-twitter:hover {
+.child-social-buttons ._soc-twitter:hover {
   background-color: #3993ca;
 }
 /* line 88, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-twitter:before {
+.child-social-buttons ._soc-twitter:before {
   content: 'a';
 }
 /* line 93, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-facebook {
+.child-social-buttons ._soc-facebook {
   background-color: #3e5b98;
 }
 /* line 96, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-facebook:before {
+.child-social-buttons ._soc-facebook:before {
   content: 'b';
 }
 /* line 100, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-facebook:hover {
+.child-social-buttons ._soc-facebook:hover {
   background-color: #2a4784;
 }
 /* line 105, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-tumblr {
+.child-social-buttons ._soc-tumblr {
   background-color: #45556c;
 }
 /* line 108, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-tumblr:before {
+.child-social-buttons ._soc-tumblr:before {
   content: 'z';
 }
 /* line 112, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-tumblr:hover {
+.child-social-buttons ._soc-tumblr:hover {
   background-color: #314158;
 }
 /* line 117, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-youtube {
+.child-social-buttons ._soc-youtube {
   background-color: #e02a20;
 }
 /* line 120, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-youtube:before {
+.child-social-buttons ._soc-youtube:before {
   content: 'r';
 }
 /* line 124, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-youtube:hover {
+.child-social-buttons ._soc-youtube:hover {
   background-color: #cc160c;
 }
 /* line 129, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-linkedin {
+.child-social-buttons ._soc-linkedin {
   background-color: #3371b7;
 }
 /* line 132, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-linkedin:before {
+.child-social-buttons ._soc-linkedin:before {
   content: 'j';
 }
 /* line 136, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons .soc-linkedin:hover {
+.child-social-buttons ._soc-linkedin:hover {
   background-color: #1f5da3;
 }

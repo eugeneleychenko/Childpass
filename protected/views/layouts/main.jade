@@ -39,22 +39,20 @@ html(lang='en')
 
                         :php
                             $this->widget('application.components.LoginFormWidget');
-                    ul.child-social-buttons
-                        li.soc-button
+                    ui.child-social-buttons
+                        li._soc-button
                             :php
-                                echo CHtml::link('', 'https://twitter.com/ChildPass', array('class' => 'soc-twitter'));
-                        li.soc-button
+                                echo CHtml::link('', 'https://twitter.com/ChildPass', array('class' => '_soc-link _soc-twitter'));
+                        li._soc-button
                             :php
-                                echo CHtml::link('', 'https://www.facebook.com/yourchildpass', array('class' => 'soc-facebook'));
-                        li.soc-button
+                                echo CHtml::link('', 'https://www.facebook.com/yourchildpass', array('class' => '_soc-link _soc-facebook'));
+                        li._soc-button
                             :php
-                                echo CHtml::link('', 'http://childpass.tumblr.com/', array('class' => 'soc-tumblr'));
-                        li.soc-button
+                                echo CHtml::link('', 'http://childpass.tumblr.com/', array('class' => '_soc-link _soc-tumblr'));
+                        li._soc-button
                             :php
-                                echo CHtml::link('', 'https://www.youtube.com/channel/UC-LLGHnr4dsyxIpS4uZDBTw', array('class' => 'soc-youtube soc-icon-last'));
-                        //li.soc-button
-                        //    :php
-                        //        echo CHtml::link('', 'https://twitter.com/ChildPass', array('class' => 'soc-linkedin soc-icon-last'));
+                                echo CHtml::link('', 'https://www.youtube.com/channel/UC-LLGHnr4dsyxIpS4uZDBTw', array('class' => '_soc-link _soc-youtube _soc-icon-last'));
+
                     ul.nav
                         li
                             :php
