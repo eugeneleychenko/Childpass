@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'si';
-  src: url('/../../../fonts/socicon/socicon.eot');
-  src: url('/../../../fonts/socicon/socicon.eot?#iefix') format('embedded-opentype'),
-  url('/../../../fonts/socicon/socicon.woff') format('woff'),
-  url('/../../../fonts/socicon/socicon.ttf') format('truetype'),
-  url('/../../../fonts/socicon/socicon.svg#icomoonregular') format('svg');
+  src: url('../../fonts/socicon/socicon.eot');
+  src: url('../../fonts/socicon/socicon.eot?#iefix') format('embedded-opentype'),
+  url('../../fonts/socicon/socicon.woff') format('woff'),
+  url('../../fonts/socicon/socicon.ttf') format('truetype'),
+  url('../../fonts/socicon/socicon.svg#icomoonregular') format('svg');
   font-weight: normal;
   font-style: normal;
 
@@ -13,17 +13,19 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family:si;
-    src: url(/../../../fonts/socicon/socicon.svg) format(svg);
+    src: url(../../fonts/socicon/socicon.svg) format('svg');
   }
 }
 
 
 .child-social-buttons {
   overflow:hidden;
-  margin:0; padding:0;
+  margin:0;
+  padding:0 0 5px 0;
   list-style:none;
+  float: right;
 
-  li {
+  li.soc-button {
     display:inline-block;
     *display:inline;
     zoom:1;
@@ -66,74 +68,75 @@
     border-radius: 0px;
     margin-right: 4px;
     color: #ffffff;
-    background-color: none;
+//    background-color: none;
 
     &:hover {
       z-index: 2;
     }
   }
+
+  .soc-icon-last{
+    margin:0 !important;
+  }
+
+  .soc-twitter {
+    background-color: #4da7de;
+
+    &:hover {
+      background-color: #3993ca;
+    }
+
+    &:before {
+      content:'a';
+    }
+  }
+
+  .soc-facebook {
+    background-color: #3e5b98;
+
+    &:before {
+      content:'b';
+    }
+
+    &:hover {
+      background-color: #2a4784;
+    }
+  }
+
+  .soc-tumblr {
+    background-color: #45556c;
+
+    &:before {
+      content:'z';
+    }
+
+    &:hover {
+      background-color: #314158;
+    }
+  }
+
+  .soc-youtube {
+    background-color: #e02a20;
+
+    &:before {
+      content:'r';
+    }
+
+    &:hover {
+      background-color: #cc160c;
+    }
+  }
+
+  .soc-linkedin {
+    background-color: #3371b7;
+
+    &:before {
+      content:'j';
+    }
+
+    &:hover {
+      background-color: #1f5da3;
+    }
+  }
 }
 
-.soc-icon-last{
-  margin:0 !important;
-}
-
-.soc-twitter {
-  background-color: #4da7de;
-
-  &:hover {
-    background-color: #3993ca;
-  }
-
-  &:before {
-    content:'a';
-  }
-}
-
-.soc-facebook {
-  background-color: #3e5b98;
-
-  &:before {
-    content:'b';
-  }
-
-  &:hover {
-    background-color: #2a4784;
-  }
-}
-
-.soc-tumblr {
-  background-color: #45556c;
-
-  &:before {
-    content:'z';
-  }
-
-  &:hover {
-    background-color: #314158;
-  }
-}
-
-.soc-youtube {
-  background-color: #e02a20;
-
-  &:before {
-    content:'r';
-  }
-
-  &:hover {
-    background-color: #cc160c;
-  }
-}
-
-.soc-linkedin {
-  background-color: #3371b7;
-
-  &:before {
-    content:'j';
-  }
-
-  &:hover {
-    background-color: #1f5da3;
-  }
-}

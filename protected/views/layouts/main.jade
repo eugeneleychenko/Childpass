@@ -40,21 +40,21 @@ html(lang='en')
                         :php
                             $this->widget('application.components.LoginFormWidget');
                     ul.child-social-buttons
-                        li
+                        li.soc-button
                             :php
                                 echo CHtml::link('', 'https://twitter.com/ChildPass', array('class' => 'soc-twitter'));
-                        li
+                        li.soc-button
                             :php
                                 echo CHtml::link('', 'https://www.facebook.com/yourchildpass', array('class' => 'soc-facebook'));
-                        li
+                        li.soc-button
                             :php
                                 echo CHtml::link('', 'http://childpass.tumblr.com/', array('class' => 'soc-tumblr'));
-                        li
+                        li.soc-button
                             :php
-                                echo CHtml::link('', 'https://www.youtube.com/channel/UC-LLGHnr4dsyxIpS4uZDBTw', array('class' => 'soc-youtube'));
-                        li
-                            :php
-                                echo CHtml::link('', 'https://twitter.com/ChildPass', array('class' => 'soc-linkedin'));
+                                echo CHtml::link('', 'https://www.youtube.com/channel/UC-LLGHnr4dsyxIpS4uZDBTw', array('class' => 'soc-youtube soc-icon-last'));
+                        //li.soc-button
+                        //    :php
+                        //        echo CHtml::link('', 'https://twitter.com/ChildPass', array('class' => 'soc-linkedin soc-icon-last'));
                     ul.nav
                         li
                             :php
