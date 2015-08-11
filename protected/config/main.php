@@ -20,9 +20,11 @@ return array(
         'application.extensions.CAdvancedArBehavior',
         'application.extensions.uniqueMultiColumnValidator',
         'application.extensions.YiiMailer.YiiMailer',
-	),
 
-	'modules'=>array(
+        'ext.eoauth.*',
+        'ext.eoauth.lib.*',
+        'ext.lightopenid.*',
+        'ext.eauth.services.*'
 	),
 
 	// application components
@@ -138,8 +140,8 @@ return array(
                         'marges'      => array(5, 5, 5, 8), // margins by default, in order (left, top, right, bottom)
                     )*/
                 )
-            ),
-        ),
+            )
+        )
 	),
     'params'=>array(
         'adminEmail'=>'support@childpass.local',

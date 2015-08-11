@@ -118,6 +118,11 @@ class ChildPhoto extends CActiveRecord
         return Yii::getPathOfAlias('webroot') . "/children/{$this->child_id}/photos/";
     }
 
+	public function getFilePath($size)
+	{
+		return $this->getPathWithSize($size).$this->filename;
+	}
+
     public function getPathWithSize($size)
     {
         $imageHelper = new ImageHelper();

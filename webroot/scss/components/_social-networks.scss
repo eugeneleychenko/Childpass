@@ -1,0 +1,22 @@
+.social-networks {
+  margin-top: 0.75em;
+
+  > ._manage, > ._active {
+    display: block;
+  }
+
+  > ._manage {
+
+    p {
+      display: inline-block;
+    }
+  }
+
+  > ._active {
+
+    li {
+      display: block;
+      margin-left: 1em;
+    }
+  }
+}
