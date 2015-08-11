@@ -1737,125 +1737,124 @@ input[type="date"]::-webkit-input-placeholder {
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: si;
-    src: url(../../fonts/socicon/socicon.svg) format("svg");
+    src: url("../../fonts/socicon/socicon.svg") format("svg");
   }
 }
 /* line 21, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons {
-  overflow: hidden;
-  margin: 0;
-  padding: 0 0 5px 0;
-  list-style: none;
   float: right;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0 0 5px;
 }
 /* line 28, ../scss/components/_child-social-buttons.scss */
-.child-social-buttons li.soc-button {
+.child-social-buttons .soc-button {
   display: inline-block;
-  *display: inline;
   zoom: 1;
 }
-/* line 34, ../scss/components/_child-social-buttons.scss */
+/* line 33, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons li a {
+  -moz-border-radius: 0;
+  -moz-box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-transition: .1s;
+  -ms-box-sizing: border-box;
+  -ms-transition: .1s;
+  -o-box-sizing: border-box;
+  -o-transition: .1s;
+  -webkit-border-radius: 0;
+  -webkit-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-transform: translateZ(0);
+  -webkit-transition: .1s;
+  -webkit-transition-property: transform;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
   font-family: si !important;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  -o-transition: .1s;
-  -ms-transition: .1s;
-  -moz-transition: .1s;
-  -webkit-transition: .1s;
-  transition: .1s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  overflow: hidden;
-  text-decoration: none;
-  text-align: center;
-  display: block;
-  position: relative;
-  z-index: 1;
-  width: 30px;
   height: 30px;
   line-height: 30px;
-  font-size: 16px;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
   margin-right: 4px;
-  color: #ffffff;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translateZ(0);
+  transition: .1s;
+  transition-property: transform;
+  width: 30px;
+  z-index: 1;
 }
-/* line 73, ../scss/components/_child-social-buttons.scss */
+/* line 72, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons li a:hover {
   z-index: 2;
 }
-/* line 78, ../scss/components/_child-social-buttons.scss */
+/* line 77, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-icon-last {
   margin: 0 !important;
 }
-/* line 82, ../scss/components/_child-social-buttons.scss */
+/* line 81, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-twitter {
   background-color: #4da7de;
 }
-/* line 85, ../scss/components/_child-social-buttons.scss */
+/* line 84, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-twitter:hover {
   background-color: #3993ca;
 }
-/* line 89, ../scss/components/_child-social-buttons.scss */
+/* line 88, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-twitter:before {
   content: 'a';
 }
-/* line 94, ../scss/components/_child-social-buttons.scss */
+/* line 93, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-facebook {
   background-color: #3e5b98;
 }
-/* line 97, ../scss/components/_child-social-buttons.scss */
+/* line 96, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-facebook:before {
   content: 'b';
 }
-/* line 101, ../scss/components/_child-social-buttons.scss */
+/* line 100, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-facebook:hover {
   background-color: #2a4784;
 }
-/* line 106, ../scss/components/_child-social-buttons.scss */
+/* line 105, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-tumblr {
   background-color: #45556c;
 }
-/* line 109, ../scss/components/_child-social-buttons.scss */
+/* line 108, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-tumblr:before {
   content: 'z';
 }
-/* line 113, ../scss/components/_child-social-buttons.scss */
+/* line 112, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-tumblr:hover {
   background-color: #314158;
 }
-/* line 118, ../scss/components/_child-social-buttons.scss */
+/* line 117, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-youtube {
   background-color: #e02a20;
 }
-/* line 121, ../scss/components/_child-social-buttons.scss */
+/* line 120, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-youtube:before {
   content: 'r';
 }
-/* line 125, ../scss/components/_child-social-buttons.scss */
+/* line 124, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-youtube:hover {
   background-color: #cc160c;
 }
-/* line 130, ../scss/components/_child-social-buttons.scss */
+/* line 129, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-linkedin {
   background-color: #3371b7;
 }
-/* line 133, ../scss/components/_child-social-buttons.scss */
+/* line 132, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-linkedin:before {
   content: 'j';
 }
-/* line 137, ../scss/components/_child-social-buttons.scss */
+/* line 136, ../scss/components/_child-social-buttons.scss */
 .child-social-buttons .soc-linkedin:hover {
   background-color: #1f5da3;
 }
