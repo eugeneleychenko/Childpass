@@ -519,6 +519,10 @@ form {
           float: left;
           width: 510px;
           text-align: justify;
+
+          .youtube-video-block {
+            width: 100%;
+          }
         }
 
         .productShowMore {
@@ -617,6 +621,10 @@ form {
   .founders {
     width: 569px;
     margin-top: 21px;
+
+    .youtube-video-block {
+      width: 100%;
+    }
 
     img {
       float: left;
