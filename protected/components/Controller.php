@@ -46,4 +46,18 @@ class Controller extends CController
         return parent::beforeRender($view);
     }
 
+    public function beforeAction($action)
+    {
+        if (!Yii::app()->user->isGuest) {
+            require_once(dirname(__FILE__).'/../extensions/hoauth/models/UserOAuth.php');
+
+            $hauth = UserOAuth::model()->getHybridAuth();
+            $sessionData = $hauth::getSessionData();
+            $user = User::model()->findByPk(Yii::app()->user->getId());
+            $user->hauth_session_data = $sessionData;
+            $user->save();
+        }
+
+        return parent::beforeAction($action);
+    }
 }

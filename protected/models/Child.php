@@ -277,6 +277,7 @@ class Child extends CActiveRecord
         }
 
         $childPhotoUrl = false;
+        $childPhotoPath = false;
 
         $photo = ChildPhoto::model()->find(array(
             'condition' => 'child_id = :child_id',
@@ -286,6 +287,7 @@ class Child extends CActiveRecord
 
         if (!empty($photo)) {
             $childPhotoUrl = $photo->getUrl(ImageHelper::IMAGE_MEDIUM);
+            $childPhotoPath = $photo->getFilePath(ImageHelper::IMAGE_ORIG);
         }
 
         $missingInfo = array(
@@ -293,6 +295,7 @@ class Child extends CActiveRecord
             'date'       => date('F d, Y'),
             'age'        => $child->getAge(),
             'childPhoto' => $childPhotoUrl,
+            'childPhotoPath' => $childPhotoPath,
             'from'       => '',
             'incident'   => $child->incident,
             'user_id' => $child->user_id
@@ -300,5 +303,4 @@ class Child extends CActiveRecord
 
         return $missingInfo;
     }
-
 }

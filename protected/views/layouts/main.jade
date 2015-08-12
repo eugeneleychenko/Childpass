@@ -18,8 +18,6 @@ html(lang='en')
             Yii::app()->getClientScript()->registerCssFile('/libs/jquery-ui/themes/aristo/aristo.css');
 
 
-
-
     -$bodyClass = 'page-' . Yii::app()->controller->id . ucfirst(Yii::app()->controller->action->id);
     body(class=bodyClass)
         #page.container_16
@@ -120,7 +118,9 @@ html(lang='en')
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/libs/jquery-ui-timepicker-addon.js');
             Yii::app()->getClientScript()->registerScriptFile($this->baseUrl . '/js/activate_alert.js');
 
-
+        if (array_key_exists('openAlertDialog', $_GET)):
+            script
+                var openAlertDialog = true;
 
         | <!--[if lt IE 9]>
         | <script src="<?php echo $this->baseUrl; ?>/js/placeholder-fix.js">

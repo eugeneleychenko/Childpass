@@ -21,7 +21,7 @@ class ChildController extends Controller
                 'users' => array('@'),
             ),
             array('allow',
-                'actions' => array('add, list'),
+                'actions' => array('add', 'list', 'generateFlyer'),
                 'users' => array('*'),
             ),
             array('deny'),
@@ -289,6 +289,8 @@ class ChildController extends Controller
                     $dateValue        = $childrenInfo[$incident['child_id']]['incidentModel']->date;
                     $errorsExist      = true;
                 }
+
+                SocialHelper::postAlert($incident['child_id']);
             }
         } else {
             $errorsExist = true;
@@ -304,7 +306,7 @@ class ChildController extends Controller
                 'saved'            => $saved,
                 'descriptionValue' => $descriptionValue,
                 'dateValue'        => $dateValue
-                )
+            )
         );
     }
 
@@ -342,9 +344,9 @@ class ChildController extends Controller
             throw new CHttpException('404', 'Child does not exist!');
         }
 
-        if (Yii::app()->user->getId() != $missingInfo['user_id']) {
+        /*if (Yii::app()->user->getId() != $missingInfo['user_id']) {
             throw new CHttpException('403', 'Access forbidden!');
-        };
+        };*/
 
         $this->render(
             'generateFlyer', array(

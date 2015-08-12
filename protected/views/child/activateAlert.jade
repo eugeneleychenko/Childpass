@@ -16,6 +16,9 @@ else
                     img(src=$this->baseUrl . '/images/CP_logo.png', width='356', height='125', alt='ChildPass')
                 div#alert_logo_message  ALERT!
 
+            div.fow Please manage social networks profiles to post incident information:
+                - $this->widget('application.components.SocialNetworksWidget');
+
             div#alert_text.row Please select missing child or children and describe incident in detail ie: what was the child wearing, last know whereabouts, time and date any unusual or distinguishing feature, illness, etc
 
             :php
@@ -74,14 +77,14 @@ else
                 label.alertLabel Describe the incident *
 
                 :php
-                    echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255'));
+                    echo CHtml::textArea('description', $descriptionValue, array('rows' => '6', 'cols' => '50', 'maxlength' => '255', 'class' => '_alert-description-input'));
                     if ($descriptionError) {
                        echo $descriptionError;
                     }
 
             div#incident_datetime_row.row
                 label.alertLabel Date (yyyy-mm-dd hh:mm:ss) *
-                !=CHtml::textField('date', dateValue, array('maxlength' => '255'))
+                !=CHtml::textField('date', $dateValue, array('maxlength' => '255', 'class' => '_alert-date-input'));
                 if ($dateError)
                     !=$dateError;
 

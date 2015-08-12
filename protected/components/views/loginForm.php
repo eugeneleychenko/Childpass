@@ -31,6 +31,7 @@
             <p class="welcome-label">Welcome, <span><?php echo Yii::app()->user->getName() ?></span></p>
             <?php echo CHtml::link('log out»', array('user/logout'), array('class' => 'btn logout')); ?>
         </div>
+
         <?php
     }
     ?>

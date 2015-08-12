@@ -12,11 +12,8 @@
  * @property string $name
  * @property integer $is_active
  * @property string $verification_code
- * @property integer $facebook_notification
- * @property integer $linked_in_notification
- * @property integer $twitter_notification
- * @property integer $google_plus_notification
  * @property string $notification_emails
+ * @property string $hauth_session_data
  */
 class User extends CActiveRecord
 {
@@ -54,7 +51,7 @@ class User extends CActiveRecord
 			array('password, verification_code', 'length', 'max'=>64),
             array('password', 'length', 'min'=> 6),
 			array('name', 'length', 'max'=>100),
-            array('facebook_notification, linked_in_notification, twitter_notification, google_plus_notification', 'boolean'),
+            array('hauth_session_data', 'length', 'max'=>4096),
             array('notification_emails','safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -127,4 +124,16 @@ class User extends CActiveRecord
 
         return Yii::app()->createAbsoluteUrl('user/password-reset', array('code' => $code));
     }
+
+	/**
+	 * Returns User model by its email
+	 *
+	 * @param string $email
+	 * @access public
+	 * @return User
+	 */
+	public function findByEmail($email)
+	{
+		return self::model()->findByAttributes(array('email' => $email));
+	}
 }
