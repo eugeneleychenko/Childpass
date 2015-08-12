@@ -1,7 +1,13 @@
 .youtube-video-block {
+  padding-top: 56.25%;
+  position: relative;
 
   ._youtube-video {
     display: inherit;
-    margin: auto;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }

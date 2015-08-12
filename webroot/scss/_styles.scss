@@ -523,14 +523,18 @@ form {
           .youtube-video-block {
             width: 100%;
           }
-        }
 
-        .productShowMore {
-          float: right;
-          font-size: 15px;
-          margin: -10px 10px 0 0;
-          cursor: pointer;
-          color: #ee8b38;
+          .productShowMore {
+            float: right;
+            font-size: 15px;
+            margin: -10px 10px 0 0;
+            cursor: pointer;
+            color: #ee8b38;
+          }
+
+          .youtube-video-block + .productShowMore.expanded {
+            margin-top: 10px;
+          }
         }
       }
     }

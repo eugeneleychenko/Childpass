@@ -96,8 +96,10 @@ script
                             $hiddenBlock.slideToggle();
                             if ($this.html() == "More") {
                                 $this.html("Less");
+                                $this.addClass('expanded');
                             } else {
                                 $this.html("More");
+                                $this.removeClass('expanded');
                                 $hiddenBlock.find('._youtube-video').each(function(index, youtubeVideo) {
                                     if (youtubeVideo.Player.getPlayerState() === YT.PlayerState.PLAYING) {
                                         youtubeVideo.Player.pauseVideo();
