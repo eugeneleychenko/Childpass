@@ -33,6 +33,17 @@
   url('../fonts/oslo_light/oslo_light.svg#OsloLight') format('svg');
 }
 
+@font-face {
+  font-family: 'HelveticaNeueLight';
+  src: url('../fonts/HelveticaNeueLight/HelveticaNeueLight.eot');
+  src: url('../fonts/HelveticaNeueLight/HelveticaNeueLight.eot') format('embedded-opentype'),
+  url('../fonts/HelveticaNeueLight/HelveticaNeueLight.woff2') format('woff2'),
+  url('../fonts/HelveticaNeueLight/HelveticaNeueLight.woff') format('woff'),
+  url('../fonts/HelveticaNeueLight/HelveticaNeueLight.ttf') format('truetype'),
+  url('../fonts/HelveticaNeueLight/HelveticaNeueLight.svg#HelveticaNeueLight') format('svg');
+}
+
+
 html, body {
   font-size: 17px;
   color: #6e6e6e;
