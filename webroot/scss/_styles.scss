@@ -202,6 +202,7 @@ form {
           }
       }
       .logout-buttons {
+          padding-left: 5px;
           .welcome-label {
               font-size: 18px;
               color: #002F66;
@@ -230,7 +231,7 @@ form {
     .activateAlert {
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      width: 200px;
+      width: 190px;
       text-align: center;
       padding: 0.5em 0.5em;
       background: #FF0000;
@@ -245,7 +246,7 @@ form {
     .survey_link {
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      width: 200px;
+      width: 190px;
       text-align: center;
       padding: 0.5em 0.5em;
       background: #EE8B38;
