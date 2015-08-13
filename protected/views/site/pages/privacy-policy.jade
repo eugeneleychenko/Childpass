@@ -76,7 +76,8 @@
         p
             | If there are any questions regarding this privacy policy you may contact us using the information below.
         p
-            | www.yourchildpass.com
+            :php
+                echo CHtml::link('www.yourchildpass.com', array('site/'), array('target' => '_blank'));
             br
             | 239 Banker St, #3S
             br
