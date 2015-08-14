@@ -61,9 +61,12 @@
             | This online privacy policy applies only to information collected through our website and not to information collected offline.
         h3 Terms and Conditions
         p
-            | Please also visit our Terms and Conditions section establishing the use, disclaimers, and limitations of liability governing the use of our website at
+            | Please also visit our&nbsp
             :php
-                echo CHtml::link('www.yourchildpass.com', array('site/page', 'view' => 'privacyPolicy'), array('target' => '_blank'));
+                echo CHtml::link('Terms and Conditions', array('site/page', 'view' => 'terms'), array('target' => '_blank'));
+            |  section establishing the use, disclaimers, and limitations of liability governing the use of our website at&nbsp
+            :php
+                echo CHtml::link('www.yourchildpass.com', array('site/'), array('target' => '_blank'));
         h3 Your Consent
         p
             | By using our site, you consent to our websites privacy policy.
