@@ -1,0 +1,14 @@
+.dash-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
+
+  ._dash-list-item {
+    &:before {
+      content: '-';
+      display: inline-block;
+      margin-left: -1em;
+      width: 1em;
+    }
+  }
+}
