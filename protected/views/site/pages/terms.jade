@@ -10,8 +10,8 @@
                 li
                     h3 Information about us
                     p
-                        a(href="www.yourchildpass.com", target='_blank')
-                            | www.yourchildpass.com
+                        :php
+                            echo CHtml::link('www.yourchildpass.com', array('site/'), array('target' => '_blank'));
                         | &nbspis a site operated by ChildPass, LLC. ("We").
                 li
                     h3 Accessing the site
