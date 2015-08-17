@@ -14,7 +14,7 @@
                     h3 Information about us
                     p
                         :php
-                            echo CHtml::link($baseUrl, $baseUrl, array('target' => '_blank'));
+                            echo CHtml::link(parse_url($baseUrl, PHP_URL_HOST), $baseUrl, array('target' => '_blank'));
                         | &nbspis a site operated by ChildPass, LLC. ("We").
                 li
                     h3 Accessing the site
