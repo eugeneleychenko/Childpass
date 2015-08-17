@@ -1731,6 +1731,20 @@ input[type="date"]::-webkit-input-placeholder {
   margin-left: 1em;
 }
 
+/* line 1, ../scss/components/_dash-list.scss */
+.dash-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
+}
+/* line 7, ../scss/components/_dash-list.scss */
+.dash-list ._dash-list-item:before {
+  content: '-';
+  display: inline-block;
+  margin-left: -1em;
+  width: 1em;
+}
+
 /* line 1, ../scss/components/_nested-list.scss */
 .nested-list {
   margin-bottom: 10px;
