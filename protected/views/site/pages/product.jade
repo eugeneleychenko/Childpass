@@ -83,9 +83,9 @@ script
                                     iframe._youtube-video(src="https://www.youtube.com/embed/FC2CeW2CydI?enablejsapi=1")
                                 span.productShowMore
                                     | More
-                    script
+                    script.
                         function onYouTubeIframeAPIReady() {
-                            $.each($('.youtube-video-block ._youtube-video'), (index, youtubeVideo) => {
+                            $.each($('.youtube-video-block ._youtube-video'), function (index, youtubeVideo) {
                                 youtubeVideo.Player = new YT.Player(youtubeVideo);
                             });
                         }
