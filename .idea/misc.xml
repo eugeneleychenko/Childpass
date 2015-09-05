@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="IdProvider" IDEtalkID="3B7786AAA64930AFF96C7857413B8A7E" />
   <component name="ProjectRootManager" version="2" />
   <component name="TaskProjectConfiguration">
     <server type="Redmine" url="http://redmine.optimuspro.ru" />

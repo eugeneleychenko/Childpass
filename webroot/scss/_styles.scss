@@ -227,6 +227,7 @@ form {
           }
       }
       .logout-buttons {
+          padding-left: 5px;
           .welcome-label {
               font-size: 18px;
               color: #002F66;
@@ -255,7 +256,7 @@ form {
     .activateAlert {
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      width: 200px;
+      width: 190px;
       text-align: center;
       padding: 0.5em 0.5em;
       background: #FF0000;
@@ -270,7 +271,7 @@ form {
     .survey_link {
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      width: 200px;
+      width: 190px;
       text-align: center;
       padding: 0.5em 0.5em;
       background: #EE8B38;
@@ -544,14 +545,22 @@ form {
           float: left;
           width: 510px;
           text-align: justify;
-        }
 
-        .productShowMore {
-          float: right;
-          font-size: 15px;
-          margin: -10px 10px 0 0;
-          cursor: pointer;
-          color: #ee8b38;
+          .youtube-video-block {
+            width: 100%;
+          }
+
+          .productShowMore {
+            float: right;
+            font-size: 15px;
+            margin: -10px 10px 0 0;
+            cursor: pointer;
+            color: #ee8b38;
+          }
+
+          .youtube-video-block + .productShowMore.expanded {
+            margin-top: 10px;
+          }
         }
       }
     }
@@ -642,6 +651,10 @@ form {
   .founders {
     width: 569px;
     margin-top: 21px;
+
+    .youtube-video-block {
+      width: 100%;
+    }
 
     img {
       float: left;
