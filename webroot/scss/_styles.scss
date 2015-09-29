@@ -1159,10 +1159,13 @@ div.errorMessage, label.errorMessage {
 }
 
 .faq {
+  line-height: 1.5em;
+
   ul.faqList {
-    list-style: none;
+    list-style: disc;
 
     li.item {
+      margin-left: 1em;
       margin-bottom: 0.5em;
     }
   }

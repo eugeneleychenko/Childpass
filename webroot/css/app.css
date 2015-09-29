@@ -419,134 +419,155 @@ table {
   border-spacing: 0;
 }
 
-/* line 184, ../../icons/*.png */
-.icons-sprite, .icons-camera, .icons-camera_gray, .icons-cancel_grey, .icons-cancel_small_grey, .icons-dental, .icons-dental_gray, .icons-kids, .icons-kids_grey, .icons-step1, .icons-step1_disable, .icons-step2, .icons-step2_disable, .icons-step3, .icons-step3_disable, .icons-step4, .icons-step4_disable, .icons-survey, .icons-survey_gray {
+/* line 208, ../../icons/*.png */
+.icons-sprite, .icons-2, .icons-4, .icons-5, .icons-camera, .icons-camera_gray, .icons-cancel_grey, .icons-cancel_small_grey, .icons-dental, .icons-dental_gray, .icons-kids, .icons-kids_grey, .icons-step1, .icons-step1_disable, .icons-step2, .icons-step2_disable, .icons-step3, .icons-step3_disable, .icons-step4, .icons-step4_disable, .icons-survey, .icons-survey_gray {
   background-image: url('../images/sprite-icons.png');
   background-repeat: no-repeat;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.icons-camera {
+.icons-2 {
   background-position: 0 0;
+  height: 419px;
+  width: 960px;
+}
+
+/* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-4 {
+  background-position: 0 -419px;
+  height: 419px;
+  width: 960px;
+}
+
+/* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-5 {
+  background-position: 0 -838px;
+  height: 419px;
+  width: 960px;
+}
+
+/* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-camera {
+  background-position: 0 -1257px;
   height: 46px;
   width: 46px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-camera_gray {
-  background-position: 0 -46px;
+  background-position: 0 -1303px;
   height: 46px;
   width: 46px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-cancel_grey {
-  background-position: 0 -92px;
+  background-position: 0 -1349px;
   height: 32px;
   width: 32px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-cancel_small_grey {
-  background-position: 0 -124px;
+  background-position: 0 -1381px;
   height: 18px;
   width: 18px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-dental {
-  background-position: 0 -142px;
+  background-position: 0 -1399px;
   height: 46px;
   width: 46px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-dental_gray {
-  background-position: 0 -188px;
+  background-position: 0 -1445px;
   height: 46px;
   width: 46px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-kids {
-  background-position: 0 -234px;
+  background-position: 0 -1491px;
   height: 46px;
   width: 46px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-kids_grey {
-  background-position: 0 -280px;
+  background-position: 0 -1537px;
   height: 46px;
   width: 46px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step1 {
-  background-position: 0 -326px;
+  background-position: 0 -1583px;
   height: 39px;
   width: 41px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step1_disable {
-  background-position: 0 -365px;
+  background-position: 0 -1622px;
   height: 39px;
   width: 41px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step2 {
-  background-position: 0 -404px;
+  background-position: 0 -1661px;
   height: 39px;
   width: 41px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step2_disable {
-  background-position: 0 -443px;
+  background-position: 0 -1700px;
   height: 39px;
   width: 41px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step3 {
-  background-position: 0 -482px;
+  background-position: 0 -1739px;
   height: 39px;
   width: 41px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step3_disable {
-  background-position: 0 -521px;
+  background-position: 0 -1778px;
   height: 39px;
   width: 41px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step4 {
-  background-position: 0 -560px;
+  background-position: 0 -1817px;
   height: 39px;
   width: 41px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-step4_disable {
-  background-position: 0 -599px;
+  background-position: 0 -1856px;
   height: 39px;
   width: 41px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-survey {
-  background-position: 0 -638px;
+  background-position: 0 -1895px;
   height: 46px;
   width: 46px;
 }
 
 /* line 84, /usr/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-survey_gray {
-  background-position: 0 -684px;
+  background-position: 0 -1941px;
   height: 46px;
   width: 46px;
 }
@@ -1710,32 +1731,37 @@ div.errorMessage, label.errorMessage {
   font-size: 0.8em;
 }
 
-/* line 1162, ../scss/_styles.scss */
-.faq ul.faqList {
-  list-style: none;
+/* line 1161, ../scss/_styles.scss */
+.faq {
+  line-height: 1.5em;
 }
-/* line 1165, ../scss/_styles.scss */
+/* line 1164, ../scss/_styles.scss */
+.faq ul.faqList {
+  list-style: disc;
+}
+/* line 1167, ../scss/_styles.scss */
 .faq ul.faqList li.item {
+  margin-left: 1em;
   margin-bottom: 0.5em;
 }
-/* line 1170, ../scss/_styles.scss */
+/* line 1173, ../scss/_styles.scss */
 .faq .question {
   font-weight: bold;
   cursor: pointer;
 }
-/* line 1175, ../scss/_styles.scss */
+/* line 1178, ../scss/_styles.scss */
 .faq .answer {
   display: none;
   margin-top: 0.5em;
   text-align: left;
 }
 
-/* line 1183, ../scss/_styles.scss */
+/* line 1186, ../scss/_styles.scss */
 input::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-/* line 1187, ../scss/_styles.scss */
+/* line 1190, ../scss/_styles.scss */
 input[type="date"]::-webkit-input-placeholder {
   visibility: hidden !important;
 }
