@@ -21,7 +21,7 @@ class ChildController extends Controller
                 'users' => array('@'),
             ),
             array('allow',
-                'actions' => array('add', 'list', 'generateFlyer'),
+                'actions' => array('generateFlyer'),
                 'users' => array('*'),
             ),
             array('deny'),
