@@ -576,8 +576,14 @@ form {
       td.registerBlock {
         width: 30%;
 
+        .buyButton,
         .registerButton {
+          display: block;
           text-decoration: none;
+        }
+
+        .registerButton {
+          margin-top: 1.5em;
         }
 
         .powerblock {
