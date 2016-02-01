@@ -10,6 +10,7 @@
  * @property string $password
  * @property string $email
  * @property string $name
+ * @property string $order_number
  * @property integer $is_active
  * @property string $verification_code
  * @property string $notification_emails
@@ -43,7 +44,7 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, email, name, password', 'required'),
+			array('username, email, name, password, order_number', 'required'),
             array('username, email', 'unique'),
 			array('email', 'email'),
 			array('is_active', 'numerical', 'integerOnly'=>true),
@@ -84,6 +85,7 @@ class User extends CActiveRecord
             'name'              => 'Name',
             'is_active'         => 'Is Active',
             'verification_code' => 'Verification Code',
+            'order_number'      => 'Identity Kit Order Number',
         );
 	}
 
@@ -106,6 +108,7 @@ class User extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('is_active',$this->is_active);
 		$criteria->compare('verification_code',$this->verification_code,true);
+		$criteria->compare('order_number',$this->order_number,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

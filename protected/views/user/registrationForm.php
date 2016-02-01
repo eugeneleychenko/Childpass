@@ -30,6 +30,11 @@ return array(
                     'class' => 'fieldstyle',
                     'label' => 'Your Name',
                 ),
+                'order_number'     => array(
+                    'type'  => 'text',
+                    'class' => 'fieldstyle',
+                    'label' => 'Kit Order Number',
+                ),
             ),
         ),
     ),
