@@ -26,7 +26,7 @@ class SocialHelper extends CComponent
             ));
 
             $api['Twitter']->api('statuses/update.json', 'POST', array(
-                'status' => $content['title'] . ' ' . $content['flyerUrl'],
+                'status'    => $content['title'] . ' ' . $content['flyerUrl'],
                 'media_ids' => $output->media_id_string
             ));
         }
@@ -35,10 +35,10 @@ class SocialHelper extends CComponent
             $api['LinkedIn']->share(
                 'new',
                 array(
-                    'title' => $content['title'],
-                    'submitted-url' => $content['flyerUrl'],
+                    'title'               => $content['title'],
+                    'submitted-url'       => $content['flyerUrl'],
                     'submitted-image-url' => $content['photoUrl'],
-                    'description' => $content['description'],
+                    'description'         => $content['description'],
                 ),
                 false,
                 false
@@ -49,11 +49,11 @@ class SocialHelper extends CComponent
             $api['Facebook']->api(
                 '/me/feed', 'POST',
                 array(
-                    'message' => $content['title'] . "\n\n" . $content['description'],
-                    'picture' => $content['photoUrl'],
-                    'link' => $content['flyerUrl'],
-                    'name'    => $content['title'],
-                    'caption' => $content['description']
+                    //'message' => $content['title'] . "\n\n" . $content['description'],
+                    'picture'     => $content['photoUrl'],
+                    'link'        => $content['flyerUrl'],
+                    'name'        => $content['title'],
+                    'description' => $content['description']
                 )
             );
         }
