@@ -56,7 +56,7 @@ class Relative extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 //			'childRelatives' => array(self::HAS_MANY, 'ChildRelative', 'relative_id'),
-            'children' => array(self::MANY_MANY, 'Children', '{{child_relative}}(relative_id, child_id)'),
+            'children' => array(self::MANY_MANY, 'Children', 'child_relative(relative_id, child_id)'),
             'childRelative' => array(self::HAS_MANY, 'ChildRelative', 'relation_id'),
 		);
 	}
