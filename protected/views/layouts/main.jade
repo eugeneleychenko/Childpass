@@ -30,7 +30,7 @@ html(lang='en')
                 .mainMenuWrapper
                     #infoMessage
                         -if (!Yii::app()->user->isGuest):
-                            a.survey_link(href=$this->createUrl('child/survey')) Survey
+                            a.survey_link(href='https://alan108.typeform.com/to/zSomUO', target='_blank') Survey
                             a.activateAlert(href=$this->createUrl('child/list')) Activate
                                 br
                                 | Emergency Alert
