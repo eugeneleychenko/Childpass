@@ -60,7 +60,7 @@ $(function() {
                        window.location = Yii.app.createUrl('child/list');
                    }
                });
-               $(".ui-dialog-titlebar").hide();
+               //$(".ui-dialog-titlebar").hide();
            })
        }
 });
